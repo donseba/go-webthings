@@ -31,15 +31,15 @@ func TestVersionedAssets(t *testing.T) {
 		regexp.MustCompile(`<link rel="stylesheet" href="/admin/assets/admin\.css\?v=[0-9a-f]{16}" integrity="sha384-[^"]+" crossorigin="anonymous">`),
 		regexp.MustCompile(`<script src="/admin/assets/admin\.js\?v=[0-9a-f]{16}" integrity="sha384-[^"]+" crossorigin="anonymous" type="module">`),
 		regexp.MustCompile(`<script src="/admin/assets/theme\.js\?v=[0-9a-f]{16}" integrity="sha384-[^"]+" crossorigin="anonymous">`),
-		regexp.MustCompile(`"htmx": "/admin/assets/vendor/htmx/htmx\.esm\.min\.js\?v=[0-9a-f]{16}"`),
+		regexp.MustCompile(`"htmx": "/admin/assets/packages/htmx/htmx\.esm\.min\.js\?v=[0-9a-f]{16}"`),
 		// go-partial's browser clients are versioned assets too.
 		regexp.MustCompile(`"partial-sse": "/admin/assets/partial-sse\.js\?v=[0-9a-f]{16}"`),
 		regexp.MustCompile(`"partial-flash": "/admin/assets/partial-flash\.js\?v=[0-9a-f]{16}"`),
 		regexp.MustCompile(`"partial-interactions": "/admin/assets/partial-interactions\.js\?v=[0-9a-f]{16}"`),
 		regexp.MustCompile(`"/admin/assets/partial-sse\.js\?v=[0-9a-f]{16}": "sha384-[^"]+"`),
-		regexp.MustCompile(`<link rel="modulepreload" href="/admin/assets/vendor/htmx/htmx\.esm\.min\.js\?v=[0-9a-f]{16}" integrity="sha384-[^"]+"/>`),
+		regexp.MustCompile(`<link rel="modulepreload" href="/admin/assets/packages/htmx/htmx\.esm\.min\.js\?v=[0-9a-f]{16}" integrity="sha384-[^"]+"/>`),
 		// The embedded scripts carry their Subresource Integrity.
-		regexp.MustCompile(`"/admin/assets/vendor/htmx/htmx\.esm\.min\.js\?v=[0-9a-f]{16}": "sha384-[^"]+"`),
+		regexp.MustCompile(`"/admin/assets/packages/htmx/htmx\.esm\.min\.js\?v=[0-9a-f]{16}": "sha384-[^"]+"`),
 		regexp.MustCompile(`"/admin/assets/editor/prosemirror\.js\?v=[0-9a-f]{16}": "sha384-[^"]+"`),
 		// Modules and files the scripts address relative to themselves.
 		regexp.MustCompile(`"/admin/assets/editor/prosemirror\.js": "/admin/assets/editor/prosemirror\.js\?v=[0-9a-f]{16}"`),
@@ -57,7 +57,7 @@ func TestVersionedAssets(t *testing.T) {
 	// plain URLs stay out of the import map: no script loads them by a
 	// relative path.
 	for _, unwanted := range []string{
-		`"/admin/assets/vendor/htmx/htmx.esm.min.js": `,
+		`"/admin/assets/packages/htmx/htmx.esm.min.js": `,
 		`"/admin/assets/editor/LICENSES.txt": `,
 		`"/admin/assets/source.css": `,
 	} {
@@ -66,7 +66,7 @@ func TestVersionedAssets(t *testing.T) {
 		}
 	}
 
-	link := regexp.MustCompile(`"htmx": "(/admin/assets/vendor/htmx/htmx\.esm\.min\.js\?v=[0-9a-f]+)"`).FindStringSubmatch(page)
+	link := regexp.MustCompile(`"htmx": "(/admin/assets/packages/htmx/htmx\.esm\.min\.js\?v=[0-9a-f]+)"`).FindStringSubmatch(page)
 	if link == nil {
 		t.Fatal("htmx is not in the import map")
 	}

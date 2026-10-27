@@ -103,14 +103,14 @@ tasks:
       - cmp -s admin/assets/admin.css "${TMPDIR:-/tmp}/webthings-admin.css" || (echo "admin/assets/admin.css is out of date; run task css" && exit 1)
 
   vendor:
-    desc: Vendor the admin's JavaScript packages (admin/importmap.json) into admin/assets/vendor with their licences and lock file
+    desc: Vendor the admin's JavaScript packages (admin/importmap.json) into admin/assets/packages with their licences and lock file
     cmd: go generate -run importmap ./admin
 
   vendor:check:
     desc: Check the vendored admin packages and the editor bundle against their lock file, without network
-    # The editor bundle sits beside the vendor directory, so verify from
-    # the assets directory that holds both.
-    cmd: go run github.com/donseba/go-importmap/cmd/importmap verify -out admin/assets/vendor -root admin/assets
+    # The editor bundle sits beside the packages directory, so verify
+    # from the assets directory that holds both.
+    cmd: go run github.com/donseba/go-importmap/cmd/importmap verify -out admin/assets/packages -root admin/assets
 
   editor:
     desc: Rebuild the admin Markdown editor's ProseMirror bundle (needs Node.js; versions pinned in tools/editor) and record it in the lock file
@@ -123,7 +123,7 @@ tasks:
         dir: tools/editor
       # The bundle is a local package of admin/importmap.json: the lock
       # records its integrity, which the admin checks at start.
-      - cmd: go run github.com/donseba/go-importmap/cmd/importmap vendor -local -config importmap.json -out assets/vendor
+      - cmd: go run github.com/donseba/go-importmap/cmd/importmap vendor -local -config importmap.json -out assets/packages
         dir: admin
 
   check:

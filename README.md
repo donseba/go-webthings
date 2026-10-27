@@ -837,11 +837,13 @@ The admin's JavaScript packages are listed in `admin/importmap.json`: htmx,
 and the Markdown editor's ProseMirror bundle as a local package that the
 admin builds itself (`admin/assets/editor/prosemirror.js`, see
 [tools/editor](tools/editor/README.md)). `task vendor` downloads htmx with
-go-importmap's `importmap` command into `admin/assets/vendor/`, with its
+go-importmap's `importmap` command into `admin/assets/packages/`, with its
 licence and `importmap.lock.json`, which records the integrity of each file,
 the editor bundle and its licences included; `task vendor:check` checks the
 files against it without network (`importmap verify` with `-root
-admin/assets`, as the bundle is outside the vendor folder). They are
+admin/assets`, as the bundle is outside the packages folder). The folder is
+not named `vendor`: a Go module leaves out the folders below a `vendor`
+folder, so sites that require go-webthings would miss htmx. They are
 embedded with the other admin assets, and the admin does not start when a
 file differs from the lock. Admin assets, go-partial's browser clients among
 them, are served with versioned addresses and strong ETags. The admin's
