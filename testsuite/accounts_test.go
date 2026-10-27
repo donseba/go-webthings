@@ -350,7 +350,7 @@ func TestReservedModuleKeys(t *testing.T) {
 
 	keys := []string{
 		"accounts", "groups", "login", "logout", "setup", "forgot-password", "reset-password", "account",
-		"assets", "pages", "media", "site", "theme", "mail", "partials", "webthings",
+		"assets", "pages", "media", "site", "theme", "backup", "mail", "partials", "webthings",
 	}
 
 	for _, key := range keys {

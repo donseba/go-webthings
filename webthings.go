@@ -712,7 +712,7 @@ func (a *App) Use(modules ...Module) error {
 		// Keys name admin sections (<AdminPath>/<key>) and template folders;
 		// webthings/ holds core's templates, such as its head tags.
 		reserved := append(
-			[]string{"pages", "media", "site", "theme", "mail", "partials", "webthings"},
+			[]string{"pages", "media", "site", "theme", "backup", "mail", "partials", "webthings"},
 			admin.ReservedSections()...)
 		if !keyPattern.MatchString(module.Key) || slices.Contains(reserved, module.Key) || module.Setup == nil {
 			return fmt.Errorf("invalid module %q", module.Key)
@@ -850,9 +850,11 @@ func (a *App) start(ctx context.Context, addr string) error {
 	}
 
 	// The settings and the theme share the setup guide, which places the
-	// mountable modules on pages and tests the site's mail.
+	// mountable modules on pages and tests the site's mail; the backup
+	// copies the database and the media files.
 	siteOptions := siteadmin.Options{
 		Media:    a.Media,
+		DB:       a.DB,
 		Fixed:    fixed,
 		Frontend: a.Frontend,
 		Public:   preview,
@@ -866,6 +868,8 @@ func (a *App) start(ctx context.Context, addr string) error {
 	settings.Group = admin.GroupSystem
 	theme := siteadmin.NewTheme(a.Site, siteOptions)
 	theme.Group = admin.GroupSystem
+	backup := siteadmin.NewBackup(a.Site, siteOptions)
+	backup.Group = admin.GroupSystem
 
 	// The modules add their links as they are set up.
 	a.Links = links.New(a.Pages, a.Site, links.Options{
@@ -880,6 +884,7 @@ func (a *App) start(ctx context.Context, addr string) error {
 		mediaadmin.New(a.Media, a.Site),
 		settings,
 		theme,
+		backup,
 	}
 
 	// The modules' additions to the pages' structured data, in their order.

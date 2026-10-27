@@ -132,9 +132,10 @@
 // The navigation lists the sections a user may open. The Dashboard and the
 // sections without Group (Pages and Media) come first, without heading; then
 // the groups, sorted by translated name, each with its sections sorted by
-// translated title; GroupSystem (Accounts, Groups, Your account and the
-// site's settings) comes last. Editors can collapse a group; the browser
-// remembers it, and the group of the current page is always open.
+// translated title; GroupSystem (Accounts, Groups, Your account, the
+// site's settings and Backup) comes last. Editors can collapse a group;
+// the browser remembers it, and the group of the current page is always
+// open.
 //
 // The dashboard is built from the same sections: "Needs attention" lists the
 // revisions waiting for the user's review (Section.Review) and the sections

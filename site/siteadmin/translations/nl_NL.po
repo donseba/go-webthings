@@ -593,3 +593,51 @@ msgstr "Staat onderaan elke pagina."
 
 msgid "Use this theme on the website? Visitors see it right away."
 msgstr "Dit thema op de website gebruiken? Bezoekers zien het meteen."
+
+msgid "Backup"
+msgstr "Back-up"
+
+msgid "Download backup"
+msgstr "Back-up downloaden"
+
+msgid "Download the site as a zip file, to keep somewhere safe or to move the site to another server."
+msgstr "Download de website als zipbestand, om veilig te bewaren of om de website naar een andere server te verhuizen."
+
+msgid "What the download holds"
+msgstr "Wat de download bevat"
+
+msgid "the database, with the pages, the settings, the accounts and what the modules keep."
+msgstr "de database, met de pagina's, de instellingen, de accounts en wat de modules bewaren."
+
+msgid "every uploaded file, also those in the trash. Resized copies of images are left out: the site makes them again when they are needed."
+msgstr "elk geüpload bestand, ook die in de prullenbak. Verkleinde kopieën van afbeeldingen zitten er niet in: de website maakt ze opnieuw wanneer ze nodig zijn."
+
+msgid "when the backup was made, the database it comes from and the version of its tables."
+msgstr "wanneer de back-up is gemaakt, uit welke database hij komt en de versie van de tabellen."
+
+msgid "The site keeps its data in %s, which the download leaves out. Back up the database with its own tools, such as %s, at the same time."
+msgstr "De website bewaart zijn gegevens in %s, die niet in de download zit. Maak tegelijk een back-up van de database met de eigen hulpmiddelen ervan, zoals %s."
+
+msgid "How to back up the database"
+msgstr "Zo maak je een back-up van de database"
+
+msgid "The backup holds the password hashes of the accounts and personal data, such as form submissions. Keep it as safe as the site itself."
+msgstr "De back-up bevat de wachtwoordhashes van de accounts en persoonsgegevens, zoals ingezonden formulieren. Bewaar hem net zo veilig als de website zelf."
+
+msgid "Restoring the site"
+msgstr "De website terugzetten"
+
+msgid "Stop the site."
+msgstr "Stop de website."
+
+msgid "Put site.sqlite in the site's state folder in place of the database, and delete site.sqlite-wal and site.sqlite-shm there if they exist."
+msgstr "Zet site.sqlite in de gegevensmap van de website in plaats van de database, en verwijder daar site.sqlite-wal en site.sqlite-shm als ze bestaan."
+
+msgid "Restore the database from its own backup, such as with %s."
+msgstr "Zet de database terug uit zijn eigen back-up, bijvoorbeeld met %s."
+
+msgid "Replace the media folder in the state folder with the media folder of the download, or put its files in the storage the site keeps uploads in."
+msgstr "Vervang de map media in de gegevensmap door de map media uit de download, of zet de bestanden ervan in de opslag waarin de website uploads bewaart."
+
+msgid "Start the site."
+msgstr "Start de website."

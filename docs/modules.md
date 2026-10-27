@@ -22,7 +22,7 @@ The first argument is the instance key, the second the title editors see in the 
 
 - starts with a lowercase letter, followed by lowercase letters, digits and dashes, at most 64 characters in all;
 - is unique on the site;
-- is not a name core uses itself: `pages`, `media`, `site`, `theme`, `mail`, `partials` or `webthings`, the folder of core's own templates, nor one of the admin's own sections and pages: `accounts`, `groups`, `account`, `assets`, `login`, `logout`, `setup`, `forgot-password`, `reset-password`, `trash` or `presence`;
+- is not a name core uses itself: `pages`, `media`, `site`, `theme`, `backup`, `mail`, `partials` or `webthings`, the folder of core's own templates, nor one of the admin's own sections and pages: `accounts`, `groups`, `account`, `assets`, `login`, `logout`, `setup`, `forgot-password`, `reset-password`, `trash` or `presence`;
 - differs from the admin sections that other instances name after their key. Publishing `news` also adds the section `news-categories`, so another instance with that key stops `app.Start` with `admin section "news-categories" exists twice`. Directory adds `<key>-categories` too, and Newsletter `<key>-texts`.
 
 An invalid or repeated key stops the app with an error.

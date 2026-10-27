@@ -16,7 +16,8 @@ import (
 // Visitors, Website, Communication and Shop.
 const (
 	// GroupSystem holds the admin's own sections (Accounts, Groups, Your
-	// account) and the site's settings and theme; it is listed last.
+	// account), the site's settings and theme and the backup; it is listed
+	// last.
 	GroupSystem = "System"
 	// GroupModules holds the sections of modules that have no group of their
 	// own (see webthings.Module.Group).

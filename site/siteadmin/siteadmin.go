@@ -1,7 +1,8 @@
 // Package siteadmin is the Site settings section of the admin: the site's
 // languages, time zone, texts, social media profiles, performance, security,
-// review and trash settings, and the Theme screen where editors choose the
-// theme and set its values.
+// review and trash settings, the Theme screen where editors choose the
+// theme and set its values, and the Backup screen where administrators
+// download the site as a zip file.
 package siteadmin
 
 import (

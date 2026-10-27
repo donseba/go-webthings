@@ -687,7 +687,9 @@ for modules, [The output cache](docs/module-caching-and-testing.md#the-output-ca
 
 ## Permissions
 
-Administrators may do everything, including managing accounts and groups.
+Administrators may do everything, including managing accounts and groups
+and downloading a backup of the site under Backup, which no group right
+opens.
 Editors get the rights of their groups: a matrix of sections (Pages, Media,
 Site settings and every module instance) by actions (read, create, edit,
 publish, delete, review, export), edited under Groups in the admin.

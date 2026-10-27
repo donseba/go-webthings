@@ -8,7 +8,7 @@ Every account has one of two roles:
 
 | Role | May |
 | --- | --- |
-| Administrator | do everything, including managing accounts and groups |
+| Administrator | do everything, including managing accounts and groups and downloading backups |
 | Editor | do what their groups allow; nothing else |
 
 An editor without groups sees only the dashboard and their own account under System. The dashboard shows only the sections an editor may read, and "New …" buttons only where they may create. Give editors rights through groups, and keep the administrator role for the people who manage the site.
@@ -103,7 +103,8 @@ With News ticked under **Site settings › Review**, the writers submit their po
 
 Some sections are not in the matrix:
 
-- **Accounts** and **Groups** are for administrators only. A module can mark its own admin sections the same way with `Section.AdminOnly`.
+- **Accounts**, **Groups** and **Backup** are for administrators only. A module can mark its own admin sections the same way with `Section.AdminOnly`.
+- **Backup** downloads the database, with the password hashes of the accounts, and every uploaded file (see [Backups](databases.md#backups)). No group right opens it, also not a group with every box ticked: an editor does not see it in the navigation, and the screen and its download are refused with 403.
 - A section that shares another section's rights has no row of its own. **Theme** uses **Site settings**, and a news instance's categories use the rights of the news instance. A module sets this with `Section.Permission`, the ID of the section whose rights apply. See [The admin of a module](module-admin.md#the-admin-section).
 
 ### The trash

@@ -11,6 +11,7 @@ import (
 
 	"github.com/donseba/go-webthings/admin"
 	"github.com/donseba/go-webthings/auth"
+	"github.com/donseba/go-webthings/db"
 	"github.com/donseba/go-webthings/frontend"
 	"github.com/donseba/go-webthings/mail"
 	"github.com/donseba/go-webthings/media"
@@ -37,12 +38,15 @@ import (
 // administrators see the guide, and its card on the dashboard
 // (admin.Section.Callout) until they finish it.
 
-// Options are what the Site settings and Theme sections need besides the
-// settings themselves.
+// Options are what the Site settings, Theme and Backup sections need
+// besides the settings themselves.
 type Options struct {
 	// Media offers the images, such as the logo, that the settings can
-	// use.
+	// use; Backup downloads its files.
 	Media *media.Service
+	// DB is the site's database, which Backup copies on SQLite and whose
+	// schema versions its manifest names.
+	DB *db.DB
 	// Fixed are the settings the server configuration decides.
 	Fixed Fixed
 	// Frontend has the themes, with their pictures; Public returns the

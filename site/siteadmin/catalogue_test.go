@@ -64,7 +64,8 @@ func TestTemplateCatalogues(t *testing.T) {
 		}
 	}
 
-	// The step titles, the guide's buttons and the plain pages.
+	// The step titles, the guide's buttons, the plain pages and the Backup
+	// button.
 	for _, title := range stepTitles {
 		texts = append(texts, title)
 	}
@@ -81,6 +82,7 @@ func TestTemplateCatalogues(t *testing.T) {
 		"Open the setup guide",
 		"Create page",
 		"Create the ticked pages",
+		"Download backup",
 	)
 
 	if len(texts) < 90 {

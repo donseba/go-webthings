@@ -202,7 +202,7 @@ In Go, `app.Media.URL(ctx, id)` returns a file's URL, or `""` for an unknown ID;
 
 ## Storage
 
-Uploads and their resized copies are kept in `StateDir/media` (`var/media` in the starter). Back it up together with the database. `Config.Storage` names another place:
+Uploads and their resized copies are kept in `StateDir/media` (`var/media` in the starter). Back it up together with the database; administrators can download both under **Backup** in the admin (see [Backups](databases.md#backups)). `Config.Storage` names another place:
 
 ```go
 app := webthings.New(webthings.Config{
@@ -226,6 +226,8 @@ type Storage interface {
 - `Delete` of a missing key should succeed, as it does for the built-in storage.
 - `URL` is the public address of a key, such as one on a CDN, or `""` when the site serves the file itself at `/media/`. The built-in storage, `media.NewFilesystem(dir, "")`, returns `""`. Copies are always served at `/media/v/` by the site itself, whatever the storage.
 - A storage with a `Close() error` method is closed when the app closes.
+
+`app.Media.Originals(ctx)` lists the keys of the uploaded files, those of files in the trash included and the resized copies left out, and `app.Media.Storage()` is the storage that keeps them. **Backup** in the admin reads the files this way, so its download holds them whatever the storage.
 
 The `s3` package of go-webthings-contrib (`github.com/donseba/go-webthings-contrib/s3`) keeps the files in an S3-compatible store, such as AWS S3, DigitalOcean Spaces or MinIO. With its public URL set, pages link to the store or its CDN directly; without it, the site serves the files at `/media/` and the bucket can stay private.
 

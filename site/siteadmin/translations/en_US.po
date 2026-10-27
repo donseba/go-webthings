@@ -593,3 +593,51 @@ msgstr "Shown at the bottom of every page."
 
 msgid "Use this theme on the website? Visitors see it right away."
 msgstr "Use this theme on the website? Visitors see it right away."
+
+msgid "Backup"
+msgstr "Backup"
+
+msgid "Download backup"
+msgstr "Download backup"
+
+msgid "Download the site as a zip file, to keep somewhere safe or to move the site to another server."
+msgstr "Download the site as a zip file, to keep somewhere safe or to move the site to another server."
+
+msgid "What the download holds"
+msgstr "What the download holds"
+
+msgid "the database, with the pages, the settings, the accounts and what the modules keep."
+msgstr "the database, with the pages, the settings, the accounts and what the modules keep."
+
+msgid "every uploaded file, also those in the trash. Resized copies of images are left out: the site makes them again when they are needed."
+msgstr "every uploaded file, also those in the trash. Resized copies of images are left out: the site makes them again when they are needed."
+
+msgid "when the backup was made, the database it comes from and the version of its tables."
+msgstr "when the backup was made, the database it comes from and the version of its tables."
+
+msgid "The site keeps its data in %s, which the download leaves out. Back up the database with its own tools, such as %s, at the same time."
+msgstr "The site keeps its data in %s, which the download leaves out. Back up the database with its own tools, such as %s, at the same time."
+
+msgid "How to back up the database"
+msgstr "How to back up the database"
+
+msgid "The backup holds the password hashes of the accounts and personal data, such as form submissions. Keep it as safe as the site itself."
+msgstr "The backup holds the password hashes of the accounts and personal data, such as form submissions. Keep it as safe as the site itself."
+
+msgid "Restoring the site"
+msgstr "Restoring the site"
+
+msgid "Stop the site."
+msgstr "Stop the site."
+
+msgid "Put site.sqlite in the site's state folder in place of the database, and delete site.sqlite-wal and site.sqlite-shm there if they exist."
+msgstr "Put site.sqlite in the site's state folder in place of the database, and delete site.sqlite-wal and site.sqlite-shm there if they exist."
+
+msgid "Restore the database from its own backup, such as with %s."
+msgstr "Restore the database from its own backup, such as with %s."
+
+msgid "Replace the media folder in the state folder with the media folder of the download, or put its files in the storage the site keeps uploads in."
+msgstr "Replace the media folder in the state folder with the media folder of the download, or put its files in the storage the site keeps uploads in."
+
+msgid "Start the site."
+msgstr "Start the site."

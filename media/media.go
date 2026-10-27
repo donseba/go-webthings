@@ -815,6 +815,29 @@ func (s *Service) Purge(ctx context.Context, id string) error {
 	return nil
 }
 
+// Originals returns the storage keys of the uploaded files, as Storage keeps
+// them: those of the assets in the library and in the trash, oldest first.
+// Variants are left out, as the library makes them again on their first
+// request; so are the files of assets deleted for good. A backup of the
+// files needs these alone, read from Storage.
+func (s *Service) Originals(ctx context.Context) ([]string, error) {
+	var keys []string
+
+	err := s.db.Select(ctx, &keys, `SELECT storage_key FROM wt_media_asset ORDER BY created_at, id`)
+	if err != nil {
+		return nil, err
+	}
+
+	return keys, nil
+}
+
+// Storage returns where the library keeps its files, such as a Filesystem
+// or an object store of Config.Storage, for reading the files Originals
+// names.
+func (s *Service) Storage() Storage {
+	return s.storage
+}
+
 // Open returns an asset and its bytes by storage key. The caller closes the reader.
 func (s *Service) Open(ctx context.Context, key string) (Asset, io.ReadCloser, error) {
 	if !keyPattern.MatchString(key) {

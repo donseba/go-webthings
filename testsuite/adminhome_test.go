@@ -64,7 +64,8 @@ func TestAdminNavigationGroups(t *testing.T) {
 		"/admin/blog", "/admin/news",
 		"/admin/agenda",
 		"/admin/notice",
-		"/admin/accounts", "/admin/groups", "/admin/site", "/admin/theme", "/admin/trash", "/admin/account",
+		"/admin/accounts", "/admin/backup", "/admin/groups", "/admin/site", "/admin/theme", "/admin/trash",
+		"/admin/account",
 	}
 	if !slices.Equal(links, want) {
 		t.Fatalf("links = %v\nwant    %v", links, want)

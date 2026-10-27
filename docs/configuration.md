@@ -305,7 +305,7 @@ The starter also has an `admin` command: `go run . admin you@example.com` create
 | `Ready(ctx)` | The check behind `/readyz`: nil when the app has started, the database answers, every schema version this start applied is still in the database and the media storage can be reached, when it can tell (`media.Pinger`). |
 | `Metrics()` | An `http.Handler` that writes the app's metrics in the Prometheus text format, the same as `/metrics`. It answers 503 before `Start`. |
 
-A module key starts with a lowercase letter, followed by lowercase letters, digits or hyphens, up to 64 characters. `accounts`, `groups`, `pages`, `media`, `site`, `login`, `logout`, `setup`, `forgot-password`, `reset-password`, `account`, `trash`, `assets`, `presence`, `theme`, `mail`, `partials` and `webthings` are reserved.
+A module key starts with a lowercase letter, followed by lowercase letters, digits or hyphens, up to 64 characters. `accounts`, `groups`, `pages`, `media`, `site`, `login`, `logout`, `setup`, `forgot-password`, `reset-password`, `account`, `trash`, `assets`, `presence`, `theme`, `backup`, `mail`, `partials` and `webthings` are reserved.
 
 Some modules also add admin sections named after their key, such as `news-categories` for a publishing instance `news`. A key equal to such a section stops `Start` with "admin section … exists twice: choose module keys that differ …".
 

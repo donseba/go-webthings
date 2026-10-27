@@ -368,6 +368,27 @@ Editors can plan a page, post or event to be published or unpublished later. The
 
 **Site settings › Trash** can have items deleted for good once they have been in the trash for a number of days; see [The trash](editing.md#the-trash). The app checks when it starts and then every hour, together with the removal of expired sessions, and deletes those items in every section the way **Delete selected for good** does. For every section it deleted items in, it logs `deleted expired items from the trash` at level Info, with `section` and `count`. A check that fails logs `delete expired items from the trash` at level Error, with `error`; a section that fails does not stop the others. While the setting is empty or 0, the default, the check deletes nothing. `app.PurgeTrash(ctx)` runs the check from your own code and returns how many items it deleted.
 
+## Backups
+
+Administrators download a backup under **Backup**, in the **System** group of the admin navigation, with **Download backup**. The zip holds the uploaded files below `media/`, read from `Config.Storage` when it is set, and `manifest.json`; on SQLite it holds the database too, as `site.sqlite`. On PostgreSQL and MySQL it leaves the database out: back that up with `pg_dump` or `mysqldump` at the same time. [Backups](databases.md#backups) describes what the zip holds and the manual way.
+
+The zip is sent while it is written, so a large one is not held in memory, and the server's write timeout of 60 seconds does not cut it short. On SQLite the site first copies the database to the server's temporary folder (`TMPDIR`), which needs room for that copy, and removes the copy afterwards. Each download is logged at level Info as `backup downloaded`, with `user`, `email`, `database` and `files`; a download that fails while the zip is on its way is logged at level Error as `write backup`, and the zip it leaves does not open.
+
+The download is made by hand. For backups on a schedule, run the commands of [By hand](databases.md#by-hand) from cron or a systemd timer.
+
+To restore a downloaded zip on SQLite, stop the site, put `site.sqlite` and `media/` from the zip in the state folder in place of the old ones, and start it. With the unit of [Running with systemd](#running-with-systemd):
+
+```sh
+sudo systemctl stop website
+cd /var/lib/website
+sudo mv site.sqlite site.sqlite.before-restore
+sudo mv media media.before-restore
+sudo -u website unzip /tmp/my-site-backup-20261027-1432.zip site.sqlite 'media/*'
+sudo systemctl start website
+```
+
+Delete `site.sqlite-wal` and `site.sqlite-shm` in the state folder too, if they exist, and keep the old copies until the site runs as it should. On PostgreSQL and MySQL, restore the database from its own backup and put the files of `media/` back the same way. With `Config.Storage` set, put the files in that storage instead, under the same names. See [Restoring](databases.md#restoring).
+
 ## Mail and storage
 
 `mail.SMTP` is built in. It uses port 587 unless `Port` is set, and STARTTLS when the server offers it; port 465 with implicit TLS is not supported. Sending a message stops when its context ends or after `Timeout`, 30 seconds by default. See [E-mail](mail.md).

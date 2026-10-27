@@ -193,7 +193,23 @@ Use a `TEXT` column, or `MEDIUMTEXT` on MySQL for long values. `NULL` and empty 
 
 ## Backups
 
-Back up the database and the uploads together.
+Back up the database and the uploads together. Administrators can download both from the admin; on PostgreSQL and MySQL the download holds the uploads only, so the database needs its own tools as well.
+
+### The download in the admin
+
+**Backup**, under **System** in the admin navigation, is for administrators only, whatever their groups allow: the backup holds the password hashes of the accounts and personal data, such as form submissions. Keep it as safe as the site itself. See [Sections without a row](permissions.md#sections-without-a-row).
+
+**Download backup** saves a zip file named after the site's title and the time in the site's timezone, such as `my-site-backup-20261027-1432.zip`. It holds:
+
+- `site.sqlite`, on SQLite only: the database. The site copies it with SQLite's `VACUUM INTO`, which makes a consistent copy while the site runs, to the server's temporary folder (`TMPDIR`) first, and removes the copy once the download is done. That folder needs room for a copy of the database.
+- `media/`: every uploaded file under its name in the media storage, also the files of items in the trash. The files are read from `Config.Storage` when it is set, such as S3. Resized copies of images are left out: the site makes them again when they are asked for.
+- `manifest.json`: the site's title (`site`), when the backup was made (`created_at`, in UTC), the database (`dialect`: `sqlite`, `postgres` or `mysql`), whether the zip holds it (`database_included`), the schema version of core and of every module type (`schema_versions`, as in `wt_schema`) and the number of files in `media/` (`media_files`).
+
+On PostgreSQL and MySQL the screen says that the download leaves the database out, and to back it up with `pg_dump` or `mysqldump` at the same time, as described below.
+
+Each download is logged at level Info as `backup downloaded`, with the administrator (`user` and `email`), whether the zip holds the database (`database`) and the number of files in `media/` (`files`). A file the storage no longer has, such as one deleted for good during the download, is left out and logged at level Warn. A download that fails before the zip starts, for example because the copy of the database cannot be made, answers with an error instead. One that fails while the zip is on its way can no longer say so: it is logged at level Error as `write backup` and stops, and the zip it leaves does not open.
+
+### By hand
 
 - **SQLite**: the state folder holds both. Copy the database with the `sqlite3` tool, which is safe while the site runs, and the `media/` folder:
 
@@ -208,7 +224,16 @@ Back up the database and the uploads together.
 
 With `Config.Storage` set, uploads live in that storage instead of `media/`; back them up there. Keys such as the one that signs image URLs are stored in the database, so a restored site keeps its links working.
 
-To restore, stop the site, put the database and the uploads back, and start it.
+### Restoring
+
+To restore, stop the site, put the database and the uploads back, and start it. From a downloaded zip:
+
+1. Stop the site.
+2. On SQLite, put `site.sqlite` from the zip in the state folder in place of the database, and delete `site.sqlite-wal` and `site.sqlite-shm` next to it if they exist. On PostgreSQL and MySQL, restore the database from its own backup, for example with `psql website < backup/website.sql` or `mysql website < backup/website.sql`.
+3. Replace the `media/` folder in the state folder with the `media/` folder of the zip. With `Config.Storage` set, put its files in that storage instead, under the same names.
+4. Start the site.
+
+`manifest.json` is not needed for a restore. Restore into the same version of the site or a newer one: a newer version brings the tables up to date as it starts (see [Schema files](#schema-files)), and `schema_versions` in `manifest.json` says which versions the backup has. The resized copies of images are made again on their first request.
 
 ## Switching databases
 

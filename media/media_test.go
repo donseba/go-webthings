@@ -7,6 +7,7 @@ import (
 	"image"
 	"image/png"
 	"net/http"
+	"slices"
 	"strings"
 	"testing"
 
@@ -263,6 +264,86 @@ func TestListWithTranslations(t *testing.T) {
 		plain, err := library.List(ctx)
 		if err != nil || len(plain) != 2 || plain[0].Translations != nil || plain[1].Translations != nil {
 			t.Fatalf("plain list: %+v %v", plain, err)
+		}
+	})
+}
+
+// TestOriginals checks that Originals names the uploaded files of the assets
+// in the library and in the trash, oldest first, without the variants of
+// images and without the files of assets deleted for good, and that Storage
+// is where they are kept.
+func TestOriginals(t *testing.T) {
+	dbtest.Each(t, func(t *testing.T, database *db.DB) {
+		ctx := t.Context()
+
+		if err := database.ApplySchema(ctx, "media", media.Schema()); err != nil {
+			t.Fatal(err)
+		}
+
+		storage, err := media.NewFilesystem(t.TempDir(), "")
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		t.Cleanup(func() { _ = storage.Close() })
+
+		library := media.New(database, storage)
+
+		if library.Storage() != storage {
+			t.Fatal("Storage is not the library's storage")
+		}
+
+		// Variants of uploaded images are made in the background.
+		background, stop := context.WithCancel(ctx)
+		t.Cleanup(stop)
+
+		go library.Prepare(background)
+
+		var uploaded []media.Asset
+
+		for _, name := range []string{"photo.png", "notes.txt", "old.png", "gone.txt"} {
+			data := []byte("Plain text.")
+			if strings.HasSuffix(name, ".png") {
+				data = pngBytes(t)
+			}
+
+			asset, err := library.Upload(ctx, name, bytes.NewReader(data))
+			if err != nil {
+				t.Fatal(err)
+			}
+
+			uploaded = append(uploaded, asset)
+		}
+
+		if err := library.WaitPrepared(ctx); err != nil {
+			t.Fatal(err)
+		}
+
+		var variants int
+
+		if err := database.Get(ctx, &variants, `SELECT COUNT(*) FROM wt_media_variant`); err != nil || variants == 0 {
+			t.Fatalf("want variants of the images, got %d: %v", variants, err)
+		}
+
+		// old.png goes to the trash, gone.txt is deleted for good.
+		for _, asset := range uploaded[2:] {
+			if err := library.Delete(ctx, asset.ID); err != nil {
+				t.Fatal(err)
+			}
+		}
+
+		if err := library.Purge(ctx, uploaded[3].ID); err != nil {
+			t.Fatal(err)
+		}
+
+		keys, err := library.Originals(ctx)
+		if err != nil {
+			t.Fatal(err)
+		}
+
+		want := []string{uploaded[0].StorageKey, uploaded[1].StorageKey, uploaded[2].StorageKey}
+		if !slices.Equal(keys, want) {
+			t.Fatalf("originals %q, want %q", keys, want)
 		}
 	})
 }
