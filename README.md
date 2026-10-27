@@ -804,31 +804,21 @@ task vendor     # vendor the admin's JavaScript packages (admin/importmap.json)
 task check      # fmt:check, lint, vet, css:check and race, without changing files
 ```
 
-Until go-partial, go-router, go-form, go-importmap and go-translator release
-the changes core uses, core builds only in a Go workspace with their
-development branches: `feature/exp-ext` of go-partial and
-`feature/webthings-integration` of the other four. Check them out next to
-go-webthings and list them in a `go.work`, which git ignores, or name a
-workspace file elsewhere in `GOWORK`. The demo, the clone and contrib build in
-the same workspace. go-translator's next release is
-`github.com/donseba/go-translator/v2`, a version that does not exist yet, so
-the workspace replaces it with the checkout rather than using it:
+Core builds on its own: `go.mod` requires the released versions of
+go-partial, go-router, go-form, go-importmap and go-translator v2. To change
+one of them and core together, check it out next to go-webthings and list it
+in a `go.work`, which git ignores, or name a workspace file elsewhere in
+`GOWORK`. The demo, the clone and contrib require a released go-webthings;
+add them to the same workspace to try a change of core in them:
 
 ```text
-go 1.27.1
+go 1.27.3
 
 use (
 	.
-	../go-webthings-clone
 	../go-webthings-demo
-	../go-webthings-contrib
-	../go-router
-	../go-form
-	../go-importmap
 	../go-partial
 )
-
-replace github.com/donseba/go-translator/v2 => ../go-translator
 ```
 
 The tools are pinned and kept in `bin/`: `task tools` installs golangci-lint

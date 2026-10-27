@@ -3,16 +3,15 @@ module github.com/donseba/go-webthings
 go 1.27.3
 
 require (
-	github.com/donseba/go-form/v2 v2.5.0
-	github.com/donseba/go-importmap v1.3.0
-	github.com/donseba/go-partial v0.14.0
-	github.com/donseba/go-router v0.11.0
+	github.com/donseba/go-form/v2 v2.6.0
+	github.com/donseba/go-importmap v1.5.0
+	github.com/donseba/go-partial v0.15.0
+	github.com/donseba/go-router v0.12.0
 	github.com/donseba/go-translator/v2 v2.0.0
 	github.com/gen2brain/webp v0.6.4
 	github.com/go-sql-driver/mysql v1.10.1
 	github.com/jackc/pgx/v5 v5.11.0
 	github.com/jmoiron/sqlx v1.4.0
-	github.com/leonelquinteros/gotext v1.7.2-0.20250311125224-bdb582003488
 	github.com/yuin/goldmark v1.8.6
 	golang.org/x/crypto v0.57.0
 	golang.org/x/image v0.46.0
@@ -31,6 +30,7 @@ require (
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20240606120523-5a60cdf6a761 // indirect
 	github.com/jackc/puddle/v2 v2.2.2 // indirect
+	github.com/leonelquinteros/gotext v1.7.2-0.20250311125224-bdb582003488 // indirect
 	github.com/mattn/go-isatty v0.0.24 // indirect
 	github.com/ncruces/go-strftime v1.0.0 // indirect
 	github.com/remyoudompheng/bigfft v0.0.0-20230129092748-24d4a6f8daec // indirect
