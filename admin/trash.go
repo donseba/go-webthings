@@ -254,6 +254,9 @@ type TrashView struct {
 	CanChange bool
 	// PurgeQuestion asks before deleting for good.
 	PurgeQuestion string
+	// Days is after how many days the site deletes items in the trash for
+	// good (Options.TrashDays); 0 is never.
+	Days int
 	// Pager pages through one section.
 	Pager Pager
 }
@@ -325,6 +328,10 @@ func (a *Admin) renderTrash(w http.ResponseWriter, r *http.Request, status int) 
 		Section:       selected,
 		Action:        a.URL("admin.trash"),
 		PurgeQuestion: a.T(r, "Delete the selected items for good? This cannot be undone."),
+	}
+
+	if a.options.TrashDays != nil {
+		view.Days = a.options.TrashDays(r.Context())
 	}
 
 	tabs := []Tab{{Label: "All sections"}}

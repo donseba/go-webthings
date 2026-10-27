@@ -6,7 +6,11 @@
             <h1 class="admin-page-title">{{tl localizer "Trash"}}</h1>
             <div class="admin-page-actions">{{template "admin-search" Search}}</div>
         </header>
-        <p class="admin-page-intro">{{tl localizer "Deleted items stay here until you restore them or delete them for good."}}</p>
+        {{if .Days}}
+            <p class="admin-page-intro">{{tn localizer "Deleted items stay here until you restore them or delete them for good, and for at most %d day." "Deleted items stay here until you restore them or delete them for good, and for at most %d days." .Days .Days}}</p>
+        {{else}}
+            <p class="admin-page-intro">{{tl localizer "Deleted items stay here until you restore them or delete them for good."}}</p>
+        {{end}}
 
         {{template "admin-tabs" .Filters}}
 

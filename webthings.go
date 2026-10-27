@@ -992,6 +992,7 @@ func (a *App) start(ctx context.Context, addr string) error {
 		SetupToken:   a.setupToken,
 		RemindSetup:  a.remindSetup,
 		Review:       a.reviewed,
+		TrashDays:    a.trashDays,
 		Permanence:   admin.NewPermanence(a.DB),
 		// The admin registers its routes on the router New mounted at its
 		// path, so they become the root router's.
@@ -1290,6 +1291,17 @@ func (a *App) reviewed(ctx context.Context, section string) bool {
 	}
 
 	return settings.Reviewed(section)
+}
+
+// trashDays is the Site settings' TrashDays, which the admin's trash page
+// shows; 0 when the settings cannot be read.
+func (a *App) trashDays(ctx context.Context) int {
+	settings, err := a.Site.Settings(ctx)
+	if err != nil {
+		return 0
+	}
+
+	return settings.TrashDays
 }
 
 func (a *App) schemas(ctx context.Context) error {

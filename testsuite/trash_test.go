@@ -270,9 +270,14 @@ func TestTrashRetention(t *testing.T) {
 			t.Fatalf("purged %d with the setting off: %v", purged, err)
 		}
 
-		s.Expect("/admin/trash", http.StatusOK, "Old post", "Recent post", "Old page", "spare.png")
+		s.Expect("/admin/trash", http.StatusOK, "Old post", "Recent post", "Old page", "spare.png",
+			"Deleted items stay here until you restore them or delete them for good.</p>")
 
 		s.Post("/admin/site", "/admin/site/trash", url.Values{"Days": {"30"}})
+
+		// The trash says how long items stay.
+		s.Expect("/admin/trash", http.StatusOK,
+			"Deleted items stay here until you restore them or delete them for good, and for at most 30 days.")
 
 		if _, err := s.App.PurgeTrash(ctx); err != nil {
 			t.Fatal(err)

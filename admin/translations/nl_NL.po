@@ -853,6 +853,11 @@ msgstr "Groep verwijderd."
 msgid "Delete this group? This cannot be undone."
 msgstr "Deze groep verwijderen? Dit kan niet ongedaan worden gemaakt."
 
+msgid "Deleted items stay here until you restore them or delete them for good, and for at most %d day."
+msgid_plural "Deleted items stay here until you restore them or delete them for good, and for at most %d days."
+msgstr[0] "Verwijderde items blijven hier staan tot je ze herstelt of definitief verwijdert, en hooguit %d dag."
+msgstr[1] "Verwijderde items blijven hier staan tot je ze herstelt of definitief verwijdert, en hooguit %d dagen."
+
 msgid "Deleted items stay here until you restore them or delete them for good."
 msgstr "Verwijderde items blijven hier staan tot je ze herstelt of definitief verwijdert."
 

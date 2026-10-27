@@ -138,6 +138,10 @@ type Options struct {
 	// section's permission ID; signed-in requests carry it (see
 	// content.WithReview). Nil turns review off everywhere.
 	Review content.ReviewPolicy
+	// TrashDays reports after how many days the site deletes items in the
+	// trash for good (see PurgeTrash), which the trash page says; nil, or
+	// 0, is never.
+	TrashDays func(ctx context.Context) int
 	// Permanence keeps the items administrators marked permanent (see
 	// Permanence and NewPermanence). Nil offers no permanent mark; items
 	// that are permanent by their nature, such as the home page, stay

@@ -853,6 +853,11 @@ msgstr "Group deleted."
 msgid "Delete this group? This cannot be undone."
 msgstr "Delete this group? This cannot be undone."
 
+msgid "Deleted items stay here until you restore them or delete them for good, and for at most %d day."
+msgid_plural "Deleted items stay here until you restore them or delete them for good, and for at most %d days."
+msgstr[0] "Deleted items stay here until you restore them or delete them for good, and for at most %d day."
+msgstr[1] "Deleted items stay here until you restore them or delete them for good, and for at most %d days."
+
 msgid "Deleted items stay here until you restore them or delete them for good."
 msgstr "Deleted items stay here until you restore them or delete them for good."
 
