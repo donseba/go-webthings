@@ -43,7 +43,7 @@ func TestTamperedVendorFile(t *testing.T) {
 
 	// A vendored package and the editor bundle the admin builds itself
 	// (a local package of the lock) are both checked.
-	for _, file := range []string{"vendor/htmx/htmx.esm.min.js", "editor/prosemirror.js"} {
+	for _, file := range []string{"packages/htmx/htmx.esm.min.js", "editor/prosemirror.js"} {
 		original := copied[file]
 		copied[file] = &fstest.MapFile{Data: append([]byte("/* changed */"), original.Data...), Mode: 0o644}
 

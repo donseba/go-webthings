@@ -10,15 +10,17 @@ import (
 )
 
 // The admin's JavaScript packages, listed in importmap.json, are vendored
-// into assets/vendor with their licences and a lock file of their
+// into assets/packages with their licences and a lock file of their
 // integrity, and embedded with the other assets (task vendor). The lock
 // also records the Markdown editor's ProseMirror bundle, which the admin
-// builds itself (task editor), as a local package.
+// builds itself (task editor), as a local package. The folder is not
+// named vendor: a Go module leaves out the folders below a vendor folder,
+// so a site that requires go-webthings would miss the packages.
 //
-//go:generate go run github.com/donseba/go-importmap/cmd/importmap vendor -config importmap.json -out assets/vendor
+//go:generate go run github.com/donseba/go-importmap/cmd/importmap vendor -config importmap.json -out assets/packages
 
 // vendorLock is the lock file of the vendored packages, below assets/.
-const vendorLock = "vendor/" + importmap.LockFile
+const vendorLock = "packages/" + importmap.LockFile
 
 // adminAssets are the shared assets: the import map of the vendored
 // packages, which also fingerprints every file below assets/.
@@ -67,7 +69,7 @@ func (a *Admin) mapAssets() {
 
 	a.assets.importMap.
 		ModulePreload("htmx").
-		WithVersionedPaths("!vendor/**", "!source.css").
+		WithVersionedPaths("!packages/**", "!source.css").
 		WithRenderOptions(importmap.WithIntegrity())
 
 	a.importMapHash = a.assets.importMap.ScriptHash()

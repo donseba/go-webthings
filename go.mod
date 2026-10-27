@@ -2,6 +2,9 @@ module github.com/donseba/go-webthings
 
 go 1.27.3
 
+// v0.1.0 leaves the admin's htmx out of the module, so the admin does not start.
+retract v0.1.0
+
 require (
 	github.com/donseba/go-form/v2 v2.6.0
 	github.com/donseba/go-importmap v1.5.0

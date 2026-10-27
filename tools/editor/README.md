@@ -15,7 +15,7 @@ changing either, with Node.js installed, run from the repository root:
 
 which runs `npm ci`, bundles with esbuild (minified ESM), writes the
 licences file and records both files in the admin's lock file,
-`admin/assets/vendor/importmap.lock.json` (go-importmap's `importmap vendor
+`admin/assets/packages/importmap.lock.json` (go-importmap's `importmap vendor
 -local`). The bundle is the local package `editor` of
 `admin/importmap.json`, so the admin does not start, and `task vendor:check`
 fails, when `prosemirror.js` or `LICENSES.txt` differs from the lock.
