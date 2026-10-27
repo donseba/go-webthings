@@ -487,6 +487,10 @@ type EditView struct {
 	Unpublish *form.RenderModel
 	Form      form.RenderModel
 	Errors    form.FieldErrors
+	// Conflict is the notice of a save that was refused because someone
+	// saved the item after its form was opened; Form then shows what the
+	// editor typed. Nil otherwise.
+	Conflict *Conflict
 	// ReadOnly is set for users who may view the item but not edit it: Form
 	// is then read-only (disabled, without its button).
 	ReadOnly bool
@@ -556,7 +560,14 @@ func (e Editor[F, T, I]) edit(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	e.render(w, r, item, input, nil, "", http.StatusOK)
+	latest, err := e.latest(r, item)
+	if err != nil {
+		e.fail(w, r, err)
+
+		return
+	}
+
+	e.render(w, r, item, editForm[I]{input: input, version: e.version(latest)}, http.StatusOK)
 }
 
 // redirectSingle sends "new" to the existing item of a Single editor.
@@ -590,15 +601,20 @@ func (e Editor[F, T, I]) load(r *http.Request) (content.Item[F, T], error) {
 	return e.config.Store.Load(r.Context(), id, revision)
 }
 
-func (e Editor[F, T, I]) render(
-	w http.ResponseWriter,
-	r *http.Request,
-	item content.Item[F, T],
-	input I,
-	errs form.FieldErrors,
-	message string,
-	status int,
-) {
+// editForm is the edit form of an item as the edit screen shows it: the
+// input, the errors of its fields, a message about the whole form, which
+// shows as a toast, and the version of the item the form builds on (see
+// version), with the notice of a save that was refused because the item
+// changed since.
+type editForm[I any] struct {
+	input    I
+	errs     form.FieldErrors
+	message  string
+	version  string
+	conflict *Conflict
+}
+
+func (e Editor[F, T, I]) render(w http.ResponseWriter, r *http.Request, item content.Item[F, T], edited editForm[I], status int) {
 	locale, config, err := e.Locale(r)
 	if err != nil {
 		e.admin.Fail(w, r, err)
@@ -607,14 +623,15 @@ func (e Editor[F, T, I]) render(
 	}
 
 	// The message shows as a toast; errors of single fields stay inline.
-	r = admin.WithError(r, message)
+	r = admin.WithError(r, edited.message)
 
 	view := EditView{
 		Title:     e.title(r, item, locale),
 		BackURL:   e.admin.URL(e.route("index"), url.Values{"locale": {locale}}),
 		BackLabel: e.config.Title,
-		Form:      e.admin.Form(r, input, e.itemURL(r.Context(), item.ID, locale), e.saveLabel()),
-		Errors:    errs,
+		Form:      e.admin.Form(r, edited.input, e.itemURL(r.Context(), item.ID, locale), e.saveLabel()),
+		Errors:    edited.errs,
+		Conflict:  edited.conflict,
 		// New items need Create to be shown at all; saving an existing one
 		// needs Edit.
 		ReadOnly: item.ID != "" && !e.admin.Can(r, e.permission(admin.Edit)),
@@ -622,6 +639,7 @@ func (e Editor[F, T, I]) render(
 
 	// A read-only form shows its values disabled and without its button.
 	view.Form.Info.ReadOnly = view.ReadOnly
+	remember(&view.Form, edited.version)
 
 	spec := e.config.Store.Spec()
 
@@ -794,8 +812,17 @@ func (e Editor[F, T, I]) save(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if len(errs) > 0 {
-		e.render(w, r, base, input, errs, "", http.StatusUnprocessableEntity)
+	// A save made since the form was opened, also one of the same editor
+	// in another tab, refuses the form until the editor saves anyway.
+	current := e.version(base)
+	edited := editForm[I]{input: input, errs: errs, version: basis(r, current)}
+
+	if edited.version != "" && current != "" && edited.version != current {
+		edited.conflict = e.conflict(r, base, locale)
+	}
+
+	if len(errs) > 0 || edited.conflict != nil {
+		e.render(w, r, base, edited, http.StatusUnprocessableEntity)
 
 		return
 	}
@@ -809,14 +836,14 @@ func (e Editor[F, T, I]) save(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := e.config.Apply(r.Context(), input, &draft, locale); err != nil {
-		e.invalid(w, r, base, input, err)
+		e.invalid(w, r, base, edited, err)
 
 		return
 	}
 
 	saved, err := e.config.Store.Save(r.Context(), draft)
 	if err != nil {
-		e.invalid(w, r, base, input, err)
+		e.invalid(w, r, base, edited, err)
 
 		return
 	}
@@ -856,26 +883,21 @@ func (e Editor[F, T, I]) saveLabel() string {
 }
 
 // invalid re-renders the editor for expected errors and fails otherwise.
-func (e Editor[F, T, I]) invalid(w http.ResponseWriter, r *http.Request, item content.Item[F, T], input I, err error) {
-	e.explain(w, r, item, input, err, e.Issue(r, err))
+func (e Editor[F, T, I]) invalid(w http.ResponseWriter, r *http.Request, item content.Item[F, T], edited editForm[I], err error) {
+	edited.message = e.Issue(r, err)
+	e.explain(w, r, item, edited, err)
 }
 
-// explain re-renders the editor with message, or fails without one.
-func (e Editor[F, T, I]) explain(
-	w http.ResponseWriter,
-	r *http.Request,
-	item content.Item[F, T],
-	input I,
-	err error,
-	message string,
-) {
-	if message == "" {
+// explain re-renders the editor with the message of edited, or fails
+// without one.
+func (e Editor[F, T, I]) explain(w http.ResponseWriter, r *http.Request, item content.Item[F, T], edited editForm[I], err error) {
+	if edited.message == "" {
 		e.admin.Fail(w, r, err)
 
 		return
 	}
 
-	e.render(w, r, item, input, nil, message, http.StatusUnprocessableEntity)
+	e.render(w, r, item, edited, http.StatusUnprocessableEntity)
 }
 
 // refuse shows the editor of the item in the URL with the reason a change
@@ -902,7 +924,14 @@ func (e Editor[F, T, I]) refuse(w http.ResponseWriter, r *http.Request, err erro
 		return
 	}
 
-	e.explain(w, r, item, input, err, message)
+	latest, latestErr := e.latest(r, item)
+	if latestErr != nil {
+		e.fail(w, r, latestErr)
+
+		return
+	}
+
+	e.explain(w, r, item, editForm[I]{input: input, message: message, version: e.version(latest)}, err)
 }
 
 // Issue is the message for editors of an error of saving, publishing or

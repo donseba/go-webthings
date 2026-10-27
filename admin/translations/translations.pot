@@ -4,6 +4,9 @@ msgstr ""
 msgid "%s asks you to review a change of %s at %s."
 msgstr ""
 
+msgid "%s saved this item at %s while you were editing it. Open their version in a new tab to compare, or save yours over it."
+msgstr ""
+
 msgid "A group with this name already exists."
 msgstr ""
 
@@ -324,6 +327,9 @@ msgstr ""
 msgid "Open it to approve or reject it:"
 msgstr ""
 
+msgid "Open the saved version"
+msgstr ""
+
 msgid "Open this link within an hour to choose a new password:"
 msgstr ""
 
@@ -480,6 +486,9 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
+msgid "Save anyway"
+msgstr ""
+
 msgid "Save groups"
 msgstr ""
 
@@ -577,6 +586,9 @@ msgid "This email address already has an account."
 msgstr ""
 
 msgid "This item is still in use."
+msgstr ""
+
+msgid "This item was saved at %s while you were editing it. Open the saved version in a new tab to compare, or save yours over it."
 msgstr ""
 
 msgid "This link is invalid or has expired. Ask for a new one."

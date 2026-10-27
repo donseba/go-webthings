@@ -4,6 +4,9 @@ msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: 
 msgid "%s asks you to review a change of %s at %s."
 msgstr "%s asks you to review a change of %s at %s."
 
+msgid "%s saved this item at %s while you were editing it. Open their version in a new tab to compare, or save yours over it."
+msgstr "%s saved this item at %s while you were editing it. Open their version in a new tab to compare, or save yours over it."
+
 msgid "A group with this name already exists."
 msgstr "A group with this name already exists."
 
@@ -322,6 +325,9 @@ msgstr "Nothing needs your attention."
 msgid "Open it to approve or reject it:"
 msgstr "Open it to approve or reject it:"
 
+msgid "Open the saved version"
+msgstr "Open the saved version"
+
 msgid "Open this link within an hour to choose a new password:"
 msgstr "Open this link within an hour to choose a new password:"
 
@@ -478,6 +484,9 @@ msgstr "Role"
 msgid "Save"
 msgstr "Save"
 
+msgid "Save anyway"
+msgstr "Save anyway"
+
 msgid "Save groups"
 msgstr "Save groups"
 
@@ -576,6 +585,9 @@ msgstr "This email address already has an account."
 
 msgid "This item is still in use."
 msgstr "This item is still in use."
+
+msgid "This item was saved at %s while you were editing it. Open the saved version in a new tab to compare, or save yours over it."
+msgstr "This item was saved at %s while you were editing it. Open the saved version in a new tab to compare, or save yours over it."
 
 msgid "This link is invalid or has expired. Ask for a new one."
 msgstr "This link is invalid or has expired. Ask for a new one."

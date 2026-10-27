@@ -11,6 +11,17 @@
         {{/* The form, with publication, the permanent mark and delete beside it on wide screens and below it on narrow ones. */}}
         <div class="editor-columns">
             <div class="editor-main">
+                {{/* A save over a newer save was refused: the form below keeps what was typed, and "Save anyway" submits it to save over that save. */}}
+                {{with .Conflict}}
+                    <section class="notice" role="alert">
+                        <p>{{.Text}}</p>
+                        <div class="form-actions">
+                            <a class="button-secondary" href="{{.URL}}" target="_blank" rel="noopener">{{tl localizer "Open the saved version"}}</a>
+                            <button class="button" type="submit" form="{{.Form}}" name="{{.Name}}" value="{{.Value}}">{{tl localizer "Save anyway"}}</button>
+                        </div>
+                    </section>
+                {{end}}
+
                 {{range .Notices}}
                     <section class="notice" role="status">
                         <p>{{.Text}}</p>

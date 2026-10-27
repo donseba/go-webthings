@@ -363,7 +363,17 @@ The admin's header shows a round chip with the initials of every other person wh
 - People appear as soon as they open the page and disappear when they close it or go to another one. Someone who signs out disappears at once. A tab that ends without closing, for example on a laptop that goes to sleep, disappears within about a minute, and so does someone whose account is disabled.
 - A tab in the background still counts as present. After 30 seconds it stops following who comes and goes, and catches up when you return to it.
 
-The chips lock nothing. Two people can still change the same item at the same time, and the later save wins for everything on its screen, such as the text of its language tab; the other languages stay as they were. With revisions, the earlier save stays in the **Revision history** and can be restored as a new draft. Content with a simple published flag keeps only the later save.
+The chips lock nothing. Two people can still open and change the same item at the same time; the one who saves last is asked first, see [When someone saved before you](#when-someone-saved-before-you).
+
+## When someone saved before you
+
+The editor of a page or of a module's item remembers the version of the item it opened: the latest revision for revisioned content, and the time of the last change for content with a simple published flag. When you save and the item was saved after you opened it, by someone else or by you in another tab, the admin does not save. It shows the form again with everything you typed, and a notice above it such as "Ada Lovelace saved this item at 14:32 while you were editing it. Open their version in a new tab to compare, or save yours over it." The name is shown as in the **Revision history**. A save without a person, such as an import, is told without a name, and a save on another day shows its date too.
+
+- **Open the saved version** opens the other save in a new tab, so you can compare it with your text and copy what you need.
+- **Save anyway** saves your text over it. It saves over that save only: when someone saves again in the meantime, you are asked again.
+- **Save** or **Save draft** is refused again until you choose **Save anyway**. Opening the item again starts from the latest version, without what you typed.
+
+The check covers the whole item, also when the other save was in another language tab: the fields all languages share are on every tab. After a save the editor starts from the version you saved, so saving several times in a row is never refused. Revisioned content keeps both saves: the other one stays in the **Revision history**, below your new draft, and can be restored as a new draft. Content with a simple published flag keeps only your save once you save anyway; publishing or unpublishing it counts as a change too.
 
 ## Counts and notes in the admin
 

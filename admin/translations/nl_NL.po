@@ -4,6 +4,9 @@ msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: 
 msgid "%s asks you to review a change of %s at %s."
 msgstr "%s vraagt je een wijziging van %s op %s te beoordelen."
 
+msgid "%s saved this item at %s while you were editing it. Open their version in a new tab to compare, or save yours over it."
+msgstr "%s heeft dit item om %s opgeslagen terwijl je het aan het bewerken was. Open die versie in een nieuw tabblad om te vergelijken, of sla de jouwe toch op."
+
 msgid "A group with this name already exists."
 msgstr "Er bestaat al een groep met deze naam."
 
@@ -322,6 +325,9 @@ msgstr "Niets vraagt om je aandacht."
 msgid "Open it to approve or reject it:"
 msgstr "Open de revisie om die goed te keuren of af te wijzen:"
 
+msgid "Open the saved version"
+msgstr "Opgeslagen versie openen"
+
 msgid "Open this link within an hour to choose a new password:"
 msgstr "Open deze link binnen een uur om een nieuw wachtwoord te kiezen:"
 
@@ -478,6 +484,9 @@ msgstr "Rol"
 msgid "Save"
 msgstr "Opslaan"
 
+msgid "Save anyway"
+msgstr "Toch opslaan"
+
 msgid "Save groups"
 msgstr "Groepen opslaan"
 
@@ -576,6 +585,9 @@ msgstr "Voor dit e-mailadres bestaat al een account."
 
 msgid "This item is still in use."
 msgstr "Dit item is nog in gebruik."
+
+msgid "This item was saved at %s while you were editing it. Open the saved version in a new tab to compare, or save yours over it."
+msgstr "Dit item is om %s opgeslagen terwijl je het aan het bewerken was. Open de opgeslagen versie in een nieuw tabblad om te vergelijken, of sla de jouwe toch op."
 
 msgid "This link is invalid or has expired. Ask for a new one."
 msgstr "Deze link is ongeldig of verlopen. Vraag een nieuwe aan."

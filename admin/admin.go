@@ -759,6 +759,29 @@ func (a *Admin) location(ctx context.Context) *time.Location {
 	return time.UTC
 }
 
+// UserName names the user with id as the revision history, the trash and
+// the dashboard do: by the account's name, or its e-mail address without
+// one. It is empty for an empty id, such as that of a change the system
+// made, and for an account that no longer exists.
+func (a *Admin) UserName(r *http.Request, id string) string {
+	if id == "" {
+		return ""
+	}
+
+	user, err := a.auth.User(r.Context(), id)
+	if errors.Is(err, auth.ErrNotFound) {
+		return ""
+	}
+
+	if err != nil {
+		slog.ErrorContext(r.Context(), "user name", "user", id, "error", err)
+
+		return ""
+	}
+
+	return user.DisplayName()
+}
+
 // Editor recognises the user signed in to the admin on a request outside it,
 // such as a page of the public site, from the session cookie. It records no
 // activity. can reports whether the user may perform an action, such as
