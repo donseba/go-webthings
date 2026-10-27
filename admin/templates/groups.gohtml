@@ -1,0 +1,39 @@
+{{/* @dot github.com/donseba/go-webthings/admin.GroupsView */}}
+{{/* @model Search github.com/donseba/go-webthings/admin.SearchBox */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Groups"}}</h1>
+            <div class="admin-page-actions">{{template "admin-search" Search}}</div>
+        </header>
+        <p class="admin-page-intro">{{tl localizer "Groups decide what editors may do. Administrators may always do everything."}}</p>
+
+        <div class="grid lg:grid-cols-3 gap-6 items-start">
+            <section class="lg:col-span-2 surface border-theme border rounded-xl p-6">
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th>{{tl localizer "Group"}}</th>
+                            <th>{{tl localizer "Members"}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{range .Groups}}
+                            <tr>
+                                <td class="p-3"><a href="{{.URL}}">{{.Name}}</a></td>
+                                <td class="p-3">{{.Members}}</td>
+                            </tr>
+                        {{else}}
+                            <tr><td class="p-3 muted" colspan="2">{{if Search.Text}}{{template "admin-empty" Search}}{{else}}{{tl localizer "No groups yet."}}{{end}}</td></tr>
+                        {{end}}
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="surface border-theme border rounded-xl p-6">
+                <h2 class="text-xl font-semibold mb-5">{{tl localizer "New group"}}</h2>
+                {{form_render_localized localizer .Create .Errors}}
+            </section>
+        </div>
+    </div>
+</main>

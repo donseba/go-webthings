@@ -1,0 +1,79 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%d vote"
+msgid_plural "%d votes"
+msgstr[0] "%d stem"
+msgstr[1] "%d stemmen"
+
+msgid "A poll can have at most 20 options."
+msgstr "Een peiling heeft maximaal 20 opties."
+
+msgid "A poll needs at least two options."
+msgstr "Een peiling heeft minstens twee opties nodig."
+
+msgid "Closed"
+msgstr "Gesloten"
+
+msgid "Closes at"
+msgstr "Sluit op"
+
+msgid "New poll"
+msgstr "Nieuwe peiling"
+
+msgid "One option per line, at least two. Every language lists the options in the same order; add new options at the end."
+msgstr "Eén optie per regel, minstens twee. Elke taal noemt de opties in dezelfde volgorde; voeg nieuwe opties onderaan toe."
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Option"
+msgstr "Optie"
+
+msgid "Option IDs must be unique, not empty and at most 36 characters."
+msgstr "Optie-ID's moeten uniek en niet leeg zijn en mogen hoogstens 36 tekens lang zijn."
+
+msgid "Optional, in the site's timezone. Leave empty to keep the poll open."
+msgstr "Optioneel, in de tijdzone van de site. Laat leeg om de peiling open te houden."
+
+msgid "Optional: a name for templates, such as favourite-colour."
+msgstr "Optioneel: een naam voor sjablonen, zoals favoriete-kleur."
+
+msgid "Options"
+msgstr "Opties"
+
+msgid "Options with votes cannot be removed. Reset the votes first."
+msgstr "Opties met stemmen kunnen niet worden verwijderd. Wis eerst de stemmen."
+
+msgid "Polls"
+msgstr "Peilingen"
+
+msgid "Question"
+msgstr "Vraag"
+
+msgid "Reset the votes of this poll? This cannot be undone."
+msgstr "De stemmen van deze peiling wissen? Dit kan niet ongedaan worden gemaakt."
+
+msgid "Reset votes"
+msgstr "Stemmen wissen"
+
+msgid "Results"
+msgstr "Resultaten"
+
+msgid "Show results before voting"
+msgstr "Resultaten tonen voor het stemmen"
+
+msgid "The votes were reset."
+msgstr "De stemmen zijn gewist."
+
+msgid "Total"
+msgstr "Totaal"
+
+msgid "Votes"
+msgstr "Stemmen"
+
+msgid "Use lowercase letters, digits and dashes for the short name."
+msgstr "Gebruik kleine letters, cijfers en streepjes voor de korte naam."
+
+msgid "Short name"
+msgstr "Korte naam"

@@ -1,0 +1,61 @@
+{{/* @dot github.com/donseba/go-webthings/pages/pageadmin.TreeView */}}
+{{/* @model Search github.com/donseba/go-webthings/admin.SearchBox */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer .Title}}</h1>
+            <div class="admin-page-actions">
+                {{template "admin-search" Search}}
+                {{with .LinksURL}}<a class="button-secondary" href="{{.}}">{{tl localizer "Broken links"}}</a>{{end}}
+                {{with .TrashURL}}<a class="button-secondary" href="{{.}}">{{tl localizer "Trash"}}</a>{{end}}
+                {{if .NewURL}}<a class="button" href="{{.NewURL}}">{{tl localizer .NewLabel}}</a>{{end}}
+            </div>
+        </header>
+
+        {{template "locale-tabs.gohtml" .Tabs}}
+
+        <section class="surface border-theme border rounded-xl p-6">
+            {{/* The sentence about dragging shows once tree.js makes the handles work. */}}
+            <p class="muted mb-4">
+                {{tl localizer "The website's menu follows this order. Moving a page up or down changes the menu at once."}}
+                <span class="tree-drag-hint">{{tl localizer "Dragging a page by its handle between other pages does the same; dropping it onto a page places it below that page."}}</span>
+                {{tl localizer "Other changes to a page, also a new parent page, are saved as a draft and reach the website when you publish the page."}}
+            </p>
+
+            <div class="page-tree" data-tree>
+                {{range .Pages}}{{template "pageadmin-tree-page" .}}{{else}}<p class="muted">{{template "admin-empty" Search}}</p>{{end}}
+            </div>
+        </section>
+    </div>
+    {{/* Drag and drop on top of the up and down buttons. */}}
+    {{importmap_script "tree.js" "type" "module"}}
+</main>
+
+{{define "pageadmin-tree-page"}}
+    {{/* @dot github.com/donseba/go-webthings/pages/pageadmin.TreeRow */}}
+    {{/* @model Search github.com/donseba/go-webthings/admin.SearchBox */}}
+    <div class="tree-row flex-wrap{{if .Match}} tree-match{{else if Search.Text}} tree-context{{end}}" data-tree-item data-id="{{.ID}}" data-parent="{{.ParentID}}"
+         {{- with .DragURL}} data-move="{{.}}"{{end}}{{if .Leaf}} data-leaf{{end}}>
+        {{if .DragURL}}
+            <span class="tree-handle" data-tree-handle title="{{tl localizer "Drag to move"}}" aria-hidden="true">
+                <svg class="icon"><use href="{{importmap_url "icons.svg"}}#grip"/></svg>
+            </span>
+        {{end}}
+        <a href="{{.URL}}">
+            {{.Title}}
+            {{with .Path}}<span class="tree-path">{{.}}</span>{{end}}
+        </a>
+        <div class="flex flex-wrap items-center justify-end gap-2">
+            {{if .Home}}<span class="badge badge-accent">{{tl localizer "Home"}}</span>{{end}}
+            {{with .Module}}<span class="badge">{{tl localizer "Module: %s" .}}</span>{{end}}
+            {{if .Missing}}<span class="badge">{{tl localizer "Missing translation"}}</span>{{end}}
+            <span class="badge">{{tl localizer .Status}}</span>
+            {{template "admin-moves" .Moves}}
+        </div>
+    </div>
+    {{with .Children}}
+        <ul>
+            {{range .}}<li>{{template "pageadmin-tree-page" .}}</li>{{end}}
+        </ul>
+    {{end}}
+{{end}}

@@ -1,0 +1,62 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A path on this site, such as /en/contact, an anchor on the page, such as #contact, a full URL, or a mailto: or tel: link."
+msgstr "A path on this site, such as /en/contact, an anchor on the page, such as #contact, a full URL, or a mailto: or tel: link."
+
+msgid "Button address"
+msgstr "Button address"
+
+msgid "Button label"
+msgstr "Button label"
+
+msgid "Choose a tone."
+msgstr "Choose a tone."
+
+msgid "Empty shows the banner as soon as it is published."
+msgstr "Empty shows the banner as soon as it is published."
+
+msgid "Empty shows the banner until it is unpublished."
+msgstr "Empty shows the banner until it is unpublished."
+
+msgid "Expired"
+msgstr "Expired"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Information"
+msgstr "Information"
+
+msgid "New banner"
+msgstr "New banner"
+
+msgid "Show from"
+msgstr "Show from"
+
+msgid "Show until"
+msgstr "Show until"
+
+msgid "Show until must be after show from."
+msgstr "Show until must be after show from."
+
+msgid "Subtitle"
+msgstr "Subtitle"
+
+msgid "Success"
+msgstr "Success"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "The button address must be a path on this site, such as /en/contact, an anchor such as #contact, a full URL, or a mailto: or tel: link."
+msgstr "The button address must be a path on this site, such as /en/contact, an anchor such as #contact, a full URL, or a mailto: or tel: link."
+
+msgid "Tone"
+msgstr "Tone"
+
+msgid "Upcoming"
+msgstr "Upcoming"
+
+msgid "Warning"
+msgstr "Warning"

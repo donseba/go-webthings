@@ -1,0 +1,19 @@
+{{/* @dot github.com/donseba/go-webthings/admin.FormPageView */}}
+<main id="content" class="admin-auth">
+    <section class="admin-auth-card">
+        <h1 class="admin-page-title">{{tl localizer .Title}}</h1>
+
+        {{with .Intro}}<p class="muted">{{.}}</p>{{end}}
+
+        {{if .Message}}<p role="status" class="notice">{{.Message}}</p>{{end}}
+        {{if .Error}}<p role="alert" class="notice text-danger">{{.Error}}</p>{{end}}
+
+        {{with .Form}}{{form_render_localized localizer . $.Errors}}{{end}}
+
+        {{with .Links}}
+            <p class="admin-auth-links">
+                {{range .}}<a href="{{.URL}}">{{.Title}}</a>{{end}}
+            </p>
+        {{end}}
+    </section>
+</main>

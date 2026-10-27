@@ -1,0 +1,69 @@
+{
+  "include": [
+    "/"
+  ],
+  "exclude": [
+    "vendor",
+    "var",
+    "admin/assets",
+    "admin/translations",
+    "bin"
+  ],
+  "providers": [
+    "github.com/donseba/go-partial",
+    "github.com/donseba/go-partial/exp/localization",
+    "github.com/donseba/go-form/v2",
+    "github.com/donseba/go-form/v2/types",
+    "github.com/donseba/go-partial/exp/slots",
+    "github.com/donseba/go-partial/exp/interactions",
+    "github.com/donseba/go-partial/exp/flash",
+    "github.com/donseba/go-partial/exp/sse",
+    "github.com/donseba/go-partial/exp/target",
+    "github.com/donseba/go-partial/ext/errors",
+    "github.com/donseba/go-translator/v2"
+  ],
+  "functionMaps": [
+    "github.com/donseba/go-partial/exp/localization.FuncMap",
+    "github.com/donseba/go-partial/exp/slots.FuncMap",
+    "github.com/donseba/go-partial/exp/interactions.AttrsFuncMap",
+    "github.com/donseba/go-partial/exp/flash.FuncMap",
+    "github.com/donseba/go-partial/exp/sse.FuncMap",
+    "github.com/donseba/go-partial/exp/target.FuncMap",
+    "github.com/donseba/go-webthings/admin.templateFuncs",
+    "github.com/donseba/go-router.FuncMap",
+    "github.com/donseba/go-form/v2.FuncMap",
+    "github.com/donseba/go-importmap.FuncMap",
+    "github.com/donseba/go-translator/v2.FuncMap"
+  ],
+  "templateFunctions": [
+    {
+      "name": "tl",
+      "path": "github.com/donseba/go-translator/v2.tl",
+      "signatures": [
+        "func(loc github.com/donseba/go-translator/v2.Localizer, key string, args ...any) string"
+      ]
+    },
+    {
+      "name": "tn",
+      "path": "github.com/donseba/go-translator/v2.tn",
+      "signatures": [
+        "func(loc github.com/donseba/go-translator/v2.Localizer, singular string, plural string, n int, args ...any) string"
+      ]
+    },
+    {
+      "name": "ctl",
+      "path": "github.com/donseba/go-translator/v2.ctl",
+      "signatures": [
+        "func(loc github.com/donseba/go-translator/v2.Localizer, ctx string, key string, args ...any) string"
+      ]
+    },
+    {
+      "name": "ctn",
+      "path": "github.com/donseba/go-translator/v2.ctn",
+      "signatures": [
+        "func(loc github.com/donseba/go-translator/v2.Localizer, ctx string, singular string, plural string, n int, args ...any) string"
+      ]
+    }
+  ],
+  "writeIndex": false
+}

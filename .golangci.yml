@@ -1,0 +1,38 @@
+version: '2'
+
+run:
+  timeout: 5m
+
+linters:
+  enable:
+    - wsl_v5
+  settings:
+    wsl_v5:
+      default: none
+      cuddle-max-statements: 1
+      enable:
+        - if
+        - for
+        - range
+        - switch
+        - type-switch
+        - select
+        - after-block
+
+formatters:
+  enable:
+    - gofumpt
+    - gci
+    - golines
+  settings:
+    gci:
+      # Import groups: stdlib, this repository, other donseba packages, the rest.
+      sections:
+        - standard
+        - prefix(github.com/donseba/go-webthings)
+        - prefix(github.com/donseba)
+        - default
+      custom-order: true
+    golines:
+      max-len: 130
+      shorten-comments: false

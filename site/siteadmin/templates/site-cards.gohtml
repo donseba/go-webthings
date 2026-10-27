@@ -1,0 +1,78 @@
+{{/* The cards of the Site settings screen, which the setup guide
+     (guide.gohtml) shows too, each step its own. Their dot is the screen's
+     View; GeneralFields and TextFields limit the General and Texts cards
+     to some of their fields, as the guide does. */}}
+{{define "site-texts"}}
+    {{/* @dot github.com/donseba/go-webthings/site/siteadmin.View */}}
+    <section class="surface border-theme border rounded-xl p-6 mb-6" id="texts">
+        <h2 class="font-semibold mb-4">{{tl localizer "Texts per language"}}</h2>
+        {{template "locale-tabs.gohtml" .Tabs}}
+        {{if .TextFields}}
+            {{form_open_localized localizer .Text}}
+            {{range .TextFields}}{{form_field_localized localizer $.Text . $.TextErrors}}{{end}}
+            {{form_buttons_localized localizer .Text}}
+            {{form_close}}
+        {{else}}
+            {{form_render_localized localizer .Text .TextErrors}}
+        {{end}}
+    </section>
+{{end}}
+
+{{define "site-general"}}
+    {{/* @dot github.com/donseba/go-webthings/site/siteadmin.View */}}
+    <section class="surface border-theme border rounded-xl p-6 mb-6" id="general">
+        <h2 class="font-semibold mb-4">{{tl localizer (or .GeneralHeading "General")}}</h2>
+        {{if .GeneralFields}}
+            {{form_open_localized localizer .Settings}}
+            {{range .GeneralFields}}{{form_field_localized localizer $.Settings . $.SettingsErrors}}{{end}}
+            {{form_buttons_localized localizer .Settings}}
+            {{form_close}}
+        {{else}}
+            {{form_render_localized localizer .Settings .SettingsErrors}}
+        {{end}}
+    </section>
+{{end}}
+
+{{define "site-profiles"}}
+    {{/* @dot github.com/donseba/go-webthings/site/siteadmin.View */}}
+    <section class="surface border-theme border rounded-xl p-6 mb-6">
+        <h2 class="font-semibold mb-2">{{tl localizer "Social media profiles"}}</h2>
+        <p class="muted text-sm mb-4">{{tl localizer "The addresses of the site's profiles. Templates show them as links, for example in the footer; leave a network empty to leave it out."}}</p>
+        {{form_render_localized localizer .Profiles .ProfilesErrors}}
+    </section>
+{{end}}
+
+{{define "site-performance"}}
+    {{/* @dot github.com/donseba/go-webthings/site/siteadmin.View */}}
+    <section class="surface border-theme border rounded-xl p-6" id="performance">
+        <h2 class="font-semibold mb-2">{{tl localizer "Performance"}}</h2>
+        <p class="muted text-sm mb-4">{{tl localizer "How the site is sent to visitors: compressed, and how long browsers and caches may keep its pages."}}</p>
+        {{form_render_localized localizer .Performance .PerformanceErrors}}
+    </section>
+{{end}}
+
+{{define "site-security"}}
+    {{/* @dot github.com/donseba/go-webthings/site/siteadmin.View */}}
+    <section class="surface border-theme border rounded-xl p-6 mt-6" id="security">
+        <h2 class="font-semibold mb-2">{{tl localizer "Security"}}</h2>
+        <p class="muted text-sm mb-4">{{tl localizer "How the site's pages protect visitors in their browser."}}</p>
+        {{if .SecurityReadOnly}}
+            {{if not .ReadOnly}}<p class="muted text-sm mb-4">{{tl localizer "Only administrators can change the security settings."}}</p>{{end}}
+        {{end}}
+        {{form_render_localized localizer .Security .SecurityErrors}}
+    </section>
+{{end}}
+
+{{define "site-review"}}
+    {{/* @dot github.com/donseba/go-webthings/site/siteadmin.View */}}
+    {{with .Review}}
+        <section class="surface border-theme border rounded-xl p-6 mt-6" id="review">
+            <h2 class="font-semibold mb-2">{{tl localizer "Review"}}</h2>
+            <p class="muted text-sm mb-4">{{tl localizer "In the ticked sections, editors submit changes for review and only revisions a reviewer approved are published, also when scheduled. Reviewers need the Review right (Groups)."}}</p>
+            {{if $.ReviewReadOnly}}
+                {{if not $.ReadOnly}}<p class="muted text-sm mb-4">{{tl localizer "Only administrators can switch the review workflow on or off."}}</p>{{end}}
+            {{end}}
+            {{form_render_localized localizer . $.ReviewErrors}}
+        </section>
+    {{end}}
+{{end}}

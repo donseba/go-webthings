@@ -1,0 +1,138 @@
+version: '3'
+
+vars:
+  GOLANGCI_LINT_VERSION: v2.14.0
+  TAILWIND_VERSION: v4.3.2
+  TAILWIND_BIN: '{{.TAILWIND_BIN | default "./bin/tailwindcss"}}'
+  POSTGRES_DSN: postgres://wt:wt@127.0.0.1:55432/wt?sslmode=disable
+  MYSQL_DSN: root:wt@tcp(127.0.0.1:53306)/wt?parseTime=true&multiStatements=true
+
+tasks:
+  default:
+    desc: List development tasks
+    cmd: task --list
+
+  tools:
+    desc: Install the pinned golangci-lint into bin
+    status:
+      - test -x bin/golangci-lint
+      - bin/golangci-lint version | grep -q 'version 2.14.0 '
+    cmd: GOBIN="$PWD/bin" go install github.com/golangci/golangci-lint/v2/cmd/golangci-lint@{{.GOLANGCI_LINT_VERSION}}
+
+  tools:tailwind:
+    desc: Download the pinned Tailwind CSS standalone compiler into bin
+    # Nothing to download when TAILWIND_BIN names another compiler.
+    status:
+      - test "{{.TAILWIND_BIN}}" != ./bin/tailwindcss || (test -x bin/tailwindcss && bin/tailwindcss --help | head -1 | grep -q '{{.TAILWIND_VERSION}}$')
+    vars:
+      # Tailwind names its release files macos/linux and x64/arm64.
+      PLATFORM: '{{if eq OS "darwin"}}macos{{else}}{{OS}}{{end}}-{{if eq ARCH "amd64"}}x64{{else}}{{ARCH}}{{end}}'
+    cmds:
+      - mkdir -p bin
+      - curl -fsSL -o bin/tailwindcss https://github.com/tailwindlabs/tailwindcss/releases/download/{{.TAILWIND_VERSION}}/tailwindcss-{{.PLATFORM}}
+      - chmod +x bin/tailwindcss
+
+  fmt:
+    desc: Format code (gofumpt, grouped imports, line length) and add blank lines after blocks
+    deps: [tools]
+    cmds:
+      - bin/golangci-lint fmt ./...
+      - bin/golangci-lint run --enable-only wsl_v5 --fix ./...
+      - bin/golangci-lint fmt ./...
+
+  fmt:check:
+    desc: Check formatting without changing source
+    deps: [tools]
+    cmds:
+      - bin/golangci-lint fmt --diff ./...
+      - bin/golangci-lint run --enable-only wsl_v5 ./...
+
+  lint:
+    desc: Run static checks and whitespace rules
+    deps: [tools]
+    cmd: bin/golangci-lint run ./...
+
+  vet:
+    desc: Run go vet
+    cmd: go vet ./...
+
+  test:
+    desc: Run tests on SQLite
+    cmd: go test ./... {{.CLI_ARGS}}
+
+  test:all:
+    desc: Run tests on SQLite, Postgres and MySQL (start them with task db:up)
+    env:
+      WT_TEST_POSTGRES: '{{.POSTGRES_DSN}}'
+      WT_TEST_MYSQL: '{{.MYSQL_DSN}}'
+    cmd: go test ./... {{.CLI_ARGS}}
+
+  race:
+    desc: Run all tests with the race detector
+    cmd: go test -race ./... {{.CLI_ARGS}}
+
+  db:up:
+    desc: Start throwaway Postgres and MySQL test servers in Docker
+    cmds:
+      - docker start wt-test-postgres 2>/dev/null || docker run -d --name wt-test-postgres -e POSTGRES_USER=wt -e POSTGRES_PASSWORD=wt -e POSTGRES_DB=wt -p 127.0.0.1:55432:5432 postgres:18-alpine
+      - docker start wt-test-mysql 2>/dev/null || docker run -d --name wt-test-mysql -e MYSQL_ROOT_PASSWORD=wt -e MYSQL_DATABASE=wt -p 127.0.0.1:53306:3306 mysql:8.4
+
+  db:down:
+    desc: Stop and remove the test database containers
+    cmd: docker rm -f wt-test-postgres wt-test-mysql
+
+  css:
+    desc: Build the shared Tailwind 4 admin stylesheet
+    deps:
+      - tools:tailwind
+    preconditions:
+      - sh: '"{{.TAILWIND_BIN}}" --help | head -1 | grep -q "v4\."'
+        msg: Set TAILWIND_BIN to a Tailwind 4 standalone compiler
+    cmd: '"{{.TAILWIND_BIN}}" -i admin/assets/source.css -o admin/assets/admin.css --minify'
+
+  css:check:
+    desc: Check that the admin stylesheet is built from the current templates and source.css
+    deps:
+      - tools:tailwind
+    preconditions:
+      - sh: '"{{.TAILWIND_BIN}}" --help | head -1 | grep -q "v4\."'
+        msg: Set TAILWIND_BIN to a Tailwind 4 standalone compiler
+    cmds:
+      - '"{{.TAILWIND_BIN}}" -i admin/assets/source.css -o "${TMPDIR:-/tmp}/webthings-admin.css" --minify 2>/dev/null'
+      - defer: rm -f "${TMPDIR:-/tmp}/webthings-admin.css"
+      - cmp -s admin/assets/admin.css "${TMPDIR:-/tmp}/webthings-admin.css" || (echo "admin/assets/admin.css is out of date; run task css" && exit 1)
+
+  vendor:
+    desc: Vendor the admin's JavaScript packages (admin/importmap.json) into admin/assets/vendor with their licences and lock file
+    cmd: go generate -run importmap ./admin
+
+  vendor:check:
+    desc: Check the vendored admin packages and the editor bundle against their lock file, without network
+    # The editor bundle sits beside the vendor directory, so verify from
+    # the assets directory that holds both.
+    cmd: go run github.com/donseba/go-importmap/cmd/importmap verify -out admin/assets/vendor -root admin/assets
+
+  editor:
+    desc: Rebuild the admin Markdown editor's ProseMirror bundle (needs Node.js; versions pinned in tools/editor) and record it in the lock file
+    cmds:
+      - cmd: npm ci --no-audit --no-fund
+        dir: tools/editor
+      - cmd: npm run build
+        dir: tools/editor
+      - cmd: rm -rf node_modules
+        dir: tools/editor
+      # The bundle is a local package of admin/importmap.json: the lock
+      # records its integrity, which the admin checks at start.
+      - cmd: go run github.com/donseba/go-importmap/cmd/importmap vendor -local -config importmap.json -out assets/vendor
+        dir: admin
+
+  check:
+    desc: Run all read-only quality gates in sequence
+    cmds:
+      - task: fmt:check
+      - task: lint
+      - task: vet
+      - task: css:check
+      # The race detector runs the whole suite; a plain run first would
+      # only run it twice.
+      - task: race

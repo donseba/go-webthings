@@ -1,0 +1,56 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%d days"
+msgstr "%d days"
+
+msgid "%d views, %d visitors"
+msgstr "%d views, %d visitors"
+
+msgid "A visitor is recognised for one day only: visitors are counted per day and added up."
+msgstr "A visitor is recognised for one day only: visitors are counted per day and added up."
+
+msgid "Desktop"
+msgstr "Desktop"
+
+msgid "Devices"
+msgstr "Devices"
+
+msgid "Keep statistics for (days)"
+msgstr "Keep statistics for (days)"
+
+msgid "Languages"
+msgstr "Languages"
+
+msgid "Mobile"
+msgstr "Mobile"
+
+msgid "Older days are deleted. 0 keeps all statistics."
+msgstr "Older days are deleted. 0 keeps all statistics."
+
+msgid "Page views"
+msgstr "Page views"
+
+msgid "Page views per day"
+msgstr "Page views per day"
+
+msgid "Period"
+msgstr "Period"
+
+msgid "Referrers"
+msgstr "Referrers"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Tablet"
+msgstr "Tablet"
+
+msgid "Top pages"
+msgstr "Top pages"
+
+msgid "Views"
+msgstr "Views"
+
+msgid "Statistics"
+msgstr "Statistics"

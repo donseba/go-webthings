@@ -1,0 +1,29 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Album"
+msgstr "Album"
+
+msgid "Choose an album to put its images in order."
+msgstr "Choose an album to put its images in order."
+
+msgid "Cover image"
+msgstr "Cover image"
+
+msgid "Edit album"
+msgstr "Edit album"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Image order"
+msgstr "Image order"
+
+msgid "New album"
+msgstr "New album"
+
+msgid "The album has too many images."
+msgstr "The album has too many images."
+
+msgid "This album has no images yet. Choose them in the album."
+msgstr "This album has no images yet. Choose them in the album."

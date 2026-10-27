@@ -1,0 +1,24 @@
+{
+  "name": "webthings-markdown-editor-bundle",
+  "private": true,
+  "description": "Builds admin/assets/editor/prosemirror.js, the vendored ProseMirror bundle of the admin's Markdown editor.",
+  "license": "MIT",
+  "scripts": {
+    "build": "esbuild src/prosemirror.js --bundle --format=esm --minify --legal-comments=none --target=es2020 --outfile=../../admin/assets/editor/prosemirror.js && node licenses.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "markdown-it": "14.3.2",
+    "prosemirror-commands": "1.7.2",
+    "prosemirror-dropcursor": "1.8.4",
+    "prosemirror-history": "1.5.1",
+    "prosemirror-inputrules": "1.5.1",
+    "prosemirror-keymap": "1.2.3",
+    "prosemirror-markdown": "1.13.8",
+    "prosemirror-model": "1.25.12",
+    "prosemirror-schema-list": "1.5.1",
+    "prosemirror-state": "1.4.4",
+    "prosemirror-transform": "1.12.2",
+    "prosemirror-view": "1.42.6"
+  }
+}

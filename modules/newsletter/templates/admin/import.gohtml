@@ -1,0 +1,34 @@
+{{/* @dot github.com/donseba/go-webthings/modules/newsletter.ImportView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Import subscribers"}}</h1>
+            <div class="admin-page-actions"><a class="button-secondary" href="{{.BackURL}}">{{tl localizer "Back to %s" (tl localizer .Title)}}</a></div>
+        </header>
+
+        {{with .Result}}
+            <section class="surface border-theme border rounded-xl p-6 mb-6" id="import-result">
+                <h2 class="font-semibold mb-4">{{tl localizer "Result"}}</h2>
+                <ul class="mb-4">
+                    <li>{{tl localizer "Subscribers added: %d" .Added}}</li>
+                    <li>{{tl localizer "Pending subscribers confirmed: %d" .Confirmed}}</li>
+                    <li>{{tl localizer "Already subscribed: %d" .Existing}}</li>
+                    <li>{{tl localizer "Unsubscribed earlier, not added: %d" .Unsubscribed}}</li>
+                    {{if $.Skipped}}<li>{{tl localizer "Rows left out for their status: %d" $.Skipped}}</li>{{end}}
+                </ul>
+                {{if .Invalid}}
+                    <p class="muted mb-2">{{tl localizer "Addresses that are not valid:"}}</p>
+                    <ul>
+                        {{range .Invalid}}<li><code>{{.}}</code></li>{{end}}
+                    </ul>
+                {{end}}
+            </section>
+        {{end}}
+
+        <section class="surface border-theme border rounded-xl p-6">
+            <p class="muted mb-4">{{tl localizer "The first row names the columns: email (required), name and locale. Everyone is added as a confirmed subscriber, without a confirmation mail. People who unsubscribed are not added again."}}</p>
+
+            {{form_render_localized localizer .Form .Errors}}
+        </section>
+    </div>
+</main>

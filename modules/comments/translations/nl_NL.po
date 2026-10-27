@@ -1,0 +1,72 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Approve messages before they are shown"
+msgstr "Berichten goedkeuren voordat ze getoond worden"
+
+msgid "Closed for new messages"
+msgstr "Gesloten voor nieuwe berichten"
+
+msgid "Comments"
+msgstr "Reacties"
+
+msgid "Enter one e-mail address."
+msgstr "Vul één e-mailadres in."
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Guestbook"
+msgstr "Gastenboek"
+
+msgid "Hide"
+msgstr "Verbergen"
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "Notification address"
+msgstr "E-mailadres voor meldingen"
+
+msgid "Pending"
+msgstr "Te beoordelen"
+
+msgid "Received"
+msgstr "Ontvangen"
+
+msgid "Receives an e-mail for every new message. Leave empty for none."
+msgstr "Ontvangt een e-mail bij elk nieuw bericht. Laat leeg voor geen meldingen."
+
+msgid "Reply"
+msgstr "Antwoorden"
+
+msgid "Reply from the site"
+msgstr "Antwoord van de site"
+
+msgid "Reply to %s"
+msgstr "Antwoord op %s"
+
+msgid "Send reply"
+msgstr "Antwoord plaatsen"
+
+msgid "Sender %s"
+msgstr "Afzender %s"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "The reply is shown right away, signed with the site title, or the organisation name, or your own name when the site has neither."
+msgstr "Het antwoord wordt meteen getoond, ondertekend met de titel van de site, of de naam van de organisatie, of je eigen naam als de site geen van beide heeft."
+
+msgid "Waiting for approval"
+msgstr "Wacht op goedkeuring"
+
+
+msgid "This reply cannot be restored while the message it answers is in the trash. Restore that message instead."
+msgstr "Dit antwoord kan niet terug zolang het bericht waarop het antwoordt in de prullenbak ligt. Zet dat bericht terug."
+
+msgid "Reply to a message"
+msgstr "Antwoord op een bericht"

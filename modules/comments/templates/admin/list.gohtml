@@ -1,0 +1,67 @@
+{{/* @dot github.com/donseba/go-webthings/modules/comments.InboxView */}}
+{{/* @model Search github.com/donseba/go-webthings/admin.SearchBox */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer .Title}}</h1>
+            <div class="admin-page-actions">
+                {{template "admin-search" Search}}
+                <a class="button-secondary" href="{{.TrashURL}}">{{tl localizer "Trash"}}</a>
+                <a class="button-secondary" href="{{.SettingsURL}}">{{tl localizer "Settings"}}</a>
+            </div>
+        </header>
+
+        {{template "admin-tabs" .Filters}}
+
+        {{range .Groups}}
+            <section class="card mb-6">
+                <h2 class="card-title break-all">{{tl localizer .Title}}</h2>
+
+                <table class="w-full">
+                    <thead>
+                        <tr>
+                            <th class="text-left">{{tl localizer "Received"}}</th>
+                            <th class="text-left">{{tl localizer "Message"}}</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{range .Rows}}
+                            <tr>
+                                <td class="p-3 text-sm">
+                                    {{.Date}}
+                                    <div class="muted">{{.Locale}}{{with .Sender}} · {{tl localizer "Sender %s" .}}{{end}}</div>
+                                </td>
+                                <td class="p-3">
+                                    <div class="font-semibold">
+                                        {{.Name}}
+                                        {{if .Staff}}<span class="muted text-sm"> · {{tl localizer "Reply from the site"}}</span>{{end}}
+                                        {{if not .Approved}}<span class="muted text-sm"> · {{tl localizer "Waiting for approval"}}</span>{{end}}
+                                    </div>
+                                    {{with .Email}}<div class="muted text-sm break-all"><a href="mailto:{{.}}">{{.}}</a></div>{{end}}
+                                    {{with .ReplyTo}}<div class="muted text-sm">{{tl localizer "Reply to %s" .}}</div>{{end}}
+                                    <div class="whitespace-pre-wrap mt-2">{{.Body}}</div>
+                                    {{with .PageURL}}<div class="text-sm mt-2 break-all"><a href="{{.}}" target="_blank" rel="noopener">{{.}}</a></div>{{end}}
+                                </td>
+                                <td class="p-3">
+                                    <div class="row-actions">
+                                        {{with .Approve}}{{form_render_localized localizer . nil}}{{end}}
+                                        {{with .Hide}}{{form_render_localized localizer . nil}}{{end}}
+                                        {{with .ReplyURL}}<a class="button-secondary" href="{{.}}">{{tl localizer "Reply"}}</a>{{end}}
+                                        {{with .Delete}}{{form_render_localized localizer . nil}}{{end}}
+                                    </div>
+                                </td>
+                            </tr>
+                        {{end}}
+                    </tbody>
+                </table>
+            </section>
+        {{else}}
+            <section class="card">
+                <p class="muted">{{template "admin-empty" Search}}</p>
+            </section>
+        {{end}}
+
+        {{template "admin-pager" .Pager}}
+    </div>
+</main>

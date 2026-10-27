@@ -1,0 +1,8 @@
+{{/* @dot github.com/donseba/go-webthings/modules/people.Person */}}
+<main id="content"><h1>{{.Name}}</h1>
+<p class="role">{{.Role}} · {{.Group}}</p>
+{{.Bio}}
+{{with .Email}}<a class="email" href="mailto:{{.}}">{{.}}</a>{{end}}
+{{with .PhoneURL}}<a class="phone" href="{{.}}">{{$.Phone}}</a>{{end}}
+{{with .Website}}<a class="website" href="{{.}}">{{.}}</a>{{end}}
+{{with .LinkedIn}}<a class="linkedin" href="{{.}}">{{.}}</a>{{end}}</main>

@@ -1,0 +1,583 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A language cannot have the code that one of the website's own addresses starts with, such as the admin's: its pages could not be reached."
+msgstr "Een taal kan niet de code hebben waarmee een van de eigen adressen van de website begint, zoals dat van de beheeromgeving: de pagina's ervan zouden onbereikbaar zijn."
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Check the languages and timezone: the default language must be enabled and the timezone must exist."
+msgstr "Controleer de talen en tijdzone: de standaardtaal moet zijn ingeschakeld en de tijdzone moet bestaan."
+
+msgid "Default language"
+msgstr "Standaardtaal"
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Favicon"
+msgstr "Favicon"
+
+msgid "Footer"
+msgstr "Voettekst"
+
+msgid "General"
+msgstr "Algemeen"
+
+msgid "In the ticked sections, editors submit changes for review and only revisions a reviewer approved are published, also when scheduled. Reviewers need the Review right (Groups)."
+msgstr "In de aangevinkte onderdelen bieden redacteuren wijzigingen ter beoordeling aan en worden alleen revisies gepubliceerd die een beoordelaar heeft goedgekeurd, ook als ze gepland zijn. Beoordelaars hebben het recht Beoordelen nodig (Groepen)."
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Organisation"
+msgstr "Organisatie"
+
+msgid "Phone"
+msgstr "Telefoon"
+
+msgid "Review"
+msgstr "Beoordelen"
+
+msgid "SEO description"
+msgstr "SEO-omschrijving"
+
+msgid "SEO title"
+msgstr "SEO-titel"
+
+msgid "Sections that need a review"
+msgstr "Onderdelen die een beoordeling nodig hebben"
+
+msgid "Site settings"
+msgstr "Website-instellingen"
+
+msgid "Site title"
+msgstr "Websitetitel"
+
+msgid "Social image"
+msgstr "Afbeelding voor delen"
+
+msgid "Tagline"
+msgstr "Slogan"
+
+msgid "Texts per language"
+msgstr "Teksten per taal"
+
+msgid "The selected image no longer exists."
+msgstr "De gekozen afbeelding bestaat niet meer."
+
+msgid "Timezone"
+msgstr "Tijdzone"
+
+msgid "Theme"
+msgstr "Thema"
+
+msgid "Active"
+msgstr "Actief"
+
+msgid "Use this theme"
+msgstr "Dit thema gebruiken"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Preview"
+msgstr "Voorbeeld"
+
+msgid "Settings of %s"
+msgstr "Instellingen van %s"
+
+msgid "This theme has no settings."
+msgstr "Dit thema heeft geen instellingen."
+
+msgid "use a colour like #1a2b3c"
+msgstr "gebruik een kleur zoals #1a2b3c"
+
+msgid "not one of the options"
+msgstr "geen van de keuzes"
+
+msgid "at most 500 characters"
+msgstr "maximaal 500 tekens"
+
+msgid "enter a number"
+msgstr "vul een getal in"
+
+msgid "the number is out of range"
+msgstr "het getal valt buiten het bereik"
+
+msgid "the number is between two steps"
+msgstr "het getal ligt tussen twee stappen"
+
+msgid "Social media profiles"
+msgstr "Socialemediaprofielen"
+
+msgid "The addresses of the site's profiles. Templates show them as links, for example in the footer; leave a network empty to leave it out."
+msgstr "De adressen van de profielen van de website. Sjablonen tonen ze als links, bijvoorbeeld in de voettekst; laat een netwerk leeg om het weg te laten."
+
+msgid "Enter a web address, such as https://example.com/name."
+msgstr "Vul een webadres in, zoals https://example.com/naam."
+
+msgid "Languages"
+msgstr "Talen"
+
+msgid "Other languages"
+msgstr "Andere talen"
+
+msgid "Codes of languages that are not listed, comma separated, such as af or pt-BR."
+msgstr "Codes van talen die niet in de lijst staan, met komma's gescheiden, zoals af of pt-BR."
+
+msgid "Choose the default language."
+msgstr "Kies de standaardtaal."
+
+msgid "One of the ticked languages."
+msgstr "Een van de aangevinkte talen."
+
+msgid "Tick the default language under Languages as well."
+msgstr "Vink de standaardtaal ook aan bij Talen."
+
+msgid "Choose a timezone."
+msgstr "Kies een tijdzone."
+
+msgid "Performance"
+msgstr "Prestaties"
+
+msgid "How the site is sent to visitors: compressed, and how long browsers and caches may keep its pages."
+msgstr "Hoe de website naar bezoekers gaat: gecomprimeerd, en hoe lang browsers en caches de pagina's mogen bewaren."
+
+msgid "Compress responses"
+msgstr "Antwoorden comprimeren"
+
+msgid "Send pages, stylesheets and scripts compressed (gzip) to browsers that accept it. Images and video are compressed already."
+msgstr "Stuur pagina's, stylesheets en scripts gecomprimeerd (gzip) naar browsers die dat ondersteunen. Afbeeldingen en video zijn al gecomprimeerd."
+
+msgid "Browsers and caches keep pages for"
+msgstr "Browsers en caches bewaren pagina's"
+
+msgid "How long visitors' browsers and caches may show a page without asking the site. With no time they ask every time, and an unchanged page costs little. Changes show after at most this time; signed-in editors always see the latest pages."
+msgstr "Hoe lang browsers en caches van bezoekers een pagina mogen tonen zonder het de website te vragen. Zonder tijd vragen ze het elke keer, en een ongewijzigde pagina kost weinig. Wijzigingen zijn na hoogstens deze tijd zichtbaar; ingelogde redacteuren zien altijd de nieuwste pagina's."
+
+msgid "Then show the kept page while refreshing"
+msgstr "Daarna de bewaarde pagina tonen tijdens verversen"
+
+msgid "After that time, how long a cache may still show the kept page while it fetches a fresh one, so visitors do not wait."
+msgstr "Hoe lang een cache na die tijd de bewaarde pagina nog mag tonen terwijl hij een nieuwe ophaalt, zodat bezoekers niet hoeven te wachten."
+
+msgid "No time, ask every time"
+msgstr "Geen tijd, elke keer vragen"
+
+msgid "No time"
+msgstr "Geen tijd"
+
+msgid "1 minute"
+msgstr "1 minuut"
+
+msgid "5 minutes"
+msgstr "5 minuten"
+
+msgid "10 minutes"
+msgstr "10 minuten"
+
+msgid "15 minutes"
+msgstr "15 minuten"
+
+msgid "1 hour"
+msgstr "1 uur"
+
+msgid "1 day"
+msgstr "1 dag"
+
+msgid "The site keeps pages in memory for"
+msgstr "De website bewaart pagina's in het geheugen"
+
+msgid "The site keeps the pages it sends visitors in memory and sends them again without making them anew. Changes made on this server show at once, in the admin and when content is published at its planned time. Changes made by another server of the site, and what changes with time alone, such as an event that has passed, show after at most this time. Signed-in editors, and visitors who sent a form, always get a fresh page."
+msgstr "De website bewaart de pagina's die ze bezoekers stuurt in het geheugen en stuurt ze opnieuw zonder ze opnieuw te maken. Wijzigingen op deze server zijn meteen zichtbaar, in de beheeromgeving en wanneer inhoud op de geplande tijd wordt gepubliceerd. Wijzigingen door een andere server van de website, en wat alleen met de tijd verandert, zoals een evenement dat voorbij is, zijn na hoogstens deze tijd zichtbaar. Ingelogde redacteuren, en bezoekers die een formulier verstuurden, krijgen altijd een verse pagina."
+
+msgid "Memory for kept pages"
+msgstr "Geheugen voor bewaarde pagina's"
+
+msgid "The most memory the kept pages take; the pages not asked for the longest are dropped first."
+msgstr "Hoeveel geheugen de bewaarde pagina's hoogstens innemen; de pagina's die het langst niet zijn opgevraagd vallen als eerste af."
+
+msgid "Off"
+msgstr "Uit"
+
+msgid "10 seconds"
+msgstr "10 seconden"
+
+msgid "8 MB"
+msgstr "8 MB"
+
+msgid "32 MB"
+msgstr "32 MB"
+
+msgid "64 MB"
+msgstr "64 MB"
+
+msgid "128 MB"
+msgstr "128 MB"
+
+msgid "256 MB"
+msgstr "256 MB"
+
+msgid "Only administrators can switch the review workflow on or off."
+msgstr "Alleen beheerders kunnen het beoordelen aan- of uitzetten."
+
+msgid "Only administrators can change the security settings."
+msgstr "Alleen beheerders kunnen de beveiligingsinstellingen wijzigen."
+
+msgid "Set by the server configuration."
+msgstr "Ingesteld door de serverconfiguratie."
+
+msgid "Security"
+msgstr "Beveiliging"
+
+msgid "How the site's pages protect visitors in their browser."
+msgstr "Hoe de pagina's van de website bezoekers in hun browser beschermen."
+
+msgid "Other sites may embed pages"
+msgstr "Andere websites mogen pagina's insluiten"
+
+msgid "Whether other sites may show the site's pages in a frame, such as an iframe. Allowing only this site keeps other sites from hiding a page under their own to trick visitors into clicking."
+msgstr "Of andere websites de pagina's van deze website in een frame mogen tonen, zoals een iframe. Alleen deze website toestaan voorkomt dat andere websites een pagina onder hun eigen pagina verbergen om bezoekers ergens op te laten klikken."
+
+msgid "No, only this site"
+msgstr "Nee, alleen deze website"
+
+msgid "Yes, any site"
+msgstr "Ja, elke website"
+
+msgid "No, not even this site"
+msgstr "Nee, ook deze website niet"
+
+msgid "Content-Security-Policy"
+msgstr "Content-Security-Policy"
+
+msgid "Lets browsers run only the scripts and styles the site serves itself, which blocks most code injected into a page. Report only blocks nothing: browsers report what the policy would block, and the site writes it to its log. Check the log, then enforce. A theme with styles or scripts written into its pages needs changes first."
+msgstr "Laat browsers alleen de scripts en stijlen uitvoeren die de website zelf aanbiedt; dat houdt de meeste code tegen die in een pagina is geplaatst. Alleen rapporteren houdt niets tegen: browsers melden wat het beleid zou tegenhouden, en de website schrijft dat in zijn log. Controleer het log en dwing het beleid daarna af. Een thema met stijlen of scripts in zijn pagina's moet eerst worden aangepast."
+
+msgid "Report only, block nothing"
+msgstr "Alleen rapporteren, niets tegenhouden"
+
+msgid "Enforce"
+msgstr "Afdwingen"
+
+msgid "Outside sources"
+msgstr "Externe bronnen"
+
+msgid "Other sites the pages may load from, one directive per line followed by addresses, such as frame-src https://www.youtube-nocookie.com for embedded videos. Directives: img-src, media-src, font-src, style-src, script-src, connect-src, frame-src, worker-src, manifest-src and form-action. The site's own files and its media storage are always allowed."
+msgstr "Andere websites waar de pagina's iets van mogen laden, één directive per regel gevolgd door adressen, zoals frame-src https://www.youtube-nocookie.com voor ingesloten video's. Directives: img-src, media-src, font-src, style-src, script-src, connect-src, frame-src, worker-src, manifest-src en form-action. De eigen bestanden van de website en de mediaopslag zijn altijd toegestaan."
+
+msgid "Each line needs a directive, such as frame-src, and addresses, such as https://www.youtube-nocookie.com. Inline code, eval and every site (*) cannot be allowed."
+msgstr "Elke regel heeft een directive nodig, zoals frame-src, en adressen, zoals https://www.youtube-nocookie.com. Code in de pagina, eval en alle websites (*) kunnen niet worden toegestaan."
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "https://www.facebook.com/…"
+msgstr "https://www.facebook.com/…"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "https://www.instagram.com/…"
+msgstr "https://www.instagram.com/…"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "https://www.linkedin.com/company/…"
+msgstr "https://www.linkedin.com/company/…"
+
+msgid "X"
+msgstr "X"
+
+msgid "https://x.com/…"
+msgstr "https://x.com/…"
+
+msgid "Mastodon"
+msgstr "Mastodon"
+
+msgid "https://mastodon.social/@…"
+msgstr "https://mastodon.social/@…"
+
+msgid "Bluesky"
+msgstr "Bluesky"
+
+msgid "https://bsky.app/profile/…"
+msgstr "https://bsky.app/profile/…"
+
+msgid "Threads"
+msgstr "Threads"
+
+msgid "https://www.threads.net/@…"
+msgstr "https://www.threads.net/@…"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "https://www.youtube.com/@…"
+msgstr "https://www.youtube.com/@…"
+
+msgid "TikTok"
+msgstr "TikTok"
+
+msgid "https://www.tiktok.com/@…"
+msgstr "https://www.tiktok.com/@…"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+msgid "https://www.pinterest.com/…"
+msgstr "https://www.pinterest.com/…"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "https://github.com/…"
+msgstr "https://github.com/…"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "https://wa.me/…"
+msgstr "https://wa.me/…"
+
+msgid "Telegram"
+msgstr "Telegram"
+
+msgid "https://t.me/…"
+msgstr "https://t.me/…"
+
+msgid "Items in feeds"
+msgstr "Berichten in feeds"
+
+msgid "How many of the newest items each Atom and RSS feed of the site lists, such as the posts of a news page."
+msgstr "Hoeveel van de nieuwste berichten elke Atom- en RSS-feed van de site toont, zoals die van een nieuwspagina."
+
+msgid "10 items"
+msgstr "10 berichten"
+
+msgid "20 items"
+msgstr "20 berichten"
+
+msgid "50 items"
+msgstr "50 berichten"
+
+msgid "100 items"
+msgstr "100 berichten"
+
+msgid "Getting started"
+msgstr "Aan de slag"
+
+msgid "Step %d of %d"
+msgstr "Stap %d van %d"
+
+msgid "%d of %d steps done"
+msgstr "%d van %d stappen klaar"
+
+msgid "Skip setup for now"
+msgstr "Instellen nu overslaan"
+
+msgid "Setup steps"
+msgstr "Stappen van het instellen"
+
+msgid "Skipped"
+msgstr "Overgeslagen"
+
+msgid "Done"
+msgstr "Klaar"
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Welcome to your new site"
+msgstr "Welkom op je nieuwe website"
+
+msgid "A few steps set up what every site needs: its languages and title, its look, e-mail, its first pages and how its pages protect visitors. Each step saves at once. Skip what you want to do later: Site settings opens this guide again."
+msgstr "Met een paar stappen stel je in wat elke website nodig heeft: de talen en titel, het uiterlijk, e-mail, de eerste pagina's en hoe de pagina's bezoekers beschermen. Elke stap slaat meteen op. Sla over wat je later wilt doen: via Website-instellingen open je deze hulp opnieuw."
+
+msgid "Start"
+msgstr "Beginnen"
+
+msgid "Choose the site's languages and timezone first: the title and tagline are written per language."
+msgstr "Kies eerst de talen en tijdzone van de website: de titel en slogan schrijf je per taal."
+
+msgid "Choose how the site looks. Preview a theme in a new tab, use it, then set its colours and the logo."
+msgstr "Kies hoe de website eruitziet. Bekijk een thema in een nieuw tabblad, gebruik het en stel daarna de kleuren en het logo in."
+
+msgid "The media library has no images yet."
+msgstr "De mediabibliotheek heeft nog geen afbeeldingen."
+
+msgid "Upload a logo"
+msgstr "Upload een logo"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "No sender configured: e-mail is written to the server log, not sent."
+msgstr "Geen afzender ingesteld: e-mail wordt in het serverlog geschreven, niet verstuurd."
+
+msgid "The site sends e-mail with %s."
+msgstr "De website verstuurt e-mail met %s."
+
+msgid "The site sends e-mail with the sender its code sets."
+msgstr "De website verstuurt e-mail met de afzender die de code instelt."
+
+msgid "The site has no public address (BaseURL): links in e-mail use the address each visitor used, and outside local development the admin offers no password reset."
+msgstr "De website heeft geen openbaar adres (BaseURL): links in e-mail gebruiken het adres dat elke bezoeker gebruikte, en buiten lokale ontwikkeling biedt de beheeromgeving geen wachtwoordherstel."
+
+msgid "The sender is set in the site's code or configuration. A test e-mail shows whether e-mail from the site arrives."
+msgstr "De afzender stel je in in de code of configuratie van de website. Een teste-mail laat zien of e-mail van de website aankomt."
+
+msgid "Pages make the parts of the site reachable. A module's page is published below Home at once; the other pages are made as drafts, for you to write first."
+msgstr "Pagina's maken de onderdelen van de website bereikbaar. De pagina van een module wordt meteen onder Home gepubliceerd; de andere pagina's worden als concept gemaakt, zodat je ze eerst kunt schrijven."
+
+msgid "On page %s"
+msgstr "Op pagina %s"
+
+msgid "Modules, such as news or events, are added in the site's code; then they show here."
+msgstr "Modules, zoals nieuws of evenementen, worden in de code van de website toegevoegd; daarna staan ze hier."
+
+msgid "Write the first content"
+msgstr "Schrijf de eerste inhoud"
+
+msgid "Start with Report only: browsers then report what the policy would block, and nothing breaks. Check the server log, then enforce."
+msgstr "Begin met Alleen rapporteren: browsers melden dan wat het beleid zou tegenhouden, en er gaat niets stuk. Controleer het serverlog en kies daarna Afdwingen."
+
+msgid "Your site is set up"
+msgstr "Je website is ingesteld"
+
+msgid "Next steps"
+msgstr "Volgende stappen"
+
+msgid "Write your first page"
+msgstr "Schrijf je eerste pagina"
+
+msgid "Invite editors"
+msgstr "Redacteuren uitnodigen"
+
+msgid "Skip for now"
+msgstr "Nu overslaan"
+
+msgid "Next step"
+msgstr "Volgende stap"
+
+msgid "Continue setup"
+msgstr "Verder met instellen"
+
+msgid "Site"
+msgstr "Website"
+
+msgid "Finish"
+msgstr "Afronden"
+
+msgid "Finish setting up your site"
+msgstr "Maak het instellen van je website af"
+
+msgid "Open the setup guide"
+msgstr "Instelhulp openen"
+
+msgid "Finish setup"
+msgstr "Instellen afronden"
+
+msgid "Setup finished. Site settings opens the guide again."
+msgstr "Instellen afgerond. Via Website-instellingen open je de instelhulp opnieuw."
+
+msgid "Save languages"
+msgstr "Talen opslaan"
+
+msgid "Save and continue"
+msgstr "Opslaan en verder"
+
+msgid "Save colours and settings"
+msgstr "Kleuren en instellingen opslaan"
+
+msgid "Send a test e-mail to %s"
+msgstr "Stuur een teste-mail naar %s"
+
+msgid "Wait half a minute before you send another test e-mail."
+msgstr "Wacht een halve minuut voordat je nog een teste-mail stuurt."
+
+msgid "your site"
+msgstr "je website"
+
+msgid "Test e-mail from %s"
+msgstr "Teste-mail van %s"
+
+msgid "This is a test e-mail from the admin of %s. It arrived, so the site can send e-mail."
+msgstr "Dit is een teste-mail uit de beheeromgeving van %s. Hij is aangekomen, dus de website kan e-mail versturen."
+
+msgid "The test e-mail could not be sent: %s"
+msgstr "De teste-mail kon niet worden verstuurd: %s"
+
+msgid "Test e-mail sent to %s."
+msgstr "Teste-mail verstuurd naar %s."
+
+msgid "Create page"
+msgstr "Pagina maken"
+
+msgid "Title in %s"
+msgstr "Titel in %s"
+
+msgid "Create the ticked pages"
+msgstr "Aangevinkte pagina's maken"
+
+msgid "Enter a title in the default language, or untick the page."
+msgstr "Vul een titel in de standaardtaal in, of vink de pagina uit."
+
+msgid "Another page shows this module already."
+msgstr "Een andere pagina toont deze module al."
+
+msgid "A page with this address exists already, or the title makes no address. Choose another title."
+msgstr "Er bestaat al een pagina met dit adres, of de titel levert geen adres op. Kies een andere titel."
+
+msgid "Pages need a review before they are published. Create this page under Pages, or switch off the review for Pages first."
+msgstr "Pagina's hebben een beoordeling nodig voordat ze worden gepubliceerd. Maak deze pagina onder Pagina's aan, of zet eerst de beoordeling voor Pagina's uit."
+
+msgid "%d page created."
+msgid_plural "%d pages created."
+msgstr[0] "%d pagina gemaakt."
+msgstr[1] "%d pagina's gemaakt."
+
+msgid "No page was ticked: nothing was created."
+msgstr "Er was geen pagina aangevinkt: er is niets gemaakt."
+
+msgid "Made by the setup guide"
+msgstr "Gemaakt door de instelhulp"
+
+msgid "About us"
+msgstr "Over ons"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Privacy"
+msgstr "Privacy"
+
+msgid "Everything is ready — finish setting up"
+msgstr "Alles staat klaar — rond het instellen af"
+
+msgid "All steps done"
+msgstr "Alle stappen klaar"
+
+msgid "Shown by the theme, usually at the top of every page. Upload the image under Media first."
+msgstr "Het thema toont het logo, meestal bovenaan elke pagina. Upload de afbeelding eerst onder Media."
+
+msgid "The small icon in the browser tab. A square image works best. Upload the image under Media first."
+msgstr "Het kleine pictogram in het tabblad van de browser. Een vierkante afbeelding werkt het best. Upload de afbeelding eerst onder Media."
+
+msgid "Shown when a page without an image of its own is shared on social media. Upload the image under Media first."
+msgstr "Wordt getoond als een pagina zonder eigen afbeelding op sociale media wordt gedeeld. Upload de afbeelding eerst onder Media."
+
+msgid "The title for search engines, when it should differ from the site title."
+msgstr "De titel voor zoekmachines, als die anders moet zijn dan de sitetitel."
+
+msgid "A short description of the site for search engines, used on pages without a summary of their own."
+msgstr "Een korte beschrijving van de site voor zoekmachines, gebruikt op pagina's zonder eigen samenvatting."
+
+msgid "Shown at the bottom of every page."
+msgstr "Staat onderaan elke pagina."
+
+msgid "Use this theme on the website? Visitors see it right away."
+msgstr "Dit thema op de website gebruiken? Bezoekers zien het meteen."

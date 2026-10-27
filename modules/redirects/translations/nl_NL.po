@@ -1,0 +1,146 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "301 Moved permanently"
+msgstr "301 Permanent verplaatst"
+
+msgid "302 Found (temporary)"
+msgstr "302 Gevonden (tijdelijk)"
+
+msgid "307 Temporary redirect"
+msgstr "307 Tijdelijke doorverwijzing"
+
+msgid "308 Permanent redirect"
+msgstr "308 Permanente doorverwijzing"
+
+msgid "A path on this site, such as /en/news, or a full URL."
+msgstr "Een pad op deze site, zoals /nl/nieuws, of een volledige URL."
+
+msgid "A redirect for this path already exists."
+msgstr "Er bestaat al een doorverwijzing voor dit pad."
+
+msgid "Add redirect"
+msgstr "Doorverwijzing toevoegen"
+
+msgid "Clear list"
+msgstr "Lijst leegmaken"
+
+msgid "Clear the list of missed paths?"
+msgstr "De lijst met niet gevonden paden wissen?"
+
+msgid "Hits"
+msgstr "Treffers"
+
+msgid "Import"
+msgstr "Importeren"
+
+msgid "Import at most 5000 redirects at a time."
+msgstr "Importeer maximaal 5000 doorverwijzingen tegelijk."
+
+msgid "Import at most 1 MB of redirects at a time."
+msgstr "Importeer maximaal 1 MB aan doorverwijzingen tegelijk."
+
+msgid "Import redirects"
+msgstr "Doorverwijzingen importeren"
+
+msgid "Kind of redirect"
+msgstr "Soort doorverwijzing"
+
+msgid "Last hit"
+msgstr "Laatste treffer"
+
+msgid "Line %d: %s"
+msgstr "Regel %d: %s"
+
+msgid "Missed paths"
+msgstr "Niet gevonden paden"
+
+msgid "Never"
+msgstr "Nooit"
+
+msgid "New address"
+msgstr "Nieuw adres"
+
+msgid "New redirect"
+msgstr "Nieuwe doorverwijzing"
+
+msgid "No redirect for this path."
+msgstr "Geen doorverwijzing voor dit pad."
+
+msgid "Nothing was imported. Correct these lines and try again."
+msgstr "Er is niets geïmporteerd. Verbeter deze regels en probeer het opnieuw."
+
+msgid "Old path"
+msgstr "Oud pad"
+
+msgid "One redirect per line: old path, new address and, optionally, the status (301 when empty). Existing redirects with the same old path are replaced."
+msgstr "Eén doorverwijzing per regel: oud pad, nieuw adres en eventueel de status (301 als die leeg is). Bestaande doorverwijzingen met hetzelfde oude pad worden vervangen."
+
+msgid "Other redirects lead to this path and now take two steps: %s."
+msgstr "Andere doorverwijzingen leiden naar dit pad en nemen nu twee stappen: %s."
+
+msgid "Path"
+msgstr "Pad"
+
+msgid "Paths visitors asked for that do not exist, most requested first. Add a redirect to send them to the right page."
+msgstr "Paden die bezoekers opvroegen maar niet bestaan, de vaakst gevraagde eerst. Voeg een doorverwijzing toe om ze naar de juiste pagina te sturen."
+
+msgid "Redirects"
+msgstr "Doorverwijzingen"
+
+msgid "Redirects again"
+msgstr "Verwijst opnieuw door"
+
+msgid "Redirects imported: %d"
+msgstr "Doorverwijzingen geïmporteerd: %d"
+
+msgid "Test"
+msgstr "Testen"
+
+msgid "Test a path"
+msgstr "Een pad testen"
+
+msgid "The address of the old page. The host and query are ignored."
+msgstr "Het adres van de oude pagina. Host en query worden genegeerd."
+
+msgid "The list was cleared."
+msgstr "De lijst is gewist."
+
+msgid "The new address must be a path on this site, such as /en/news, or a full URL."
+msgstr "Het nieuwe adres moet een pad op deze site zijn, zoals /nl/nieuws, of een volledige URL."
+
+msgid "The new address redirects again, to %s. Point this redirect to the final address."
+msgstr "Het nieuwe adres verwijst opnieuw door, naar %s. Laat deze doorverwijzing naar het uiteindelijke adres wijzen."
+
+msgid "The old path is not valid."
+msgstr "Het oude pad is niet geldig."
+
+msgid "The status must be 301, 302, 307 or 308."
+msgstr "De status moet 301, 302, 307 of 308 zijn."
+
+msgid "There are no redirects to import."
+msgstr "Er zijn geen doorverwijzingen om te importeren."
+
+msgid "This old path is already on an earlier line."
+msgstr "Dit oude pad staat al op een eerdere regel."
+
+msgid "This path belongs to the website itself and cannot be redirected."
+msgstr "Dit pad hoort bij de website zelf en kan niet worden doorverwezen."
+
+msgid "This redirect would lead back to its own path."
+msgstr "Deze doorverwijzing zou terugleiden naar haar eigen pad."
+
+msgid "Use two or three columns: old path, new address, status."
+msgstr "Gebruik twee of drie kolommen: oud pad, nieuw adres, status."
+
+msgid "This redirect cannot be restored: another redirect uses its old path now."
+msgstr "Deze doorverwijzing kan niet worden hersteld: een andere doorverwijzing gebruikt nu hetzelfde oude pad."
+
+msgid "This redirect cannot be restored: it would lead back to its own path."
+msgstr "Deze doorverwijzing kan niet worden hersteld: ze zou terugleiden naar haar eigen pad."
+
+msgid "/old-page"
+msgstr "/oude-pagina"
+
+msgid "/old-page,/en/new-page,301"
+msgstr "/oude-pagina,/nl/nieuwe-pagina,301"

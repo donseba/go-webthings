@@ -1,0 +1,83 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A form can have at most 50 fields with 100 options each."
+msgstr "Een formulier heeft maximaal 50 velden met elk 100 opties."
+
+msgid "A select field needs at least one option."
+msgstr "Een keuzeveld heeft minstens één optie nodig."
+
+msgid "Add at least one field."
+msgstr "Voeg minstens één veld toe."
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Answers"
+msgstr "Antwoorden"
+
+msgid "Archive"
+msgstr "Archiveren"
+
+msgid "Archived"
+msgstr "Gearchiveerd"
+
+msgid "Each field name can be used only once."
+msgstr "Elke veldnaam kan maar één keer worden gebruikt."
+
+msgid "Each field needs a line with a name, a type and a label: name | type | label."
+msgstr "Elk veld heeft een regel nodig met een naam, een type en een label: naam | type | label."
+
+msgid "Each option of a field needs a different value."
+msgstr "Elke optie van een veld heeft een andere waarde nodig."
+
+msgid "Enter one valid e-mail address for notifications, or leave it empty."
+msgstr "Vul één geldig e-mailadres in voor meldingen, of laat het leeg."
+
+msgid "Field names use lowercase letters, digits and underscores, and start with a letter."
+msgstr "Veldnamen bestaan uit kleine letters, cijfers en underscores, en beginnen met een letter."
+
+msgid "Fields"
+msgstr "Velden"
+
+msgid "Introduction"
+msgstr "Inleiding"
+
+msgid "Move back to new"
+msgstr "Weer als nieuw markeren"
+
+msgid "New"
+msgstr "Nieuw"
+
+msgid "New form"
+msgstr "Nieuw formulier"
+
+msgid "New submissions are mailed to this address. Leave empty to only collect them here."
+msgstr "Nieuwe inzendingen worden naar dit adres gemaild. Laat leeg om ze alleen hier te verzamelen."
+
+msgid "Notification e-mail"
+msgstr "E-mailadres voor meldingen"
+
+msgid "One field per line: name | type | label | placeholder | help. Add * after the name of a required field. Types: text, email, textarea, select, checkbox, number, date. Options of a select follow on their own lines: - value | label"
+msgstr "Eén veld per regel: naam | type | label | placeholder | hulptekst. Zet * achter de naam van een verplicht veld. Types: text, email, textarea, select, checkbox, number, date. De opties van een keuzeveld (select) volgen op eigen regels: - waarde | label"
+
+msgid "Option lines (starting with -) belong below a select field."
+msgstr "Optieregels (beginnend met -) horen onder een keuzeveld."
+
+msgid "Received"
+msgstr "Ontvangen"
+
+msgid "Submission"
+msgstr "Inzending"
+
+msgid "Submissions"
+msgstr "Inzendingen"
+
+msgid "Success message"
+msgstr "Bevestigingsbericht"
+
+msgid "This module holds one form. Edit the existing form instead."
+msgstr "Deze module bevat één formulier. Bewerk het bestaande formulier."
+
+msgid "Unknown field type. Use text, email, textarea, select, checkbox, number or date."
+msgstr "Onbekend veldtype. Gebruik text, email, textarea, select, checkbox, number of date."

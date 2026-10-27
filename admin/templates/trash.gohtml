@@ -1,0 +1,82 @@
+{{/* @dot github.com/donseba/go-webthings/admin.TrashView */}}
+{{/* @model Search github.com/donseba/go-webthings/admin.SearchBox */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Trash"}}</h1>
+            <div class="admin-page-actions">{{template "admin-search" Search}}</div>
+        </header>
+        <p class="admin-page-intro">{{tl localizer "Deleted items stay here until you restore them or delete them for good."}}</p>
+
+        {{template "admin-tabs" .Filters}}
+
+        {{/* admin.js disables the buttons while no item is ticked and shows the
+            boxes that tick every item of a section; without it the server
+            refuses an empty selection. */}}
+        <form method="post" action="{{.Action}}" class="space-y-6" data-trash>
+            {{range .Groups}}
+                {{$group := .}}
+                <section class="card">
+                    <h2 class="card-title flex items-center gap-2">
+                        <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#{{.Icon}}"/></svg>
+                        <span>{{.Title}}</span>
+                        <span class="badge">{{.Total}}</span>
+                    </h2>
+                    {{if .Error}}
+                        <p class="text-danger">{{tl localizer "The deleted items of this section could not be listed."}}</p>
+                    {{else}}
+                        <table class="w-full">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" data-trash-all hidden aria-label="{{tl localizer "Select all"}}">
+                                        <span class="sr-only">{{tl localizer "Select"}}</span>
+                                    </th>
+                                    <th>{{tl localizer "Title"}}</th>
+                                    <th>{{tl localizer "Deleted"}}</th>
+                                    <th>{{tl localizer "Deleted by"}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{range .Items}}
+                                    <tr>
+                                        <td class="p-3">
+                                            {{if .Value}}
+                                                <input type="checkbox" name="item" value="{{.Value}}" aria-label="{{tl localizer "Select %s" .Title}}">
+                                            {{end}}
+                                        </td>
+                                        <td class="p-3">
+                                            {{if .URL}}<a href="{{.URL}}">{{.Title}}</a>{{else}}{{.Title}}{{end}}
+                                            {{with .Kind}}<span class="muted"> · {{.}}</span>{{end}}
+                                        </td>
+                                        <td class="p-3"><time datetime="{{.Time}}">{{.When}}</time></td>
+                                        <td class="p-3">{{with .DeletedBy}}{{.}}{{else}}<span class="muted">—</span>{{end}}</td>
+                                    </tr>
+                                {{else}}
+                                    <tr><td class="p-3 muted" colspan="4">{{template "admin-empty" Search}}</td></tr>
+                                {{end}}
+                            </tbody>
+                        </table>
+                        {{with .MoreURL}}
+                            <p class="mt-4"><a href="{{.}}">{{tl localizer "Show all %d" $group.Total}}</a></p>
+                        {{end}}
+                    {{end}}
+                </section>
+            {{else}}
+                <section class="card">
+                    <p class="muted">{{if Search.Text}}{{template "admin-empty" Search}}{{else}}{{tl localizer "The trash is empty."}}{{end}}</p>
+                </section>
+            {{end}}
+
+            {{template "admin-pager" .Pager}}
+
+            {{if .CanChange}}
+                <div class="action-bar">
+                    <button type="submit" class="button" data-trash-action name="action" value="restore">{{tl localizer "Restore selected"}}</button>
+                    <button type="submit" class="button-danger" data-trash-action name="action" value="purge"
+                            {{clientAttrs runtime "submitConfirm" .PurgeQuestion}}>{{tl localizer "Delete selected for good"}}</button>
+                </div>
+            {{end}}
+        </form>
+    </div>
+</main>

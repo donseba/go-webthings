@@ -1,0 +1,45 @@
+{
+  "items": [
+    {
+      "api_url": "https://example.test/api/v1/team/people/<id1>?locale=en",
+      "email": "jane@example.test",
+      "group": "Board",
+      "id": "<id1>",
+      "linkedin": "https://www.linkedin.com/in/jane",
+      "name": "Jane Doe",
+      "phone": "+31 20 123 4567",
+      "photo": {
+        "alt": "Boats in the harbour",
+        "height": 900,
+        "original_url": "https://example.test/media/<id2>.png",
+        "srcset": "https://example.test/media/v/<sig>/<id2>_480x0.webp 480w, https://example.test/media/v/<sig>/<id2>_800x0.webp 800w, https://example.test/media/v/<sig>/<id2>_1200x0.webp 1200w, https://example.test/media/v/<sig>/<id2>_1600x0.webp 1600w",
+        "url": "https://example.test/media/v/<sig>/<id2>_1600x0.webp",
+        "width": 1600
+      },
+      "role": "Chair",
+      "slug": "jane-doe",
+      "updated_at": "<time>",
+      "url": "https://example.test/en/team/jane-doe",
+      "website": "https://jane.example.test"
+    },
+    {
+      "api_url": "https://example.test/api/v1/team/people/<id3>?locale=en",
+      "email": null,
+      "group": "Staff",
+      "id": "<id3>",
+      "linkedin": null,
+      "name": "John Smith",
+      "phone": null,
+      "photo": null,
+      "role": "Developer",
+      "slug": "john-smith",
+      "updated_at": "<time>",
+      "url": "https://example.test/en/team/john-smith",
+      "website": null
+    }
+  ],
+  "limit": 20,
+  "next": null,
+  "offset": 0,
+  "total": 2
+}

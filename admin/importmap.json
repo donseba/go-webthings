@@ -1,0 +1,17 @@
+{
+  "provider": "cdnjs",
+  "packages": [
+    {
+      "name": "htmx",
+      "version": "4.0.0",
+      "require": [{"file": "htmx.esm.min.js", "as": "htmx"}],
+      "license": "https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/LICENSE"
+    },
+    {
+      "name": "editor",
+      "local": true,
+      "require": [{"file": "../editor/prosemirror.js"}],
+      "license": "../editor/LICENSES.txt"
+    }
+  ]
+}

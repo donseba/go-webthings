@@ -1,0 +1,38 @@
+{{/* @dot github.com/donseba/go-webthings/admin.ShellView */}}
+<!doctype html>
+<html lang="{{.Language}}" data-logout="{{route "admin.logout"}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{slot "admin-title"}}
+    {{importmap_script "theme.js"}}
+    {{importmap_style "admin.css"}}
+    {{range .Stylesheets}}{{.}}{{end}}
+    {{importmap}}
+    {{importmap_script "admin.js" "type" "module"}}
+    {{markdownEditor localizer}}
+</head>
+{{/* Links and forms swap the content, submit buttons are disabled while their form is sent, and a 5xx answer swaps only its out-of-band parts, such as the error toast (go-partial's clientAttrs). */}}
+<body class="admin-desktop"{{clientAttrs runtime "inherit" "true" "boost" "on" "target" "#content" "swap" "outerHTML"
+      "disableWhileRequest" "find button[type='submit']" "keepOnServerError" "true"}}>
+    {{slot "admin-header"}}
+
+    <div id="admin-progress" hidden role="progressbar" aria-label="{{tl localizer "Loading"}}"></div>
+
+    {{slot "flash-messages"}}
+
+    <div class="admin-workspace">
+        {{slot "admin-sidebar"}}
+        {{content}}
+    </div>
+
+    {{/* Questions such as "Take this off the website?" are asked here rather than with the browser's window.confirm, which some embedded browsers never show (go-partial's exp/interactions client). */}}
+    <dialog class="confirm-dialog" data-partial-confirm-dialog aria-labelledby="confirm-question">
+        <p id="confirm-question" data-partial-confirm-question></p>
+        <div class="form-actions">
+            <button type="button" class="button-secondary" value="cancel" autofocus>{{tl localizer "Cancel"}}</button>
+            <button type="button" class="button" value="confirm">{{tl localizer "Confirm"}}</button>
+        </div>
+    </dialog>
+</body>
+</html>

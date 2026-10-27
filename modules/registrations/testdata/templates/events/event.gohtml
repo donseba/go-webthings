@@ -1,0 +1,19 @@
+{{/* @dot github.com/donseba/go-webthings/modules/events.Event */}}
+<main id="content"><h1>{{.Title}}</h1>
+{{with registrationResult "signup"}}<p class="result">result: {{.}}</p>{{end}}
+{{with registration "signup" .ID}}
+    {{if .Open}}
+        {{form_open .Form}}
+            {{form_field .Form "subject" nil}}
+            {{form_field .Form "name" nil}} {{form_field .Form "email" nil}}
+            {{form_field .Form "adults" nil}}
+            {{if .AllowChildren}}{{form_field .Form "children" nil}}{{end}}
+        {{form_close}}
+        <p class="prices">adult {{money .Prices.Adult .Currency}} child {{money .Prices.Child .Currency}}</p>
+        {{if .Capacity}}<p class="left">{{.Left}} places left</p>{{end}}
+        {{with .Notes}}<div class="notes">{{.}}</div>{{end}}
+    {{else if .Full}}<p class="full">This event is full.</p>
+    {{else if .Configured}}<p class="closed">Registration is closed.</p>
+    {{else}}<p class="none">No registration.</p>{{end}}
+{{end}}
+</main>

@@ -1,0 +1,11 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.Page */}}
+<main id="content"><h1>{{.Title}}</h1>{{.Body}}
+<p class="count">{{commentCount "remarks" .ID}} comments</p>
+{{range comments "remarks" .ID}}<article class="comment"><strong>{{.Name}}</strong>{{.HTML}}
+{{range .Replies}}<blockquote class="{{if .Staff}}staff{{else}}reply{{end}}"><strong>{{.Name}}</strong>{{.HTML}}</blockquote>{{end}}
+<span class="id">{{.ID}}</span></article>
+{{end}}
+{{with commentResult "remarks"}}<p class="result">{{.}}</p>{{end}}
+{{if commentsClosed "remarks"}}<p class="closed">closed</p>{{else}}
+{{with commentInput "remarks" .ID}}{{form_open .}}{{form_field . "subject" nil}}{{form_field . "name" nil}}{{form_field . "email" nil}}{{form_field . "body" nil}}
+<button>Send</button>{{form_close}}{{end}}{{end}}</main>

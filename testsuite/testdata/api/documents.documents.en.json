@@ -1,0 +1,45 @@
+{
+  "items": [
+    {
+      "api_url": "https://example.test/api/v1/docs/documents/<id1>?locale=en",
+      "category": {
+        "document_count": 1,
+        "documents_url": "https://example.test/api/v1/docs/documents?category=minutes&locale=en",
+        "name": "Minutes",
+        "slug": "minutes",
+        "url": "https://example.test/en/documents/category/minutes"
+      },
+      "date": "2026-03-10T00:00:00Z",
+      "description_html": "<p>Approved the <em>budget</em>.</p>\n",
+      "download_url": "https://example.test/_/docs/<id1>/download",
+      "external": false,
+      "file": {
+        "file_type": "PDF",
+        "filename": "minutes-march.pdf",
+        "mime_type": "application/pdf",
+        "size": 23
+      },
+      "id": "<id1>",
+      "title": "Minutes March",
+      "updated_at": "<time>",
+      "url": "https://example.test/en/documents/category/minutes#<id1>"
+    },
+    {
+      "api_url": "https://example.test/api/v1/docs/documents/<id2>?locale=en",
+      "category": null,
+      "date": "2025-12-01T00:00:00Z",
+      "description_html": "",
+      "download_url": "https://example.test/_/docs/<id2>/download",
+      "external": true,
+      "file": null,
+      "id": "<id2>",
+      "title": "Annual report 2025",
+      "updated_at": "<time>",
+      "url": "https://example.test/en/documents#<id2>"
+    }
+  ],
+  "limit": 20,
+  "next": null,
+  "offset": 0,
+  "total": 2
+}

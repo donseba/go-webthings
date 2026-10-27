@@ -1,0 +1,17 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Categories"
+msgstr "Categories"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "New category"
+msgstr "New category"
+
+msgid "New post"
+msgstr "New post"

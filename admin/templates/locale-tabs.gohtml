@@ -1,0 +1,18 @@
+{{/* @dot []github.com/donseba/go-webthings/admin.LocaleTab */}}
+<nav class="filter-tabs" aria-label="{{tl localizer "Content language"}}">
+    {{range .}}
+        <a href="{{.URL}}" {{if .Active}}aria-current="page"{{end}}>
+            <span lang="{{.Code}}">{{.Name}}</span>
+            {{if not .Overview}}
+                ·
+                {{if .Complete}}
+                    {{tl localizer "Translated"}}
+                {{else if .Started}}
+                    {{tl localizer "Incomplete translation"}}
+                {{else}}
+                    {{tl localizer "Missing translation"}}
+                {{end}}
+            {{end}}
+        </a>
+    {{end}}
+</nav>

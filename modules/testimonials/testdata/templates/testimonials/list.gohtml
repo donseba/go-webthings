@@ -1,0 +1,4 @@
+{{/* @dot github.com/donseba/go-webthings/modules/testimonials.ListView */}}
+<main id="content"><h1>{{.Title}}</h1>
+{{range .Testimonials}}<blockquote>{{with .PhotoURL}}<img src="{{.}}">{{end}}{{.Quote}} — {{.Author}}, {{.Role}}, {{.Organisation}}</blockquote>
+{{end}}</main>

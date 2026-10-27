@@ -1,0 +1,152 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A payment URL or bank details, shown in the confirmation while payment is pending."
+msgstr "Een betaallink of bankgegevens, getoond in de bevestiging zolang de betaling openstaat."
+
+msgid "Admin notes"
+msgstr "Notities voor beheerders"
+
+msgid "Adults"
+msgstr "Volwassenen"
+
+msgid "Adults and children together. 0 means unlimited."
+msgstr "Volwassenen en kinderen samen. 0 betekent onbeperkt."
+
+msgid "Cancel registration"
+msgstr "Aanmelding annuleren"
+
+msgid "Cancelled"
+msgstr "Geannuleerd"
+
+msgid "Children"
+msgstr "Kinderen"
+
+msgid "Children can be registered"
+msgstr "Kinderen kunnen worden aangemeld"
+
+msgid "Choose a payment status."
+msgstr "Kies een betaalstatus."
+
+msgid "Closed"
+msgstr "Gesloten"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Enter a name."
+msgstr "Vul een naam in."
+
+msgid "Enter an amount such as 12.50."
+msgstr "Vul een bedrag in, zoals 12.50."
+
+msgid "Event"
+msgstr "Evenement"
+
+msgid "Export CSV"
+msgstr "CSV exporteren"
+
+msgid "For registrants"
+msgstr "Voor deelnemers"
+
+msgid "Full"
+msgstr "Vol"
+
+msgid "In the site's timezone. Registration for an event closes when it starts when this is empty."
+msgstr "In de tijdzone van de site. Zonder datum sluit de aanmelding voor een evenement wanneer het begint."
+
+msgid "Letters, digits, dashes, dots, colons and underscores, for example a page or product ID. Sign-up forms send it in the subject field."
+msgstr "Letters, cijfers, streepjes, punten, dubbele punten en underscores, bijvoorbeeld een pagina- of product-ID. Aanmeldformulieren sturen het mee in het veld subject."
+
+msgid "New subject"
+msgstr "Nieuw onderwerp"
+
+msgid "No payment"
+msgstr "Geen betaling"
+
+msgid "Notes for registrants"
+msgstr "Informatie voor deelnemers"
+
+msgid "Notes from the registrant"
+msgstr "Opmerkingen van de deelnemer"
+
+msgid "Only visible in the admin."
+msgstr "Alleen zichtbaar in het beheer."
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Open for registration"
+msgstr "Open voor aanmelding"
+
+msgid "Paid"
+msgstr "Betaald"
+
+msgid "Payment"
+msgstr "Betaling"
+
+msgid "Payment link"
+msgstr "Betaallink"
+
+msgid "Pending"
+msgstr "Openstaand"
+
+msgid "Places"
+msgstr "Plaatsen"
+
+msgid "Places taken"
+msgstr "Bezette plaatsen"
+
+msgid "Price per adult"
+msgstr "Prijs per volwassene"
+
+msgid "Price per child"
+msgstr "Prijs per kind"
+
+msgid "Registered"
+msgstr "Aangemeld"
+
+msgid "Registration"
+msgstr "Aanmelding"
+
+msgid "Registration closes"
+msgstr "Aanmelding sluit"
+
+msgid "Registration settings"
+msgstr "Aanmeldinstellingen"
+
+msgid "Registrations"
+msgstr "Aanmeldingen"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Shown in the admin and in e-mail. Events use their own title when empty."
+msgstr "Getoond in het beheer en in e-mails. Evenementen gebruiken hun eigen titel als dit leeg is."
+
+msgid "Shown with the sign-up form, on the registration page and in the confirmation."
+msgstr "Getoond bij het aanmeldformulier, op de aanmeldpagina en in de bevestiging."
+
+msgid "Subject"
+msgstr "Onderwerp"
+
+msgid "Subject ID"
+msgstr "Onderwerp-ID"
+
+msgid "This subject already exists."
+msgstr "Dit onderwerp bestaat al."
+
+msgid "Total"
+msgstr "Totaal"
+
+msgid "Unlimited"
+msgstr "Onbeperkt"
+
+msgid "Use letters, digits, dashes, dots, colons and underscores."
+msgstr "Gebruik letters, cijfers, streepjes, punten, dubbele punten en underscores."
+
+msgid "This registration cannot be restored: not enough places are left."
+msgstr "Deze aanmelding kan niet worden hersteld: er zijn niet genoeg plaatsen meer over."
+
+msgid "0.00"
+msgstr "0,00"

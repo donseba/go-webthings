@@ -1,0 +1,20 @@
+{{/* @dot github.com/donseba/go-webthings/modules/comments.ReplyView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Reply"}}</h1>
+            <div class="admin-page-actions"><a class="button-secondary" href="{{.BackURL}}">{{tl localizer "Back to %s" (tl localizer .Title)}}</a></div>
+        </header>
+
+        <section class="card mb-6">
+            <div class="font-semibold">{{.Name}}</div>
+            <div class="muted text-sm">{{.Date}}</div>
+            <div class="whitespace-pre-wrap mt-4">{{.Body}}</div>
+        </section>
+
+        <section class="card">
+            <p class="muted mb-4">{{tl localizer "The reply is shown right away, signed with the site title, or the organisation name, or your own name when the site has neither."}}</p>
+            {{form_render_localized localizer .Form .Errors}}
+        </section>
+    </div>
+</main>

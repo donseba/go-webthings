@@ -1,0 +1,79 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%d vote"
+msgid_plural "%d votes"
+msgstr[0] "%d vote"
+msgstr[1] "%d votes"
+
+msgid "A poll can have at most 20 options."
+msgstr "A poll can have at most 20 options."
+
+msgid "A poll needs at least two options."
+msgstr "A poll needs at least two options."
+
+msgid "Closed"
+msgstr "Closed"
+
+msgid "Closes at"
+msgstr "Closes at"
+
+msgid "New poll"
+msgstr "New poll"
+
+msgid "One option per line, at least two. Every language lists the options in the same order; add new options at the end."
+msgstr "One option per line, at least two. Every language lists the options in the same order; add new options at the end."
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Option"
+msgstr "Option"
+
+msgid "Option IDs must be unique, not empty and at most 36 characters."
+msgstr "Option IDs must be unique, not empty and at most 36 characters."
+
+msgid "Optional, in the site's timezone. Leave empty to keep the poll open."
+msgstr "Optional, in the site's timezone. Leave empty to keep the poll open."
+
+msgid "Optional: a name for templates, such as favourite-colour."
+msgstr "Optional: a name for templates, such as favourite-colour."
+
+msgid "Options"
+msgstr "Options"
+
+msgid "Options with votes cannot be removed. Reset the votes first."
+msgstr "Options with votes cannot be removed. Reset the votes first."
+
+msgid "Polls"
+msgstr "Polls"
+
+msgid "Question"
+msgstr "Question"
+
+msgid "Reset the votes of this poll? This cannot be undone."
+msgstr "Reset the votes of this poll? This cannot be undone."
+
+msgid "Reset votes"
+msgstr "Reset votes"
+
+msgid "Results"
+msgstr "Results"
+
+msgid "Show results before voting"
+msgstr "Show results before voting"
+
+msgid "The votes were reset."
+msgstr "The votes were reset."
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Votes"
+msgstr "Votes"
+
+msgid "Use lowercase letters, digits and dashes for the short name."
+msgstr "Use lowercase letters, digits and dashes for the short name."
+
+msgid "Short name"
+msgstr "Short name"

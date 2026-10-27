@@ -1,0 +1,59 @@
+{
+  "api_url": "https://example.test/api/v1/pages/<id1>?locale=en",
+  "children": [
+    {
+      "api_url": "https://example.test/api/v1/pages/<id2>?locale=en",
+      "children": [
+        {
+          "api_url": "https://example.test/api/v1/pages/<id3>?locale=en",
+          "children": [],
+          "id": "<id3>",
+          "module": null,
+          "path": "/about/team",
+          "title": "Team",
+          "url": "https://example.test/en/about/team"
+        }
+      ],
+      "id": "<id2>",
+      "module": null,
+      "path": "/about",
+      "title": "About",
+      "url": "https://example.test/en/about"
+    },
+    {
+      "api_url": "https://example.test/api/v1/pages/<id4>?locale=en",
+      "children": [],
+      "id": "<id4>",
+      "module": {
+        "api_base": "https://example.test/api/v1/news",
+        "key": "news",
+        "title": "News",
+        "type": "publishing",
+        "url": "https://example.test/en/news"
+      },
+      "path": "/news",
+      "title": "News",
+      "url": "https://example.test/en/news"
+    },
+    {
+      "api_url": "https://example.test/api/v1/pages/<id5>?locale=en",
+      "children": [],
+      "id": "<id5>",
+      "module": {
+        "api_base": "https://example.test/api/v1/agenda",
+        "key": "agenda",
+        "title": "Agenda",
+        "type": "events",
+        "url": "https://example.test/en/agenda"
+      },
+      "path": "/agenda",
+      "title": "Agenda",
+      "url": "https://example.test/en/agenda"
+    }
+  ],
+  "id": "<id1>",
+  "module": null,
+  "path": "/",
+  "title": "Home",
+  "url": "https://example.test/en/"
+}

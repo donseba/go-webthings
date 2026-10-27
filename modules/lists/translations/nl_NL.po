@@ -1,0 +1,17 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Enter a link starting with https://, mailto: or tel:, or a path starting with /."
+msgstr "Vul een link in die begint met https://, mailto: of tel:, of een pad dat begint met /."
+
+msgid "Image"
+msgstr "Afbeelding"
+
+msgid "New entry"
+msgstr "Nieuw item"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "https://"
+msgstr "https://"

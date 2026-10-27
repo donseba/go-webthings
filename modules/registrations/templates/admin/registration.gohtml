@@ -1,0 +1,51 @@
+{{/* @dot github.com/donseba/go-webthings/modules/registrations.RegistrationAdminView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{.Title}}</h1>
+            <div class="admin-page-actions"><a class="button-secondary" href="{{.BackURL}}">{{tl localizer "Back to %s" (tl localizer "Registrations")}}</a></div>
+        </header>
+
+        <section class="surface border-theme border rounded-xl p-6 mb-6">
+            {{with .Cancelled}}<p class="notice mb-6" role="status">{{tl localizer "Cancelled"}}: {{.}}</p>{{end}}
+
+            {{with .Registration}}
+                <dl class="grid sm:grid-cols-2 gap-4">
+                    <div><dt class="muted text-sm">{{tl localizer "Name"}}</dt><dd>{{.Name}}</dd></div>
+                    <div><dt class="muted text-sm">{{tl localizer "Email"}}</dt><dd class="break-all">{{.Email}}</dd></div>
+                    <div><dt class="muted text-sm">{{tl localizer "Adults"}}</dt><dd>{{.Adults}}</dd></div>
+                    <div><dt class="muted text-sm">{{tl localizer "Children"}}</dt><dd>{{.Children}}</dd></div>
+                    <div><dt class="muted text-sm">{{tl localizer "Total"}}</dt><dd>{{$.Total}}</dd></div>
+                    <div><dt class="muted text-sm">{{tl localizer "Payment"}}</dt><dd>{{$.Payment}}</dd></div>
+                    <div><dt class="muted text-sm">{{tl localizer "Registered"}}</dt><dd>{{$.Date}}</dd></div>
+                    <div><dt class="muted text-sm">{{tl localizer "Language"}}</dt><dd>{{.Locale}}</dd></div>
+                </dl>
+
+                {{with .Notes}}
+                    <div class="mt-6"><p class="muted text-sm">{{tl localizer "Notes from the registrant"}}</p><p class="whitespace-pre-wrap">{{.}}</p></div>
+                {{end}}
+            {{end}}
+        </section>
+
+        {{with .Form}}
+            <section class="surface border-theme border rounded-xl p-6 mb-6">
+                {{form_render_localized localizer . $.Errors}}
+            </section>
+        {{else}}
+            {{with .Registration.AdminNotes}}
+                <section class="surface border-theme border rounded-xl p-6 mb-6">
+                    <p class="muted text-sm">{{tl localizer "Admin notes"}}</p><p class="whitespace-pre-wrap">{{.}}</p>
+                </section>
+            {{end}}
+        {{end}}
+
+        {{if or .Cancel .Delete}}
+            <section class="surface border-theme border rounded-xl p-6">
+                <div class="action-bar">
+                    {{with .Cancel}}{{form_render_localized localizer . nil}}{{end}}
+                    {{with .Delete}}{{form_render_localized localizer . nil}}{{end}}
+                </div>
+            </section>
+        {{end}}
+    </div>
+</main>

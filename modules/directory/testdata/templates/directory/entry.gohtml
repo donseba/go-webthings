@@ -1,0 +1,14 @@
+{{/* @dot github.com/donseba/go-webthings/modules/directory.Entry */}}
+<main id="content"><h1>{{.Name}}</h1>
+<p class="category"><a href="{{.Category.URL}}">{{.Category.Name}}</a></p>
+<p class="summary">{{.Summary}}</p>
+{{.Description}}
+{{with .ImageURL}}<img src="{{.}}" alt="">{{end}}
+<p class="contact">{{.Website}} {{.Email}} {{.Phone}}</p>
+<p class="address">{{.Street}}, {{.Postcode}} {{.City}}</p>
+{{if .HasLocation}}<p class="location">{{.Latitude}},{{.Longitude}}</p>{{end}}
+{{if .Hours.Known}}<ul class="hours">{{range .Hours.Week}}<li>{{.Weekday}}: {{if .Closed}}closed{{else}}{{.Open}}–{{.Close}}{{end}}</li>{{end}}</ul>{{end}}
+{{if .OpenNow}}<p id="open">open now</p>{{end}}
+<p class="note">{{.HoursNote}}</p>
+<p class="keywords">{{range .Keywords}}[{{.}}]{{end}}</p>
+</main>

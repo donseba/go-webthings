@@ -1,0 +1,71 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Alternative text"
+msgstr "Alternatieve tekst"
+
+msgid "Choose a file to upload."
+msgstr "Kies een bestand om te uploaden."
+
+msgid "File"
+msgstr "Bestand"
+
+msgid "Images (JPEG, PNG or GIF), PDF, plain text, CSV, ZIP, Word, Excel, PowerPoint and OpenDocument files, up to %d MB. WebP and SVG are not accepted."
+msgstr "Afbeeldingen (JPEG, PNG of GIF), PDF, platte tekst, CSV, ZIP, Word, Excel, PowerPoint en OpenDocument-bestanden, tot %d MB. WebP en SVG worden niet geaccepteerd."
+
+msgid "Media"
+msgstr "Media"
+
+msgid "No media yet."
+msgstr "Nog geen media."
+
+msgid "Open file"
+msgstr "Bestand openen"
+
+msgid "This file could not be read."
+msgstr "Dit bestand kon niet worden gelezen."
+
+msgid "This file is too large."
+msgstr "Dit bestand is te groot."
+
+msgid "This file type is not supported. Upload JPEG, PNG or GIF images, PDF, plain text, CSV, ZIP, Word, Excel, PowerPoint or OpenDocument files; WebP and SVG are not accepted."
+msgstr "Dit bestandstype wordt niet ondersteund. Upload JPEG-, PNG- of GIF-afbeeldingen, PDF, platte tekst, CSV, ZIP, Word, Excel, PowerPoint of OpenDocument-bestanden; WebP en SVG worden niet geaccepteerd."
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Upload"
+msgstr "Uploaden"
+
+msgid "Upload file"
+msgstr "Bestand uploaden"
+
+msgid "Use in content"
+msgstr "Gebruiken in inhoud"
+
+msgid "This file is used by content, perhaps in the trash, and cannot be deleted."
+msgstr "Dit bestand wordt gebruikt in inhoud, misschien in de prullenbak, en kan niet worden verwijderd."
+
+msgid "This file is still used by content in the trash. Delete that content for good first."
+msgstr "Dit bestand wordt nog gebruikt door inhoud in de prullenbak. Verwijder die inhoud eerst definitief."
+
+msgid "Focal point"
+msgstr "Focuspunt"
+
+msgid "Place the focal point on what matters most in the image: click or drag in the image, or select the marker and use the arrow keys. Every crop keeps it in view, centred where the image allows."
+msgstr "Zet het focuspunt op wat in de afbeelding het belangrijkst is: klik of sleep in de afbeelding, of selecteer de markering en gebruik de pijltjestoetsen. Elke uitsnede houdt het in beeld, gecentreerd waar de afbeelding dat toelaat."
+
+msgid "{x} from the left, {y} from the top"
+msgstr "{x} vanaf links, {y} vanaf boven"
+
+msgid "From the left (%)"
+msgstr "Vanaf links (%)"
+
+msgid "From the top (%)"
+msgstr "Vanaf boven (%)"
+
+msgid "Save focal point"
+msgstr "Focuspunt opslaan"
+
+msgid "Describes the image for visitors who cannot see it, such as people who use a screen reader. Texts that show the image use it unless they give their own."
+msgstr "Beschrijft de afbeelding voor bezoekers die haar niet kunnen zien, zoals mensen die een schermlezer gebruiken. Teksten die de afbeelding tonen, gebruiken deze tekst als ze geen eigen tekst geven."

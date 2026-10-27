@@ -1,0 +1,17 @@
+{{/* Who else is on the page: in the header, and sent alone when the viewers
+     change (see presence.go), as a patch of go-partial's exp/sse that
+     replaces the element. */}}
+{{template "admin-presence" .}}
+
+{{define "admin-presence"}}
+    {{/* @dot github.com/donseba/go-webthings/admin.PresenceView */}}
+    <div id="admin-presence" class="presence"{{if not .Viewers}} hidden{{end}}>
+        {{with .Label}}<span class="sr-only">{{.}}</span>{{end}}
+        {{range .Viewers}}
+            <span class="presence-chip presence-hue-{{.Hue}}" title="{{.Title}}" aria-hidden="true">{{.Initials}}</span>
+        {{end}}
+        {{if .More}}
+            <span class="presence-chip presence-more" title="{{.MoreLabel}}" aria-hidden="true">+{{.More}}</span>
+        {{end}}
+    </div>
+{{end}}

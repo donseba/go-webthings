@@ -1,0 +1,6 @@
+{{/* @dot github.com/donseba/go-webthings/modules/people.ListView */}}
+<main id="content"><h1>{{.Title}}</h1>
+{{range .Groups}}<section><h2>{{.Name}}</h2>
+{{range .People}}<a class="person" href="{{.URL}}">{{.Name}}</a> {{.Role}}{{with .PhotoURL}} <img src="{{.}}">{{end}}
+{{end}}</section>
+{{end}}</main>

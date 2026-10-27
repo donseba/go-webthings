@@ -1,0 +1,71 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Alternative text"
+msgstr "Alternative text"
+
+msgid "Choose a file to upload."
+msgstr "Choose a file to upload."
+
+msgid "File"
+msgstr "File"
+
+msgid "Images (JPEG, PNG or GIF), PDF, plain text, CSV, ZIP, Word, Excel, PowerPoint and OpenDocument files, up to %d MB. WebP and SVG are not accepted."
+msgstr "Images (JPEG, PNG or GIF), PDF, plain text, CSV, ZIP, Word, Excel, PowerPoint and OpenDocument files, up to %d MB. WebP and SVG are not accepted."
+
+msgid "Media"
+msgstr "Media"
+
+msgid "No media yet."
+msgstr "No media yet."
+
+msgid "Open file"
+msgstr "Open file"
+
+msgid "This file could not be read."
+msgstr "This file could not be read."
+
+msgid "This file is too large."
+msgstr "This file is too large."
+
+msgid "This file type is not supported. Upload JPEG, PNG or GIF images, PDF, plain text, CSV, ZIP, Word, Excel, PowerPoint or OpenDocument files; WebP and SVG are not accepted."
+msgstr "This file type is not supported. Upload JPEG, PNG or GIF images, PDF, plain text, CSV, ZIP, Word, Excel, PowerPoint or OpenDocument files; WebP and SVG are not accepted."
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Upload"
+msgstr "Upload"
+
+msgid "Upload file"
+msgstr "Upload file"
+
+msgid "Use in content"
+msgstr "Use in content"
+
+msgid "This file is used by content, perhaps in the trash, and cannot be deleted."
+msgstr "This file is used by content, perhaps in the trash, and cannot be deleted."
+
+msgid "This file is still used by content in the trash. Delete that content for good first."
+msgstr "This file is still used by content in the trash. Delete that content for good first."
+
+msgid "Focal point"
+msgstr "Focal point"
+
+msgid "Place the focal point on what matters most in the image: click or drag in the image, or select the marker and use the arrow keys. Every crop keeps it in view, centred where the image allows."
+msgstr "Place the focal point on what matters most in the image: click or drag in the image, or select the marker and use the arrow keys. Every crop keeps it in view, centred where the image allows."
+
+msgid "{x} from the left, {y} from the top"
+msgstr "{x} from the left, {y} from the top"
+
+msgid "From the left (%)"
+msgstr "From the left (%)"
+
+msgid "From the top (%)"
+msgstr "From the top (%)"
+
+msgid "Save focal point"
+msgstr "Save focal point"
+
+msgid "Describes the image for visitors who cannot see it, such as people who use a screen reader. Texts that show the image use it unless they give their own."
+msgstr "Describes the image for visitors who cannot see it, such as people who use a screen reader. Texts that show the image use it unless they give their own."

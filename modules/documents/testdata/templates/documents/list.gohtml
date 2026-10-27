@@ -1,0 +1,7 @@
+{{/* @dot github.com/donseba/go-webthings/modules/documents.ListView */}}
+<main id="content"><h1>{{.Title}}</h1>
+<nav class="categories"><a class="all" href="{{.AllURL}}">all</a>{{range .Categories}} <a class="category{{if .Active}} active{{end}}" href="{{.URL}}">{{.Name}} ({{.Count}})</a>{{end}}</nav>
+{{range .Years}}<section><h2>{{.Year}}</h2>
+{{range .Documents}}<article><a class="document" href="{{.URL}}">{{.Title}}</a> {{.Date.Format "2006-01-02"}} {{.Category}} {{.FileType}} {{.SizeText}} downloads: {{.Downloads}}{{.Description}}</article>
+{{end}}</section>
+{{end}}</main>

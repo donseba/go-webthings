@@ -1,0 +1,6 @@
+{{/* The toast stack stays in the layout; an HTMX response appends its toasts: the messages of the request's flash store, which go-partial's exp/flash renders with templates/flash.gohtml. Its browser client hides success and info toasts after five seconds, keeps warnings and errors until they are dismissed, and shows the text of flashTargetAttrs for a request that fails, one at a time, cloning the page's flash template of its level ({{flashTemplate}}, which an out-of-band render leaves out), as the admin's flash stage configures it (admin.go): a refusal's own sentence (text/plain) replaces it, and a failed response that brings its own toast (ext/errors' flash, flash.Respond) shows only that. */}}
+<div{{flashTargetAttrs (tl localizer "The request failed. Please try again.")}} {{oobAttr "beforeend"}} class="toast-stack" aria-live="polite" aria-relevant="additions"
+     data-flash-autohide-warn="off">
+    {{flash}}
+    {{flashTemplate}}
+</div>

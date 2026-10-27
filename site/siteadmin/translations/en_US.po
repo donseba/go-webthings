@@ -1,0 +1,583 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A language cannot have the code that one of the website's own addresses starts with, such as the admin's: its pages could not be reached."
+msgstr "A language cannot have the code that one of the website's own addresses starts with, such as the admin's: its pages could not be reached."
+
+msgid "Address"
+msgstr "Address"
+
+msgid "Check the languages and timezone: the default language must be enabled and the timezone must exist."
+msgstr "Check the languages and timezone: the default language must be enabled and the timezone must exist."
+
+msgid "Default language"
+msgstr "Default language"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Favicon"
+msgstr "Favicon"
+
+msgid "Footer"
+msgstr "Footer"
+
+msgid "General"
+msgstr "General"
+
+msgid "In the ticked sections, editors submit changes for review and only revisions a reviewer approved are published, also when scheduled. Reviewers need the Review right (Groups)."
+msgstr "In the ticked sections, editors submit changes for review and only revisions a reviewer approved are published, also when scheduled. Reviewers need the Review right (Groups)."
+
+msgid "Logo"
+msgstr "Logo"
+
+msgid "Organisation"
+msgstr "Organisation"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Review"
+msgstr "Review"
+
+msgid "SEO description"
+msgstr "SEO description"
+
+msgid "SEO title"
+msgstr "SEO title"
+
+msgid "Sections that need a review"
+msgstr "Sections that need a review"
+
+msgid "Site settings"
+msgstr "Site settings"
+
+msgid "Site title"
+msgstr "Site title"
+
+msgid "Social image"
+msgstr "Social image"
+
+msgid "Tagline"
+msgstr "Tagline"
+
+msgid "Texts per language"
+msgstr "Texts per language"
+
+msgid "The selected image no longer exists."
+msgstr "The selected image no longer exists."
+
+msgid "Timezone"
+msgstr "Timezone"
+
+msgid "Theme"
+msgstr "Theme"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Use this theme"
+msgstr "Use this theme"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Settings of %s"
+msgstr "Settings of %s"
+
+msgid "This theme has no settings."
+msgstr "This theme has no settings."
+
+msgid "use a colour like #1a2b3c"
+msgstr "use a colour like #1a2b3c"
+
+msgid "not one of the options"
+msgstr "not one of the options"
+
+msgid "at most 500 characters"
+msgstr "at most 500 characters"
+
+msgid "enter a number"
+msgstr "enter a number"
+
+msgid "the number is out of range"
+msgstr "the number is out of range"
+
+msgid "the number is between two steps"
+msgstr "the number is between two steps"
+
+msgid "Social media profiles"
+msgstr "Social media profiles"
+
+msgid "The addresses of the site's profiles. Templates show them as links, for example in the footer; leave a network empty to leave it out."
+msgstr "The addresses of the site's profiles. Templates show them as links, for example in the footer; leave a network empty to leave it out."
+
+msgid "Enter a web address, such as https://example.com/name."
+msgstr "Enter a web address, such as https://example.com/name."
+
+msgid "Languages"
+msgstr "Languages"
+
+msgid "Other languages"
+msgstr "Other languages"
+
+msgid "Codes of languages that are not listed, comma separated, such as af or pt-BR."
+msgstr "Codes of languages that are not listed, comma separated, such as af or pt-BR."
+
+msgid "Choose the default language."
+msgstr "Choose the default language."
+
+msgid "One of the ticked languages."
+msgstr "One of the ticked languages."
+
+msgid "Tick the default language under Languages as well."
+msgstr "Tick the default language under Languages as well."
+
+msgid "Choose a timezone."
+msgstr "Choose a timezone."
+
+msgid "Performance"
+msgstr "Performance"
+
+msgid "How the site is sent to visitors: compressed, and how long browsers and caches may keep its pages."
+msgstr "How the site is sent to visitors: compressed, and how long browsers and caches may keep its pages."
+
+msgid "Compress responses"
+msgstr "Compress responses"
+
+msgid "Send pages, stylesheets and scripts compressed (gzip) to browsers that accept it. Images and video are compressed already."
+msgstr "Send pages, stylesheets and scripts compressed (gzip) to browsers that accept it. Images and video are compressed already."
+
+msgid "Browsers and caches keep pages for"
+msgstr "Browsers and caches keep pages for"
+
+msgid "How long visitors' browsers and caches may show a page without asking the site. With no time they ask every time, and an unchanged page costs little. Changes show after at most this time; signed-in editors always see the latest pages."
+msgstr "How long visitors' browsers and caches may show a page without asking the site. With no time they ask every time, and an unchanged page costs little. Changes show after at most this time; signed-in editors always see the latest pages."
+
+msgid "Then show the kept page while refreshing"
+msgstr "Then show the kept page while refreshing"
+
+msgid "After that time, how long a cache may still show the kept page while it fetches a fresh one, so visitors do not wait."
+msgstr "After that time, how long a cache may still show the kept page while it fetches a fresh one, so visitors do not wait."
+
+msgid "No time, ask every time"
+msgstr "No time, ask every time"
+
+msgid "No time"
+msgstr "No time"
+
+msgid "1 minute"
+msgstr "1 minute"
+
+msgid "5 minutes"
+msgstr "5 minutes"
+
+msgid "10 minutes"
+msgstr "10 minutes"
+
+msgid "15 minutes"
+msgstr "15 minutes"
+
+msgid "1 hour"
+msgstr "1 hour"
+
+msgid "1 day"
+msgstr "1 day"
+
+msgid "The site keeps pages in memory for"
+msgstr "The site keeps pages in memory for"
+
+msgid "The site keeps the pages it sends visitors in memory and sends them again without making them anew. Changes made on this server show at once, in the admin and when content is published at its planned time. Changes made by another server of the site, and what changes with time alone, such as an event that has passed, show after at most this time. Signed-in editors, and visitors who sent a form, always get a fresh page."
+msgstr "The site keeps the pages it sends visitors in memory and sends them again without making them anew. Changes made on this server show at once, in the admin and when content is published at its planned time. Changes made by another server of the site, and what changes with time alone, such as an event that has passed, show after at most this time. Signed-in editors, and visitors who sent a form, always get a fresh page."
+
+msgid "Memory for kept pages"
+msgstr "Memory for kept pages"
+
+msgid "The most memory the kept pages take; the pages not asked for the longest are dropped first."
+msgstr "The most memory the kept pages take; the pages not asked for the longest are dropped first."
+
+msgid "Off"
+msgstr "Off"
+
+msgid "10 seconds"
+msgstr "10 seconds"
+
+msgid "8 MB"
+msgstr "8 MB"
+
+msgid "32 MB"
+msgstr "32 MB"
+
+msgid "64 MB"
+msgstr "64 MB"
+
+msgid "128 MB"
+msgstr "128 MB"
+
+msgid "256 MB"
+msgstr "256 MB"
+
+msgid "Only administrators can switch the review workflow on or off."
+msgstr "Only administrators can switch the review workflow on or off."
+
+msgid "Only administrators can change the security settings."
+msgstr "Only administrators can change the security settings."
+
+msgid "Set by the server configuration."
+msgstr "Set by the server configuration."
+
+msgid "Security"
+msgstr "Security"
+
+msgid "How the site's pages protect visitors in their browser."
+msgstr "How the site's pages protect visitors in their browser."
+
+msgid "Other sites may embed pages"
+msgstr "Other sites may embed pages"
+
+msgid "Whether other sites may show the site's pages in a frame, such as an iframe. Allowing only this site keeps other sites from hiding a page under their own to trick visitors into clicking."
+msgstr "Whether other sites may show the site's pages in a frame, such as an iframe. Allowing only this site keeps other sites from hiding a page under their own to trick visitors into clicking."
+
+msgid "No, only this site"
+msgstr "No, only this site"
+
+msgid "Yes, any site"
+msgstr "Yes, any site"
+
+msgid "No, not even this site"
+msgstr "No, not even this site"
+
+msgid "Content-Security-Policy"
+msgstr "Content-Security-Policy"
+
+msgid "Lets browsers run only the scripts and styles the site serves itself, which blocks most code injected into a page. Report only blocks nothing: browsers report what the policy would block, and the site writes it to its log. Check the log, then enforce. A theme with styles or scripts written into its pages needs changes first."
+msgstr "Lets browsers run only the scripts and styles the site serves itself, which blocks most code injected into a page. Report only blocks nothing: browsers report what the policy would block, and the site writes it to its log. Check the log, then enforce. A theme with styles or scripts written into its pages needs changes first."
+
+msgid "Report only, block nothing"
+msgstr "Report only, block nothing"
+
+msgid "Enforce"
+msgstr "Enforce"
+
+msgid "Outside sources"
+msgstr "Outside sources"
+
+msgid "Other sites the pages may load from, one directive per line followed by addresses, such as frame-src https://www.youtube-nocookie.com for embedded videos. Directives: img-src, media-src, font-src, style-src, script-src, connect-src, frame-src, worker-src, manifest-src and form-action. The site's own files and its media storage are always allowed."
+msgstr "Other sites the pages may load from, one directive per line followed by addresses, such as frame-src https://www.youtube-nocookie.com for embedded videos. Directives: img-src, media-src, font-src, style-src, script-src, connect-src, frame-src, worker-src, manifest-src and form-action. The site's own files and its media storage are always allowed."
+
+msgid "Each line needs a directive, such as frame-src, and addresses, such as https://www.youtube-nocookie.com. Inline code, eval and every site (*) cannot be allowed."
+msgstr "Each line needs a directive, such as frame-src, and addresses, such as https://www.youtube-nocookie.com. Inline code, eval and every site (*) cannot be allowed."
+
+msgid "Facebook"
+msgstr "Facebook"
+
+msgid "https://www.facebook.com/…"
+msgstr "https://www.facebook.com/…"
+
+msgid "Instagram"
+msgstr "Instagram"
+
+msgid "https://www.instagram.com/…"
+msgstr "https://www.instagram.com/…"
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "https://www.linkedin.com/company/…"
+msgstr "https://www.linkedin.com/company/…"
+
+msgid "X"
+msgstr "X"
+
+msgid "https://x.com/…"
+msgstr "https://x.com/…"
+
+msgid "Mastodon"
+msgstr "Mastodon"
+
+msgid "https://mastodon.social/@…"
+msgstr "https://mastodon.social/@…"
+
+msgid "Bluesky"
+msgstr "Bluesky"
+
+msgid "https://bsky.app/profile/…"
+msgstr "https://bsky.app/profile/…"
+
+msgid "Threads"
+msgstr "Threads"
+
+msgid "https://www.threads.net/@…"
+msgstr "https://www.threads.net/@…"
+
+msgid "YouTube"
+msgstr "YouTube"
+
+msgid "https://www.youtube.com/@…"
+msgstr "https://www.youtube.com/@…"
+
+msgid "TikTok"
+msgstr "TikTok"
+
+msgid "https://www.tiktok.com/@…"
+msgstr "https://www.tiktok.com/@…"
+
+msgid "Pinterest"
+msgstr "Pinterest"
+
+msgid "https://www.pinterest.com/…"
+msgstr "https://www.pinterest.com/…"
+
+msgid "GitHub"
+msgstr "GitHub"
+
+msgid "https://github.com/…"
+msgstr "https://github.com/…"
+
+msgid "WhatsApp"
+msgstr "WhatsApp"
+
+msgid "https://wa.me/…"
+msgstr "https://wa.me/…"
+
+msgid "Telegram"
+msgstr "Telegram"
+
+msgid "https://t.me/…"
+msgstr "https://t.me/…"
+
+msgid "Items in feeds"
+msgstr "Items in feeds"
+
+msgid "How many of the newest items each Atom and RSS feed of the site lists, such as the posts of a news page."
+msgstr "How many of the newest items each Atom and RSS feed of the site lists, such as the posts of a news page."
+
+msgid "10 items"
+msgstr "10 items"
+
+msgid "20 items"
+msgstr "20 items"
+
+msgid "50 items"
+msgstr "50 items"
+
+msgid "100 items"
+msgstr "100 items"
+
+msgid "Getting started"
+msgstr "Getting started"
+
+msgid "Step %d of %d"
+msgstr "Step %d of %d"
+
+msgid "%d of %d steps done"
+msgstr "%d of %d steps done"
+
+msgid "Skip setup for now"
+msgstr "Skip setup for now"
+
+msgid "Setup steps"
+msgstr "Setup steps"
+
+msgid "Skipped"
+msgstr "Skipped"
+
+msgid "Done"
+msgstr "Done"
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Welcome to your new site"
+msgstr "Welcome to your new site"
+
+msgid "A few steps set up what every site needs: its languages and title, its look, e-mail, its first pages and how its pages protect visitors. Each step saves at once. Skip what you want to do later: Site settings opens this guide again."
+msgstr "A few steps set up what every site needs: its languages and title, its look, e-mail, its first pages and how its pages protect visitors. Each step saves at once. Skip what you want to do later: Site settings opens this guide again."
+
+msgid "Start"
+msgstr "Start"
+
+msgid "Choose the site's languages and timezone first: the title and tagline are written per language."
+msgstr "Choose the site's languages and timezone first: the title and tagline are written per language."
+
+msgid "Choose how the site looks. Preview a theme in a new tab, use it, then set its colours and the logo."
+msgstr "Choose how the site looks. Preview a theme in a new tab, use it, then set its colours and the logo."
+
+msgid "The media library has no images yet."
+msgstr "The media library has no images yet."
+
+msgid "Upload a logo"
+msgstr "Upload a logo"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "No sender configured: e-mail is written to the server log, not sent."
+msgstr "No sender configured: e-mail is written to the server log, not sent."
+
+msgid "The site sends e-mail with %s."
+msgstr "The site sends e-mail with %s."
+
+msgid "The site sends e-mail with the sender its code sets."
+msgstr "The site sends e-mail with the sender its code sets."
+
+msgid "The site has no public address (BaseURL): links in e-mail use the address each visitor used, and outside local development the admin offers no password reset."
+msgstr "The site has no public address (BaseURL): links in e-mail use the address each visitor used, and outside local development the admin offers no password reset."
+
+msgid "The sender is set in the site's code or configuration. A test e-mail shows whether e-mail from the site arrives."
+msgstr "The sender is set in the site's code or configuration. A test e-mail shows whether e-mail from the site arrives."
+
+msgid "Pages make the parts of the site reachable. A module's page is published below Home at once; the other pages are made as drafts, for you to write first."
+msgstr "Pages make the parts of the site reachable. A module's page is published below Home at once; the other pages are made as drafts, for you to write first."
+
+msgid "On page %s"
+msgstr "On page %s"
+
+msgid "Modules, such as news or events, are added in the site's code; then they show here."
+msgstr "Modules, such as news or events, are added in the site's code; then they show here."
+
+msgid "Write the first content"
+msgstr "Write the first content"
+
+msgid "Start with Report only: browsers then report what the policy would block, and nothing breaks. Check the server log, then enforce."
+msgstr "Start with Report only: browsers then report what the policy would block, and nothing breaks. Check the server log, then enforce."
+
+msgid "Your site is set up"
+msgstr "Your site is set up"
+
+msgid "Next steps"
+msgstr "Next steps"
+
+msgid "Write your first page"
+msgstr "Write your first page"
+
+msgid "Invite editors"
+msgstr "Invite editors"
+
+msgid "Skip for now"
+msgstr "Skip for now"
+
+msgid "Next step"
+msgstr "Next step"
+
+msgid "Continue setup"
+msgstr "Continue setup"
+
+msgid "Site"
+msgstr "Site"
+
+msgid "Finish"
+msgstr "Finish"
+
+msgid "Finish setting up your site"
+msgstr "Finish setting up your site"
+
+msgid "Open the setup guide"
+msgstr "Open the setup guide"
+
+msgid "Finish setup"
+msgstr "Finish setup"
+
+msgid "Setup finished. Site settings opens the guide again."
+msgstr "Setup finished. Site settings opens the guide again."
+
+msgid "Save languages"
+msgstr "Save languages"
+
+msgid "Save and continue"
+msgstr "Save and continue"
+
+msgid "Save colours and settings"
+msgstr "Save colours and settings"
+
+msgid "Send a test e-mail to %s"
+msgstr "Send a test e-mail to %s"
+
+msgid "Wait half a minute before you send another test e-mail."
+msgstr "Wait half a minute before you send another test e-mail."
+
+msgid "your site"
+msgstr "your site"
+
+msgid "Test e-mail from %s"
+msgstr "Test e-mail from %s"
+
+msgid "This is a test e-mail from the admin of %s. It arrived, so the site can send e-mail."
+msgstr "This is a test e-mail from the admin of %s. It arrived, so the site can send e-mail."
+
+msgid "The test e-mail could not be sent: %s"
+msgstr "The test e-mail could not be sent: %s"
+
+msgid "Test e-mail sent to %s."
+msgstr "Test e-mail sent to %s."
+
+msgid "Create page"
+msgstr "Create page"
+
+msgid "Title in %s"
+msgstr "Title in %s"
+
+msgid "Create the ticked pages"
+msgstr "Create the ticked pages"
+
+msgid "Enter a title in the default language, or untick the page."
+msgstr "Enter a title in the default language, or untick the page."
+
+msgid "Another page shows this module already."
+msgstr "Another page shows this module already."
+
+msgid "A page with this address exists already, or the title makes no address. Choose another title."
+msgstr "A page with this address exists already, or the title makes no address. Choose another title."
+
+msgid "Pages need a review before they are published. Create this page under Pages, or switch off the review for Pages first."
+msgstr "Pages need a review before they are published. Create this page under Pages, or switch off the review for Pages first."
+
+msgid "%d page created."
+msgid_plural "%d pages created."
+msgstr[0] "%d page created."
+msgstr[1] "%d pages created."
+
+msgid "No page was ticked: nothing was created."
+msgstr "No page was ticked: nothing was created."
+
+msgid "Made by the setup guide"
+msgstr "Made by the setup guide"
+
+msgid "About us"
+msgstr "About us"
+
+msgid "Contact"
+msgstr "Contact"
+
+msgid "Privacy"
+msgstr "Privacy"
+
+msgid "Everything is ready — finish setting up"
+msgstr "Everything is ready — finish setting up"
+
+msgid "All steps done"
+msgstr "All steps done"
+
+msgid "Shown by the theme, usually at the top of every page. Upload the image under Media first."
+msgstr "Shown by the theme, usually at the top of every page. Upload the image under Media first."
+
+msgid "The small icon in the browser tab. A square image works best. Upload the image under Media first."
+msgstr "The small icon in the browser tab. A square image works best. Upload the image under Media first."
+
+msgid "Shown when a page without an image of its own is shared on social media. Upload the image under Media first."
+msgstr "Shown when a page without an image of its own is shared on social media. Upload the image under Media first."
+
+msgid "The title for search engines, when it should differ from the site title."
+msgstr "The title for search engines, when it should differ from the site title."
+
+msgid "A short description of the site for search engines, used on pages without a summary of their own."
+msgstr "A short description of the site for search engines, used on pages without a summary of their own."
+
+msgid "Shown at the bottom of every page."
+msgstr "Shown at the bottom of every page."
+
+msgid "Use this theme on the website? Visitors see it right away."
+msgstr "Use this theme on the website? Visitors see it right away."

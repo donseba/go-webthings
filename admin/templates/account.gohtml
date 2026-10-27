@@ -1,0 +1,24 @@
+{{/* @dot github.com/donseba/go-webthings/admin.AccountView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Your account"}}</h1>
+        </header>
+
+        <div class="grid lg:grid-cols-3 gap-6 items-start">
+            <section class="surface border-theme border rounded-xl p-6">
+                <h2 class="text-xl font-semibold break-all mb-5">{{.Email}}</h2>
+                <dl class="grid gap-4">
+                    <div><dt class="muted text-sm">{{tl localizer "Name"}}</dt><dd>{{.Name}}</dd></div>
+                    <div><dt class="muted text-sm">{{tl localizer "Role"}}</dt><dd>{{.Role}}</dd></div>
+                </dl>
+            </section>
+
+            <section class="lg:col-span-2 surface border-theme border rounded-xl p-6">
+                <h2 class="text-xl font-semibold mb-4">{{tl localizer "Change password"}}</h2>
+                <p class="muted text-sm mb-4">{{tl localizer "Your other sessions are signed out when you change your password."}}</p>
+                {{form_render_localized localizer .Password .Errors}}
+            </section>
+        </div>
+    </div>
+</main>

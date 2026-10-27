@@ -1,0 +1,4 @@
+{{/* @dot github.com/donseba/go-webthings/modules/lists.ListView */}}
+<main id="content"><h1>{{.Title}}</h1>
+{{range .Entries}}<section class="entry" id="{{.ID}}"><h2>{{.Title}}</h2>{{.Body}}{{with .Link}}<a href="{{.}}">more</a>{{end}}</section>
+{{end}}</main>

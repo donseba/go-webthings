@@ -1,0 +1,10 @@
+msgid ""
+msgstr ""
+"Language: nl\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "We received your proposal"
+msgstr "We hebben je voorstel ontvangen"
+
+msgid "Hello %s,"
+msgstr "Hallo %s,"

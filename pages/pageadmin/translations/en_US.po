@@ -1,0 +1,106 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "Broken links"
+msgstr "Broken links"
+
+msgid "Choose a parent page."
+msgstr "Choose a parent page."
+
+msgid "Create redirect"
+msgstr "Create redirect"
+
+msgid "Drag to move"
+msgstr "Drag to move"
+
+msgid "Give the page a web address of lowercase letters, digits and dashes, or a title it can be made from."
+msgstr "Give the page a web address of lowercase letters, digits and dashes, or a title it can be made from."
+
+msgid "Home"
+msgstr "Home"
+
+msgid "Linked from"
+msgstr "Linked from"
+
+msgid "Links in published pages and module content that lead to an address where the website has no page. Fix the link in the content, publish the page again, or redirect the address."
+msgstr "Links in published pages and module content that lead to an address where the website has no page. Fix the link in the content, publish the page again, or redirect the address."
+
+msgid "Module: %s"
+msgstr "Module: %s"
+
+msgid "No broken links: every link in published content leads to a page."
+msgstr "No broken links: every link in published content leads to a page."
+
+msgid "No page has this address."
+msgstr "No page has this address."
+
+msgid "Published items link to this page. Move it to the trash anyway?"
+msgstr "Published items link to this page. Move it to the trash anyway?"
+
+msgid "Published items link to this page. Unpublish it anyway?"
+msgstr "Published items link to this page. Unpublish it anyway?"
+
+msgid "Publishing this revision changes the address of the page and of the pages below it."
+msgstr "Publishing this revision changes the address of the page and of the pages below it."
+
+msgid "Redirect saved."
+msgstr "Redirect saved."
+
+msgid "The address does not start with a language of the website."
+msgstr "The address does not start with a language of the website."
+
+msgid "The home page always stays on the website: it cannot be unpublished, scheduled to be unpublished or deleted."
+msgstr "The home page always stays on the website: it cannot be unpublished, scheduled to be unpublished or deleted."
+
+msgid "The new place is saved as a draft. Publish the page to move it on the website; its address changes then."
+msgstr "The new place is saved as a draft. Publish the page to move it on the website; its address changes then."
+
+msgid "The page with this address is in the trash."
+msgstr "The page with this address is in the trash."
+
+msgid "The page with this address is not published."
+msgstr "The page with this address is not published."
+
+msgid "The website's menu follows this order. Moving a page up or down changes the menu at once."
+msgstr "The website's menu follows this order. Moving a page up or down changes the menu at once."
+
+msgid "This address cannot be redirected to that page."
+msgstr "This address cannot be redirected to that page."
+
+msgid "Unpublishing the page, moving it to the trash or changing its address breaks these links."
+msgstr "Unpublishing the page, moving it to the trash or changing its address breaks these links."
+
+msgid "With the Redirects module, you can redirect such an address to another page here."
+msgstr "With the Redirects module, you can redirect such an address to another page here."
+
+msgid "Dragging a page by its handle between other pages does the same; dropping it onto a page places it below that page."
+msgstr "Dragging a page by its handle between other pages does the same; dropping it onto a page places it below that page."
+
+msgid "You need the right to create redirects."
+msgstr "You need the right to create redirects."
+
+msgid "%d published item links to this page."
+msgid_plural "%d published items link to this page."
+msgstr[0] "%d published item links to this page."
+msgstr[1] "%d published items link to this page."
+
+msgid "Shows on this page"
+msgstr "Shows on this page"
+
+msgid "Nothing, a normal page"
+msgstr "Nothing, a normal page"
+
+msgid "None (top level)"
+msgstr "None (top level)"
+
+msgid "The page this page sits below, in the menu and in its address."
+msgstr "The page this page sits below, in the menu and in its address."
+
+msgid "A module, such as news or events, can show its content on this page. Such a page cannot have child pages."
+msgstr "A module, such as news or events, can show its content on this page. Such a page cannot have child pages."
+
+msgid "Other changes to a page, also a new parent page, are saved as a draft and reach the website when you publish the page."
+msgstr "Other changes to a page, also a new parent page, are saved as a draft and reach the website when you publish the page."

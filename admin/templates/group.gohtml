@@ -1,0 +1,74 @@
+{{/* @dot github.com/donseba/go-webthings/admin.MatrixView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{.Name}}</h1>
+            <div class="admin-page-actions"><a class="button-secondary" href="{{route "admin.groups.index"}}">{{tl localizer "Back to %s" (tl localizer "Groups")}}</a></div>
+        </header>
+
+        <div class="surface border-theme border rounded-xl p-6">
+            {{form_open_localized localizer .Form}}
+            <div class="mb-6">{{form_field_localized localizer .Form "name" .Errors}}</div>
+
+            {{/* The select-all boxes are hidden until admin.js makes them work. */}}
+            <table class="w-full rights-matrix" data-rights-matrix>
+                <thead>
+                    <tr>
+                        <th class="text-left">
+                            <label class="matrix-toggle">
+                                <input type="checkbox" data-matrix-all hidden aria-label="{{tl localizer "Select all"}}">
+                                <span>{{tl localizer "Section"}}</span>
+                            </label>
+                        </th>
+                        {{range .Actions}}
+                            <th class="text-center">
+                                <label class="matrix-toggle matrix-column">
+                                    <span>{{.}}</span>
+                                    <input type="checkbox" data-matrix-column hidden aria-label="{{tl localizer "%s for all sections" .}}">
+                                </label>
+                            </th>
+                        {{end}}
+                    </tr>
+                </thead>
+                {{range .Groups}}
+                    <tbody data-matrix-group>
+                        {{with .Name}}
+                            <tr class="matrix-group">
+                                <th scope="rowgroup" class="text-left" colspan="{{$.Columns}}">
+                                    <label class="matrix-toggle">
+                                        <input type="checkbox" data-matrix-group-toggle hidden aria-label="{{tl localizer "All rights for %s" .}}">
+                                        <span>{{.}}</span>
+                                    </label>
+                                </th>
+                            </tr>
+                        {{end}}
+                        {{range .Rows}}
+                            <tr data-matrix-row>
+                                <th scope="row" class="text-left">
+                                    <label class="matrix-toggle">
+                                        <input type="checkbox" data-matrix-row-toggle hidden aria-label="{{tl localizer "All rights for %s" .Title}}">
+                                        <span>{{.Title}}</span>
+                                    </label>
+                                </th>
+                                {{$title := .Title}}
+                                {{range $i, $cell := .Cells}}
+                                    <td class="text-center">
+                                        {{if not .Unavailable}}
+                                            <input type="checkbox" name="allow" value="{{.Value}}" data-matrix-cell
+                                                   aria-label="{{$title}}: {{index $.Actions $i}}" {{if .Allowed}}checked{{end}}>
+                                        {{end}}
+                                    </td>
+                                {{end}}
+                            </tr>
+                        {{end}}
+                    </tbody>
+                {{end}}
+            </table>
+
+            {{form_buttons_localized localizer .Form}}
+            {{form_close}}
+        </div>
+
+        <div class="action-bar">{{form_render_localized localizer .Delete nil}}</div>
+    </div>
+</main>

@@ -1,0 +1,32 @@
+{{/* @dot github.com/donseba/go-webthings/admin.AttentionPanel */}}
+<section id="dashboard-attention" class="dashboard-panel" aria-labelledby="dashboard-attention-title">
+    {{template "dashboard-panel-title" .Heading}}
+
+    {{if or .Reviews .Sections}}
+        <ul class="dashboard-list">
+            {{range .Reviews}}
+                <li class="dashboard-row">
+                    <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#{{.Icon}}"/></svg>
+                    <div class="dashboard-row-main">
+                        <a href="{{.URL}}">{{.Title}}</a>
+                        <span class="dashboard-meta">{{.Section}} · {{tl localizer "Waiting for review"}}{{with .Author}} · {{tl localizer "by %s" .}}{{end}}</span>
+                    </div>
+                    <time class="dashboard-time" datetime="{{.Time}}">{{.When}}</time>
+                </li>
+            {{end}}
+            {{range .Sections}}
+                <li>
+                    <a class="dashboard-row" href="{{.Path}}">
+                        <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#{{.Icon}}"/></svg>
+                        <span class="dashboard-row-main">{{.Title}}</span>
+                        <span class="nav-badge">{{.Badge}}</span>
+                    </a>
+                </li>
+            {{end}}
+        </ul>
+    {{else if not .Failed}}
+        <p class="dashboard-empty">{{tl localizer "Nothing needs your attention."}}</p>
+    {{end}}
+
+    {{template "dashboard-failed" .PanelState}}
+</section>

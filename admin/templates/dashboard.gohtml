@@ -1,0 +1,61 @@
+{{/* @dot github.com/donseba/go-webthings/admin.DashboardView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Dashboard"}}</h1>
+
+            <div class="admin-page-actions">
+                {{range .Actions}}
+                    <a class="button-secondary" href="{{.URL}}" title="{{.Section}}">
+                        <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#plus"/></svg>
+                        <span>{{.Label}}</span>
+                    </a>
+                {{end}}
+
+                {{if .More}}
+                    <details class="action-menu">
+                        <summary class="button-secondary">
+                            <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#plus"/></svg>
+                            <span>{{tl localizer "New…"}}</span>
+                        </summary>
+
+                        <div class="action-menu-panel">
+                            {{range .More}}
+                                <p class="sidebar-label">{{.Name}}</p>
+                                {{range .Actions}}
+                                    <a href="{{.URL}}"><span>{{.Label}}</span><span class="muted">{{.Section}}</span></a>
+                                {{end}}
+                            {{end}}
+                        </div>
+                    </details>
+                {{end}}
+
+                <a class="button" href="{{.WebsiteURL}}" target="_blank" rel="noopener">
+                    <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#external"/></svg>
+                    <span>{{tl localizer "View website"}}</span>
+                </a>
+            </div>
+        </header>
+
+        {{range .Callouts}}
+            <section class="dashboard-callout">
+                <div class="dashboard-callout-text">
+                    <h2 class="dashboard-callout-title">{{.Title}}</h2>
+                    {{with .Text}}<p class="muted">{{.}}</p>{{end}}
+                    {{if .Total}}<progress class="dashboard-callout-progress" value="{{.Done}}" max="{{.Total}}">{{.Done}} / {{.Total}}</progress>{{end}}
+                </div>
+                <a class="button" href="{{.URL}}">{{tl localizer (or .Action "Continue")}}</a>
+            </section>
+        {{end}}
+
+        {{/* The panels, deferred fragments: placeholders that load them (see dashboard.go). */}}
+        <div class="dashboard-grid">
+            {{requiredSlot "dashboard-recent"}}
+
+            <div class="dashboard-side">
+                {{requiredSlot "dashboard-attention"}}
+                {{requiredSlot "dashboard-scheduled"}}
+            </div>
+        </div>
+    </div>
+</main>

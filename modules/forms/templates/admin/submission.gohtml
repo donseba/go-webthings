@@ -1,0 +1,30 @@
+{{/* @dot github.com/donseba/go-webthings/modules/forms.SubmissionView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{.Date}}</h1>
+            <div class="admin-page-actions"><a class="button-secondary" href="{{.BackURL}}">{{tl localizer "Back to %s" (tl localizer "Submissions")}}</a></div>
+        </header>
+
+        <section class="surface border-theme border rounded-xl p-6">
+            <dl class="grid gap-5">
+                <div><dt class="muted text-sm">{{tl localizer "Language"}}</dt><dd>{{.Locale}}</dd></div>
+                <div>
+                    <dt class="muted text-sm">{{tl localizer "Status"}}</dt>
+                    <dd>{{if .Archived}}{{tl localizer "Archived"}}{{else}}{{tl localizer "New"}}{{end}}</dd>
+                </div>
+                {{range .Answers}}
+                    <div><dt class="muted text-sm">{{.Label}}</dt><dd class="whitespace-pre-wrap">{{.Value}}</dd></div>
+                {{end}}
+            </dl>
+
+            {{if or .Archive .Unarchive .Delete}}
+                <div class="card-footer action-bar">
+                    {{with .Archive}}{{form_render_localized localizer . nil}}{{end}}
+                    {{with .Unarchive}}{{form_render_localized localizer . nil}}{{end}}
+                    {{with .Delete}}{{form_render_localized localizer . nil}}{{end}}
+                </div>
+            {{end}}
+        </section>
+    </div>
+</main>

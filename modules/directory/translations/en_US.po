@@ -1,0 +1,191 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "An entry with this name already exists."
+msgstr "An entry with this name already exists."
+
+msgid "CSV file"
+msgstr "CSV file"
+
+msgid "Categories"
+msgstr "Categories"
+
+msgid "Categories created: %d"
+msgstr "Categories created: %d"
+
+msgid "Category"
+msgstr "Category"
+
+msgid "Choose a category."
+msgstr "Choose a category."
+
+msgid "City"
+msgstr "City"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Entries created: %d"
+msgstr "Entries created: %d"
+
+msgid "Entries updated: %d"
+msgstr "Entries updated: %d"
+
+msgid "Existing categories keep their state: entries in an unpublished category stay hidden until the category is published."
+msgstr "Existing categories keep their state: entries in an unpublished category stay hidden until the category is published."
+
+msgid "Fill in both times of a day as hours and minutes, or leave both empty."
+msgstr "Fill in both times of a day as hours and minutes, or leave both empty."
+
+msgid "For example: closed on public holidays."
+msgstr "For example: closed on public holidays."
+
+msgid "Friday closes"
+msgstr "Friday closes"
+
+msgid "Friday opens"
+msgstr "Friday opens"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Import CSV"
+msgstr "Import CSV"
+
+msgid "Keywords"
+msgstr "Keywords"
+
+msgid "Latitude"
+msgstr "Latitude"
+
+msgid "Latitude and longitude must both be filled in, as decimal degrees."
+msgstr "Latitude and longitude must both be filled in, as decimal degrees."
+
+msgid "The last part of the address, such as open-studio in /en/news/open-studio. Made from the name when left empty."
+msgstr "The last part of the address, such as open-studio in /en/news/open-studio. Made from the name when left empty."
+
+msgid "Logo or image"
+msgstr "Logo or image"
+
+msgid "Longitude"
+msgstr "Longitude"
+
+msgid "Monday closes"
+msgstr "Monday closes"
+
+msgid "Monday opens"
+msgstr "Monday opens"
+
+msgid "New category"
+msgstr "New category"
+
+msgid "New entry"
+msgstr "New entry"
+
+msgid "Opening hours"
+msgstr "Opening hours"
+
+msgid "Optional, for a map. For example 4.8922."
+msgstr "Optional, for a map. For example 4.8922."
+
+msgid "Optional, for a map. For example 52.3731."
+msgstr "Optional, for a map. For example 52.3731."
+
+msgid "Or paste CSV"
+msgstr "Or paste CSV"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Postcode"
+msgstr "Postcode"
+
+msgid "Problem"
+msgstr "Problem"
+
+msgid "Publish new entries and categories"
+msgstr "Publish new entries and categories"
+
+msgid "Result"
+msgstr "Result"
+
+msgid "Row"
+msgstr "Row"
+
+msgid "Rows skipped: %d"
+msgstr "Rows skipped: %d"
+
+msgid "Saturday closes"
+msgstr "Saturday closes"
+
+msgid "Saturday opens"
+msgstr "Saturday opens"
+
+msgid "Street and number"
+msgstr "Street and number"
+
+msgid "Summary"
+msgstr "Summary"
+
+msgid "Sunday closes"
+msgstr "Sunday closes"
+
+msgid "Sunday opens"
+msgstr "Sunday opens"
+
+msgid "Texts are stored in the default language. Missing categories are created."
+msgstr "Texts are stored in the default language. Missing categories are created."
+
+msgid "The category is missing."
+msgstr "The category is missing."
+
+msgid "The e-mail address is not valid."
+msgstr "The e-mail address is not valid."
+
+msgid "The file is not valid CSV."
+msgstr "The file is not valid CSV."
+
+msgid "The first row must name the columns, including name and category."
+msgstr "The first row must name the columns, including name and category."
+
+msgid "The first row names the columns. Name and category are required; these columns are read:"
+msgstr "The first row names the columns. Name and category are required; these columns are read:"
+
+msgid "The name is missing."
+msgstr "The name is missing."
+
+msgid "The website must be a web address starting with http:// or https://."
+msgstr "The website must be a web address starting with http:// or https://."
+
+msgid "This category still has entries. Move them to another category or delete them first."
+msgstr "This category still has entries. Move them to another category or delete them first."
+
+msgid "Thursday closes"
+msgstr "Thursday closes"
+
+msgid "Thursday opens"
+msgstr "Thursday opens"
+
+msgid "Tuesday closes"
+msgstr "Tuesday closes"
+
+msgid "Tuesday opens"
+msgstr "Tuesday opens"
+
+msgid "Update entries that already exist"
+msgstr "Update entries that already exist"
+
+msgid "A web address cannot be made from this name."
+msgstr "A web address cannot be made from this name."
+
+msgid "Wednesday closes"
+msgstr "Wednesday closes"
+
+msgid "Wednesday opens"
+msgstr "Wednesday opens"
+
+msgid "Words visitors may search for, separated by commas."
+msgstr "Words visitors may search for, separated by commas."

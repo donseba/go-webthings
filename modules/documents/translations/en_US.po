@@ -1,0 +1,34 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%d download"
+msgid_plural "%d downloads"
+msgstr[0] "%d download"
+msgstr[1] "%d downloads"
+
+msgid "Category"
+msgstr "Category"
+
+msgid "Choose a file or enter an external link, not both."
+msgstr "Choose a file or enter an external link, not both."
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Documents"
+msgstr "Documents"
+
+msgid "External link"
+msgstr "External link"
+
+msgid "File"
+msgstr "File"
+
+msgid "Links must start with http:// or https://."
+msgstr "Links must start with http:// or https://."
+
+msgid "New document"
+msgstr "New document"
+
+msgid "The date is not valid."
+msgstr "The date is not valid."

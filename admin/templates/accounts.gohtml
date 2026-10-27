@@ -1,0 +1,116 @@
+{{/* @dot github.com/donseba/go-webthings/admin.AccountsView */}}
+{{/* @model Search github.com/donseba/go-webthings/admin.SearchBox */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Accounts"}}</h1>
+            <div class="admin-page-actions">
+                {{template "admin-search" Search}}
+                {{if .Selected}}<a class="button" href="{{route "admin.accounts.index"}}">{{tl localizer "New account"}}</a>{{end}}
+            </div>
+        </header>
+
+        <div class="grid lg:grid-cols-3 gap-6 items-start">
+            <nav class="surface border-theme border rounded-xl p-6 select-card" aria-label="{{tl localizer "Accounts"}}">
+                <ul class="select-list">
+                    {{range .Users}}
+                        <li>
+                            <a class="select-row" href="{{.URL}}" {{if and $.Selected (eq .ID $.Selected.ID)}}aria-current="page"{{end}}>
+                                <span class="select-row-title">{{.Email}}</span>
+                                {{with .Name}}<span class="select-row-text">{{.}}</span>{{end}}
+                                <span class="select-row-meta">
+                                    <span class="badge">{{.Role}}</span>
+                                    <span class="badge">{{.Status}}</span>
+                                </span>
+                            </a>
+                        </li>
+                    {{else}}
+                        <li class="select-row muted">{{template "admin-empty" Search}}</li>
+                    {{end}}
+                </ul>
+                {{template "admin-pager" .Pager}}
+            </nav>
+
+            <section class="lg:col-span-2 grid gap-6">
+                {{with .Selected}}
+                    <div class="surface border-theme border rounded-xl p-6 detail-card">
+                        <h2 class="text-xl font-semibold break-all mb-5">{{.Email}}</h2>
+                        <dl class="grid sm:grid-cols-2 gap-4">
+                            <div><dt class="muted text-sm">{{tl localizer "Name"}}</dt><dd>{{.Name}}</dd></div>
+                            <div><dt class="muted text-sm">{{tl localizer "Role"}}</dt><dd>{{.Role}}</dd></div>
+                            <div><dt class="muted text-sm">{{tl localizer "Account status"}}</dt><dd>{{.Status}}</dd></div>
+                            <div><dt class="muted text-sm">{{tl localizer "Created"}}</dt><dd>{{.Created}}</dd></div>
+                        </dl>
+                    </div>
+                {{end}}
+
+                {{with .ProfileForm}}
+                    <div class="surface border-theme border rounded-xl p-6">
+                        <h2 class="text-xl font-semibold mb-4">{{tl localizer "Name and e-mail"}}</h2>
+                        {{form_render_localized localizer . $.ProfileErrors}}
+                    </div>
+                {{end}}
+
+                {{with .RoleForm}}
+                    <div class="surface border-theme border rounded-xl p-6">
+                        {{form_render_localized localizer . $.RoleErrors}}
+                    </div>
+                {{end}}
+
+                {{with .Membership}}
+                    <div class="surface border-theme border rounded-xl p-6">
+                        {{with .Form}}
+                            {{form_render_localized localizer . nil}}
+                        {{else}}
+                            <h2 class="text-xl font-semibold mb-4">{{tl localizer "Groups"}}</h2>
+                            <p class="muted"><a href="{{route "admin.groups.index"}}">{{tl localizer "Create a group first."}}</a></p>
+                        {{end}}
+                    </div>
+                {{end}}
+
+                {{with .StatusForm}}
+                    <div class="surface border-theme border rounded-xl p-6">
+                        {{form_render_localized localizer . nil}}
+                        <p class="muted text-sm mt-3">
+                            {{tl localizer "Disabling an account revokes its sessions."}}
+                        </p>
+                    </div>
+                {{end}}
+
+                {{with .DeleteForm}}
+                    <div class="surface border-theme border rounded-xl p-6">
+                        {{form_render_localized localizer . nil}}
+                        <p class="muted text-sm mt-3">
+                            {{tl localizer "Content the account wrote stays."}}
+                        </p>
+                    </div>
+                {{end}}
+
+                {{if .Selected}}
+                    <div class="surface border-theme border rounded-xl p-6">
+                        <h2 class="text-xl font-semibold mb-5">{{tl localizer "Sessions"}}</h2>
+                        <ul class="grid gap-5">
+                            {{range .Sessions}}
+                                <li class="border-theme border rounded-lg p-4">
+                                    <dl class="grid sm:grid-cols-3 gap-4 text-sm">
+                                        <div><dt class="muted">{{tl localizer "Created"}}</dt><dd>{{.Created}}</dd></div>
+                                        <div><dt class="muted">{{tl localizer "Expires"}}</dt><dd>{{.Expires}}</dd></div>
+                                        <div><dt class="muted">{{tl localizer "Last seen"}}</dt><dd>{{.LastSeen}}</dd></div>
+                                    </dl>
+                                    {{with .Revoke}}<div class="mt-4">{{form_render_localized localizer . nil}}</div>{{end}}
+                                </li>
+                            {{else}}
+                                <li class="muted">{{tl localizer "No sessions."}}</li>
+                            {{end}}
+                        </ul>
+                    </div>
+                {{else}}
+                    <div class="surface border-theme border rounded-xl p-6">
+                        <h2 class="text-xl font-semibold mb-5">{{tl localizer "New account"}}</h2>
+                        {{form_render_localized localizer .Create .Errors}}
+                    </div>
+                {{end}}
+            </section>
+        </div>
+    </div>
+</main>

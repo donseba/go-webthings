@@ -1,0 +1,4 @@
+{{/* @dot github.com/donseba/go-webthings/modules/directory.CategoryView */}}
+<main id="content"><h1>{{.Category.Name}}</h1><p>{{.Category.Summary}}</p>
+{{range .Entries}}<a class="entry" href="{{.URL}}">{{.Name}}</a>
+{{end}}<a href="{{.ListURL}}">all</a></main>

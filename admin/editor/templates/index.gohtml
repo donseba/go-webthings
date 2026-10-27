@@ -1,0 +1,54 @@
+{{/* @dot github.com/donseba/go-webthings/admin/editor.IndexView */}}
+{{/* @model Search github.com/donseba/go-webthings/admin.SearchBox */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer .Title}}</h1>
+            <div class="admin-page-actions">
+                {{template "admin-search" Search}}
+                {{range .Links}}<a class="button-secondary" href="{{.URL}}">{{tl localizer .Label}}</a>{{end}}
+                {{with .TrashURL}}<a class="button-secondary" href="{{.}}">{{tl localizer "Trash"}}</a>{{end}}
+                {{if .NewURL}}<a class="button" href="{{.NewURL}}">{{tl localizer .NewLabel}}</a>{{end}}
+            </div>
+        </header>
+
+        {{template "locale-tabs.gohtml" .Tabs}}
+
+        <section class="card">
+            {{if .Revisioned}}
+                <p class="muted mb-4">{{tl localizer "Saving creates a draft. The website changes only when you publish it."}}</p>
+            {{end}}
+
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th>{{tl localizer "Title"}}</th>
+                        <th>{{tl localizer "Status"}}</th>
+                        <th><span class="sr-only">{{tl localizer "Actions"}}</span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Rows}}
+                        <tr>
+                            <td class="p-3">
+                                <a href="{{.URL}}">{{.Title}}</a>
+                                {{with .Note}}<span class="muted"> · {{.}}</span>{{end}}
+                                {{if .Missing}}<span class="muted"> · {{tl localizer "Missing translation"}}</span>{{end}}
+                            </td>
+                            <td class="p-3">{{tl localizer .Status}}</td>
+                            <td class="p-3">
+                                <div class="row-actions">
+                                    {{template "admin-moves" .Moves}}
+                                </div>
+                            </td>
+                        </tr>
+                    {{else}}
+                        <tr><td class="p-3 muted" colspan="3">{{template "admin-empty" Search}}</td></tr>
+                    {{end}}
+                </tbody>
+            </table>
+
+            {{template "admin-pager" .Pager}}
+        </section>
+    </div>
+</main>

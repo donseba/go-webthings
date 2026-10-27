@@ -1,0 +1,37 @@
+/* The focal point editor of an image (admin/assets/focalpoint.js). The frame
+   is as large as the image, so the marker's percentages are percentages of
+   the image. The script places the marker, so it shows only once the
+   script runs; without it the number fields move the point. Nothing is
+   placed with a style attribute, which a Content-Security-Policy blocks. */
+.focal-frame {
+    position: relative; display: inline-block; max-width: 100%; line-height: 0;
+    border-radius: 4px; overflow: hidden; background: var(--inset);
+}
+.focal-frame img { display: block; max-width: 100%; max-height: 24rem; user-select: none; -webkit-user-drag: none; }
+[data-focal-ready] .focal-frame { cursor: crosshair; touch-action: none; }
+
+.focal-marker {
+    position: absolute; width: 28px; height: 28px; margin: -14px 0 0 -14px; border-radius: 50%;
+    border: 3px solid #fff; box-shadow: 0 0 0 2px #000a, inset 0 0 0 2px #000a; pointer-events: none;
+    visibility: hidden;
+}
+[data-focal-ready] .focal-marker { visibility: visible; }
+.focal-marker::after {
+    content: ""; position: absolute; left: 50%; top: 50%; width: 4px; height: 4px; margin: -2px 0 0 -2px;
+    border-radius: 50%; background: #fff; box-shadow: 0 0 0 1px #000a;
+}
+.focal-marker:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+.focal-previews { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; }
+.focal-preview { margin: 0; }
+.focal-preview figcaption { margin-top: 4px; font-size: 12px; color: var(--muted); text-align: center; }
+.focal-crop { height: 72px; overflow: hidden; border-radius: 3px; border: 1px solid var(--border); background: var(--inset); }
+.focal-crop img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* The proportions of the previews (mediaadmin.go's previewRatios); their
+   images take the classes of focal-points.css until the script places them
+   exactly. */
+.focal-crop-1-1 { aspect-ratio: 1 / 1; }
+.focal-crop-4-3 { aspect-ratio: 4 / 3; }
+.focal-crop-16-9 { aspect-ratio: 16 / 9; }
+.focal-crop-3-4 { aspect-ratio: 3 / 4; }

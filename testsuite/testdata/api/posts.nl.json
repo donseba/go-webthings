@@ -1,0 +1,35 @@
+{
+  "items": [
+    {
+      "api_url": "https://example.test/api/v1/news/posts/<id1>?locale=nl",
+      "categories": [
+        {
+          "id": "<id2>",
+          "posts_url": "https://example.test/api/v1/news/posts?category=berichten&locale=nl",
+          "slug": "berichten",
+          "title": "Berichten",
+          "url": "https://example.test/nl/nieuws/category/berichten"
+        }
+      ],
+      "date": "2026-10-01T00:00:00Z",
+      "excerpt": "",
+      "id": "<id1>",
+      "image": {
+        "alt": "Boten in de haven",
+        "height": 900,
+        "original_url": "https://example.test/media/<id3>.png",
+        "srcset": "https://example.test/media/v/<sig>/<id3>_480x0.webp 480w, https://example.test/media/v/<sig>/<id3>_800x0.webp 800w, https://example.test/media/v/<sig>/<id3>_1200x0.webp 1200w, https://example.test/media/v/<sig>/<id3>_1600x0.webp 1600w",
+        "url": "https://example.test/media/v/<sig>/<id3>_1600x0.webp",
+        "width": 1600
+      },
+      "slug": "hallo-haven",
+      "title": "Hallo haven",
+      "updated_at": "<time>",
+      "url": "https://example.test/nl/nieuws/hallo-haven"
+    }
+  ],
+  "limit": 20,
+  "next": null,
+  "offset": 0,
+  "total": 1
+}

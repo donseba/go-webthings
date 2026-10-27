@@ -1,0 +1,146 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "301 Moved permanently"
+msgstr "301 Moved permanently"
+
+msgid "302 Found (temporary)"
+msgstr "302 Found (temporary)"
+
+msgid "307 Temporary redirect"
+msgstr "307 Temporary redirect"
+
+msgid "308 Permanent redirect"
+msgstr "308 Permanent redirect"
+
+msgid "A path on this site, such as /en/news, or a full URL."
+msgstr "A path on this site, such as /en/news, or a full URL."
+
+msgid "A redirect for this path already exists."
+msgstr "A redirect for this path already exists."
+
+msgid "Add redirect"
+msgstr "Add redirect"
+
+msgid "Clear list"
+msgstr "Clear list"
+
+msgid "Clear the list of missed paths?"
+msgstr "Clear the list of missed paths?"
+
+msgid "Hits"
+msgstr "Hits"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Import at most 5000 redirects at a time."
+msgstr "Import at most 5000 redirects at a time."
+
+msgid "Import at most 1 MB of redirects at a time."
+msgstr "Import at most 1 MB of redirects at a time."
+
+msgid "Import redirects"
+msgstr "Import redirects"
+
+msgid "Kind of redirect"
+msgstr "Kind of redirect"
+
+msgid "Last hit"
+msgstr "Last hit"
+
+msgid "Line %d: %s"
+msgstr "Line %d: %s"
+
+msgid "Missed paths"
+msgstr "Missed paths"
+
+msgid "Never"
+msgstr "Never"
+
+msgid "New address"
+msgstr "New address"
+
+msgid "New redirect"
+msgstr "New redirect"
+
+msgid "No redirect for this path."
+msgstr "No redirect for this path."
+
+msgid "Nothing was imported. Correct these lines and try again."
+msgstr "Nothing was imported. Correct these lines and try again."
+
+msgid "Old path"
+msgstr "Old path"
+
+msgid "One redirect per line: old path, new address and, optionally, the status (301 when empty). Existing redirects with the same old path are replaced."
+msgstr "One redirect per line: old path, new address and, optionally, the status (301 when empty). Existing redirects with the same old path are replaced."
+
+msgid "Other redirects lead to this path and now take two steps: %s."
+msgstr "Other redirects lead to this path and now take two steps: %s."
+
+msgid "Path"
+msgstr "Path"
+
+msgid "Paths visitors asked for that do not exist, most requested first. Add a redirect to send them to the right page."
+msgstr "Paths visitors asked for that do not exist, most requested first. Add a redirect to send them to the right page."
+
+msgid "Redirects"
+msgstr "Redirects"
+
+msgid "Redirects again"
+msgstr "Redirects again"
+
+msgid "Redirects imported: %d"
+msgstr "Redirects imported: %d"
+
+msgid "Test"
+msgstr "Test"
+
+msgid "Test a path"
+msgstr "Test a path"
+
+msgid "The address of the old page. The host and query are ignored."
+msgstr "The address of the old page. The host and query are ignored."
+
+msgid "The list was cleared."
+msgstr "The list was cleared."
+
+msgid "The new address must be a path on this site, such as /en/news, or a full URL."
+msgstr "The new address must be a path on this site, such as /en/news, or a full URL."
+
+msgid "The new address redirects again, to %s. Point this redirect to the final address."
+msgstr "The new address redirects again, to %s. Point this redirect to the final address."
+
+msgid "The old path is not valid."
+msgstr "The old path is not valid."
+
+msgid "The status must be 301, 302, 307 or 308."
+msgstr "The status must be 301, 302, 307 or 308."
+
+msgid "There are no redirects to import."
+msgstr "There are no redirects to import."
+
+msgid "This old path is already on an earlier line."
+msgstr "This old path is already on an earlier line."
+
+msgid "This path belongs to the website itself and cannot be redirected."
+msgstr "This path belongs to the website itself and cannot be redirected."
+
+msgid "This redirect would lead back to its own path."
+msgstr "This redirect would lead back to its own path."
+
+msgid "Use two or three columns: old path, new address, status."
+msgstr "Use two or three columns: old path, new address, status."
+
+msgid "This redirect cannot be restored: another redirect uses its old path now."
+msgstr "This redirect cannot be restored: another redirect uses its old path now."
+
+msgid "This redirect cannot be restored: it would lead back to its own path."
+msgstr "This redirect cannot be restored: it would lead back to its own path."
+
+msgid "/old-page"
+msgstr "/old-page"
+
+msgid "/old-page,/en/new-page,301"
+msgstr "/old-page,/en/new-page,301"

@@ -1,0 +1,58 @@
+{{/* @dot github.com/donseba/go-webthings/admin.ShellView */}}
+<header id="admin-header" {{oobAttr}} class="admin-header">
+    <a href="{{route "admin.dashboard"}}" class="admin-brand" title="{{.Title}}">
+        <svg class="icon app-mark" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#box"/></svg>
+        <span>{{.Title}}</span>
+    </a>
+
+    <div class="header-context">
+        {{/* Signed-out pages, such as the sign-in, have no place in the admin to show. */}}
+        {{if .User}}
+            <nav class="shell-location" aria-label="{{tl localizer "Breadcrumbs"}}">
+                {{if not .Dashboard}}
+                    <a href="{{route "admin.dashboard"}}">{{tl localizer "Dashboard"}}</a>
+                    <svg class="icon shell-divider" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#chevron"/></svg>
+                {{end}}
+                {{if .SectionURL}}
+                    <a href="{{.SectionURL}}">{{.SectionTitle}}</a>
+                    <svg class="icon shell-divider" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#chevron"/></svg>
+                {{end}}
+                <span class="shell-page" aria-current="page">{{.PageTitle}}</span>
+            </nav>
+        {{else}}
+            <span></span>
+        {{end}}
+
+        {{/* go-partial's stream client follows the viewers of the page here, with the tab's id as the tab parameter, closes the stream while the tab is hidden longer than 30 seconds, and reports the page every 15 seconds and when it leaves it (see presence.go). A page without presence has no stream. */}}
+        <div class="shell-tools"{{sseAttrs .Presence.Stream "clientId" "tab" "hidden" "30s" "beat" "15s" "beacon" (route "admin.presence")}}>
+            {{if .User}}{{template "admin-presence" .Presence}}{{end}}
+
+            <div class="theme-picker" role="group" aria-label="{{tl localizer "Appearance"}}">
+                <button type="button" data-theme-choice="light" aria-pressed="false"
+                        aria-label="{{tl localizer "Light theme"}}" title="{{tl localizer "Light theme"}}">
+                    <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#sun"/></svg>
+                </button>
+                <button type="button" data-theme-choice="dark" aria-pressed="false"
+                        aria-label="{{tl localizer "Dark theme"}}" title="{{tl localizer "Dark theme"}}">
+                    <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#moon"/></svg>
+                </button>
+                <button type="button" data-theme-choice="retro" aria-pressed="false"
+                        aria-label="{{tl localizer "Retro theme"}}" title="{{tl localizer "Retro theme"}}">
+                    <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#palette"/></svg>
+                </button>
+                <button type="button" data-theme-choice="system" aria-pressed="false"
+                        aria-label="{{tl localizer "System theme"}}" title="{{tl localizer "System theme"}}">
+                    <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#monitor"/></svg>
+                </button>
+            </div>
+
+            {{if .User}}
+                <span class="shell-user" title="{{.User.Email}}">
+                    <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#users"/></svg>
+                    <span>{{.User.DisplayName}}</span>
+                </span>
+                {{form_render_localized localizer .Logout nil}}
+            {{end}}
+        </div>
+    </div>
+</header>

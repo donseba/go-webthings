@@ -1,0 +1,51 @@
+{{/* Shared parts of list screens: {{template "admin-search" Search}} in
+     the header's actions, {{template "admin-empty" Search}} for an empty
+     list, with the search box the list template declares as @model Search
+     (admin.SearchBox), {{template "admin-tabs" .Tabs}} for filter tabs (admin.Tabs) and
+     {{template "admin-pager" .Pager}} below the rows (admin.Pager). Typing
+     searches after a pause; Enter and the clear link work without
+     JavaScript. */}}
+{{define "admin-search"}}
+    {{/* @dot github.com/donseba/go-webthings/admin.SearchBox */}}
+    <form class="admin-search" role="search" method="get" action="{{.Action}}">
+        {{range .Keep}}<input type="hidden" name="{{.Name}}" value="{{.Value}}">{{end}}
+        <label class="sr-only" for="admin-search-input">{{tl localizer "Search"}}</label>
+        <svg class="icon admin-search-icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#search"/></svg>
+        <input id="admin-search-input" class="control admin-search-input" type="search" name="q" value="{{.Text}}"
+               placeholder="{{tl localizer "Search"}}" autocomplete="off" maxlength="200" data-admin-search
+               {{liveAttrs runtime .Action "target" "#content" "swap" "outerMorph" "delay" "300ms" "include" "closest form" "pushURL" "true"}}>
+        {{if .Text}}
+            <a class="admin-search-clear" href="{{.ClearURL}}" title="{{tl localizer "Clear search"}}" aria-label="{{tl localizer "Clear search"}}">
+                <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#close"/></svg>
+            </a>
+        {{end}}
+    </form>
+{{end}}
+
+{{define "admin-empty"}}
+    {{/* @dot github.com/donseba/go-webthings/admin.SearchBox */}}
+    {{- if .Text}}{{tl localizer "No results for “%s”" .Text}}{{else}}{{tl localizer "Nothing here yet."}}{{with .NewURL}} <a href="{{.}}">{{$.NewLabel}}</a>{{end}}{{end -}}
+{{end}}
+
+{{define "admin-tabs"}}
+    {{/* @dot github.com/donseba/go-webthings/admin.Tabs */}}
+    {{with .Items}}
+        <nav class="filter-tabs" aria-label="{{tl localizer $.Label}}">
+            {{range .}}
+                <a href="{{.URL}}"{{if .Active}} aria-current="page"{{end}}>
+                    {{tl localizer .Label}}{{if .Counted}} <span class="badge">{{.Count}}</span>{{end}}
+                </a>
+            {{end}}
+        </nav>
+    {{end}}
+{{end}}
+
+{{define "admin-pager"}}
+    {{/* @dot github.com/donseba/go-webthings/admin.Pager */}}
+    {{if or .PreviousURL .NextURL}}
+        <nav class="admin-pager" aria-label="{{tl localizer "Pages"}}">
+            <span>{{with .PreviousURL}}<a class="button-secondary" href="{{.}}" rel="prev">{{tl localizer "Previous"}}</a>{{end}}</span>
+            <span>{{with .NextURL}}<a class="button-secondary" href="{{.}}" rel="next">{{tl localizer "Next"}}</a>{{end}}</span>
+        </nav>
+    {{end}}
+{{end}}

@@ -1,0 +1,24 @@
+{{/* @dot github.com/donseba/go-webthings/admin.RecentPanel */}}
+<section id="dashboard-recent" class="dashboard-panel" aria-labelledby="dashboard-recent-title">
+    {{template "dashboard-panel-title" .Heading}}
+
+    {{if .Items}}
+        <ul class="dashboard-list">
+            {{range .Items}}
+                <li class="dashboard-row">
+                    <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#{{.Icon}}"/></svg>
+                    <div class="dashboard-row-main">
+                        <a href="{{.URL}}">{{.Title}}</a>
+                        <span class="dashboard-meta">{{.Section}}{{with .Author}} · {{tl localizer "by %s" .}}{{end}}</span>
+                    </div>
+                    {{with .Status}}<span class="badge">{{.}}</span>{{end}}
+                    <time class="dashboard-time" datetime="{{.Time}}">{{.When}}</time>
+                </li>
+            {{end}}
+        </ul>
+    {{else if not .Failed}}
+        <p class="dashboard-empty">{{tl localizer "Nothing has been edited yet. Pages and items you write appear here."}}</p>
+    {{end}}
+
+    {{template "dashboard-failed" .PanelState}}
+</section>

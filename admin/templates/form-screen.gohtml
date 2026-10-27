@@ -1,0 +1,17 @@
+{{/* @dot github.com/donseba/go-webthings/admin.FormScreenView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer .Title}}</h1>
+            {{with .BackURL}}
+                <div class="admin-page-actions"><a class="button-secondary" href="{{.}}">{{tl localizer "Back to %s" (tl localizer $.BackLabel)}}</a></div>
+            {{end}}
+        </header>
+
+        <section class="card">
+            {{with .Heading}}<h2 class="card-title">{{tl localizer .}}</h2>{{end}}
+            {{with .Intro}}<p class="muted mb-4">{{tl localizer .}}</p>{{end}}
+            {{form_render_localized localizer .Form .Errors}}
+        </section>
+    </div>
+</main>

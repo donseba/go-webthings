@@ -1,0 +1,8 @@
+{{/* @dot github.com/donseba/go-webthings/modules/comments.ListView */}}
+<main id="content"><h1>{{.Title}}</h1>
+{{with .Result}}<p class="result">{{.}}</p>{{end}}
+{{range .Comments}}<article class="entry"><strong>{{.Name}}</strong>{{.HTML}}{{range .Replies}}<blockquote>{{.Name}}: {{.HTML}}</blockquote>{{end}}</article>
+{{else}}<p class="empty">No messages yet.</p>{{end}}
+{{with .NewerURL}}<a class="newer" href="{{.}}">Newer</a>{{end}}{{with .OlderURL}}<a class="older" href="{{.}}">Older</a>{{end}}
+{{if not .Closed}}{{form_open .Form}}{{form_field .Form "subject" nil}}
+{{form_field .Form "name" nil}}{{form_field .Form "body" nil}}<button>Sign</button>{{form_close}}{{end}}</main>

@@ -1,0 +1,17 @@
+{
+  "api_url": "https://example.test/api/v1/faq/entries/<id1>?locale=en",
+  "body_html": "<p>Every day, see the <a href=\"https://example.test/en/guide\">guide</a>.</p>\n",
+  "id": "<id1>",
+  "image": {
+    "alt": "Boats in the harbour",
+    "height": 900,
+    "original_url": "https://example.test/media/<id2>.png",
+    "srcset": "https://example.test/media/v/<sig>/<id2>_480x0.webp 480w, https://example.test/media/v/<sig>/<id2>_800x0.webp 800w, https://example.test/media/v/<sig>/<id2>_1200x0.webp 1200w, https://example.test/media/v/<sig>/<id2>_1600x0.webp 1600w",
+    "url": "https://example.test/media/v/<sig>/<id2>_1600x0.webp",
+    "width": 1600
+  },
+  "link": "https://example.test/en/guide",
+  "title": "When are you open?",
+  "updated_at": "<time>",
+  "url": "https://example.test/en/faq#<id1>"
+}

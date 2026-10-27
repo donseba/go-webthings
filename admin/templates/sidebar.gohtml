@@ -1,0 +1,33 @@
+{{/* @dot github.com/donseba/go-webthings/admin.ShellView */}}
+<aside id="admin-sidebar" {{oobAttr}} class="admin-sidebar" {{if not .User}}hidden{{end}}>
+    {{if .User}}
+        <nav class="admin-navigation" aria-label="{{tl localizer "Admin"}}">
+            {{range $index, $group := .Groups}}
+                <div class="nav-group" {{if .Name}}data-nav-group="{{.Key}}"{{end}} {{if .Active}}data-active{{end}}>
+                    {{if .Name}}
+                        <button type="button" class="nav-group-toggle" aria-expanded="true" aria-controls="nav-group-{{$index}}">
+                            <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#chevron"/></svg>
+                            <span>{{.Name}}</span>
+                            {{with .Badge}}<span class="nav-group-badge">{{.}}</span>{{end}}
+                        </button>
+                    {{end}}
+
+                    <div class="nav-group-links" id="nav-group-{{$index}}">
+                        {{range .Links}}
+                            <a class="nav-link" href="{{.Path}}" {{if .Active}}aria-current="page"{{end}}>
+                                <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#{{.Icon}}"/></svg>
+                                <span>{{.Title}}</span>
+                                {{with .Badge}}<span class="nav-badge">{{.}}</span>{{end}}
+                            </a>
+                        {{end}}
+                    </div>
+                </div>
+            {{end}}
+        </nav>
+
+        <div class="sidebar-footer">
+            <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#box"/></svg>
+            <span>Go WebThings</span>
+        </div>
+    {{end}}
+</aside>

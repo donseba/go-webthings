@@ -1,0 +1,8 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.View */}}
+<title>{{.Title}} · {{.Site.Name}}</title>
+{{with .Description}}<meta name="description" content="{{.}}">{{end}}
+<link rel="canonical" href="{{absURL .Path}}">
+{{range .Languages}}<link rel="alternate" hreflang="{{.Locale}}" href="{{absURL .URL}}">
+{{if .Default}}<link rel="alternate" hreflang="x-default" href="{{absURL .URL}}">
+{{end}}{{end}}{{feedLinks}}
+{{structuredData}}

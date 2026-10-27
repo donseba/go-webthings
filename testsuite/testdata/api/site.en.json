@@ -1,0 +1,97 @@
+{
+  "default_locale": "en",
+  "description": "",
+  "languages": [
+    {
+      "api_url": "https://example.test/api/v1/site?locale=en",
+      "default": true,
+      "locale": "en",
+      "url": "https://example.test/en/"
+    },
+    {
+      "api_url": "https://example.test/api/v1/site?locale=nl",
+      "default": false,
+      "locale": "nl",
+      "url": "https://example.test/nl/"
+    }
+  ],
+  "locale": "en",
+  "logo": null,
+  "menu": [
+    {
+      "api_url": "https://example.test/api/v1/pages/<id1>?locale=en",
+      "children": [
+        {
+          "api_url": "https://example.test/api/v1/pages/<id2>?locale=en",
+          "children": [],
+          "id": "<id2>",
+          "module": null,
+          "path": "/about/team",
+          "title": "Team",
+          "url": "https://example.test/en/about/team"
+        }
+      ],
+      "id": "<id1>",
+      "module": null,
+      "path": "/about",
+      "title": "About",
+      "url": "https://example.test/en/about"
+    },
+    {
+      "api_url": "https://example.test/api/v1/pages/<id3>?locale=en",
+      "children": [],
+      "id": "<id3>",
+      "module": {
+        "api_base": "https://example.test/api/v1/news",
+        "key": "news",
+        "title": "News",
+        "type": "publishing",
+        "url": "https://example.test/en/news"
+      },
+      "path": "/news",
+      "title": "News",
+      "url": "https://example.test/en/news"
+    },
+    {
+      "api_url": "https://example.test/api/v1/pages/<id4>?locale=en",
+      "children": [],
+      "id": "<id4>",
+      "module": {
+        "api_base": "https://example.test/api/v1/agenda",
+        "key": "agenda",
+        "title": "Agenda",
+        "type": "events",
+        "url": "https://example.test/en/agenda"
+      },
+      "path": "/agenda",
+      "title": "Agenda",
+      "url": "https://example.test/en/agenda"
+    }
+  ],
+  "modules": [
+    {
+      "api_base": "https://example.test/api/v1/news",
+      "key": "news",
+      "title": "News",
+      "type": "publishing",
+      "url": "https://example.test/en/news"
+    },
+    {
+      "api_base": "https://example.test/api/v1/agenda",
+      "key": "agenda",
+      "title": "Agenda",
+      "type": "events",
+      "url": "https://example.test/en/agenda"
+    },
+    {
+      "api_base": "https://example.test/api/v1/greeter",
+      "key": "greeter",
+      "title": "Greeter",
+      "type": "greeter",
+      "url": null
+    }
+  ],
+  "name": "Test site",
+  "tagline": "",
+  "url": "https://example.test/en/"
+}

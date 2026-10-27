@@ -1,0 +1,44 @@
+{{/* @dot github.com/donseba/go-webthings/modules/redirects.MissedView */}}
+{{/* @model Search github.com/donseba/go-webthings/admin.SearchBox */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Missed paths"}}</h1>
+            <div class="admin-page-actions">
+                {{template "admin-search" Search}}
+                <a class="button-secondary" href="{{.BackURL}}">{{tl localizer "Back to %s" (tl localizer .Title)}}</a>
+            </div>
+        </header>
+
+        <section class="surface border-theme border rounded-xl p-6">
+            <p class="muted mb-4">{{tl localizer "Paths visitors asked for that do not exist, most requested first. Add a redirect to send them to the right page."}}</p>
+
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th>{{tl localizer "Path"}}</th>
+                        <th class="numeric">{{tl localizer "Hits"}}</th>
+                        <th>{{tl localizer "Last hit"}}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Rows}}
+                        <tr>
+                            <td class="p-3 break-all">{{.Path}}</td>
+                            <td class="p-3 numeric">{{.Hits}}</td>
+                            <td class="p-3">{{.LastHit}}</td>
+                            <td class="p-3 text-right">{{with .AddURL}}<a class="button-secondary" href="{{.}}">{{tl localizer "Add redirect"}}</a>{{end}}</td>
+                        </tr>
+                    {{else}}
+                        <tr><td class="p-3 muted" colspan="4">{{template "admin-empty" Search}}</td></tr>
+                    {{end}}
+                </tbody>
+            </table>
+
+            {{with .Clear}}
+                <div class="card-footer">{{form_render_localized localizer . nil}}</div>
+            {{end}}
+        </section>
+    </div>
+</main>

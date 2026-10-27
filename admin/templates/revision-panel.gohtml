@@ -1,0 +1,116 @@
+{{/* @dot github.com/donseba/go-webthings/admin.RevisionPanel */}}
+<section class="surface border-theme border rounded-xl p-6 mb-6 revision-panel" aria-label="{{tl localizer "Publication"}}">
+    <h2 class="panel-title font-semibold mb-3">
+        <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#megaphone"/></svg>
+        {{tl localizer "Publication"}}
+    </h2>
+
+    {{/* One line: what the website shows, then the revision in the editor and, when a newer draft waits, that one. */}}
+    <p>
+        {{if .Published}}{{tl localizer "On the website: revision %d" .Published}}{{else}}{{tl localizer "Not on the website"}}{{end}}
+        ·
+        {{if eq .Selected .Published}}
+            {{tl localizer "You're viewing revision %d (published)" .Selected}}
+        {{else if eq .Selected .Latest}}
+            {{tl localizer "You're viewing revision %d (draft)" .Selected}}
+        {{else}}
+            {{tl localizer "You're viewing revision %d (older)" .Selected}}
+        {{end}}
+        {{if and (ne .Selected .Latest) (ne .Latest .Published)}}
+            · {{tl localizer "Newest draft: revision %d" .Latest}}
+        {{end}}
+    </p>
+    <p class="muted mt-2">{{tl localizer "Saving creates a draft. The website changes only when you publish it."}}</p>
+
+    {{if .Review}}
+        <div class="notice mt-3" role="status">
+            <p>
+                {{tl localizer "Review:"}} <span class="badge">{{tl localizer .State}}</span>
+                {{if .SubmittedAt}}
+                    · {{tl localizer "Submitted"}} <time datetime="{{.SubmittedTime}}">{{.SubmittedAt}}</time>{{with .SubmittedBy}} · {{.}}{{end}}
+                {{end}}
+                {{if .ReviewedAt}}
+                    · {{tl localizer "Reviewed"}} <time datetime="{{.ReviewedTime}}">{{.ReviewedAt}}</time>{{with .ReviewedBy}} · {{.}}{{end}}
+                {{end}}
+            </p>
+            {{with .Note}}<p class="mt-2">{{.}}</p>{{end}}
+            {{if .NeedsApproval}}
+                <p class="muted mt-2">{{tl localizer "This revision can be published once a reviewer approves it."}}</p>
+            {{end}}
+        </div>
+    {{end}}
+
+    {{if or .PublishAt .UnpublishAt}}
+        <p class="notice mt-3" role="status">
+            {{if .PublishAt}}
+                {{tl localizer "Scheduled publication: revision %d" .ScheduledRevision}}
+                · <time datetime="{{.PublishTime}}">{{.PublishAt}}</time>
+            {{end}}
+            {{if .UnpublishAt}}
+                {{if .PublishAt}}<br>{{end}}
+                {{tl localizer "Scheduled unpublication:"}} <time datetime="{{.UnpublishTime}}">{{.UnpublishAt}}</time>
+            {{end}}
+            <span class="muted">({{.Timezone}})</span>
+            {{if or .CanPublish .CanUnpublish}}
+                <br><span class="muted">{{tl localizer "Publishing or unpublishing by hand cancels the schedule."}}</span>
+            {{end}}
+        </p>
+    {{end}}
+
+    <div class="flex flex-wrap items-start gap-4 my-4">
+        {{if .CanPublish}}{{form_render_localized localizer .Publish nil}}{{end}}
+        {{if .CanUnpublish}}{{form_render_localized localizer .Unpublish nil}}{{end}}
+        {{if .PreviewURL}}
+            <a class="button-secondary" href="{{.PreviewURL}}" target="_blank" rel="noopener">
+                {{tl localizer "Preview this revision"}}
+            </a>
+        {{end}}
+        {{with .Unschedule}}{{form_render_localized localizer . nil}}{{end}}
+        {{with .Submit}}{{form_render_localized localizer . nil}}{{end}}
+    </div>
+
+    {{if or .Approve .Reject}}
+        <details class="mt-3" open>
+            <summary>{{tl localizer "Review this revision"}}</summary>
+            <div class="flex flex-wrap items-start gap-4 mt-3">
+                {{with .Approve}}<div>{{form_render_localized localizer . nil}}</div>{{end}}
+                {{with .Reject}}<div>{{form_render_localized localizer . nil}}</div>{{end}}
+            </div>
+        </details>
+    {{end}}
+
+    {{with .Schedule}}
+        <details class="mt-3">
+            <summary>{{tl localizer "Schedule this revision"}}</summary>
+            <p class="muted text-sm mt-2">
+                {{if $.Permanent}}
+                    {{tl localizer "Publish this revision later, in the site's timezone."}}
+                {{else}}
+                    {{tl localizer "Publish this revision and/or unpublish the item later, in the site's timezone."}}
+                {{end}}
+                ({{$.Timezone}})
+            </p>
+            <div class="mt-3">{{form_render_localized localizer . nil}}</div>
+        </details>
+    {{end}}
+
+    {{if .History}}
+        <details class="mt-5">
+            <summary>{{tl localizer "Revision history"}} <span class="muted">({{.Timezone}})</span></summary>
+            <ol class="space-y-4 mt-4">
+                {{range .History}}
+                    <li class="border-theme border-t pt-3">
+                        <a href="{{.URL}}">{{tl localizer "Revision %d" .Number}}</a>
+                        {{if .Published}} · {{tl localizer "Published"}}{{end}}
+                        {{if .Selected}} · {{tl localizer "Selected"}}{{end}}
+                        {{with .Review}} · <span class="badge">{{tl localizer .}}</span>{{end}}
+                        {{with .PreviewURL}} · <a href="{{.}}" target="_blank" rel="noopener">{{tl localizer "Preview"}}</a>{{end}}
+                        <p class="muted text-sm"><time datetime="{{.Time}}">{{.When}}</time>{{if .Author}} · {{.Author}}{{end}}</p>
+                        {{if .Note}}<p>{{.Note}}</p>{{end}}
+                        {{with .Restore}}{{form_render_localized localizer . nil}}{{end}}
+                    </li>
+                {{end}}
+            </ol>
+        </details>
+    {{end}}
+</section>

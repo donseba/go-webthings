@@ -1,0 +1,60 @@
+{{/* @dot github.com/donseba/go-webthings/modules/directory.ImportView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Import CSV"}}</h1>
+            <div class="admin-page-actions"><a class="button-secondary" href="{{.BackURL}}">{{tl localizer "Back to %s" (tl localizer .Title)}}</a></div>
+        </header>
+
+        {{with .Result}}
+            <section class="surface border-theme border rounded-xl p-6 mb-6" id="import-result">
+                <h2 class="font-semibold mb-4">{{tl localizer "Result"}}</h2>
+                <ul class="mb-4">
+                    <li>{{tl localizer "Entries created: %d" .Created}}</li>
+                    <li>{{tl localizer "Entries updated: %d" .Updated}}</li>
+                    <li>{{tl localizer "Rows skipped: %d" .Skipped}}</li>
+                    <li>{{tl localizer "Categories created: %d" .Categories}}</li>
+                </ul>
+                {{if .Problems}}
+                    <table class="w-full">
+                        <thead>
+                            <tr>
+                                <th>{{tl localizer "Row"}}</th>
+                                <th>{{tl localizer "Problem"}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{range .Problems}}
+                                <tr>
+                                    <td class="p-3">{{.Row}}</td>
+                                    <td class="p-3">{{tl localizer .Reason}}</td>
+                                </tr>
+                            {{end}}
+                        </tbody>
+                    </table>
+                {{end}}
+            </section>
+        {{end}}
+
+        <section class="surface border-theme border rounded-xl p-6">
+            <p class="muted mb-4">{{tl localizer "The first row names the columns. Name and category are required; these columns are read:"}} <code>{{.Columns}}</code></p>
+            <p class="muted mb-6">{{tl localizer "Texts are stored in the default language. Missing categories are created."}}</p>
+
+            {{form_open_localized localizer .Form}}
+                {{form_field_localized localizer .Form "file" .Errors}}
+                {{form_field_localized localizer .Form "csv" .Errors}}
+
+                {{if .CanUpdate}}
+                    {{form_field_localized localizer .Form "update" .Errors}}
+                {{end}}
+
+                {{if .CanPublish}}
+                    {{form_field_localized localizer .Form "publish" .Errors}}
+                    <p class="muted mb-4">{{tl localizer "Existing categories keep their state: entries in an unpublished category stay hidden until the category is published."}}</p>
+                {{end}}
+
+                {{form_buttons_localized localizer .Form}}
+            {{form_close}}
+        </section>
+    </div>
+</main>
