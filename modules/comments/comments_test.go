@@ -128,10 +128,11 @@ func TestComments(t *testing.T) {
 		t.Fatalf("visitor hash %q", stored.Hash)
 	}
 
-	// The admin lists the pending comment with the address under the page it
-	// was written on, and approves it; the navigation counts pending comments.
+	// The admin lists the pending comment under the title of the page it was
+	// written on, with its address, and approves it; the navigation counts
+	// pending comments.
 	s.Expect("/admin/remarks", http.StatusOK, "Ada", "ada@example.test", `Pending <span class="badge">1</span>`,
-		`break-all">/en/</h2>`, `<span class="nav-badge">1</span>`)
+		`break-all">Home</h2>`, `<a href="/en/">/en/</a>`, `<span class="nav-badge">1</span>`)
 	s.ExpectMissing("/admin/remarks?filter=all", "Bot")
 	s.ExpectMissing("/admin/remarks?filter=all", "Mallory")
 

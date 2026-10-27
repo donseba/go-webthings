@@ -384,6 +384,19 @@ func (c *Check) redirected(ctx context.Context, resolver resolver, address strin
 // Check.Index). It never changes.
 type Index struct {
 	links []Link
+	// sources is the published content by its own address (Source.URL),
+	// pages first.
+	sources map[string]*Source
+}
+
+// Source returns the published content whose own address is address, such
+// as the post at "/en/news/hello", in that address's language, and whether
+// there is any; Source.Title names it for editors. Content without links
+// counts too.
+func (i *Index) Source(address string) (*Source, bool) {
+	source, ok := i.sources[address]
+
+	return source, ok
 }
 
 // Links returns every link, those of pages first, in tree order, then
@@ -424,6 +437,16 @@ func within(address string, bases []string) bool {
 
 // add indexes the links hrefs of source, in locale, made by module.
 func (i *Index) add(resolver resolver, module, locale string, source *Source, hrefs []string) {
+	if source.URL != "" {
+		if i.sources == nil {
+			i.sources = map[string]*Source{}
+		}
+
+		if _, ok := i.sources[source.URL]; !ok {
+			i.sources[source.URL] = source
+		}
+	}
+
 	base := cmp.Or(source.URL, pageURL(locale, "/"))
 
 	for _, href := range hrefs {

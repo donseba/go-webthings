@@ -117,7 +117,7 @@ Bots that fill in the spam trap get the answer a person would get; nothing is st
 
 ## Moderation
 
-The instance's admin section (`/admin/remarks`; `/admin` is the default [admin path](../../docs/configuration.md#admin-path)) lists the messages newest first, grouped by subject, with tabs for pending, approved and all messages. Each message shows the name, the e-mail address, the language, the page it was written on and a short sender code. The badge in the navigation counts the messages that are not shown.
+The instance's admin section (`/admin/remarks`; `/admin` is the default [admin path](../../docs/configuration.md#admin-path)) lists the messages newest first, grouped by subject, with tabs for pending, approved and all messages. A group is headed by the title of the published content on the page its messages were written on, such as a post's title, with the page's address below it; when messages were written in several languages, the page in the admin's language wins. Without published content there the heading is the address, and a guestbook's is the instance's title. Each message shows the name, the e-mail address, the language, the page it was written on and a short sender code. The badge in the navigation counts the messages that are not shown.
 
 - **Approve** shows a message, **Hide** takes it off the website again, after the question "Take this off the website?". Both need the publish right.
 - **Reply** adds a staff reply, shown at once and marked as `Staff`. It is signed with the site title in the comment's language (or the organisation, or the editor's name) and approves the comment it answers. It needs the create right.

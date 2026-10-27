@@ -7,11 +7,13 @@ import (
 	"net/http"
 	"net/url"
 	"strconv"
+	"strings"
 
 	webthings "github.com/donseba/go-webthings"
 	"github.com/donseba/go-webthings/admin"
 	"github.com/donseba/go-webthings/auth"
 	"github.com/donseba/go-webthings/db"
+	"github.com/donseba/go-webthings/links"
 
 	form "github.com/donseba/go-form/v2"
 )
@@ -93,10 +95,15 @@ type InboxView struct {
 type InboxGroup struct {
 	Subject string
 	// Title names the subject for people: the instance title for the
-	// instance's own subject (a guestbook), otherwise the page the messages
-	// were written on, or the subject key when no message knows its page.
+	// instance's own subject (a guestbook); otherwise the title of the
+	// published content on the page the messages were written on, in the
+	// admin's language when a message was written in it, or that page's
+	// address when no published content is there; the subject key when no
+	// message knows its page.
 	Title string
-	Rows  []InboxRow
+	// Address is the page whose content Title names, shown with it.
+	Address string
+	Rows    []InboxRow
 }
 
 // InboxRow is one message in the admin list.
@@ -181,6 +188,7 @@ func (s screens) list(w http.ResponseWriter, r *http.Request) {
 
 	// Messages are grouped by subject; groups follow their newest message.
 	position := map[string]int{}
+	paths := map[int][]string{}
 
 	for _, record := range page.Rows {
 		i, ok := position[record.Subject]
@@ -190,13 +198,14 @@ func (s screens) list(w http.ResponseWriter, r *http.Request) {
 			view.Groups = append(view.Groups, InboxGroup{Subject: record.Subject, Title: s.subjectTitle(record.Subject)})
 		}
 
-		group := &view.Groups[i]
-		if group.Title == record.Subject && record.Path != "" {
-			group.Title = record.Path
+		if record.Path != "" {
+			paths[i] = append(paths[i], record.Path)
 		}
 
-		group.Rows = append(group.Rows, s.row(r, record, filter))
+		view.Groups[i].Rows = append(view.Groups[i].Rows, s.row(r, record, filter))
 	}
+
+	s.headings(ctx, view.Groups, paths)
 
 	s.admin.Render(w, r, admin.Page{
 		Title:    s.env.Title,
@@ -215,6 +224,68 @@ func (s screens) subjectTitle(subject string) string {
 	}
 
 	return subject
+}
+
+// headings names the groups without a title of their own by the pages
+// their messages were written on, newest first: the title of the published
+// content there, with its address, from the site's links index; the address
+// alone when no published content is there or the index fails.
+func (s screens) headings(ctx context.Context, groups []InboxGroup, paths map[int][]string) {
+	var index *links.Index
+
+	if check := s.env.Links(); check != nil {
+		found, err := check.Index(ctx)
+		if err != nil {
+			slog.ErrorContext(ctx, "comments: page titles", "error", err)
+		} else {
+			index = found
+		}
+	}
+
+	for i, found := range paths {
+		group := &groups[i]
+		if group.Title != group.Subject {
+			continue
+		}
+
+		address := s.adminPage(found)
+		group.Title = address
+
+		if index == nil {
+			continue
+		}
+
+		if source, ok := index.Source(address); ok && source.Title != "" {
+			group.Title = source.Title
+			group.Address = address
+		}
+	}
+}
+
+// adminPage returns the newest of paths in the admin's language, such as
+// "/nl/journaal/celadon" for a Dutch admin, or the newest path when no
+// message was written in it.
+func (s screens) adminPage(paths []string) string {
+	for _, path := range paths {
+		locale, _, _ := strings.Cut(strings.TrimPrefix(path, "/"), "/")
+		if sameLanguage(locale, s.env.AdminLanguage) {
+			return path
+		}
+	}
+
+	return paths[0]
+}
+
+// sameLanguage reports whether two locales, such as "nl" and "nl_NL", share
+// their language.
+func sameLanguage(a, b string) bool {
+	language := func(locale string) string {
+		base, _, _ := strings.Cut(strings.ReplaceAll(locale, "-", "_"), "_")
+
+		return strings.ToLower(base)
+	}
+
+	return a != "" && language(a) == language(b)
 }
 
 func (s screens) row(r *http.Request, record record, filter string) InboxRow {

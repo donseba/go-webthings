@@ -16,6 +16,7 @@
         {{range .Groups}}
             <section class="card mb-6">
                 <h2 class="card-title break-all">{{tl localizer .Title}}</h2>
+                {{with .Address}}<p class="muted text-xs break-all -mt-3 mb-3"><a href="{{.}}">{{.}}</a></p>{{end}}
 
                 <table class="w-full">
                     <thead>

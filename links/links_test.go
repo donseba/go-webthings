@@ -193,6 +193,22 @@ func TestIndex(t *testing.T) {
 			t.Fatalf("module link: %+v", to[len(to)-1])
 		}
 
+		// Content is found by its own address, also without links of its
+		// own, in that address's language.
+		for address, title := range map[string]string{
+			"/en/about":      "About",
+			"/nl/over-ons":   "Over ons",
+			"/en/blog/hello": "Hello",
+		} {
+			if source, ok := index.Source(address); !ok || source.Title != title {
+				t.Fatalf("source at %s: %+v %v", address, source, ok)
+			}
+		}
+
+		if source, ok := index.Source("/en/missing"); ok {
+			t.Fatalf("source at an address without content: %+v", source)
+		}
+
 		// The same index until something changes.
 		again, err := check.Index(ctx)
 		if err != nil || again != index {
