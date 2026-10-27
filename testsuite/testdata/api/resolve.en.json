@@ -1,0 +1,36 @@
+{
+  "alternates": [
+    {
+      "api_url": "https://example.test/api/v1/pages/<id1>?locale=nl",
+      "locale": "nl",
+      "url": "https://example.test/nl/over-ons"
+    }
+  ],
+  "api_url": "https://example.test/api/v1/pages/<id1>?locale=en",
+  "body_html": "<p>Read the <a href=\"https://example.test/en/news\">news</a>.</p>\n<p><img src=\"https://example.test/media/v/<sig>/<id2>_1600x0.webp\" alt=\"The harbour\" srcset=\"https://example.test/media/v/<sig>/<id2>_480x0.webp 480w, https://example.test/media/v/<sig>/<id2>_800x0.webp 800w, https://example.test/media/v/<sig>/<id2>_1200x0.webp 1200w, https://example.test/media/v/<sig>/<id2>_1600x0.webp 1600w\" sizes=\"100vw\" width=\"1600\" height=\"900\"></p>\n",
+  "breadcrumbs": [
+    {
+      "api_url": "https://example.test/api/v1/pages/<id3>?locale=en",
+      "id": "<id3>",
+      "title": "Home",
+      "url": "https://example.test/en/"
+    },
+    {
+      "api_url": "https://example.test/api/v1/pages/<id1>?locale=en",
+      "id": "<id1>",
+      "title": "About",
+      "url": "https://example.test/en/about"
+    }
+  ],
+  "description": "Who we are",
+  "id": "<id1>",
+  "is_home": false,
+  "locale": "en",
+  "module": null,
+  "parent_id": "<id3>",
+  "path": "/about",
+  "slug": "about",
+  "title": "About",
+  "updated_at": "<time>",
+  "url": "https://example.test/en/about"
+}

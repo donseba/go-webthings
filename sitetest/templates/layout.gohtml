@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="{{.Locale}}">
+<head><title>{{.Title}} · {{.Site.Name}}</title>{{feedLinks}}{{apiLink}}</head>
+<body>
+<nav id="menu">{{range .Menu}}<a href="{{.URL}}">{{.Title}}</a> {{end}}</nav>
+<nav id="languages">{{range .Languages}}<a hreflang="{{.Locale}}" href="{{.URL}}">{{.Locale}}</a> {{end}}</nav>
+<form id="search" action="{{searchURL}}"><input name="q"></form>
+{{with .Editor}}<a id="edit" href="{{.EditURL}}">Edit</a>{{end}}
+{{if .Preview}}<p id="preview">preview{{with .Revision}} of revision {{.Number}}{{if not .Published}} (not published){{end}}{{end}}</p>{{end}}
+{{content}}
+</body>
+</html>

@@ -1,0 +1,53 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Accept as draft post"
+msgstr "Accept as draft post"
+
+msgid "Accepted"
+msgstr "Accepted"
+
+msgid "Accepted proposals go to %s, which is not a news or blog module. Check the site's configuration."
+msgstr "Accepted proposals go to %s, which is not a news or blog module. Check the site's configuration."
+
+msgid "All"
+msgstr "All"
+
+msgid "Confirm receipt to submitters"
+msgstr "Confirm receipt to submitters"
+
+msgid "Enter one valid e-mail address for notifications, or leave it empty."
+msgstr "Enter one valid e-mail address for notifications, or leave it empty."
+
+msgid "Mail"
+msgstr "Mail"
+
+msgid "New"
+msgstr "New"
+
+msgid "New proposals are mailed to this address. Leave empty to send none."
+msgstr "New proposals are mailed to this address. Leave empty to send none."
+
+msgid "Notification e-mail"
+msgstr "Notification e-mail"
+
+msgid "Open draft post"
+msgstr "Open draft post"
+
+msgid "Proposal"
+msgstr "Proposal"
+
+msgid "Received"
+msgstr "Received"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Tell submitters when their proposal is accepted or rejected"
+msgstr "Tell submitters when their proposal is accepted or rejected"
+
+msgid "The texts of the mails are templates of the site and follow its translations."
+msgstr "The texts of the mails are templates of the site and follow its translations."
+
+msgid "This proposal was already decided."
+msgstr "This proposal was already decided."

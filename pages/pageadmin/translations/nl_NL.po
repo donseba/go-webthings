@@ -1,0 +1,106 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "Broken links"
+msgstr "Kapotte links"
+
+msgid "Choose a parent page."
+msgstr "Kies een bovenliggende pagina."
+
+msgid "Create redirect"
+msgstr "Doorverwijzing maken"
+
+msgid "Drag to move"
+msgstr "Sleep om te verplaatsen"
+
+msgid "Give the page a web address of lowercase letters, digits and dashes, or a title it can be made from."
+msgstr "Geef de pagina een webadres van kleine letters, cijfers en streepjes, of een titel waarvan het gemaakt kan worden."
+
+msgid "Home"
+msgstr "Startpagina"
+
+msgid "Linked from"
+msgstr "Gelinkt vanuit"
+
+msgid "Links in published pages and module content that lead to an address where the website has no page. Fix the link in the content, publish the page again, or redirect the address."
+msgstr "Links in gepubliceerde pagina's en in de inhoud van modules die naar een adres leiden waar de website geen pagina heeft. Pas de link in de inhoud aan, publiceer de pagina opnieuw of verwijs het adres door."
+
+msgid "Module: %s"
+msgstr "Module: %s"
+
+msgid "No broken links: every link in published content leads to a page."
+msgstr "Geen kapotte links: elke link in gepubliceerde inhoud leidt naar een pagina."
+
+msgid "No page has this address."
+msgstr "Geen enkele pagina heeft dit adres."
+
+msgid "Published items link to this page. Move it to the trash anyway?"
+msgstr "Gepubliceerde items linken naar deze pagina. Toch naar de prullenbak verplaatsen?"
+
+msgid "Published items link to this page. Unpublish it anyway?"
+msgstr "Gepubliceerde items linken naar deze pagina. De publicatie toch intrekken?"
+
+msgid "Publishing this revision changes the address of the page and of the pages below it."
+msgstr "Deze revisie publiceren verandert het adres van de pagina en van de pagina's eronder."
+
+msgid "Redirect saved."
+msgstr "Doorverwijzing opgeslagen."
+
+msgid "The address does not start with a language of the website."
+msgstr "Het adres begint niet met een taal van de website."
+
+msgid "The home page always stays on the website: it cannot be unpublished, scheduled to be unpublished or deleted."
+msgstr "De startpagina blijft altijd op de website: je kunt de publicatie niet intrekken, niet inplannen dat die wordt ingetrokken en de pagina niet verwijderen."
+
+msgid "The new place is saved as a draft. Publish the page to move it on the website; its address changes then."
+msgstr "De nieuwe plek is als concept opgeslagen. Publiceer de pagina om haar op de website te verplaatsen; dan verandert ook haar adres."
+
+msgid "The page with this address is in the trash."
+msgstr "De pagina met dit adres ligt in de prullenbak."
+
+msgid "The page with this address is not published."
+msgstr "De pagina met dit adres is niet gepubliceerd."
+
+msgid "The website's menu follows this order. Moving a page up or down changes the menu at once."
+msgstr "Het menu van de website volgt deze volgorde. Een pagina omhoog of omlaag verplaatsen past het menu meteen aan."
+
+msgid "This address cannot be redirected to that page."
+msgstr "Dit adres kan niet naar die pagina worden doorverwezen."
+
+msgid "Unpublishing the page, moving it to the trash or changing its address breaks these links."
+msgstr "De publicatie intrekken, de pagina naar de prullenbak verplaatsen of haar adres wijzigen maakt deze links kapot."
+
+msgid "With the Redirects module, you can redirect such an address to another page here."
+msgstr "Met de module Doorverwijzingen kun je zo'n adres hier naar een andere pagina doorverwijzen."
+
+msgid "Dragging a page by its handle between other pages does the same; dropping it onto a page places it below that page."
+msgstr "Een pagina aan de greep tussen andere pagina's slepen doet hetzelfde; zet je haar op een pagina neer, dan komt ze onder die pagina."
+
+msgid "You need the right to create redirects."
+msgstr "Je hebt het recht nodig om doorverwijzingen te maken."
+
+msgid "%d published item links to this page."
+msgid_plural "%d published items link to this page."
+msgstr[0] "%d gepubliceerd item linkt naar deze pagina."
+msgstr[1] "%d gepubliceerde items linken naar deze pagina."
+
+msgid "Shows on this page"
+msgstr "Toont op deze pagina"
+
+msgid "Nothing, a normal page"
+msgstr "Niets, een gewone pagina"
+
+msgid "None (top level)"
+msgstr "Geen (hoofdniveau)"
+
+msgid "The page this page sits below, in the menu and in its address."
+msgstr "De pagina waaronder deze pagina staat, in het menu en in het adres."
+
+msgid "A module, such as news or events, can show its content on this page. Such a page cannot have child pages."
+msgstr "Een module, zoals nieuws of evenementen, kan haar inhoud op deze pagina tonen. Zo'n pagina kan geen onderliggende pagina's hebben."
+
+msgid "Other changes to a page, also a new parent page, are saved as a draft and reach the website when you publish the page."
+msgstr "Andere wijzigingen aan een pagina, ook een nieuwe bovenliggende pagina, worden als concept opgeslagen en komen op de website als je de pagina publiceert."

@@ -1,0 +1,14 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.Page */}}
+<main id="content"><h1>{{.Title}}</h1>
+{{with poll "survey" "colour"}}<section id="{{.Anchor}}">
+<h2>{{.Question}}</h2>
+<p>result={{.Result}}</p>
+{{if .CanVote}}{{form_open .Form}}{{form_field .Form "poll" nil}}
+{{form_field .Form "option" nil}}{{form_close}}{{end}}
+{{if .Voted}}<p>you voted</p>{{end}}
+{{if .Closed}}<p>poll closed</p>{{end}}
+{{if .ShowResults}}{{range .Options}}<p>{{.Label}}: {{.Percent}}% ({{.Votes}}){{if .Chosen}} chosen{{end}}</p>{{end}}<p>total {{.Total}}</p>{{end}}
+</section>{{end}}
+{{range polls "survey" 1}}<p class="latest">{{.Question}}</p>{{end}}
+<p class="action">{{pollURL "survey"}}</p>
+</main>

@@ -1,0 +1,56 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%d days"
+msgstr "%d dagen"
+
+msgid "%d views, %d visitors"
+msgstr "%d weergaven, %d bezoekers"
+
+msgid "A visitor is recognised for one day only: visitors are counted per day and added up."
+msgstr "Een bezoeker wordt maar één dag herkend: bezoekers worden per dag geteld en opgeteld."
+
+msgid "Desktop"
+msgstr "Desktop"
+
+msgid "Devices"
+msgstr "Apparaten"
+
+msgid "Keep statistics for (days)"
+msgstr "Statistieken bewaren (dagen)"
+
+msgid "Languages"
+msgstr "Talen"
+
+msgid "Mobile"
+msgstr "Mobiel"
+
+msgid "Older days are deleted. 0 keeps all statistics."
+msgstr "Oudere dagen worden verwijderd. Bij 0 blijven alle statistieken bewaard."
+
+msgid "Page views"
+msgstr "Paginaweergaven"
+
+msgid "Page views per day"
+msgstr "Paginaweergaven per dag"
+
+msgid "Period"
+msgstr "Periode"
+
+msgid "Referrers"
+msgstr "Verwijzers"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Tablet"
+msgstr "Tablet"
+
+msgid "Top pages"
+msgstr "Populairste pagina's"
+
+msgid "Views"
+msgstr "Weergaven"
+
+msgid "Statistics"
+msgstr "Statistieken"

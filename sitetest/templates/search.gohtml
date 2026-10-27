@@ -1,0 +1,4 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.SearchView */}}
+<main id="content"><h1>search: {{.Query}}</h1>
+{{range .Results}}<article class="result {{.Type}}"><a href="{{.URL}}">{{.Title}}</a><p>{{.Summary}}</p></article>
+{{else}}<p class="empty">nothing found</p>{{end}}</main>

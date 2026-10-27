@@ -1,0 +1,56 @@
+{{/* @dot github.com/donseba/go-webthings/media/mediaadmin.AssetView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{.Card.Filename}}</h1>
+            <div class="admin-page-actions"><a class="button-secondary" href="{{route "admin.media.index"}}">{{tl localizer "Back to %s" (tl localizer "Media")}}</a></div>
+        </header>
+
+        <div class="grid lg:grid-cols-2 gap-6 items-start">
+            <section class="surface border-theme border rounded-xl p-6">
+                {{with .Focus}}
+                    <div class="mb-6" data-focal-editor data-width="{{.Width}}" data-height="{{.Height}}">
+                        <div class="focal-frame mb-3" data-focal-frame>
+                            <img src="{{.URL}}" alt="" draggable="false">
+                            <span class="focal-marker" data-focal-marker data-x="{{.X}}" data-y="{{.Y}}" data-label="{{tl localizer "Focal point"}}" data-value-text="{{tl localizer "{x} from the left, {y} from the top"}}" aria-hidden="true"></span>
+                        </div>
+                        <h2 class="text-xl font-semibold mb-2">{{tl localizer "Focal point"}}</h2>
+                        <p class="muted text-sm mb-4">{{tl localizer "Place the focal point on what matters most in the image: click or drag in the image, or select the marker and use the arrow keys. Every crop keeps it in view, centred where the image allows."}}</p>
+                        <div class="focal-previews mb-4">
+                            {{range .Previews}}
+                                <figure class="focal-preview">
+                                    <div class="focal-crop focal-crop-{{.Width}}-{{.Height}}">
+                                        <img class="{{.Class}}" src="{{$.Focus.URL}}" alt="" data-focal-crop="{{.Width}}:{{.Height}}">
+                                    </div>
+                                    <figcaption>{{.Width}}:{{.Height}}</figcaption>
+                                </figure>
+                            {{end}}
+                        </div>
+                        {{form_render_localized localizer .Form .Errors}}
+                    </div>
+                    {{importmap_style "focal-points.css"}}
+                    {{importmap_script "focalpoint.js" "type" "module"}}
+                {{end}}
+                <p class="muted text-sm mb-4">{{.Card.Details}}</p>
+                <a class="button-secondary" href="{{.Card.URL}}" target="_blank" rel="noopener">{{tl localizer "Open file"}}</a>
+
+                <label class="field mt-6">
+                    <span class="field-label">{{tl localizer "Use in content"}}</span>
+                    <input class="control" readonly value="{{.Markdown}}" data-select-all>
+                </label>
+            </section>
+
+            <section class="surface border-theme border rounded-xl p-6">
+                {{template "locale-tabs.gohtml" .Tabs}}
+                {{if .ReadOnly}}
+                    <p class="notice mb-4" role="status">{{tl localizer "You can view this item but not change it."}}</p>
+                {{end}}
+                {{form_render_localized localizer .Form .Errors}}
+
+                {{with .Delete}}
+                    <div class="card-footer">{{form_render_localized localizer . nil}}</div>
+                {{end}}
+            </section>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,1161 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%s asks you to review a change of %s at %s."
+msgstr "%s asks you to review a change of %s at %s."
+
+msgid "%s saved this item at %s while you were editing it. Open their version in a new tab to compare, or save yours over it."
+msgstr "%s saved this item at %s while you were editing it. Open their version in a new tab to compare, or save yours over it."
+
+msgid "A group with this name already exists."
+msgstr "A group with this name already exists."
+
+msgid "A page cannot be placed below itself."
+msgstr "A page cannot be placed below itself."
+
+msgid "A referenced media file no longer exists."
+msgstr "A referenced media file no longer exists."
+
+msgid "Account status"
+msgstr "Account status"
+
+msgid "Accounts"
+msgstr "Accounts"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Add group"
+msgstr "Add group"
+
+msgid "Admin"
+msgstr "Admin"
+
+msgid "Administrator (everything)"
+msgstr "Administrator (everything)"
+
+msgid "Agenda"
+msgstr "Agenda"
+
+msgid "Another page at this level already uses this web address, or the address is reserved."
+msgstr "Another page at this level already uses this web address, or the address is reserved."
+
+msgid "Appearance"
+msgstr "Appearance"
+
+msgid "Approve"
+msgstr "Approve"
+
+msgid "Approved"
+msgstr "Approved"
+
+msgid "Approved and published."
+msgstr "Approved and published."
+
+msgid "Approved."
+msgstr "Approved."
+
+msgid "Ask for a new link"
+msgstr "Ask for a new link"
+
+msgid "At least one active administrator must remain."
+msgstr "At least one active administrator must remain."
+
+msgid "Back to %s"
+msgstr "Back to %s"
+
+msgid "Back to sign in"
+msgstr "Back to sign in"
+
+msgid "Breadcrumbs"
+msgstr "Breadcrumbs"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Cancel schedule"
+msgstr "Cancel schedule"
+
+msgid "Change password"
+msgstr "Change password"
+
+msgid "Change role"
+msgstr "Change role"
+
+msgid "Changes not published"
+msgstr "Changes not published"
+
+msgid "Changes saved."
+msgstr "Changes saved."
+
+msgid "Choose a new password"
+msgstr "Choose a new password"
+
+msgid "Choose a new password for %s"
+msgstr "Choose a new password for %s"
+
+msgid "Choose when to publish or unpublish; unpublishing must come after publishing."
+msgstr "Choose when to publish or unpublish; unpublishing must come after publishing."
+
+msgid "Communication"
+msgstr "Communication"
+
+msgid "Complete the default language before publishing."
+msgstr "Complete the default language before publishing."
+
+msgid "Confirm"
+msgstr "Confirm"
+
+msgid "Content"
+msgstr "Content"
+
+msgid "Content language"
+msgstr "Content language"
+
+msgid "Content the account wrote stays."
+msgstr "Content the account wrote stays."
+
+msgid "Create"
+msgstr "Create"
+
+msgid "Create a group first."
+msgstr "Create a group first."
+
+msgid "Create account"
+msgstr "Create account"
+
+msgid "Created"
+msgstr "Created"
+
+msgid "Current password"
+msgstr "Current password"
+
+msgid "Dark theme"
+msgstr "Dark theme"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Delete account"
+msgstr "Delete account"
+
+msgid "Delete group"
+msgstr "Delete group"
+
+msgid "Delete this account? Its sessions end and it can no longer sign in. This cannot be undone."
+msgstr "Delete this account? Its sessions end and it can no longer sign in. This cannot be undone."
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Disable account"
+msgstr "Disable account"
+
+msgid "Disabling an account revokes its sessions."
+msgstr "Disabling an account revokes its sessions."
+
+msgid "Dismiss"
+msgstr "Dismiss"
+
+msgid "Dismiss notification"
+msgstr "Dismiss notification"
+
+msgid "Draft"
+msgstr "Draft"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Editor (rights from groups)"
+msgstr "Editor (rights from groups)"
+
+msgid "Editors get the rights of all their groups."
+msgstr "Editors get the rights of all their groups."
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Enable account"
+msgstr "Enable account"
+
+msgid "Enter a valid email address."
+msgstr "Enter a valid email address."
+
+msgid "Enter the e-mail address of your account. You receive a link to choose a new password."
+msgstr "Enter the e-mail address of your account. You receive a link to choose a new password."
+
+msgid "Expires"
+msgstr "Expires"
+
+msgid "Forgot your password?"
+msgstr "Forgot your password?"
+
+msgid "Goes offline"
+msgstr "Goes offline"
+
+msgid "Goes online"
+msgstr "Goes online"
+
+msgid "Group"
+msgstr "Group"
+
+msgid "Group name"
+msgstr "Group name"
+
+msgid "Groups"
+msgstr "Groups"
+
+msgid "Groups decide what editors may do. Administrators may always do everything."
+msgstr "Groups decide what editors may do. Administrators may always do everything."
+
+msgid "If an account exists for this address, it receives an e-mail with a link to choose a new password. The link works for one hour."
+msgstr "If an account exists for this address, it receives an e-mail with a link to choose a new password. The link works for one hour."
+
+msgid "If you did not ask for this, ignore this e-mail: your password stays the same."
+msgstr "If you did not ask for this, ignore this e-mail: your password stays the same."
+
+msgid "In review"
+msgstr "In review"
+
+msgid "Incomplete translation"
+msgstr "Incomplete translation"
+
+msgid "Invalid email or password."
+msgstr "Invalid email or password."
+
+msgid "Language"
+msgstr "Language"
+
+msgid "Last seen"
+msgstr "Last seen"
+
+msgid "Newest draft: revision %d"
+msgstr "Newest draft: revision %d"
+
+msgid "Light theme"
+msgstr "Light theme"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Links and search engines that use an old address then lead to the new one."
+msgstr "Links and search engines that use an old address then lead to the new one."
+
+msgid "Loading"
+msgstr "Loading"
+
+msgid "Members"
+msgstr "Members"
+
+msgid "Missing translation"
+msgstr "Missing translation"
+
+msgid "Modules"
+msgstr "Modules"
+
+msgid "Move down"
+msgstr "Move down"
+
+msgid "Move or delete the child pages first."
+msgstr "Move or delete the child pages first."
+
+msgid "Move up"
+msgstr "Move up"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "Name and e-mail"
+msgstr "Name and e-mail"
+
+msgid "Needs attention"
+msgstr "Needs attention"
+
+msgid "New account"
+msgstr "New account"
+
+msgid "New group"
+msgstr "New group"
+
+msgid "New page"
+msgstr "New page"
+
+msgid "New password"
+msgstr "New password"
+
+msgid "New…"
+msgstr "New…"
+
+msgid "No account exists yet. Create the first administrator account."
+msgstr "No account exists yet. Create the first administrator account."
+
+msgid "No account exists yet. To create the first administrator account, open the setup link from the server's log: search the log for “no account exists yet”. Or set AdminEmail and AdminPassword in the site's configuration and start the site again."
+msgstr "No account exists yet. To create the first administrator account, open the setup link from the server's log: search the log for “no account exists yet”. Or set AdminEmail and AdminPassword in the site's configuration and start the site again."
+
+msgid "No groups yet."
+msgstr "No groups yet."
+
+msgid "No sessions."
+msgstr "No sessions."
+
+msgid "Not every old address could be redirected; see the redirects."
+msgstr "Not every old address could be redirected; see the redirects."
+
+msgid "not on the website"
+msgstr "not on the website"
+
+msgid "Note"
+msgstr "Note"
+
+msgid "Nothing has been edited yet. Pages and items you write appear here."
+msgstr "Nothing has been edited yet. Pages and items you write appear here."
+
+msgid "Nothing here yet."
+msgstr "Nothing here yet."
+
+msgid "Nothing is scheduled. Plan a publication in the publication panel of a page or item."
+msgstr "Nothing is scheduled. Plan a publication in the publication panel of a page or item."
+
+msgid "Nothing needs your attention."
+msgstr "Nothing needs your attention."
+
+msgid "Open it to approve or reject it:"
+msgstr "Open it to approve or reject it:"
+
+msgid "Open the saved version"
+msgstr "Open the saved version"
+
+msgid "Open this link within an hour to choose a new password:"
+msgstr "Open this link within an hour to choose a new password:"
+
+msgid "Order"
+msgstr "Order"
+
+msgid "Page"
+msgstr "Page"
+
+msgid "Pages"
+msgstr "Pages"
+
+msgid "Pages with a module cannot have child pages."
+msgstr "Pages with a module cannot have child pages."
+
+msgid "Parent page"
+msgstr "Parent page"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Passwords need at least 12 characters."
+msgstr "Passwords need at least 12 characters."
+
+msgid "Preview"
+msgstr "Preview"
+
+msgid "Preview this revision"
+msgstr "Preview this revision"
+
+msgid "Publication"
+msgstr "Publication"
+
+msgid "Publication scheduled."
+msgstr "Publication scheduled."
+
+msgid "Publish"
+msgstr "Publish"
+
+msgid "Publish at"
+msgstr "Publish at"
+
+msgid "Publish this revision"
+msgstr "Publish this revision"
+
+msgid "Publish this revision and/or unpublish the item later, in the site's timezone."
+msgstr "Publish this revision and/or unpublish the item later, in the site's timezone."
+
+msgid "Publish this revision later, in the site's timezone."
+msgstr "Publish this revision later, in the site's timezone."
+
+msgid "Publish this revision now"
+msgstr "Publish this revision now"
+
+msgid "Published"
+msgstr "Published"
+
+msgid "Published items link to the old address, and their links will lead nowhere. Publish anyway?"
+msgstr "Published items link to the old address, and their links will lead nowhere. Publish anyway?"
+
+msgid "Published items link to addresses below this item. Move it to the trash anyway?"
+msgstr "Published items link to addresses below this item. Move it to the trash anyway?"
+
+msgid "Published items link to addresses below this item. Unpublish it anyway?"
+msgstr "Published items link to addresses below this item. Unpublish it anyway?"
+
+msgid "Published items link to this item. Move it to the trash anyway?"
+msgstr "Published items link to this item. Move it to the trash anyway?"
+
+msgid "Published items link to this item. Unpublish it anyway?"
+msgstr "Published items link to this item. Unpublish it anyway?"
+
+msgid "On the website: revision %d"
+msgstr "On the website: revision %d"
+
+msgid "Published."
+msgstr "Published."
+
+msgid "Published. The schedule was cancelled."
+msgstr "Published. The schedule was cancelled."
+
+msgid "Publishing now cancels the schedule. Continue?"
+msgstr "Publishing now cancels the schedule. Continue?"
+
+msgid "Publishing or unpublishing by hand cancels the schedule."
+msgstr "Publishing or unpublishing by hand cancels the schedule."
+
+msgid "Publishing this revision changes the address of this item."
+msgstr "Publishing this revision changes the address of this item."
+
+msgid "Quote"
+msgstr "Quote"
+
+msgid "Read"
+msgstr "Read"
+
+msgid "Recently edited"
+msgstr "Recently edited"
+
+msgid "Redirect the old addresses to the new ones"
+msgstr "Redirect the old addresses to the new ones"
+
+msgid "Redirect to"
+msgstr "Redirect to"
+
+msgid "Reject"
+msgstr "Reject"
+
+msgid "Rejected"
+msgstr "Rejected"
+
+msgid "Rejected."
+msgstr "Rejected."
+
+msgid "Repeat new password"
+msgstr "Repeat new password"
+
+msgid "Repeat password"
+msgstr "Repeat password"
+
+msgid "Restore as new draft"
+msgstr "Restore as new draft"
+
+msgid "Retro theme"
+msgstr "Retro theme"
+
+msgid "Review"
+msgstr "Review"
+
+msgid "Review this revision"
+msgstr "Review this revision"
+
+msgid "Review:"
+msgstr "Review:"
+
+msgid "Reviewed"
+msgstr "Reviewed"
+
+msgid "Revision %d"
+msgstr "Revision %d"
+
+msgid "Revision history"
+msgstr "Revision history"
+
+msgid "Revision restored as a new draft."
+msgstr "Revision restored as a new draft."
+
+msgid "Revoke session"
+msgstr "Revoke session"
+
+msgid "Role"
+msgstr "Role"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Save anyway"
+msgstr "Save anyway"
+
+msgid "Save groups"
+msgstr "Save groups"
+
+msgid "Save password"
+msgstr "Save password"
+
+msgid "Saving creates a draft. The website changes only when you publish it."
+msgstr "Saving creates a draft. The website changes only when you publish it."
+
+msgid "Saving it with another address redirects the old address to the new one."
+msgstr "Saving it with another address redirects the old address to the new one."
+
+msgid "Schedule"
+msgstr "Schedule"
+
+msgid "Schedule cancelled."
+msgstr "Schedule cancelled."
+
+msgid "Schedule this revision"
+msgstr "Schedule this revision"
+
+msgid "Scheduled"
+msgstr "Scheduled"
+
+msgid "Scheduled publication: revision %d"
+msgstr "Scheduled publication: revision %d"
+
+msgid "Scheduled unpublication:"
+msgstr "Scheduled unpublication:"
+
+msgid "Section"
+msgstr "Section"
+
+msgid "Select at least one item."
+msgstr "Select at least one item."
+
+msgid "Selected"
+msgstr "Selected"
+
+msgid "You're viewing revision %d (draft)"
+msgstr "You're viewing revision %d (draft)"
+
+msgid "Send link"
+msgstr "Send link"
+
+msgid "Sessions"
+msgstr "Sessions"
+
+msgid "Set up"
+msgstr "Set up"
+
+msgid "Shop"
+msgstr "Shop"
+
+msgid "Sign in"
+msgstr "Sign in"
+
+msgid "Sign out"
+msgstr "Sign out"
+
+msgid "Web address"
+msgstr "Web address"
+
+msgid "Some fields are not valid."
+msgstr "Some fields are not valid."
+
+msgid "Someone asked for a new password for your account at %s."
+msgstr "Someone asked for a new password for your account at %s."
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Submit for review"
+msgstr "Submit for review"
+
+msgid "Submitted"
+msgstr "Submitted"
+
+msgid "Submitted for review."
+msgstr "Submitted for review."
+
+msgid "System"
+msgstr "System"
+
+msgid "System theme"
+msgstr "System theme"
+
+msgid "The passwords do not match."
+msgstr "The passwords do not match."
+
+msgid "The request failed. Please try again."
+msgstr "The request failed. Please try again."
+
+msgid "This email address already has an account."
+msgstr "This email address already has an account."
+
+msgid "This item is still in use."
+msgstr "This item is still in use."
+
+msgid "This item was saved at %s while you were editing it. Open the saved version in a new tab to compare, or save yours over it."
+msgstr "This item was saved at %s while you were editing it. Open the saved version in a new tab to compare, or save yours over it."
+
+msgid "This link is invalid or has expired. Ask for a new one."
+msgstr "This link is invalid or has expired. Ask for a new one."
+
+msgid "This module is already placed on another page."
+msgstr "This module is already placed on another page."
+
+msgid "This module is not available."
+msgstr "This module is not available."
+
+msgid "This request came from another website and was refused."
+msgstr "This request came from another website and was refused."
+
+msgid "This revision can be published once a reviewer approves it."
+msgstr "This revision can be published once a reviewer approves it."
+
+msgid "This revision has no address on the website yet, so it cannot be previewed there."
+msgstr "This revision has no address on the website yet, so it cannot be previewed there."
+
+msgid "This revision is not ready for that review step."
+msgstr "This revision is not ready for that review step."
+
+msgid "This revision needs a reviewer's approval before it can be published."
+msgstr "This revision needs a reviewer's approval before it can be published."
+
+msgid "This web address is already used."
+msgstr "This web address is already used."
+
+msgid "Title"
+msgstr "Title"
+
+msgid "Today %s"
+msgstr "Today %s"
+
+msgid "Tomorrow %s"
+msgstr "Tomorrow %s"
+
+msgid "Too many attempts. Try again in 15 minutes."
+msgstr "Too many attempts. Try again in 15 minutes."
+
+msgid "Translated"
+msgstr "Translated"
+
+msgid "Unpublish"
+msgstr "Unpublish"
+
+msgid "Unpublish and redirect"
+msgstr "Unpublish and redirect"
+
+msgid "Unpublish at"
+msgstr "Unpublish at"
+
+msgid "Not on the website"
+msgstr "Not on the website"
+
+msgid "Unpublished."
+msgstr "Unpublished."
+
+msgid "Unpublished. The schedule was cancelled."
+msgstr "Unpublished. The schedule was cancelled."
+
+msgid "Unpublishing it or moving it to the trash breaks these links."
+msgstr "Unpublishing it or moving it to the trash breaks these links."
+
+msgid "Unpublishing it, moving it to the trash or changing its address breaks these links."
+msgstr "Unpublishing it, moving it to the trash or changing its address breaks these links."
+
+msgid "Unpublishing now cancels the schedule. Continue?"
+msgstr "Unpublishing now cancels the schedule. Continue?"
+
+msgid "Untitled"
+msgstr "Untitled"
+
+msgid "Upload request too large."
+msgstr "Upload request too large."
+
+msgid "View website"
+msgstr "View website"
+
+msgid "Visitors"
+msgstr "Visitors"
+
+msgid "Waiting for your review: %s"
+msgstr "Waiting for your review: %s"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Reason for rejection"
+msgstr "Reason for rejection"
+
+msgid "Write why the revision is rejected."
+msgstr "Write why the revision is rejected."
+
+msgid "Yesterday %s"
+msgstr "Yesterday %s"
+
+msgid "You are not allowed to do this."
+msgstr "You are not allowed to do this."
+
+msgid "You cannot delete your own account."
+msgstr "You cannot delete your own account."
+
+msgid "Your account"
+msgstr "Your account"
+
+msgid "Your administrator account is ready."
+msgstr "Your administrator account is ready."
+
+msgid "Your current password is not correct."
+msgstr "Your current password is not correct."
+
+msgid "Your other sessions are signed out when you change your password."
+msgstr "Your other sessions are signed out when you change your password."
+
+msgid "Your password was changed. Sign in with your new password."
+msgstr "Your password was changed. Sign in with your new password."
+
+msgid "Your password was changed. Your other sessions were signed out."
+msgstr "Your password was changed. Your other sessions were signed out."
+
+msgid "active"
+msgstr "active"
+
+msgid "by %s"
+msgstr "by %s"
+
+msgid "disabled"
+msgstr "disabled"
+
+msgid "Text formatting"
+msgstr "Text formatting"
+
+msgid "Paragraph"
+msgstr "Paragraph"
+
+msgid "Heading 2"
+msgstr "Heading 2"
+
+msgid "Heading 3"
+msgstr "Heading 3"
+
+msgid "Heading 4"
+msgstr "Heading 4"
+
+msgid "Bold"
+msgstr "Bold"
+
+msgid "Italic"
+msgstr "Italic"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Bulleted list"
+msgstr "Bulleted list"
+
+msgid "Numbered list"
+msgstr "Numbered list"
+
+msgid "Code block"
+msgstr "Code block"
+
+msgid "Horizontal line"
+msgstr "Horizontal line"
+
+msgid "Image from the media library"
+msgstr "Image from the media library"
+
+msgid "Undo"
+msgstr "Undo"
+
+msgid "Redo"
+msgstr "Redo"
+
+msgid "Show the text as Markdown"
+msgstr "Show the text as Markdown"
+
+msgid "Link address (leave empty to remove the link)"
+msgstr "Link address (leave empty to remove the link)"
+
+msgid "This link address cannot be used."
+msgstr "This link address cannot be used."
+
+msgid "This text contains Markdown the editor cannot show, such as a table. Edit it as Markdown."
+msgstr "This text contains Markdown the editor cannot show, such as a table. Edit it as Markdown."
+
+msgid "Choose an image"
+msgstr "Choose an image"
+
+msgid "Close"
+msgstr "Close"
+
+msgid "Search images"
+msgstr "Search images"
+
+msgid "Images"
+msgstr "Images"
+
+msgid "Show more"
+msgstr "Show more"
+
+msgid "Alternative text"
+msgstr "Alternative text"
+
+msgid "Optional. When empty, the image's alternative text from the media library is used."
+msgstr "Optional. When empty, the image's alternative text from the media library is used."
+
+msgid "Insert"
+msgstr "Insert"
+
+msgid "The media library could not be loaded."
+msgstr "The media library could not be loaded."
+
+msgid "No images found."
+msgstr "No images found."
+
+msgid "Select all"
+msgstr "Select all"
+
+msgid "All rights for %s"
+msgstr "All rights for %s"
+
+msgid "%s for all sections"
+msgstr "%s for all sections"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Clear search"
+msgstr "Clear search"
+
+msgid "No results for “%s”"
+msgstr "No results for “%s”"
+
+msgid "Administrator"
+msgstr "Administrator"
+
+msgid "Editor"
+msgstr "Editor"
+
+msgid "Active"
+msgstr "Active"
+
+msgid "Disabled"
+msgstr "Disabled"
+
+msgid "Trash"
+msgstr "Trash"
+
+msgid "Moved to the trash."
+msgstr "Moved to the trash."
+
+msgid "Move this item to the trash?"
+msgstr "Move this item to the trash?"
+
+msgid "Account deleted."
+msgstr "Account deleted."
+
+msgid "Group deleted."
+msgstr "Group deleted."
+
+msgid "Delete this group? This cannot be undone."
+msgstr "Delete this group? This cannot be undone."
+
+msgid "Deleted items stay here until you restore them or delete them for good, and for at most %d day."
+msgid_plural "Deleted items stay here until you restore them or delete them for good, and for at most %d days."
+msgstr[0] "Deleted items stay here until you restore them or delete them for good, and for at most %d day."
+msgstr[1] "Deleted items stay here until you restore them or delete them for good, and for at most %d days."
+
+msgid "Deleted items stay here until you restore them or delete them for good."
+msgstr "Deleted items stay here until you restore them or delete them for good."
+
+msgid "Sections"
+msgstr "Sections"
+
+msgid "All sections"
+msgstr "All sections"
+
+msgid "The deleted items of this section could not be listed."
+msgstr "The deleted items of this section could not be listed."
+
+msgid "Select"
+msgstr "Select"
+
+msgid "Select %s"
+msgstr "Select %s"
+
+msgid "Deleted"
+msgstr "Deleted"
+
+msgid "Deleted by"
+msgstr "Deleted by"
+
+msgid "Show all %d"
+msgstr "Show all %d"
+
+msgid "The text is too long."
+msgstr "The text is too long."
+
+msgid "The trash is empty."
+msgstr "The trash is empty."
+
+msgid "Previous"
+msgstr "Previous"
+
+msgid "Next"
+msgstr "Next"
+
+msgid "Restore selected"
+msgstr "Restore selected"
+
+msgid "Delete selected for good"
+msgstr "Delete selected for good"
+
+msgid "Delete the selected items for good? This cannot be undone."
+msgstr "Delete the selected items for good? This cannot be undone."
+
+msgid "%d item restored."
+msgid_plural "%d items restored."
+msgstr[0] "%d item restored."
+msgstr[1] "%d items restored."
+
+msgid "%d item deleted for good."
+msgid_plural "%d items deleted for good."
+msgstr[0] "%d item deleted for good."
+msgstr[1] "%d items deleted for good."
+
+msgid "This item is no longer in the trash."
+msgstr "This item is no longer in the trash."
+
+msgid "This item cannot be restored: another item uses its web address now."
+msgstr "This item cannot be restored: another item uses its web address now."
+
+msgid "Another user"
+msgstr "Another user"
+
+msgid "%s is also on this page"
+msgstr "%s is also on this page"
+
+msgid "Also on this page: %s"
+msgstr "Also on this page: %s"
+
+msgid "Could not load: %s"
+msgstr "Could not load: %s"
+
+msgid "Waiting for review"
+msgstr "Waiting for review"
+
+msgid "This request could not be read."
+msgstr "This request could not be read."
+
+msgid "Give the group a name of at most 100 characters."
+msgstr "Give the group a name of at most 100 characters."
+
+msgid "Export"
+msgstr "Export"
+
+msgid "You can view this item but not change it."
+msgstr "You can view this item but not change it."
+
+msgid "You can view these settings but not change them."
+msgstr "You can view these settings but not change them."
+
+msgid "Permanent"
+msgstr "Permanent"
+
+msgid "This item always stays on the website: it cannot be unpublished, scheduled to be unpublished or deleted."
+msgstr "This item always stays on the website: it cannot be unpublished, scheduled to be unpublished or deleted."
+
+msgid "This item is permanent: it cannot be unpublished, scheduled to be unpublished or deleted until an administrator removes the mark."
+msgstr "This item is permanent: it cannot be unpublished, scheduled to be unpublished or deleted until an administrator removes the mark."
+
+msgid "A permanent item cannot be unpublished, scheduled to be unpublished or deleted until an administrator removes the mark."
+msgstr "A permanent item cannot be unpublished, scheduled to be unpublished or deleted until an administrator removes the mark."
+
+msgid "Make permanent"
+msgstr "Make permanent"
+
+msgid "Remove permanent mark"
+msgstr "Remove permanent mark"
+
+msgid "Make this item permanent? It can then no longer be unpublished, scheduled to be unpublished or deleted."
+msgstr "Make this item permanent? It can then no longer be unpublished, scheduled to be unpublished or deleted."
+
+msgid "Remove the permanent mark? Editors with the right to publish or delete can then take this item off the website."
+msgstr "Remove the permanent mark? Editors with the right to publish or delete can then take this item off the website."
+
+msgid "This item is now permanent."
+msgstr "This item is now permanent."
+
+msgid "This item is no longer permanent."
+msgstr "This item is no longer permanent."
+
+msgid "Cancel the planned unpublication first: a permanent item stays on the website."
+msgstr "Cancel the planned unpublication first: a permanent item stays on the website."
+
+msgid "Something went wrong"
+msgstr "Something went wrong"
+
+msgid "This page could not be shown. Please try again in a moment."
+msgstr "This page could not be shown. Please try again in a moment."
+
+msgid "—"
+msgstr "—"
+
+msgid "Not Found"
+msgstr "Not Found"
+
+msgid "Too Many Requests"
+msgstr "Too Many Requests"
+
+msgid "Internal Server Error"
+msgstr "Internal Server Error"
+
+msgid "Service Unavailable"
+msgstr "Service Unavailable"
+
+msgid "%d old address redirects now."
+msgid_plural "%d old addresses redirect now."
+msgstr[0] "%d old address redirects now."
+msgstr[1] "%d old addresses redirect now."
+
+msgid "%d published item links to an address below this item."
+msgid_plural "%d published items link to addresses below this item."
+msgstr[0] "%d published item links to an address below this item."
+msgstr[1] "%d published items link to addresses below this item."
+
+msgid "%d published item links to this item."
+msgid_plural "%d published items link to this item."
+msgstr[0] "%d published item links to this item."
+msgstr[1] "%d published items link to this item."
+
+msgid "%d published item links to the old address."
+msgid_plural "%d published items link to the old address."
+msgstr[0] "%d published item links to the old address."
+msgstr[1] "%d published items link to the old address."
+
+msgid "Continue"
+msgstr "Continue"
+
+msgid "Saved as a draft. Publish it to show it on the website."
+msgstr "Saved as a draft. Publish it to show it on the website."
+
+msgid "Save draft"
+msgstr "Save draft"
+
+msgid "Move to trash"
+msgstr "Move to trash"
+
+msgid "Take this off the website?"
+msgstr "Take this off the website?"
+
+msgid "You're viewing revision %d (published)"
+msgstr "You're viewing revision %d (published)"
+
+msgid "You're viewing revision %d (older)"
+msgstr "You're viewing revision %d (older)"
+
+msgid "Reload to try again."
+msgstr "Reload to try again."
+
+msgid "The last part of the address, such as open-studio in /en/news/open-studio. Made from the title when left empty."
+msgstr "The last part of the address, such as open-studio in /en/news/open-studio. Made from the title when left empty."
+
+msgid "Use lowercase letters, digits and dashes for the web address."
+msgstr "Use lowercase letters, digits and dashes for the web address."
+
+msgid "Summary"
+msgstr "Summary"
+
+msgid "A short text for lists, search results and search engines."
+msgstr "A short text for lists, search results and search engines."
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Two-step sign-in"
+msgstr "Two-step sign-in"
+
+msgid "Enter the code from your authenticator app."
+msgstr "Enter the code from your authenticator app."
+
+msgid "Lost your phone? Enter one of your recovery codes instead."
+msgstr "Lost your phone? Enter one of your recovery codes instead."
+
+msgid "Code from the app"
+msgstr "Code from the app"
+
+msgid "A code from the app or one of your recovery codes."
+msgstr "A code from the app or one of your recovery codes."
+
+msgid "This code is not correct."
+msgstr "This code is not correct."
+
+msgid "The sign-in expired. Enter your password again."
+msgstr "The sign-in expired. Enter your password again."
+
+msgid "Turn on two-step sign-in"
+msgstr "Turn on two-step sign-in"
+
+msgid "Turn off two-step sign-in"
+msgstr "Turn off two-step sign-in"
+
+msgid "Turn on"
+msgstr "Turn on"
+
+msgid "Turn off"
+msgstr "Turn off"
+
+msgid "On"
+msgstr "On"
+
+msgid "Off"
+msgstr "Off"
+
+msgid "Key"
+msgstr "Key"
+
+msgid "Make new recovery codes"
+msgstr "Make new recovery codes"
+
+msgid "New recovery codes"
+msgstr "New recovery codes"
+
+msgid "Your recovery codes"
+msgstr "Your recovery codes"
+
+msgid "Two-step sign-in is on."
+msgstr "Two-step sign-in is on."
+
+msgid "Two-step sign-in is off."
+msgstr "Two-step sign-in is off."
+
+msgid "Two-step sign-in is off for this account."
+msgstr "Two-step sign-in is off for this account."
+
+msgid "New recovery codes are ready. The old ones no longer work."
+msgstr "New recovery codes are ready. The old ones no longer work."
+
+msgid "Turn off two-step sign-in for this account? It then signs in with its password alone, until its owner turns it on again."
+msgstr "Turn off two-step sign-in for this account? It then signs in with its password alone, until its owner turns it on again."
+
+msgid "Keep these codes somewhere safe, such as a password manager. Each code signs you in once instead of a code from the app, for example when you lose your phone. They are not shown again."
+msgstr "Keep these codes somewhere safe, such as a password manager. Each code signs you in once instead of a code from the app, for example when you lose your phone. They are not shown again."
+
+msgid "Signing in asks for a code from your authenticator app after your password."
+msgstr "Signing in asks for a code from your authenticator app after your password."
+
+msgid "New codes replace the old ones, which then no longer work."
+msgstr "New codes replace the old ones, which then no longer work."
+
+msgid "Without two-step sign-in, your password alone signs you in."
+msgstr "Without two-step sign-in, your password alone signs you in."
+
+msgid "Scan this QR code with an authenticator app on your phone, or enter the key by hand. Then enter the code the app shows."
+msgstr "Scan this QR code with an authenticator app on your phone, or enter the key by hand. Then enter the code the app shows."
+
+msgid "QR code for your authenticator app"
+msgstr "QR code for your authenticator app"
+
+msgid "After your password, signing in then also asks for a code from an authenticator app on your phone, so your password alone does not open your account."
+msgstr "After your password, signing in then also asks for a code from an authenticator app on your phone, so your password alone does not open your account."
+
+msgid "For someone who lost both their phone and their recovery codes. They can turn it on again on their own account page."
+msgstr "For someone who lost both their phone and their recovery codes. They can turn it on again on their own account page."
+
+msgid "%d recovery code left."
+msgid_plural "%d recovery codes left."
+msgstr[0] "%d recovery code left."
+msgstr[1] "%d recovery codes left."

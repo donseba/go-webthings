@@ -1,0 +1,43 @@
+{
+  "alternates": [
+    {
+      "api_url": "https://example.test/api/v1/pages/<id1>?locale=nl",
+      "locale": "nl",
+      "url": "https://example.test/nl/nieuws"
+    }
+  ],
+  "api_url": "https://example.test/api/v1/pages/<id1>?locale=en",
+  "body_html": "",
+  "breadcrumbs": [
+    {
+      "api_url": "https://example.test/api/v1/pages/<id2>?locale=en",
+      "id": "<id2>",
+      "title": "Home",
+      "url": "https://example.test/en/"
+    },
+    {
+      "api_url": "https://example.test/api/v1/pages/<id1>?locale=en",
+      "id": "<id1>",
+      "title": "News",
+      "url": "https://example.test/en/news"
+    }
+  ],
+  "description": "",
+  "id": "<id1>",
+  "is_home": false,
+  "locale": "en",
+  "module": {
+    "api_base": "https://example.test/api/v1/news",
+    "key": "news",
+    "path": "/hello-harbour",
+    "title": "News",
+    "type": "publishing",
+    "url": "https://example.test/en/news"
+  },
+  "parent_id": "<id2>",
+  "path": "/news",
+  "slug": "news",
+  "title": "News",
+  "updated_at": "<time>",
+  "url": "https://example.test/en/news"
+}

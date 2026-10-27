@@ -1,0 +1,39 @@
+{
+  "lockfileVersion": 1,
+  "packages": [
+    {
+      "name": "htmx",
+      "version": "4.0.0",
+      "provider": "cdnjs",
+      "license": "htmx/LICENSE",
+      "files": [
+        {
+          "path": "htmx/LICENSE",
+          "source": "https://cdn.jsdelivr.net/npm/htmx.org@4.0.0/LICENSE",
+          "integrity": "sha384-hU3SbIwDRi3Fq5qi+gLVwm7zNVOKB3ddD795kmN4Dg7C86VuGoDrWKa/TPGW6BWA"
+        },
+        {
+          "path": "htmx/htmx.esm.min.js",
+          "as": "htmx",
+          "source": "https://cdnjs.cloudflare.com/ajax/libs/htmx/4.0.0/htmx.esm.min.js",
+          "integrity": "sha384-lIFlfAj002Phzxvrea858KMM3/dXelBFF5rq+Oh5lChznUWuVI0mabAEUnsRa/2W"
+        }
+      ]
+    },
+    {
+      "name": "editor",
+      "local": true,
+      "license": "../editor/LICENSES.txt",
+      "files": [
+        {
+          "path": "../editor/prosemirror.js",
+          "integrity": "sha384-k5oRU0J2ugrVvs6hF/Es94LrNB7T3m/2Za+ntLtnhqf1bdys1pRk2bTR5hrS+oj4"
+        },
+        {
+          "path": "../editor/LICENSES.txt",
+          "integrity": "sha384-14eOz8Tmo1DH04qZY6XAoq0CFdirXSKf5YoyWWAQVSBbb2ndMAh+c8f88ADOZ3tk"
+        }
+      ]
+    }
+  ]
+}

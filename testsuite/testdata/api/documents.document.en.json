@@ -1,0 +1,13 @@
+{
+  "api_url": "https://example.test/api/v1/docs/documents/<id1>?locale=en",
+  "category": null,
+  "date": "2025-12-01T00:00:00Z",
+  "description_html": "",
+  "download_url": "https://example.test/_/docs/<id1>/download",
+  "external": true,
+  "file": null,
+  "id": "<id1>",
+  "title": "Annual report 2025",
+  "updated_at": "<time>",
+  "url": "https://example.test/en/documents#<id1>"
+}

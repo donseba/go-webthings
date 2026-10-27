@@ -1,0 +1,78 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test (SQLite, PostgreSQL, MySQL)
+    runs-on: ubuntu-latest
+    # dbtest runs every database test on SQLite, and on PostgreSQL and MySQL
+    # when their DSN is set, as task test:all does with task db:up.
+    services:
+      postgres:
+        image: postgres:18-alpine
+        env:
+          POSTGRES_USER: wt
+          POSTGRES_PASSWORD: wt
+          POSTGRES_DB: wt
+        ports:
+          - 55432:5432
+        options: >-
+          --health-cmd "pg_isready -U wt"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 20
+      mysql:
+        image: mysql:8.4
+        env:
+          MYSQL_ROOT_PASSWORD: wt
+          MYSQL_DATABASE: wt
+        ports:
+          - 53306:3306
+        options: >-
+          --health-cmd "mysqladmin ping -h 127.0.0.1 -pwt"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 30
+    env:
+      WT_TEST_POSTGRES: postgres://wt:wt@127.0.0.1:55432/wt?sslmode=disable
+      WT_TEST_MYSQL: root:wt@tcp(127.0.0.1:53306)/wt?parseTime=true&multiStatements=true
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+      - run: go vet ./...
+      - run: go test -race ./...
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v6
+        with:
+          go-version-file: go.mod
+          cache: false
+      - uses: golangci/golangci-lint-action@v9
+        with:
+          version: v2.14.0
+          args: --timeout=5m
+      # Formatting as task fmt writes it: gofumpt, grouped imports, line length.
+      - run: golangci-lint fmt --diff ./...
+
+  stylesheet:
+    name: admin stylesheet
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: arduino/setup-task@v2
+      # admin/assets/admin.css must be built from the current source.css and
+      # templates (task css).
+      - run: task css:check

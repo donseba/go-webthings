@@ -1,0 +1,34 @@
+{
+  "api_url": "https://example.test/api/v1/pages/<id1>?locale=nl",
+  "children": [
+    {
+      "api_url": "https://example.test/api/v1/pages/<id2>?locale=nl",
+      "children": [],
+      "id": "<id2>",
+      "module": null,
+      "path": "/over-ons",
+      "title": "Over ons",
+      "url": "https://example.test/nl/over-ons"
+    },
+    {
+      "api_url": "https://example.test/api/v1/pages/<id3>?locale=nl",
+      "children": [],
+      "id": "<id3>",
+      "module": {
+        "api_base": "https://example.test/api/v1/news",
+        "key": "news",
+        "title": "News",
+        "type": "publishing",
+        "url": "https://example.test/nl/nieuws"
+      },
+      "path": "/nieuws",
+      "title": "Nieuws",
+      "url": "https://example.test/nl/nieuws"
+    }
+  ],
+  "id": "<id1>",
+  "module": null,
+  "path": "/",
+  "title": "Home",
+  "url": "https://example.test/nl/"
+}

@@ -1,0 +1,44 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "All day"
+msgstr "All day"
+
+msgid "End"
+msgstr "End"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "New event"
+msgstr "New event"
+
+msgid "Start"
+msgstr "Start"
+
+msgid "Start and end are times in this timezone. When its clocks go forward, a time they skip moves forward by the change (02:30 becomes 03:30); when they go back, a time that occurs twice is the first of the two."
+msgstr "Start and end are times in this timezone. When its clocks go forward, a time they skip moves forward by the change (02:30 becomes 03:30); when they go back, a time that occurs twice is the first of the two."
+
+msgid "Summary"
+msgstr "Summary"
+
+msgid "The date or time is not valid."
+msgstr "The date or time is not valid."
+
+msgid "The end must be after the start."
+msgstr "The end must be after the start."
+
+msgid "The web address past is reserved for the list of past events."
+msgstr "The web address past is reserved for the list of past events."
+
+msgid "The timezone does not exist. Use a name like Europe/Amsterdam."
+msgstr "The timezone does not exist. Use a name like Europe/Amsterdam."
+
+msgid "Timezone"
+msgstr "Timezone"

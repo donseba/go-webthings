@@ -1,0 +1,363 @@
+/*
+ * WebThings components: the minimal layout of the default component
+ * templates (comments, polls, newsletter signup, registration, share bar).
+ * Include it with {{assetStyle "webthings.css"}} in the layout,
+ * or leave it out and style the wt-* classes yourself.
+ *
+ * Rules use :where(), so they have no specificity and any rule of the
+ * theme wins. The exceptions are .sr-only in a form field, the text only
+ * screen readers announce, and .form-honeypot, the spam trap of a form,
+ * which keep the specificity of one class, so they stay hidden under the
+ * theme's own styles. Colours and spacing come from
+ * the custom properties below; set them in the theme, for example
+ * :root { --wt-accent: #b5562f; }.
+ * A theme with its own assets/webthings.css serves that file instead.
+ */
+
+:where(:root) {
+    --wt-accent: #2b59c3;
+    --wt-accent-text: #ffffff;
+    --wt-border: rgb(0 0 0 / 0.18);
+    --wt-muted: rgb(0 0 0 / 0.6);
+    --wt-surface: rgb(0 0 0 / 0.035);
+    --wt-bar: rgb(0 0 0 / 0.08);
+    --wt-radius: 0.375rem;
+    --wt-gap: 1rem;
+    --wt-field-width: 32rem;
+}
+
+/* Shared: notices, forms and buttons. The components are grids whose gap
+   spaces their parts, so headings and paragraphs in them lose their margins. */
+
+:where(.wt-comments, .wt-comment-form, .wt-form, .wt-poll, .wt-newsletter, .wt-registration) > :where(h2, h3, p) {
+    margin: 0;
+}
+
+:where(.wt-comment-form) {
+    display: grid;
+    gap: var(--wt-gap);
+}
+
+:where(.wt-notice) {
+    margin: 0;
+    padding: calc(var(--wt-gap) * 0.75) var(--wt-gap);
+    border-left: 3px solid var(--wt-accent);
+    border-radius: var(--wt-radius);
+    background: var(--wt-surface);
+}
+
+:where(.wt-meta) {
+    color: var(--wt-muted);
+    font-size: 0.875em;
+}
+
+/* A poll's question labels its options for screen readers; it shows as
+   the poll's heading already. */
+:where(.wt-visually-hidden, .wt-poll .wt-form__label) {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+:where(.wt-form) {
+    display: grid;
+    gap: var(--wt-gap);
+    max-width: var(--wt-field-width);
+}
+
+:where(.wt-form__field) {
+    display: grid;
+    gap: calc(var(--wt-gap) * 0.25);
+}
+
+:where(.wt-form__row) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--wt-gap);
+}
+
+:where(.wt-form__row > .wt-form__field) {
+    flex: 1 1 8rem;
+}
+
+:where(.wt-form__label) {
+    font-weight: 600;
+}
+
+/* A group of radio buttons or checkboxes is a fieldset, its question the
+   legend: without the browser's border and padding, and with the legend a
+   grid item of the field (a floated legend is), so the field's gap applies
+   to it. */
+:where(.wt-form__fieldset) {
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+:where(.wt-form__fieldset > legend) {
+    float: left;
+    padding: 0;
+}
+
+:where(.wt-form__input) {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5em 0.65em;
+    border: 1px solid var(--wt-border);
+    border-radius: var(--wt-radius);
+    font: inherit;
+    color: inherit;
+    background: transparent;
+}
+
+:where(textarea.wt-form__input) {
+    min-height: 7em;
+    resize: vertical;
+}
+
+:where(.wt-form__help) {
+    color: var(--wt-muted);
+    font-size: 0.875em;
+}
+
+/* go-form's markup (frontend.FormTheme): field errors, and the text after a
+   required field's label that only screen readers announce. */
+:where(.wt-form__error) {
+    color: var(--wt-error, #b42318);
+    font-size: 0.875em;
+}
+
+:where(.wt-form__field) .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+/* The spam trap of go-form (formtemplates.HoneypotClass): a text input that
+   bots fill in, out of sight without an inline style, which a
+   Content-Security-Policy without 'unsafe-inline' ignores. */
+.form-honeypot {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+:where(.wt-button) {
+    justify-self: start;
+    padding: 0.55em 1.1em;
+    border: 0;
+    border-radius: var(--wt-radius);
+    font: inherit;
+    font-weight: 600;
+    color: var(--wt-accent-text);
+    background: var(--wt-accent);
+    cursor: pointer;
+}
+
+:where(.wt-button:focus-visible, .wt-form__input:focus-visible) {
+    outline: 2px solid var(--wt-accent);
+    outline-offset: 2px;
+}
+
+/* Comments. */
+
+:where(.wt-comments) {
+    display: grid;
+    gap: calc(var(--wt-gap) * 1.5);
+}
+
+:where(.wt-comments__list) {
+    display: grid;
+    gap: var(--wt-gap);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+:where(.wt-comment__header) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: calc(var(--wt-gap) * 0.5);
+}
+
+:where(.wt-comment__body > :first-child) {
+    margin-top: calc(var(--wt-gap) * 0.25);
+}
+
+:where(.wt-comment__replies) {
+    display: grid;
+    gap: var(--wt-gap);
+    margin: var(--wt-gap) 0 0;
+    padding: 0 0 0 var(--wt-gap);
+    border-left: 2px solid var(--wt-border);
+    list-style: none;
+}
+
+:where(.wt-comment__badge) {
+    padding: 0.1em 0.5em;
+    border-radius: var(--wt-radius);
+    font-size: 0.75em;
+    color: var(--wt-accent-text);
+    background: var(--wt-accent);
+}
+
+/* Polls. */
+
+:where(.wt-poll) {
+    display: grid;
+    gap: var(--wt-gap);
+}
+
+:where(.wt-form__options) {
+    display: grid;
+    gap: calc(var(--wt-gap) * 0.5);
+}
+
+:where(.wt-form__option) {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+:where(.wt-poll__results) {
+    display: grid;
+    gap: calc(var(--wt-gap) * 0.75);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+:where(.wt-poll__result) {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.25em var(--wt-gap);
+}
+
+:where(.wt-poll__result--chosen .wt-poll__label) {
+    font-weight: 600;
+}
+
+/* A result's bar is a <meter> of its percentage, drawn as a track in
+   --wt-bar filled in --wt-accent. Each engine names the filled part
+   differently, and a rule with a name another engine does not know is
+   dropped there, so each has a rule of its own. The fill is the accent
+   whatever region the value is in: Firefox's ::-moz-meter-bar is every
+   region, and WebKit and Chromium name each, so a theme's meter with low
+   or high looks the same everywhere. Safari before 15.4 knows only the
+   prefixed appearance. */
+:where(.wt-poll__bar) {
+    grid-column: 1 / -1;
+    display: block;
+    inline-size: 100%;
+    block-size: 0.5em;
+    margin: 0;
+    border: 0;
+    overflow: hidden;
+    border-radius: var(--wt-radius);
+    background: var(--wt-bar);
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+:where(.wt-poll__bar)::-webkit-meter-bar {
+    block-size: 100%;
+    border: 0;
+    border-radius: var(--wt-radius);
+    background: var(--wt-bar);
+}
+
+:where(.wt-poll__bar)::-webkit-meter-optimum-value,
+:where(.wt-poll__bar)::-webkit-meter-suboptimum-value,
+:where(.wt-poll__bar)::-webkit-meter-even-less-good-value {
+    background: var(--wt-accent);
+}
+
+:where(.wt-poll__bar)::-moz-meter-bar {
+    background: var(--wt-accent);
+}
+
+/* Newsletter signup. */
+
+:where(.wt-newsletter) {
+    display: grid;
+    gap: var(--wt-gap);
+}
+
+:where(.wt-newsletter form) {
+    max-width: var(--wt-field-width);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: end;
+    gap: calc(var(--wt-gap) * 0.5);
+}
+
+:where(.wt-newsletter form .wt-form__field) {
+    flex: 1 1 12rem;
+}
+
+/* Registration. */
+
+:where(.wt-registration) {
+    display: grid;
+    gap: var(--wt-gap);
+    padding: var(--wt-gap);
+    border: 1px solid var(--wt-border);
+    border-radius: var(--wt-radius);
+}
+
+:where(.wt-registration__facts) {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 0.35em var(--wt-gap);
+    margin: 0;
+}
+
+:where(.wt-registration__facts dt) {
+    font-weight: 600;
+}
+
+:where(.wt-registration__facts dd) {
+    margin: 0;
+}
+
+/* Share bar. */
+
+:where(.wt-share) {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(var(--wt-gap) * 0.5);
+}
+
+:where(.wt-share__list) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--wt-gap) * 0.5);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+:where(.wt-share__link) {
+    display: inline-block;
+    padding: 0.3em 0.75em;
+    border: 1px solid var(--wt-border);
+    border-radius: var(--wt-radius);
+    color: inherit;
+    text-decoration: none;
+}
+
+:where(.wt-share__link:hover, .wt-share__link:focus-visible) {
+    border-color: var(--wt-accent);
+    color: var(--wt-accent);
+}

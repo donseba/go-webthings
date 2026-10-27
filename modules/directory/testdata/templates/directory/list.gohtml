@@ -1,0 +1,9 @@
+{{/* @dot github.com/donseba/go-webthings/modules/directory.ListView */}}
+<main id="content"><h1>{{.Title}}</h1>
+<form action="{{.URL}}"><input type="search" name="q" value="{{.Query}}"></form>
+<p id="count">{{.Count}} found</p>
+{{range .Categories}}<a class="category{{if .Active}} active{{end}}" href="{{.URL}}">{{.Name}} ({{.Count}})</a>
+{{end}}{{range .Groups}}<section><h2>{{.Category.Name}}</h2>
+{{range .Entries}}<a class="entry" href="{{.URL}}">{{.Name}}</a>: {{.Summary}}
+{{end}}</section>
+{{end}}</main>

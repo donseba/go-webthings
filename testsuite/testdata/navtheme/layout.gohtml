@@ -1,0 +1,11 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.View */}}
+<!doctype html>
+<html lang="{{.Locale}}">
+<head><meta charset="utf-8">{{slot "head"}}</head>
+<body>
+<header>{{slot "menu"}}{{slot "languages"}}</header>
+{{slot "editor"}}
+{{content}}
+<footer><p>{{.Site.Name}}</p></footer>
+</body>
+</html>

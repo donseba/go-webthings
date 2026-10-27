@@ -1,0 +1,33 @@
+/* Drag and drop in the page tree (admin/assets/tree.js). The handles and the
+   hint only show once the script runs; without it the up and down buttons
+   move pages. */
+.page-tree { position: relative; }
+.tree-handle, .tree-drag-hint { display: none; }
+[data-tree-ready] .tree-drag-hint { display: inline; }
+
+[data-tree-ready] .tree-handle {
+    display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+    width: 22px; height: 28px; margin-left: -4px; border-radius: 3px;
+    color: var(--muted); cursor: grab; touch-action: none; user-select: none;
+}
+[data-tree-ready] .tree-handle:hover { color: var(--ink); background: var(--canvas); }
+@media (pointer: coarse) { [data-tree-ready] .tree-handle { width: 36px; height: 44px; } }
+
+[data-tree-dragging], [data-tree-dragging] * { cursor: grabbing !important; user-select: none; }
+.tree-dragging { opacity: .45; }
+.tree-moving { opacity: .6; pointer-events: none; }
+.tree-row.tree-drop-into { background: var(--selected); color: var(--selected-ink); box-shadow: inset 0 0 0 2px var(--accent); }
+
+.tree-drop-line { position: absolute; height: 2px; margin-top: -1px; background: var(--accent); pointer-events: none; z-index: 5; }
+.tree-drop-line::before {
+    content: ""; position: absolute; left: -4px; top: -3px; width: 8px; height: 8px;
+    border-radius: 50%; border: 2px solid var(--accent); background: var(--surface); box-sizing: border-box;
+}
+
+.tree-drag-ghost {
+    position: fixed; left: 0; top: 0; z-index: 1000; max-width: 280px; padding: 4px 10px;
+    overflow: hidden; white-space: nowrap; text-overflow: ellipsis; pointer-events: none;
+    font-size: 12px; color: var(--ink); background: var(--surface);
+    border: 1px solid var(--border-strong); border-radius: 3px; box-shadow: 0 4px 12px var(--shadow);
+}
+@media (prefers-reduced-motion: no-preference) { .tree-row { transition: background-color .1s ease; } }

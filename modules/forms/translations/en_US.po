@@ -1,0 +1,83 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A form can have at most 50 fields with 100 options each."
+msgstr "A form can have at most 50 fields with 100 options each."
+
+msgid "A select field needs at least one option."
+msgstr "A select field needs at least one option."
+
+msgid "Add at least one field."
+msgstr "Add at least one field."
+
+msgid "All"
+msgstr "All"
+
+msgid "Answers"
+msgstr "Answers"
+
+msgid "Archive"
+msgstr "Archive"
+
+msgid "Archived"
+msgstr "Archived"
+
+msgid "Each field name can be used only once."
+msgstr "Each field name can be used only once."
+
+msgid "Each field needs a line with a name, a type and a label: name | type | label."
+msgstr "Each field needs a line with a name, a type and a label: name | type | label."
+
+msgid "Each option of a field needs a different value."
+msgstr "Each option of a field needs a different value."
+
+msgid "Enter one valid e-mail address for notifications, or leave it empty."
+msgstr "Enter one valid e-mail address for notifications, or leave it empty."
+
+msgid "Field names use lowercase letters, digits and underscores, and start with a letter."
+msgstr "Field names use lowercase letters, digits and underscores, and start with a letter."
+
+msgid "Fields"
+msgstr "Fields"
+
+msgid "Introduction"
+msgstr "Introduction"
+
+msgid "Move back to new"
+msgstr "Move back to new"
+
+msgid "New"
+msgstr "New"
+
+msgid "New form"
+msgstr "New form"
+
+msgid "New submissions are mailed to this address. Leave empty to only collect them here."
+msgstr "New submissions are mailed to this address. Leave empty to only collect them here."
+
+msgid "Notification e-mail"
+msgstr "Notification e-mail"
+
+msgid "One field per line: name | type | label | placeholder | help. Add * after the name of a required field. Types: text, email, textarea, select, checkbox, number, date. Options of a select follow on their own lines: - value | label"
+msgstr "One field per line: name | type | label | placeholder | help. Add * after the name of a required field. Types: text, email, textarea, select, checkbox, number, date. Options of a select follow on their own lines: - value | label"
+
+msgid "Option lines (starting with -) belong below a select field."
+msgstr "Option lines (starting with -) belong below a select field."
+
+msgid "Received"
+msgstr "Received"
+
+msgid "Submission"
+msgstr "Submission"
+
+msgid "Submissions"
+msgstr "Submissions"
+
+msgid "Success message"
+msgstr "Success message"
+
+msgid "This module holds one form. Edit the existing form instead."
+msgstr "This module holds one form. Edit the existing form instead."
+
+msgid "Unknown field type. Use text, email, textarea, select, checkbox, number or date."
+msgstr "Unknown field type. Use text, email, textarea, select, checkbox, number or date."

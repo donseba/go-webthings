@@ -1,0 +1,13 @@
+msgid ""
+msgstr ""
+"Language: nl\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Hello %s,"
+msgstr "Hallo %s,"
+
+msgid "Thank you for registering for %s."
+msgstr "Bedankt voor je aanmelding voor %s."
+
+msgid "Total"
+msgstr "Totaal"

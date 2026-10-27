@@ -1,0 +1,11 @@
+{{/* @dot github.com/donseba/go-webthings/site/siteadmin.ThemeView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Theme"}}</h1>
+        </header>
+
+        {{template "theme-list" .}}
+        {{template "theme-settings" .}}
+    </div>
+</main>

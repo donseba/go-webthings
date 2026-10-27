@@ -1,0 +1,19 @@
+{{/* Shared arrow buttons of ordered lists: {{template "admin-moves" .Moves}}. */}}
+{{define "admin-moves"}}
+    {{/* @dot []github.com/donseba/go-webthings/admin.Move */}}
+    {{with .}}
+        <div class="move-buttons">
+            {{range .}}
+                {{if .URL}}
+                    <form method="post" action="{{.URL}}">
+                        <button type="submit" class="button-secondary button-icon"
+                                title="{{tl localizer .Label}}" aria-label="{{tl localizer .Label}}">{{.Arrow}}</button>
+                    </form>
+                {{else}}
+                    <button type="button" class="button-secondary button-icon" disabled
+                            title="{{tl localizer .Label}}" aria-label="{{tl localizer .Label}}">{{.Arrow}}</button>
+                {{end}}
+            {{end}}
+        </div>
+    {{end}}
+{{end}}

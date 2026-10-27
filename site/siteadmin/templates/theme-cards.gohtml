@@ -1,0 +1,42 @@
+{{/* The cards of the Theme screen, which the setup guide (guide.gohtml)
+     shows too: the themes, and the settings of the selected one. */}}
+{{define "theme-list"}}
+    {{/* @dot github.com/donseba/go-webthings/site/siteadmin.ThemeView */}}
+    <section class="grid gap-4 sm:grid-cols-2 mb-6">
+        {{range .Themes}}
+            <article class="surface border-theme border rounded-xl p-6">
+                {{if .Screenshot}}
+                    <img class="theme-screenshot" src="{{.Screenshot}}" alt="" loading="lazy">
+                {{else if $.Screenshots}}
+                    <div class="theme-screenshot theme-screenshot-empty" aria-hidden="true"><span>{{.Title}}</span></div>
+                {{end}}
+                <div class="flex items-center justify-between gap-4 mb-2">
+                    <h2 class="font-semibold">{{.Title}}</h2>
+                    {{if .Active}}<span class="badge">{{tl localizer "Active"}}</span>{{end}}
+                </div>
+                {{with .Description}}<p class="muted mb-4">{{.}}</p>{{end}}
+                <div class="theme-card-actions">
+                    {{with .Activate}}{{form_render_localized localizer . nil}}{{end}}
+                    {{with .URL}}<a class="button-secondary" href="{{.}}">{{tl localizer "Settings"}}</a>{{end}}
+                    <a class="button-secondary" href="{{.PreviewURL}}" target="_blank" rel="noopener">{{tl localizer "Preview"}}</a>
+                </div>
+            </article>
+        {{end}}
+    </section>
+{{end}}
+
+{{define "theme-settings"}}
+    {{/* @dot github.com/donseba/go-webthings/site/siteadmin.ThemeView */}}
+    <section class="surface border-theme border rounded-xl p-6" id="theme-settings">
+        <h2 class="font-semibold mb-4">{{tl localizer "Settings of %s" .Selected.Title}}</h2>
+
+        {{with .Form}}
+            {{if not $.CanEdit}}
+                <p class="notice mb-4" role="status">{{tl localizer "You can view these settings but not change them."}}</p>
+            {{end}}
+            {{form_render_localized localizer . $.Errors}}
+        {{else}}
+            <p class="muted">{{tl localizer "This theme has no settings."}}</p>
+        {{end}}
+    </section>
+{{end}}

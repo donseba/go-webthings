@@ -1,0 +1,8 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.Page */}}
+<main id="content">
+    <h1>{{.Title}}</h1>
+    {{.Body}}
+    <p id="views">read {{pageViews "stats" ""}} times, {{pageViews "stats" .URL}} by URL</p>
+    <ol id="popular">{{range popular "stats" 5 30}}<li>{{.Path}}|{{.Title}}|{{.Views}}</li>{{end}}</ol>
+    <ol id="below">{{range popular "stats" 5 30 "/about"}}<li>{{.Path}}|{{.Title}}</li>{{end}}</ol>
+</main>

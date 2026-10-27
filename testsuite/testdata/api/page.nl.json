@@ -1,0 +1,36 @@
+{
+  "alternates": [
+    {
+      "api_url": "https://example.test/api/v1/pages/<id1>?locale=en",
+      "locale": "en",
+      "url": "https://example.test/en/about"
+    }
+  ],
+  "api_url": "https://example.test/api/v1/pages/<id1>?locale=nl",
+  "body_html": "<p>Lees het <em>nieuws</em>.</p>\n",
+  "breadcrumbs": [
+    {
+      "api_url": "https://example.test/api/v1/pages/<id2>?locale=nl",
+      "id": "<id2>",
+      "title": "Home",
+      "url": "https://example.test/nl/"
+    },
+    {
+      "api_url": "https://example.test/api/v1/pages/<id1>?locale=nl",
+      "id": "<id1>",
+      "title": "Over ons",
+      "url": "https://example.test/nl/over-ons"
+    }
+  ],
+  "description": "",
+  "id": "<id1>",
+  "is_home": false,
+  "locale": "nl",
+  "module": null,
+  "parent_id": "<id2>",
+  "path": "/over-ons",
+  "slug": "over-ons",
+  "title": "Over ons",
+  "updated_at": "<time>",
+  "url": "https://example.test/nl/over-ons"
+}

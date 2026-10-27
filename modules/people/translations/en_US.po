@@ -1,0 +1,26 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Biography"
+msgstr "Biography"
+
+msgid "Enter a valid phone number."
+msgstr "Enter a valid phone number."
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "Links must start with http:// or https://."
+msgstr "Links must start with http:// or https://."
+
+msgid "New person"
+msgstr "New person"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Photo"
+msgstr "Photo"
+
+msgid "The last part of the address, such as open-studio in /en/news/open-studio. Made from the name when left empty."
+msgstr "The last part of the address, such as open-studio in /en/news/open-studio. Made from the name when left empty."

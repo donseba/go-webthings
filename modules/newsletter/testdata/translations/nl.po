@@ -1,0 +1,7 @@
+msgid ""
+msgstr ""
+"Language: nl\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Please confirm your subscription"
+msgstr "Bevestig je aanmelding"

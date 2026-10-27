@@ -1,0 +1,29 @@
+{
+  "items": [
+    {
+      "module": "agenda",
+      "summary": "Games and food",
+      "title": "Harbour fair",
+      "type": "events",
+      "url": "https://example.test/en/agenda/harbour-fair"
+    },
+    {
+      "module": "news",
+      "summary": "Boats arrived",
+      "title": "Hello harbour",
+      "type": "publishing",
+      "url": "https://example.test/en/news/hello-harbour"
+    },
+    {
+      "module": null,
+      "summary": "Read the news. The harbour",
+      "title": "About",
+      "type": "page",
+      "url": "https://example.test/en/about"
+    }
+  ],
+  "limit": 20,
+  "next": null,
+  "offset": 0,
+  "total": 3
+}

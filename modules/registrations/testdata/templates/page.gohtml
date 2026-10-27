@@ -1,0 +1,5 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.Page */}}
+<main id="content"><h1>{{.Title}}</h1>{{.Body}}
+{{with registrationResult "tickets"}}<p class="result">result: {{.}}</p>{{end}}
+{{with registrationCode "tickets"}}<p class="code">code: {{.}}</p>{{end}}
+</main>

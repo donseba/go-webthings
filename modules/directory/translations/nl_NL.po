@@ -1,0 +1,191 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "An entry with this name already exists."
+msgstr "Er bestaat al een vermelding met deze naam."
+
+msgid "CSV file"
+msgstr "CSV-bestand"
+
+msgid "Categories"
+msgstr "Categorieën"
+
+msgid "Categories created: %d"
+msgstr "Categorieën aangemaakt: %d"
+
+msgid "Category"
+msgstr "Categorie"
+
+msgid "Choose a category."
+msgstr "Kies een categorie."
+
+msgid "City"
+msgstr "Plaats"
+
+msgid "E-mail"
+msgstr "E-mail"
+
+msgid "Entries created: %d"
+msgstr "Vermeldingen aangemaakt: %d"
+
+msgid "Entries updated: %d"
+msgstr "Vermeldingen bijgewerkt: %d"
+
+msgid "Existing categories keep their state: entries in an unpublished category stay hidden until the category is published."
+msgstr "Bestaande categorieën blijven zoals ze zijn: vermeldingen in een niet-gepubliceerde categorie blijven verborgen tot de categorie gepubliceerd is."
+
+msgid "Fill in both times of a day as hours and minutes, or leave both empty."
+msgstr "Vul beide tijden van een dag in als uren en minuten, of laat beide leeg."
+
+msgid "For example: closed on public holidays."
+msgstr "Bijvoorbeeld: gesloten op feestdagen."
+
+msgid "Friday closes"
+msgstr "Vrijdag open tot"
+
+msgid "Friday opens"
+msgstr "Vrijdag open vanaf"
+
+msgid "Import"
+msgstr "Importeren"
+
+msgid "Import CSV"
+msgstr "CSV importeren"
+
+msgid "Keywords"
+msgstr "Trefwoorden"
+
+msgid "Latitude"
+msgstr "Breedtegraad"
+
+msgid "Latitude and longitude must both be filled in, as decimal degrees."
+msgstr "Vul zowel de breedtegraad als de lengtegraad in, als decimale graden."
+
+msgid "The last part of the address, such as open-studio in /en/news/open-studio. Made from the name when left empty."
+msgstr "Het laatste deel van het adres, zoals open-studio in /nl/nieuws/open-studio. Wordt van de naam gemaakt als je het leeg laat."
+
+msgid "Logo or image"
+msgstr "Logo of afbeelding"
+
+msgid "Longitude"
+msgstr "Lengtegraad"
+
+msgid "Monday closes"
+msgstr "Maandag open tot"
+
+msgid "Monday opens"
+msgstr "Maandag open vanaf"
+
+msgid "New category"
+msgstr "Nieuwe categorie"
+
+msgid "New entry"
+msgstr "Nieuwe vermelding"
+
+msgid "Opening hours"
+msgstr "Openingstijden"
+
+msgid "Optional, for a map. For example 4.8922."
+msgstr "Optioneel, voor een kaart. Bijvoorbeeld 4.8922."
+
+msgid "Optional, for a map. For example 52.3731."
+msgstr "Optioneel, voor een kaart. Bijvoorbeeld 52.3731."
+
+msgid "Or paste CSV"
+msgstr "Of plak CSV"
+
+msgid "Phone"
+msgstr "Telefoon"
+
+msgid "Postcode"
+msgstr "Postcode"
+
+msgid "Problem"
+msgstr "Probleem"
+
+msgid "Publish new entries and categories"
+msgstr "Nieuwe vermeldingen en categorieën publiceren"
+
+msgid "Result"
+msgstr "Resultaat"
+
+msgid "Row"
+msgstr "Regel"
+
+msgid "Rows skipped: %d"
+msgstr "Regels overgeslagen: %d"
+
+msgid "Saturday closes"
+msgstr "Zaterdag open tot"
+
+msgid "Saturday opens"
+msgstr "Zaterdag open vanaf"
+
+msgid "Street and number"
+msgstr "Straat en huisnummer"
+
+msgid "Summary"
+msgstr "Samenvatting"
+
+msgid "Sunday closes"
+msgstr "Zondag open tot"
+
+msgid "Sunday opens"
+msgstr "Zondag open vanaf"
+
+msgid "Texts are stored in the default language. Missing categories are created."
+msgstr "Teksten worden in de standaardtaal opgeslagen. Ontbrekende categorieën worden aangemaakt."
+
+msgid "The category is missing."
+msgstr "De categorie ontbreekt."
+
+msgid "The e-mail address is not valid."
+msgstr "Het e-mailadres is niet geldig."
+
+msgid "The file is not valid CSV."
+msgstr "Het bestand is geen geldige CSV."
+
+msgid "The first row must name the columns, including name and category."
+msgstr "De eerste regel moet de kolommen benoemen, waaronder name en category."
+
+msgid "The first row names the columns. Name and category are required; these columns are read:"
+msgstr "De eerste regel benoemt de kolommen. Name en category zijn verplicht; deze kolommen worden gelezen:"
+
+msgid "The name is missing."
+msgstr "De naam ontbreekt."
+
+msgid "The website must be a web address starting with http:// or https://."
+msgstr "De website moet een webadres zijn dat begint met http:// of https://."
+
+msgid "This category still has entries. Move them to another category or delete them first."
+msgstr "Deze categorie heeft nog vermeldingen. Verplaats ze naar een andere categorie of verwijder ze eerst."
+
+msgid "Thursday closes"
+msgstr "Donderdag open tot"
+
+msgid "Thursday opens"
+msgstr "Donderdag open vanaf"
+
+msgid "Tuesday closes"
+msgstr "Dinsdag open tot"
+
+msgid "Tuesday opens"
+msgstr "Dinsdag open vanaf"
+
+msgid "Update entries that already exist"
+msgstr "Bestaande vermeldingen bijwerken"
+
+msgid "A web address cannot be made from this name."
+msgstr "Van deze naam kan geen webadres worden gemaakt."
+
+msgid "Wednesday closes"
+msgstr "Woensdag open tot"
+
+msgid "Wednesday opens"
+msgstr "Woensdag open vanaf"
+
+msgid "Words visitors may search for, separated by commas."
+msgstr "Woorden waarop bezoekers kunnen zoeken, gescheiden door komma's."

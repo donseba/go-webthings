@@ -1,0 +1,20 @@
+{{/* Shared parts of the dashboard's panels (see dashboard.go): their
+     headings (admin.PanelHeading), which their placeholders show too, and
+     the sections that could not be loaded. */}}
+{{define "dashboard-panel-title"}}
+    {{/* @dot github.com/donseba/go-webthings/admin.PanelHeading */}}
+    <h2 id="{{.ID}}-title" class="dashboard-panel-title">
+        <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#{{.Icon}}"/></svg>
+        <span>{{tl localizer .Title}}</span>
+    </h2>
+{{end}}
+
+{{define "dashboard-failed"}}
+    {{/* @dot github.com/donseba/go-webthings/admin.PanelState */}}
+    {{if .Failed}}
+        <p class="dashboard-failed" role="status">
+            <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#alert"/></svg>
+            <span>{{tl localizer "Could not load: %s" .FailedList}} {{tl localizer "Reload to try again."}}</span>
+        </p>
+    {{end}}
+{{end}}

@@ -1,0 +1,17 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Categories"
+msgstr "Categorieën"
+
+msgid "Date"
+msgstr "Datum"
+
+msgid "Image"
+msgstr "Afbeelding"
+
+msgid "New category"
+msgstr "Nieuwe categorie"
+
+msgid "New post"
+msgstr "Nieuw bericht"

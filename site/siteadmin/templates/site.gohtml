@@ -1,0 +1,31 @@
+{{/* @dot github.com/donseba/go-webthings/site/siteadmin.View */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Site settings"}}</h1>
+
+            {{if or .GuideURL .Reopen}}
+                <div class="admin-page-actions">
+                    {{with .GuideURL}}<a class="button-secondary" href="{{.}}">{{tl localizer "Continue setup"}}</a>{{end}}
+                    {{with .Reopen}}
+                        {{form_open_localized localizer .}}
+                        <button type="submit" class="button-secondary">{{tl localizer "Open the setup guide"}}</button>
+                        {{form_close}}
+                    {{end}}
+                </div>
+            {{end}}
+        </header>
+
+        {{if .ReadOnly}}
+            <p class="notice mb-6" role="status">{{tl localizer "You can view these settings but not change them."}}</p>
+        {{end}}
+
+        {{template "site-texts" .}}
+        {{template "site-general" .}}
+        {{template "site-profiles" .}}
+        {{template "site-performance" .}}
+        {{template "site-security" .}}
+        {{template "site-review" .}}
+        {{template "site-trash" .}}
+    </div>
+</main>

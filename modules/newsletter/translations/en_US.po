@@ -1,0 +1,162 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Addresses that are not valid:"
+msgstr "Addresses that are not valid:"
+
+msgid "All"
+msgstr "All"
+
+msgid "All languages"
+msgstr "All languages"
+
+msgid "Already subscribed: %d"
+msgstr "Already subscribed: %d"
+
+msgid "CSV file"
+msgstr "CSV file"
+
+msgid "Confirm that everyone on the list agreed to receive the newsletter."
+msgstr "Confirm that everyone on the list agreed to receive the newsletter."
+
+msgid "Confirmed"
+msgstr "Confirmed"
+
+msgid "Confirmed on"
+msgstr "Confirmed on"
+
+msgid "Confirmed subscribers who will receive this mailing"
+msgstr "Confirmed subscribers who will receive this mailing"
+
+msgid "Ends every mailing, followed by the subscriber's personal unsubscribe link."
+msgstr "Ends every mailing, followed by the subscriber's personal unsubscribe link."
+
+msgid "Everyone on this list agreed to receive the newsletter, and I can show their consent."
+msgstr "Everyone on this list agreed to receive the newsletter, and I can show their consent."
+
+msgid "Export CSV"
+msgstr "Export CSV"
+
+msgid "Finished"
+msgstr "Finished"
+
+msgid "Import"
+msgstr "Import"
+
+msgid "Import CSV"
+msgstr "Import CSV"
+
+msgid "Import subscribers"
+msgstr "Import subscribers"
+
+msgid "Introduction"
+msgstr "Introduction"
+
+msgid "Language of rows without a locale"
+msgstr "Language of rows without a locale"
+
+msgid "Mailing footer"
+msgstr "Mailing footer"
+
+msgid "Mailings"
+msgstr "Mailings"
+
+msgid "A personal unsubscribe link is added below the message."
+msgstr "A personal unsubscribe link is added below the message."
+
+msgid "Message"
+msgstr "Message"
+
+msgid "New mailing"
+msgstr "New mailing"
+
+msgid "New texts"
+msgstr "New texts"
+
+msgid "Newsletter texts"
+msgstr "Newsletter texts"
+
+msgid "Not delivered: %d. The server log has the reasons."
+msgstr "Not delivered: %d. The server log has the reasons."
+
+msgid "Or paste CSV"
+msgstr "Or paste CSV"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "Pending subscribers confirmed: %d"
+msgstr "Pending subscribers confirmed: %d"
+
+msgid "Recipients"
+msgstr "Recipients"
+
+msgid "Refresh"
+msgstr "Refresh"
+
+msgid "Result"
+msgstr "Result"
+
+msgid "Rows left out for their status: %d"
+msgstr "Rows left out for their status: %d"
+
+msgid "Send this mailing now? This cannot be undone."
+msgstr "Send this mailing now? This cannot be undone."
+
+msgid "Send to subscribers"
+msgstr "Send to subscribers"
+
+msgid "Sending"
+msgstr "Sending"
+
+msgid "Sending since %s: %d of %d messages sent."
+msgstr "Sending since %s: %d of %d messages sent."
+
+msgid "Sent"
+msgstr "Sent"
+
+msgid "Shown with the signup form."
+msgstr "Shown with the signup form."
+
+msgid "Signed up"
+msgstr "Signed up"
+
+msgid "Subject"
+msgstr "Subject"
+
+msgid "Subscribers added: %d"
+msgstr "Subscribers added: %d"
+
+msgid "Texts"
+msgstr "Texts"
+
+msgid "The file is not valid CSV."
+msgstr "The file is not valid CSV."
+
+msgid "The first row must name the columns, including email."
+msgstr "The first row must name the columns, including email."
+
+msgid "The first row names the columns: email (required), name and locale. Everyone is added as a confirmed subscriber, without a confirmation mail. People who unsubscribed are not added again."
+msgstr "The first row names the columns: email (required), name and locale. Everyone is added as a confirmed subscriber, without a confirmation mail. People who unsubscribed are not added again."
+
+msgid "The mailing is being sent."
+msgstr "The mailing is being sent."
+
+msgid "Unsubscribed"
+msgstr "Unsubscribed"
+
+msgid "Unsubscribed earlier, not added: %d"
+msgstr "Unsubscribed earlier, not added: %d"
+
+msgid "Subscriber"
+msgstr "Subscriber"
+
+msgid "Mailing"
+msgstr "Mailing"
+
+msgid "This subscriber cannot be restored: another subscriber uses the e-mail address now."
+msgstr "This subscriber cannot be restored: another subscriber uses the e-mail address now."
+
+
+msgid "Stop sending this mailing and move it to the trash? Subscribers who did not get it yet will not get it."
+msgstr "Stop sending this mailing and move it to the trash? Subscribers who did not get it yet will not get it."

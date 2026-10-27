@@ -1,0 +1,18 @@
+{{/* @dot github.com/donseba/go-webthings/admin.LoginView */}}
+<main id="content" class="admin-auth">
+    <section class="admin-auth-card">
+        <h1 class="admin-page-title">{{tl localizer "Sign in"}}</h1>
+
+        {{if .Message}}<p role="alert" class="notice text-danger">{{.Message}}</p>{{end}}
+
+        {{if .Setup}}
+            <p class="notice">{{tl localizer "No account exists yet. To create the first administrator account, open the setup link from the server's log: search the log for “no account exists yet”. Or set AdminEmail and AdminPassword in the site's configuration and start the site again."}}</p>
+        {{end}}
+
+        {{form_render_localized localizer .Form .Errors}}
+
+        {{if .ForgotPassword}}
+            <p class="admin-auth-links"><a href="{{route "admin.forgot-password"}}">{{tl localizer "Forgot your password?"}}</a></p>
+        {{end}}
+    </section>
+</main>

@@ -1,0 +1,171 @@
+{{/* @dot github.com/donseba/go-webthings/site/siteadmin.GuideView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <div class="admin-page-heading">
+                <h1 class="admin-page-title">{{tl localizer "Getting started"}}</h1>
+                {{if .Number}}
+                    <p class="admin-page-subtitle">{{tl localizer "Step %d of %d" .Number .Total}}</p>
+                {{else}}
+                    {{if eq .Handled .Total}}
+                        <p class="admin-page-subtitle">{{tl localizer "All steps done"}}</p>
+                    {{else}}
+                        <p class="admin-page-subtitle">{{tl localizer "%d of %d steps done" .Handled .Total}}</p>
+                    {{end}}
+                {{end}}
+            </div>
+            <div class="admin-page-actions">
+                <a class="button-secondary" href="{{.Dashboard}}">{{tl localizer "Skip setup for now"}}</a>
+            </div>
+        </header>
+
+        <nav aria-label="{{tl localizer "Setup steps"}}">
+            <ol class="guide-steps">
+                {{range .Steps}}
+                    <li>
+                        <a class="guide-step{{if .Done}} guide-step-done{{end}}{{if .Skipped}} guide-step-skipped{{end}}" href="{{.URL}}"{{if .Current}} aria-current="step"{{end}}>
+                            <span class="guide-step-mark" aria-hidden="true">{{if .Done}}✓{{else if .Number}}{{.Number}}{{else}}·{{end}}</span>
+                            <span>{{tl localizer .Title}}</span>
+                            {{if .Skipped}}<span class="badge">{{tl localizer "Skipped"}}</span>{{end}}
+                            {{if .Done}}<span class="sr-only">{{tl localizer "Done"}}</span>{{end}}
+                        </a>
+                    </li>
+                {{end}}
+            </ol>
+        </nav>
+
+        {{if eq .Step "welcome"}}
+            <section class="card">
+                <h2 class="card-title">{{tl localizer "Welcome to your new site"}}</h2>
+                <p class="admin-page-intro mb-4">{{tl localizer "A few steps set up what every site needs: its languages and title, its look, e-mail, its first pages and how its pages protect visitors. Each step saves at once. Skip what you want to do later: Site settings opens this guide again."}}</p>
+                <div class="form-actions">
+                    <a class="button" href="{{.Start}}">{{tl localizer "Start"}}</a>
+                    <a class="button-secondary" href="{{.Dashboard}}">{{tl localizer "Skip setup for now"}}</a>
+                </div>
+            </section>
+        {{end}}
+
+        {{if eq .Step "site"}}
+            <p class="admin-page-intro">{{tl localizer "Choose the site's languages and timezone first: the title and tagline are written per language."}}</p>
+            {{with .Site}}
+                {{template "site-general" .}}
+                {{template "site-texts" .}}
+            {{end}}
+        {{end}}
+
+        {{if eq .Step "theme"}}
+            <p class="admin-page-intro">{{tl localizer "Choose how the site looks. Preview a theme in a new tab, use it, then set its colours and the logo."}}</p>
+            {{with .Theme}}
+                {{template "theme-list" .}}
+                {{if .Form}}{{template "theme-settings" .}}{{end}}
+            {{end}}
+            {{with .UploadURL}}
+                <p class="notice">{{tl localizer "The media library has no images yet."}} <a href="{{.}}">{{tl localizer "Upload a logo"}}</a></p>
+            {{end}}
+            {{with .Site}}{{template "site-general" .}}{{end}}
+        {{end}}
+
+        {{if eq .Step "mail"}}
+            {{with .Mail}}
+                <section class="card">
+                    <h2 class="card-title">{{tl localizer "E-mail"}}</h2>
+                    {{if .Logged}}
+                        <p class="notice mb-4" role="status">{{tl localizer "No sender configured: e-mail is written to the server log, not sent."}}</p>
+                    {{else if .Sender}}
+                        <p class="mb-4">{{tl localizer "The site sends e-mail with %s." .Sender}}</p>
+                    {{else}}
+                        <p class="mb-4">{{tl localizer "The site sends e-mail with the sender its code sets."}}</p>
+                    {{end}}
+                    {{if .NoBaseURL}}
+                        <p class="notice mb-4" role="status">{{tl localizer "The site has no public address (BaseURL): links in e-mail use the address each visitor used, and outside local development the admin offers no password reset."}}</p>
+                    {{end}}
+                    <p class="muted text-sm mb-4">{{tl localizer "The sender is set in the site's code or configuration. A test e-mail shows whether e-mail from the site arrives."}}</p>
+                    {{form_render_localized localizer .Test nil}}
+                </section>
+            {{end}}
+        {{end}}
+
+        {{if eq .Step "pages"}}
+            {{with .Pages}}
+                <p class="admin-page-intro">{{tl localizer "Pages make the parts of the site reachable. A module's page is published below Home at once; the other pages are made as drafts, for you to write first."}}</p>
+                <section class="card">
+                    <h2 class="card-title">{{tl localizer "Pages"}}</h2>
+                    {{if .Form}}{{form_open_localized localizer .Form}}{{end}}
+                    <div class="guide-rows">
+                        {{range .Rows}}
+                            <div class="guide-row{{if .OnPage}} guide-row-done{{end}}">
+                                <h3 class="guide-row-title">{{.Title}}</h3>
+                                {{if .OnPage}}
+                                    <p class="text-sm">{{if .EditURL}}<a href="{{.EditURL}}">{{tl localizer "On page %s" .OnPage}}</a>{{else}}{{tl localizer "On page %s" .OnPage}}{{end}}</p>
+                                {{else}}
+                                    {{range $i, $field := .Fields}}{{if eq $i 0}}{{form_field_localized localizer $.Pages.Form $field $.Pages.Errors}}{{end}}{{end}}
+                                    <div class="guide-row-titles">
+                                        {{range $i, $field := .Fields}}{{if $i}}{{form_field_localized localizer $.Pages.Form $field $.Pages.Errors}}{{end}}{{end}}
+                                    </div>
+                                {{end}}
+                            </div>
+                        {{end}}
+                    </div>
+                    {{if .Form}}
+                        {{form_buttons_localized localizer .Form}}
+                        {{form_close}}
+                    {{end}}
+                    {{if not .Modules}}
+                        <p class="muted text-sm mt-4">{{tl localizer "Modules, such as news or events, are added in the site's code; then they show here."}}</p>
+                    {{end}}
+                </section>
+
+                {{with .Actions}}
+                    <section class="card">
+                        <h2 class="card-title">{{tl localizer "Write the first content"}}</h2>
+                        <div class="flex flex-wrap gap-2">
+                            {{range .}}<a class="button-secondary" href="{{.URL}}"><span>{{.Label}}</span> <span class="muted">{{.Section}}</span></a>{{end}}
+                        </div>
+                    </section>
+                {{end}}
+            {{end}}
+        {{end}}
+
+        {{if eq .Step "security"}}
+            <p class="admin-page-intro">{{tl localizer "Start with Report only: browsers then report what the policy would block, and nothing breaks. Check the server log, then enforce."}}</p>
+            {{with .Site}}{{template "site-security" .}}{{end}}
+        {{end}}
+
+        {{if eq .Step "done"}}
+            <section class="card">
+                <h2 class="card-title">{{tl localizer "Your site is set up"}}</h2>
+                <ul class="guide-summary">
+                    {{range .Steps}}
+                        {{if ne .ID "done"}}
+                            <li>
+                                <a href="{{.URL}}">{{tl localizer .Title}}</a>
+                                {{if .Done}}<span class="badge">{{tl localizer "Done"}}</span>{{else if .Skipped}}<span class="badge">{{tl localizer "Skipped"}}</span>{{else}}<span class="badge">{{tl localizer "Open"}}</span>{{end}}
+                            </li>
+                        {{end}}
+                    {{end}}
+                </ul>
+                <h3 class="font-semibold mb-2">{{tl localizer "Next steps"}}</h3>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <a class="button-secondary" href="{{.Website}}" target="_blank" rel="noopener">{{tl localizer "View website"}}</a>
+                    {{with .NewPage}}<a class="button-secondary" href="{{.}}">{{tl localizer "Write your first page"}}</a>{{end}}
+                    {{with .Accounts}}<a class="button-secondary" href="{{.}}">{{tl localizer "Invite editors"}}</a>{{end}}
+                    <a class="button-secondary" href="{{.Dashboard}}">{{tl localizer "Dashboard"}}</a>
+                </div>
+                {{with .Finish}}{{form_render_localized localizer . nil}}{{end}}
+            </section>
+        {{end}}
+
+        {{if or .Skip .Next}}
+            <div class="guide-footer">
+                {{with .Skip}}
+                    {{form_open_localized localizer .}}
+                    <button type="submit" class="button-secondary">{{tl localizer "Skip for now"}}</button>
+                    {{form_close}}
+                {{else}}
+                    <span></span>
+                {{end}}
+                {{with .Next}}<a class="button" href="{{.}}">{{tl localizer "Next step"}}</a>{{end}}
+            </div>
+        {{end}}
+    </div>
+</main>

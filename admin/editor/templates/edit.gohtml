@@ -1,0 +1,78 @@
+{{/* @dot github.com/donseba/go-webthings/admin/editor.EditView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body editor-page">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{.Title}}</h1>
+            <div class="admin-page-actions"><a class="button-secondary" href="{{.BackURL}}">{{tl localizer "Back to %s" (tl localizer .BackLabel)}}</a></div>
+        </header>
+
+        {{template "locale-tabs.gohtml" .Tabs}}
+
+        {{/* The form, with publication, the permanent mark and delete beside it on wide screens and below it on narrow ones. */}}
+        <div class="editor-columns">
+            <div class="editor-main">
+                {{/* A save over a newer save was refused: the form below keeps what was typed, and "Save anyway" submits it to save over that save. */}}
+                {{with .Conflict}}
+                    <section class="notice" role="alert">
+                        <p>{{.Text}}</p>
+                        <div class="form-actions">
+                            <a class="button-secondary" href="{{.URL}}" target="_blank" rel="noopener">{{tl localizer "Open the saved version"}}</a>
+                            <button class="button" type="submit" form="{{.Form}}" name="{{.Name}}" value="{{.Value}}">{{tl localizer "Save anyway"}}</button>
+                        </div>
+                    </section>
+                {{end}}
+
+                {{range .Notices}}
+                    <section class="notice" role="status">
+                        <p>{{.Text}}</p>
+                        {{with .Items}}
+                            <ul class="mt-2">
+                                {{range .}}
+                                    <li>{{if .URL}}<a href="{{.URL}}">{{.Label}}</a>{{else}}{{.Label}}{{end}}{{with .Note}} <span class="muted">{{.}}</span>{{end}}</li>
+                                {{end}}
+                            </ul>
+                        {{end}}
+                        {{range .Forms}}<div class="mt-3">{{form_render_localized localizer . nil}}</div>{{end}}
+                    </section>
+                {{end}}
+
+                <section class="surface border-theme border rounded-xl p-6 editor-form">
+                    {{if .ReadOnly}}
+                        <p class="notice mb-4" role="status">{{tl localizer "You can view this item but not change it."}}</p>
+                    {{end}}
+                    {{form_render_localized localizer .Form .Errors}}
+                </section>
+            </div>
+
+            {{if or .Panel .Publish .Unpublish .Permanent .Permanence .Delete}}
+                <div class="editor-side">
+                    {{with .Panel}}{{template "revision-panel.gohtml" .}}{{end}}
+
+                    {{if or .Publish .Unpublish}}
+                        <section class="surface border-theme border rounded-xl p-6">
+                            {{with .Publish}}{{form_render_localized localizer . nil}}{{end}}
+                            {{with .Unpublish}}{{form_render_localized localizer . nil}}{{end}}
+                        </section>
+                    {{end}}
+
+                    {{if or .Permanent .Permanence}}
+                        <section class="surface border-theme border rounded-xl p-6" aria-label="{{tl localizer "Permanent"}}">
+                            {{if .PermanentFixed}}
+                                <p class="muted">{{tl localizer "This item always stays on the website: it cannot be unpublished, scheduled to be unpublished or deleted."}}</p>
+                            {{else if .Permanent}}
+                                <p class="muted mb-4">{{tl localizer "This item is permanent: it cannot be unpublished, scheduled to be unpublished or deleted until an administrator removes the mark."}}</p>
+                            {{else}}
+                                <p class="muted mb-4">{{tl localizer "A permanent item cannot be unpublished, scheduled to be unpublished or deleted until an administrator removes the mark."}}</p>
+                            {{end}}
+                            {{with .Permanence}}{{form_render_localized localizer . nil}}{{end}}
+                        </section>
+                    {{end}}
+
+                    {{with .Delete}}
+                        <section class="surface border-theme border rounded-xl p-6">{{form_render_localized localizer . nil}}</section>
+                    {{end}}
+                </div>
+            {{end}}
+        </div>
+    </div>
+</main>

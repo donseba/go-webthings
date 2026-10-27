@@ -1,0 +1,26 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Biography"
+msgstr "Biografie"
+
+msgid "Enter a valid phone number."
+msgstr "Vul een geldig telefoonnummer in."
+
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+msgid "Links must start with http:// or https://."
+msgstr "Links moeten beginnen met http:// of https://."
+
+msgid "New person"
+msgstr "Nieuwe persoon"
+
+msgid "Phone"
+msgstr "Telefoon"
+
+msgid "Photo"
+msgstr "Foto"
+
+msgid "The last part of the address, such as open-studio in /en/news/open-studio. Made from the name when left empty."
+msgstr "Het laatste deel van het adres, zoals open-studio in /nl/nieuws/open-studio. Wordt van de naam gemaakt als je het leeg laat."

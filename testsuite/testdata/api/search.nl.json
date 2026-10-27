@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "module": "news",
+      "summary": "De boten zijn er.",
+      "title": "Hallo haven",
+      "type": "publishing",
+      "url": "https://example.test/nl/nieuws/hallo-haven"
+    }
+  ],
+  "limit": 20,
+  "next": null,
+  "offset": 0,
+  "total": 1
+}

@@ -1,0 +1,4 @@
+{{/* @dot github.com/donseba/go-webthings/modules/events.ListView */}}
+<main id="content"><h1>{{.Title}}</h1>
+{{if .Past}}<a href="{{.UpcomingURL}}">upcoming</a>{{else}}<a href="{{.PastURL}}">past</a>{{end}}
+{{range .Events}}<a class="event" href="{{.URL}}">{{.Title}}</a> {{.Start.Format "2006-01-02 15:04"}}{{end}}</main>

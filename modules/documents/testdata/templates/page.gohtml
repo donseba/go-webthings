@@ -1,0 +1,4 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.Page */}}
+<main id="content"><h1>{{.Title}}</h1>{{.Body}}
+<ul class="latest">{{range documents "documents" 1}}<li><a href="{{.URL}}">{{.Title}}</a></li>{{end}}</ul>
+<ul class="minutes">{{range documentsIn "documents" "minutes"}}<li>{{.Title}}</li>{{end}}</ul></main>

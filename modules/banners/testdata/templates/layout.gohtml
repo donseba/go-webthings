@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="{{.Locale}}">
+<head><title>{{.Title}} · {{.Site.Name}}</title></head>
+<body>
+{{with banner "notice"}}<div id="notice" class="notice-{{.Tone}}">{{.Title}} {{.Text}}</div>{{end}}
+<nav id="menu">{{range .Menu}}<a href="{{.URL}}">{{.Title}}</a> {{end}}</nav>
+{{range banners "hero"}}<section class="slide">{{.Title}} · {{.Subtitle}}{{with .ImageURL}} <img src="{{.}}">{{end}}{{if .ButtonURL}} <a class="button" href="{{.ButtonURL}}">{{.ButtonLabel}}</a>{{end}}</section>
+{{end}}
+{{content}}
+</body>
+</html>

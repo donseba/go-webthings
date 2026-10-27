@@ -1,0 +1,15 @@
+{
+  "items": [
+    {
+      "id": "<id1>",
+      "posts_url": "https://example.test/api/v1/news/posts?category=berichten&locale=nl",
+      "slug": "berichten",
+      "title": "Berichten",
+      "url": "https://example.test/nl/nieuws/category/berichten"
+    }
+  ],
+  "limit": 20,
+  "next": null,
+  "offset": 0,
+  "total": 1
+}

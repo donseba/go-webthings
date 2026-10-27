@@ -1,0 +1,11 @@
+{{/* @dot github.com/donseba/go-webthings/modules/registrations.RegistrationView */}}
+<main id="content"><h1>{{.Subject.Title}}</h1>
+{{with .Result}}<p class="result">result: {{.}}</p>{{end}}
+<p class="who">{{.Code}} {{.Name}} adults {{.Adults}} children {{.Children}} total {{money .Total .Currency}} {{.Payment}}</p>
+<p class="when">registered {{date .CreatedAt}}</p>
+{{with .PaymentLink}}<p class="pay">{{.}}</p>{{end}}
+{{with .Info}}<div class="info">{{.}}</div>{{end}}
+{{if .Cancelled}}<p class="cancelled">cancelled</p>{{else}}
+<section id="{{.Key}}">{{form_open .Form}}{{form_field .Form "code" nil}}{{form_field .Form "email" nil}}{{form_close}}</section>
+{{end}}
+</main>

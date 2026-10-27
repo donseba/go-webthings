@@ -1,0 +1,20 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Author name"
+msgstr "Author name"
+
+msgid "Author role"
+msgstr "Author role"
+
+msgid "New testimonial"
+msgstr "New testimonial"
+
+msgid "Organisation"
+msgstr "Organisation"
+
+msgid "Photo"
+msgstr "Photo"
+
+msgid "Testimonials"
+msgstr "Testimonials"

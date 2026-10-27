@@ -1,0 +1,17 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Enter a link starting with https://, mailto: or tel:, or a path starting with /."
+msgstr "Enter a link starting with https://, mailto: or tel:, or a path starting with /."
+
+msgid "Image"
+msgstr "Image"
+
+msgid "New entry"
+msgstr "New entry"
+
+msgid "Text"
+msgstr "Text"
+
+msgid "https://"
+msgstr "https://"

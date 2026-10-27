@@ -1,0 +1,6 @@
+{{/* @dot github.com/donseba/go-webthings/modules/events.Event */}}
+<main id="content"><h1>{{.Title}}</h1>
+<p class="when">{{.Start.Format "2006-01-02 15:04"}}{{if not .End.IsZero}} – {{.End.Format "2006-01-02 15:04"}}{{end}} {{.Timezone}}{{if .AllDay}} all-day{{end}}</p>
+<p class="local">{{dateRange .Start .End "full"}}{{if not .AllDay}} · {{timeRange .Start .End}}{{end}}</p>
+<p class="where">{{.Location}}, {{.Address}}</p>
+{{.Body}}</main>

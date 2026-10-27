@@ -1,0 +1,53 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Accept as draft post"
+msgstr "Accepteren als conceptbericht"
+
+msgid "Accepted"
+msgstr "Geaccepteerd"
+
+msgid "Accepted proposals go to %s, which is not a news or blog module. Check the site's configuration."
+msgstr "Geaccepteerde voorstellen gaan naar %s, maar dat is geen nieuws- of blogmodule. Controleer de configuratie van de site."
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Confirm receipt to submitters"
+msgstr "Inzenders een ontvangstbevestiging sturen"
+
+msgid "Enter one valid e-mail address for notifications, or leave it empty."
+msgstr "Vul één geldig e-mailadres in voor meldingen, of laat het leeg."
+
+msgid "Mail"
+msgstr "E-mail"
+
+msgid "New"
+msgstr "Nieuw"
+
+msgid "New proposals are mailed to this address. Leave empty to send none."
+msgstr "Nieuwe voorstellen worden naar dit adres gemaild. Laat leeg om niets te sturen."
+
+msgid "Notification e-mail"
+msgstr "E-mailadres voor meldingen"
+
+msgid "Open draft post"
+msgstr "Conceptbericht openen"
+
+msgid "Proposal"
+msgstr "Voorstel"
+
+msgid "Received"
+msgstr "Ontvangen"
+
+msgid "Settings"
+msgstr "Instellingen"
+
+msgid "Tell submitters when their proposal is accepted or rejected"
+msgstr "Inzenders laten weten wanneer hun voorstel is geaccepteerd of afgewezen"
+
+msgid "The texts of the mails are templates of the site and follow its translations."
+msgstr "De teksten van de e-mails zijn sjablonen van de site en volgen haar vertalingen."
+
+msgid "This proposal was already decided."
+msgstr "Over dit voorstel is al besloten."

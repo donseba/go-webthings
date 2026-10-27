@@ -1,0 +1,152 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A payment URL or bank details, shown in the confirmation while payment is pending."
+msgstr "A payment URL or bank details, shown in the confirmation while payment is pending."
+
+msgid "Admin notes"
+msgstr "Admin notes"
+
+msgid "Adults"
+msgstr "Adults"
+
+msgid "Adults and children together. 0 means unlimited."
+msgstr "Adults and children together. 0 means unlimited."
+
+msgid "Cancel registration"
+msgstr "Cancel registration"
+
+msgid "Cancelled"
+msgstr "Cancelled"
+
+msgid "Children"
+msgstr "Children"
+
+msgid "Children can be registered"
+msgstr "Children can be registered"
+
+msgid "Choose a payment status."
+msgstr "Choose a payment status."
+
+msgid "Closed"
+msgstr "Closed"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Enter a name."
+msgstr "Enter a name."
+
+msgid "Enter an amount such as 12.50."
+msgstr "Enter an amount such as 12.50."
+
+msgid "Event"
+msgstr "Event"
+
+msgid "Export CSV"
+msgstr "Export CSV"
+
+msgid "For registrants"
+msgstr "For registrants"
+
+msgid "Full"
+msgstr "Full"
+
+msgid "In the site's timezone. Registration for an event closes when it starts when this is empty."
+msgstr "In the site's timezone. Registration for an event closes when it starts when this is empty."
+
+msgid "Letters, digits, dashes, dots, colons and underscores, for example a page or product ID. Sign-up forms send it in the subject field."
+msgstr "Letters, digits, dashes, dots, colons and underscores, for example a page or product ID. Sign-up forms send it in the subject field."
+
+msgid "New subject"
+msgstr "New subject"
+
+msgid "No payment"
+msgstr "No payment"
+
+msgid "Notes for registrants"
+msgstr "Notes for registrants"
+
+msgid "Notes from the registrant"
+msgstr "Notes from the registrant"
+
+msgid "Only visible in the admin."
+msgstr "Only visible in the admin."
+
+msgid "Open"
+msgstr "Open"
+
+msgid "Open for registration"
+msgstr "Open for registration"
+
+msgid "Paid"
+msgstr "Paid"
+
+msgid "Payment"
+msgstr "Payment"
+
+msgid "Payment link"
+msgstr "Payment link"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "Places"
+msgstr "Places"
+
+msgid "Places taken"
+msgstr "Places taken"
+
+msgid "Price per adult"
+msgstr "Price per adult"
+
+msgid "Price per child"
+msgstr "Price per child"
+
+msgid "Registered"
+msgstr "Registered"
+
+msgid "Registration"
+msgstr "Registration"
+
+msgid "Registration closes"
+msgstr "Registration closes"
+
+msgid "Registration settings"
+msgstr "Registration settings"
+
+msgid "Registrations"
+msgstr "Registrations"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "Shown in the admin and in e-mail. Events use their own title when empty."
+msgstr "Shown in the admin and in e-mail. Events use their own title when empty."
+
+msgid "Shown with the sign-up form, on the registration page and in the confirmation."
+msgstr "Shown with the sign-up form, on the registration page and in the confirmation."
+
+msgid "Subject"
+msgstr "Subject"
+
+msgid "Subject ID"
+msgstr "Subject ID"
+
+msgid "This subject already exists."
+msgstr "This subject already exists."
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Unlimited"
+msgstr "Unlimited"
+
+msgid "Use letters, digits, dashes, dots, colons and underscores."
+msgstr "Use letters, digits, dashes, dots, colons and underscores."
+
+msgid "This registration cannot be restored: not enough places are left."
+msgstr "This registration cannot be restored: not enough places are left."
+
+msgid "0.00"
+msgstr "0.00"

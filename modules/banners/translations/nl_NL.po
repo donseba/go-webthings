@@ -1,0 +1,62 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "A path on this site, such as /en/contact, an anchor on the page, such as #contact, a full URL, or a mailto: or tel: link."
+msgstr "Een pad op deze site, zoals /nl/contact, een anker op de pagina, zoals #contact, een volledige URL, of een mailto:- of tel:-link."
+
+msgid "Button address"
+msgstr "Adres van de knop"
+
+msgid "Button label"
+msgstr "Tekst op de knop"
+
+msgid "Choose a tone."
+msgstr "Kies een toon."
+
+msgid "Empty shows the banner as soon as it is published."
+msgstr "Leeg toont de banner zodra hij gepubliceerd is."
+
+msgid "Empty shows the banner until it is unpublished."
+msgstr "Leeg toont de banner tot hij niet meer gepubliceerd is."
+
+msgid "Expired"
+msgstr "Verlopen"
+
+msgid "Image"
+msgstr "Afbeelding"
+
+msgid "Information"
+msgstr "Informatie"
+
+msgid "New banner"
+msgstr "Nieuwe banner"
+
+msgid "Show from"
+msgstr "Tonen vanaf"
+
+msgid "Show until"
+msgstr "Tonen tot"
+
+msgid "Show until must be after show from."
+msgstr "Tonen tot moet na tonen vanaf liggen."
+
+msgid "Subtitle"
+msgstr "Ondertitel"
+
+msgid "Success"
+msgstr "Succes"
+
+msgid "Text"
+msgstr "Tekst"
+
+msgid "The button address must be a path on this site, such as /en/contact, an anchor such as #contact, a full URL, or a mailto: or tel: link."
+msgstr "Het adres van de knop moet een pad op deze site zijn, zoals /nl/contact, een anker zoals #contact, een volledige URL, of een mailto:- of tel:-link."
+
+msgid "Tone"
+msgstr "Toon"
+
+msgid "Upcoming"
+msgstr "Binnenkort"
+
+msgid "Warning"
+msgstr "Waarschuwing"

@@ -1,0 +1,6 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.Page */}}
+<main id="content"><h1>{{.Title}}</h1>{{.Body}}
+<ul class="everyone">{{range people "team"}}<li>{{.Name}}</li>{{end}}</ul>
+<ul class="board">{{range peopleIn "team" "board"}}<li>{{.Name}}</li>{{end}}</ul>
+{{with person "team" "jane-doe"}}<a class="featured" href="{{.URL}}">{{.Name}}</a>{{end}}
+{{with person "team" "nobody"}}<p class="nobody">{{.Name}}</p>{{end}}</main>

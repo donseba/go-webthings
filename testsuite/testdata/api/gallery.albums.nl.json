@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "api_url": "https://example.test/api/v1/photos/albums/<id1>?locale=nl",
+      "cover": {
+        "alt": "",
+        "height": 600,
+        "original_url": "https://example.test/media/<id2>.png",
+        "srcset": "https://example.test/media/v/<sig>/<id2>_480x0.webp 480w, https://example.test/media/v/<sig>/<id2>_800x0.webp 800w",
+        "url": "https://example.test/media/v/<sig>/<id2>_800x0.webp",
+        "width": 800
+      },
+      "id": "<id1>",
+      "image_count": 2,
+      "slug": "haven",
+      "title": "Haven",
+      "updated_at": "<time>",
+      "url": "https://example.test/nl/fotos/haven"
+    }
+  ],
+  "limit": 20,
+  "next": null,
+  "offset": 0,
+  "total": 1
+}

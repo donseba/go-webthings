@@ -1,0 +1,12 @@
+{{/* @dot github.com/donseba/go-partial/exp/flash.Data */}}
+{{/* The toasts of go-partial's exp/flash, in the stack of templates/flash-messages.gohtml; its browser client hides them by level (data-flash-level) and removes them with data-flash-dismiss. */}}
+{{range .Messages}}
+    <div class="toast toast-{{.Level}}" data-flash-level="{{.Level}}"
+         role="{{if eq .Level "error"}}alert{{else}}status{{end}}">
+        <svg class="icon toast-icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#{{if eq .Level "success"}}check{{else if eq .Level "info"}}info{{else}}alert{{end}}"/></svg>
+        <p class="toast-text">{{.Text}}</p>
+        <button type="button" class="toast-close" data-flash-dismiss aria-label="{{tl localizer "Dismiss notification"}}">
+            <svg class="icon" aria-hidden="true"><use href="{{importmap_url "icons.svg"}}#close"/></svg>
+        </button>
+    </div>
+{{end}}

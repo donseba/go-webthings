@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+  <symbol id="code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-2-12-4 14"/></symbol>
+  <symbol id="code-block" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="m9 10-2 2 2 2m6-4 2 2-2 2"/></symbol>
+  <symbol id="rule" viewBox="0 0 24 24"><path d="M3 12h18M7 6h10M7 18h10" stroke-dasharray="0"/></symbol>
+</svg>

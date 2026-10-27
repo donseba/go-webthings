@@ -1,0 +1,40 @@
+{{/* @dot github.com/donseba/go-webthings/site/siteadmin.BackupView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Backup"}}</h1>
+        </header>
+        <p class="admin-page-intro mb-6">{{tl localizer "Download the site as a zip file, to keep somewhere safe or to move the site to another server."}}</p>
+
+        <section class="card mb-6">
+            <h2 class="card-title">{{tl localizer "What the download holds"}}</h2>
+            <ul class="list-disc pl-5 space-y-1 mb-4">
+                {{if .Database}}<li><code>site.sqlite</code>: {{tl localizer "the database, with the pages, the settings, the accounts and what the modules keep."}}</li>{{end}}
+                <li><code>media/</code>: {{tl localizer "every uploaded file, also those in the trash. Resized copies of images are left out: the site makes them again when they are needed."}}</li>
+                <li><code>manifest.json</code>: {{tl localizer "when the backup was made, the database it comes from and the version of its tables."}}</li>
+            </ul>
+            {{if not .Database}}
+                <p class="notice mb-4" role="status">
+                    {{tl localizer "The site keeps its data in %s, which the download leaves out. Back up the database with its own tools, such as %s, at the same time." .Server .Dump}}
+                    <a href="{{.DocsURL}}" target="_blank" rel="noopener">{{tl localizer "How to back up the database"}}</a>
+                </p>
+            {{end}}
+            <p class="muted text-sm mb-4">{{tl localizer "The backup holds the password hashes of the accounts and personal data, such as form submissions. Keep it as safe as the site itself."}}</p>
+            {{form_render_localized localizer .Download nil}}
+        </section>
+
+        <section class="card">
+            <h2 class="card-title">{{tl localizer "Restoring the site"}}</h2>
+            <ol class="list-decimal pl-5 space-y-1">
+                <li>{{tl localizer "Stop the site."}}</li>
+                {{if .Database}}
+                    <li>{{tl localizer "Put site.sqlite in the site's state folder in place of the database, and delete site.sqlite-wal and site.sqlite-shm there if they exist."}}</li>
+                {{else}}
+                    <li>{{tl localizer "Restore the database from its own backup, such as with %s." .Load}}</li>
+                {{end}}
+                <li>{{tl localizer "Replace the media folder in the state folder with the media folder of the download, or put its files in the storage the site keeps uploads in."}}</li>
+                <li>{{tl localizer "Start the site."}}</li>
+            </ol>
+        </section>
+    </div>
+</main>

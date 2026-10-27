@@ -1,0 +1,69 @@
+{{/* @dot github.com/donseba/go-webthings/modules/registrations.SubjectView */}}
+{{/* @model Search github.com/donseba/go-webthings/admin.SearchBox */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <div class="admin-page-heading">
+                <h1 class="admin-page-title">{{.Title}}</h1>
+                {{with .Date}}<p class="admin-page-subtitle">{{.}}</p>{{end}}
+            </div>
+            <div class="admin-page-actions">
+                {{template "admin-search" Search}}
+                <a class="button-secondary" href="{{.BackURL}}">{{tl localizer "Back to %s" (tl localizer .BackLabel)}}</a>
+                {{with .ExportURL}}<a class="button-secondary" href="{{.}}" download>{{tl localizer "Export CSV"}}</a>{{end}}
+                {{with .SettingsURL}}<a class="button" href="{{.}}">{{tl localizer "Settings"}}</a>{{end}}
+            </div>
+        </header>
+
+        <section class="surface border-theme border rounded-xl p-6 mb-6">
+            <p class="mb-4"><span class="badge">{{tl localizer .Status}}</span></p>
+            <dl class="grid sm:grid-cols-2 gap-4">
+                {{range .Facts}}
+                    <div><dt class="muted text-sm">{{tl localizer .Label}}</dt><dd class="break-all">{{.Value}}</dd></div>
+                {{end}}
+            </dl>
+        </section>
+
+        <section class="surface border-theme border rounded-xl p-6">
+            <p class="muted mb-4">
+                {{tl localizer "Registrations"}}: {{.Registrations}} ·
+                {{tl localizer "Places taken"}}: {{.Places}} ·
+                {{tl localizer "Total"}}: {{.Total}}
+            </p>
+
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th>{{tl localizer "Code"}}</th>
+                        <th>{{tl localizer "Name"}}</th>
+                        <th>{{tl localizer "Email"}}</th>
+                        <th>{{tl localizer "Adults"}}</th>
+                        <th>{{tl localizer "Children"}}</th>
+                        <th>{{tl localizer "Total"}}</th>
+                        <th>{{tl localizer "Payment"}}</th>
+                        <th>{{tl localizer "Registered"}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Rows}}
+                        <tr>
+                            <td class="p-3">
+                                <a href="{{.URL}}">{{.Code}}</a>
+                                {{if .Cancelled}}<span class="badge">{{tl localizer "Cancelled"}}</span>{{end}}
+                            </td>
+                            <td class="p-3">{{.Name}}</td>
+                            <td class="p-3">{{.Email}}</td>
+                            <td class="p-3">{{.Adults}}</td>
+                            <td class="p-3">{{.Children}}</td>
+                            <td class="p-3">{{.Total}}</td>
+                            <td class="p-3">{{tl localizer .Payment}}</td>
+                            <td class="p-3">{{.Date}}</td>
+                        </tr>
+                    {{else}}
+                        <tr><td class="p-3 muted" colspan="8">{{template "admin-empty" Search}}</td></tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</main>

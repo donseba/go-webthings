@@ -1,0 +1,162 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Addresses that are not valid:"
+msgstr "Adressen die niet geldig zijn:"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "All languages"
+msgstr "Alle talen"
+
+msgid "Already subscribed: %d"
+msgstr "Al aangemeld: %d"
+
+msgid "CSV file"
+msgstr "CSV-bestand"
+
+msgid "Confirm that everyone on the list agreed to receive the newsletter."
+msgstr "Bevestig dat iedereen op de lijst heeft ingestemd met het ontvangen van de nieuwsbrief."
+
+msgid "Confirmed"
+msgstr "Bevestigd"
+
+msgid "Confirmed on"
+msgstr "Bevestigd op"
+
+msgid "Confirmed subscribers who will receive this mailing"
+msgstr "Bevestigde abonnees die deze mailing ontvangen"
+
+msgid "Ends every mailing, followed by the subscriber's personal unsubscribe link."
+msgstr "Sluit elke mailing af, gevolgd door de persoonlijke afmeldlink van de abonnee."
+
+msgid "Everyone on this list agreed to receive the newsletter, and I can show their consent."
+msgstr "Iedereen op deze lijst heeft ingestemd met het ontvangen van de nieuwsbrief, en ik kan die toestemming aantonen."
+
+msgid "Export CSV"
+msgstr "Exporteren als CSV"
+
+msgid "Finished"
+msgstr "Afgerond"
+
+msgid "Import"
+msgstr "Importeren"
+
+msgid "Import CSV"
+msgstr "CSV importeren"
+
+msgid "Import subscribers"
+msgstr "Abonnees importeren"
+
+msgid "Introduction"
+msgstr "Inleiding"
+
+msgid "Language of rows without a locale"
+msgstr "Taal van regels zonder taal"
+
+msgid "Mailing footer"
+msgstr "Voettekst mailing"
+
+msgid "Mailings"
+msgstr "Mailings"
+
+msgid "A personal unsubscribe link is added below the message."
+msgstr "Onder het bericht komt een persoonlijke afmeldlink."
+
+msgid "Message"
+msgstr "Bericht"
+
+msgid "New mailing"
+msgstr "Nieuwe mailing"
+
+msgid "New texts"
+msgstr "Nieuwe teksten"
+
+msgid "Newsletter texts"
+msgstr "Nieuwsbriefteksten"
+
+msgid "Not delivered: %d. The server log has the reasons."
+msgstr "Niet afgeleverd: %d. De reden staat in het serverlogboek."
+
+msgid "Or paste CSV"
+msgstr "Of plak CSV"
+
+msgid "Pending"
+msgstr "Wacht op bevestiging"
+
+msgid "Pending subscribers confirmed: %d"
+msgstr "Wachtende abonnees bevestigd: %d"
+
+msgid "Recipients"
+msgstr "Ontvangers"
+
+msgid "Refresh"
+msgstr "Vernieuwen"
+
+msgid "Result"
+msgstr "Resultaat"
+
+msgid "Rows left out for their status: %d"
+msgstr "Regels overgeslagen vanwege hun status: %d"
+
+msgid "Send this mailing now? This cannot be undone."
+msgstr "Deze mailing nu versturen? Dit kan niet ongedaan worden gemaakt."
+
+msgid "Send to subscribers"
+msgstr "Versturen naar abonnees"
+
+msgid "Sending"
+msgstr "Wordt verstuurd"
+
+msgid "Sending since %s: %d of %d messages sent."
+msgstr "Wordt verstuurd sinds %s: %d van %d berichten verstuurd."
+
+msgid "Sent"
+msgstr "Verstuurd"
+
+msgid "Shown with the signup form."
+msgstr "Wordt bij het aanmeldformulier getoond."
+
+msgid "Signed up"
+msgstr "Aangemeld"
+
+msgid "Subject"
+msgstr "Onderwerp"
+
+msgid "Subscribers added: %d"
+msgstr "Abonnees toegevoegd: %d"
+
+msgid "Texts"
+msgstr "Teksten"
+
+msgid "The file is not valid CSV."
+msgstr "Het bestand is geen geldige CSV."
+
+msgid "The first row must name the columns, including email."
+msgstr "De eerste regel moet de kolommen noemen, waaronder email."
+
+msgid "The first row names the columns: email (required), name and locale. Everyone is added as a confirmed subscriber, without a confirmation mail. People who unsubscribed are not added again."
+msgstr "De eerste regel noemt de kolommen: email (verplicht), name en locale. Iedereen wordt toegevoegd als bevestigde abonnee, zonder bevestigingsmail. Wie zich heeft afgemeld, wordt niet opnieuw toegevoegd."
+
+msgid "The mailing is being sent."
+msgstr "De mailing wordt verstuurd."
+
+msgid "Unsubscribed"
+msgstr "Afgemeld"
+
+msgid "Unsubscribed earlier, not added: %d"
+msgstr "Eerder afgemeld, niet toegevoegd: %d"
+
+msgid "Subscriber"
+msgstr "Abonnee"
+
+msgid "Mailing"
+msgstr "Mailing"
+
+msgid "This subscriber cannot be restored: another subscriber uses the e-mail address now."
+msgstr "Deze abonnee kan niet worden hersteld: een andere abonnee gebruikt het e-mailadres nu."
+
+
+msgid "Stop sending this mailing and move it to the trash? Subscribers who did not get it yet will not get it."
+msgstr "Het verzenden van deze mailing stoppen en hem naar de prullenbak verplaatsen? Abonnees die hem nog niet kregen, krijgen hem niet meer."

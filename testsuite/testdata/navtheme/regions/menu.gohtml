@@ -1,0 +1,11 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.View */}}
+<nav id="menu" {{oobAttr}}>
+    {{range .Menu}}
+        <div>
+            <a id="{{.ElementID}}" href="{{.URL}}" {{if .Active}}aria-current="page"{{end}}>{{.Title}}</a>
+            {{with .Children}}
+                <div>{{range .}}<a id="{{.ElementID}}" href="{{.URL}}" {{if .Active}}aria-current="page"{{end}}>{{.Title}}</a>{{end}}</div>
+            {{end}}
+        </div>
+    {{end}}
+</nav>

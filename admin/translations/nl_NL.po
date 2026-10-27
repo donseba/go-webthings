@@ -1,0 +1,1161 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "%s asks you to review a change of %s at %s."
+msgstr "%s vraagt je een wijziging van %s op %s te beoordelen."
+
+msgid "%s saved this item at %s while you were editing it. Open their version in a new tab to compare, or save yours over it."
+msgstr "%s heeft dit item om %s opgeslagen terwijl je het aan het bewerken was. Open die versie in een nieuw tabblad om te vergelijken, of sla de jouwe toch op."
+
+msgid "A group with this name already exists."
+msgstr "Er bestaat al een groep met deze naam."
+
+msgid "A page cannot be placed below itself."
+msgstr "Een pagina kan niet onder zichzelf worden geplaatst."
+
+msgid "A referenced media file no longer exists."
+msgstr "Een gebruikt mediabestand bestaat niet meer."
+
+msgid "Account status"
+msgstr "Accountstatus"
+
+msgid "Accounts"
+msgstr "Accounts"
+
+msgid "Actions"
+msgstr "Acties"
+
+msgid "Add group"
+msgstr "Groep toevoegen"
+
+msgid "Admin"
+msgstr "Beheer"
+
+msgid "Administrator (everything)"
+msgstr "Beheerder (alles)"
+
+msgid "Agenda"
+msgstr "Agenda"
+
+msgid "Another page at this level already uses this web address, or the address is reserved."
+msgstr "Een andere pagina op dit niveau gebruikt dit webadres al, of het adres is gereserveerd."
+
+msgid "Appearance"
+msgstr "Weergave"
+
+msgid "Approve"
+msgstr "Goedkeuren"
+
+msgid "Approved"
+msgstr "Goedgekeurd"
+
+msgid "Approved and published."
+msgstr "Goedgekeurd en gepubliceerd."
+
+msgid "Approved."
+msgstr "Goedgekeurd."
+
+msgid "Ask for a new link"
+msgstr "Vraag een nieuwe link aan"
+
+msgid "At least one active administrator must remain."
+msgstr "Er moet minstens één actieve beheerder overblijven."
+
+msgid "Back to %s"
+msgstr "Terug naar %s"
+
+msgid "Back to sign in"
+msgstr "Terug naar inloggen"
+
+msgid "Breadcrumbs"
+msgstr "Broodkruimelnavigatie"
+
+msgid "Cancel"
+msgstr "Annuleren"
+
+msgid "Cancel schedule"
+msgstr "Planning annuleren"
+
+msgid "Change password"
+msgstr "Wachtwoord wijzigen"
+
+msgid "Change role"
+msgstr "Rol wijzigen"
+
+msgid "Changes not published"
+msgstr "Wijzigingen niet gepubliceerd"
+
+msgid "Changes saved."
+msgstr "Wijzigingen opgeslagen."
+
+msgid "Choose a new password"
+msgstr "Kies een nieuw wachtwoord"
+
+msgid "Choose a new password for %s"
+msgstr "Kies een nieuw wachtwoord voor %s"
+
+msgid "Choose when to publish or unpublish; unpublishing must come after publishing."
+msgstr "Kies wanneer er gepubliceerd of ingetrokken wordt; intrekken moet na publiceren komen."
+
+msgid "Communication"
+msgstr "Communicatie"
+
+msgid "Complete the default language before publishing."
+msgstr "Vul eerst de standaardtaal aan voordat je publiceert."
+
+msgid "Confirm"
+msgstr "Bevestigen"
+
+msgid "Content"
+msgstr "Inhoud"
+
+msgid "Content language"
+msgstr "Inhoudstaal"
+
+msgid "Content the account wrote stays."
+msgstr "Inhoud die het account schreef, blijft bestaan."
+
+msgid "Create"
+msgstr "Aanmaken"
+
+msgid "Create a group first."
+msgstr "Maak eerst een groep aan."
+
+msgid "Create account"
+msgstr "Account aanmaken"
+
+msgid "Created"
+msgstr "Aangemaakt"
+
+msgid "Current password"
+msgstr "Huidig wachtwoord"
+
+msgid "Dark theme"
+msgstr "Donker thema"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Delete"
+msgstr "Verwijderen"
+
+msgid "Delete account"
+msgstr "Account verwijderen"
+
+msgid "Delete group"
+msgstr "Groep verwijderen"
+
+msgid "Delete this account? Its sessions end and it can no longer sign in. This cannot be undone."
+msgstr "Dit account verwijderen? De sessies eindigen en het kan niet meer inloggen. Dit kan niet ongedaan worden gemaakt."
+
+msgid "Description"
+msgstr "Omschrijving"
+
+msgid "Disable account"
+msgstr "Account uitschakelen"
+
+msgid "Disabling an account revokes its sessions."
+msgstr "Een account uitschakelen beëindigt de sessies."
+
+msgid "Dismiss"
+msgstr "Sluiten"
+
+msgid "Dismiss notification"
+msgstr "Melding sluiten"
+
+msgid "Draft"
+msgstr "Concept"
+
+msgid "Edit"
+msgstr "Bewerken"
+
+msgid "Editor (rights from groups)"
+msgstr "Redacteur (rechten via groepen)"
+
+msgid "Editors get the rights of all their groups."
+msgstr "Redacteuren krijgen de rechten van al hun groepen."
+
+msgid "Email"
+msgstr "E-mail"
+
+msgid "Enable account"
+msgstr "Account inschakelen"
+
+msgid "Enter a valid email address."
+msgstr "Vul een geldig e-mailadres in."
+
+msgid "Enter the e-mail address of your account. You receive a link to choose a new password."
+msgstr "Vul het e-mailadres van je account in. Je ontvangt een link om een nieuw wachtwoord te kiezen."
+
+msgid "Expires"
+msgstr "Verloopt"
+
+msgid "Forgot your password?"
+msgstr "Wachtwoord vergeten?"
+
+msgid "Goes offline"
+msgstr "Gaat offline"
+
+msgid "Goes online"
+msgstr "Gaat online"
+
+msgid "Group"
+msgstr "Groep"
+
+msgid "Group name"
+msgstr "Groepsnaam"
+
+msgid "Groups"
+msgstr "Groepen"
+
+msgid "Groups decide what editors may do. Administrators may always do everything."
+msgstr "Groepen bepalen wat redacteuren mogen. Beheerders mogen altijd alles."
+
+msgid "If an account exists for this address, it receives an e-mail with a link to choose a new password. The link works for one hour."
+msgstr "Als er een account met dit adres bestaat, ontvangt het een e-mail met een link om een nieuw wachtwoord te kiezen. De link werkt een uur."
+
+msgid "If you did not ask for this, ignore this e-mail: your password stays the same."
+msgstr "Heb je dit niet aangevraagd? Negeer dan deze e-mail: je wachtwoord blijft hetzelfde."
+
+msgid "In review"
+msgstr "Ter beoordeling"
+
+msgid "Incomplete translation"
+msgstr "Onvolledige vertaling"
+
+msgid "Invalid email or password."
+msgstr "Ongeldig e-mailadres of wachtwoord."
+
+msgid "Language"
+msgstr "Taal"
+
+msgid "Last seen"
+msgstr "Laatst gebruikt"
+
+msgid "Newest draft: revision %d"
+msgstr "Nieuwste concept: revisie %d"
+
+msgid "Light theme"
+msgstr "Licht thema"
+
+msgid "Link"
+msgstr "Link"
+
+msgid "Links and search engines that use an old address then lead to the new one."
+msgstr "Links en zoekmachines die een oud adres gebruiken, komen dan uit bij het nieuwe."
+
+msgid "Loading"
+msgstr "Laden"
+
+msgid "Members"
+msgstr "Leden"
+
+msgid "Missing translation"
+msgstr "Vertaling ontbreekt"
+
+msgid "Modules"
+msgstr "Modules"
+
+msgid "Move down"
+msgstr "Omlaag"
+
+msgid "Move or delete the child pages first."
+msgstr "Verplaats of verwijder eerst de onderliggende pagina's."
+
+msgid "Move up"
+msgstr "Omhoog"
+
+msgid "Name"
+msgstr "Naam"
+
+msgid "Name and e-mail"
+msgstr "Naam en e-mail"
+
+msgid "Needs attention"
+msgstr "Vraagt aandacht"
+
+msgid "New account"
+msgstr "Nieuw account"
+
+msgid "New group"
+msgstr "Nieuwe groep"
+
+msgid "New page"
+msgstr "Nieuwe pagina"
+
+msgid "New password"
+msgstr "Nieuw wachtwoord"
+
+msgid "New…"
+msgstr "Nieuw…"
+
+msgid "No account exists yet. Create the first administrator account."
+msgstr "Er bestaat nog geen account. Maak het eerste beheerdersaccount aan."
+
+msgid "No account exists yet. To create the first administrator account, open the setup link from the server's log: search the log for “no account exists yet”. Or set AdminEmail and AdminPassword in the site's configuration and start the site again."
+msgstr "Er bestaat nog geen account. Open de setuplink uit het serverlog om het eerste beheerdersaccount aan te maken: zoek in het log naar “no account exists yet”. Of stel AdminEmail en AdminPassword in de configuratie van de site in en start de site opnieuw."
+
+msgid "No groups yet."
+msgstr "Nog geen groepen."
+
+msgid "No sessions."
+msgstr "Geen sessies."
+
+msgid "Not every old address could be redirected; see the redirects."
+msgstr "Niet elk oud adres kon worden doorverwezen; bekijk de doorverwijzingen."
+
+msgid "not on the website"
+msgstr "niet op de website"
+
+msgid "Note"
+msgstr "Opmerking"
+
+msgid "Nothing has been edited yet. Pages and items you write appear here."
+msgstr "Er is nog niets bewerkt. Pagina's en items die je schrijft, verschijnen hier."
+
+msgid "Nothing here yet."
+msgstr "Hier staat nog niets."
+
+msgid "Nothing is scheduled. Plan a publication in the publication panel of a page or item."
+msgstr "Er is niets gepland. Plan een publicatie in het publicatiepaneel van een pagina of item."
+
+msgid "Nothing needs your attention."
+msgstr "Niets vraagt om je aandacht."
+
+msgid "Open it to approve or reject it:"
+msgstr "Open de revisie om die goed te keuren of af te wijzen:"
+
+msgid "Open the saved version"
+msgstr "Opgeslagen versie openen"
+
+msgid "Open this link within an hour to choose a new password:"
+msgstr "Open deze link binnen een uur om een nieuw wachtwoord te kiezen:"
+
+msgid "Order"
+msgstr "Volgorde"
+
+msgid "Page"
+msgstr "Pagina"
+
+msgid "Pages"
+msgstr "Pagina's"
+
+msgid "Pages with a module cannot have child pages."
+msgstr "Pagina's met een module kunnen geen onderliggende pagina's hebben."
+
+msgid "Parent page"
+msgstr "Bovenliggende pagina"
+
+msgid "Password"
+msgstr "Wachtwoord"
+
+msgid "Passwords need at least 12 characters."
+msgstr "Wachtwoorden hebben minstens 12 tekens nodig."
+
+msgid "Preview"
+msgstr "Voorbeeld"
+
+msgid "Preview this revision"
+msgstr "Voorbeeld van deze revisie"
+
+msgid "Publication"
+msgstr "Publicatie"
+
+msgid "Publication scheduled."
+msgstr "Publicatie gepland."
+
+msgid "Publish"
+msgstr "Publiceren"
+
+msgid "Publish at"
+msgstr "Publiceren op"
+
+msgid "Publish this revision"
+msgstr "Deze revisie publiceren"
+
+msgid "Publish this revision and/or unpublish the item later, in the site's timezone."
+msgstr "Publiceer deze revisie en/of trek de publicatie later in, in de tijdzone van de site."
+
+msgid "Publish this revision later, in the site's timezone."
+msgstr "Publiceer deze revisie later, in de tijdzone van de site."
+
+msgid "Publish this revision now"
+msgstr "Deze revisie nu publiceren"
+
+msgid "Published"
+msgstr "Gepubliceerd"
+
+msgid "Published items link to the old address, and their links will lead nowhere. Publish anyway?"
+msgstr "Gepubliceerde items linken naar het oude adres, en hun links leiden dan nergens meer heen. Toch publiceren?"
+
+msgid "Published items link to addresses below this item. Move it to the trash anyway?"
+msgstr "Gepubliceerde items linken naar adressen onder dit item. Toch naar de prullenbak verplaatsen?"
+
+msgid "Published items link to addresses below this item. Unpublish it anyway?"
+msgstr "Gepubliceerde items linken naar adressen onder dit item. De publicatie toch intrekken?"
+
+msgid "Published items link to this item. Move it to the trash anyway?"
+msgstr "Gepubliceerde items linken naar dit item. Toch naar de prullenbak verplaatsen?"
+
+msgid "Published items link to this item. Unpublish it anyway?"
+msgstr "Gepubliceerde items linken naar dit item. De publicatie toch intrekken?"
+
+msgid "On the website: revision %d"
+msgstr "Op de website: revisie %d"
+
+msgid "Published."
+msgstr "Gepubliceerd."
+
+msgid "Published. The schedule was cancelled."
+msgstr "Gepubliceerd. De planning is geannuleerd."
+
+msgid "Publishing now cancels the schedule. Continue?"
+msgstr "Nu publiceren annuleert de planning. Doorgaan?"
+
+msgid "Publishing or unpublishing by hand cancels the schedule."
+msgstr "Met de hand publiceren of de publicatie intrekken annuleert de planning."
+
+msgid "Publishing this revision changes the address of this item."
+msgstr "Deze revisie publiceren verandert het adres van dit item."
+
+msgid "Quote"
+msgstr "Citaat"
+
+msgid "Read"
+msgstr "Lezen"
+
+msgid "Recently edited"
+msgstr "Recent bewerkt"
+
+msgid "Redirect the old addresses to the new ones"
+msgstr "De oude adressen naar de nieuwe doorverwijzen"
+
+msgid "Redirect to"
+msgstr "Doorverwijzen naar"
+
+msgid "Reject"
+msgstr "Afwijzen"
+
+msgid "Rejected"
+msgstr "Afgewezen"
+
+msgid "Rejected."
+msgstr "Afgewezen."
+
+msgid "Repeat new password"
+msgstr "Herhaal het nieuwe wachtwoord"
+
+msgid "Repeat password"
+msgstr "Herhaal het wachtwoord"
+
+msgid "Restore as new draft"
+msgstr "Herstellen als nieuw concept"
+
+msgid "Retro theme"
+msgstr "Retrothema"
+
+msgid "Review"
+msgstr "Beoordelen"
+
+msgid "Review this revision"
+msgstr "Deze revisie beoordelen"
+
+msgid "Review:"
+msgstr "Beoordeling:"
+
+msgid "Reviewed"
+msgstr "Beoordeeld"
+
+msgid "Revision %d"
+msgstr "Revisie %d"
+
+msgid "Revision history"
+msgstr "Revisiegeschiedenis"
+
+msgid "Revision restored as a new draft."
+msgstr "Revisie hersteld als nieuw concept."
+
+msgid "Revoke session"
+msgstr "Sessie intrekken"
+
+msgid "Role"
+msgstr "Rol"
+
+msgid "Save"
+msgstr "Opslaan"
+
+msgid "Save anyway"
+msgstr "Toch opslaan"
+
+msgid "Save groups"
+msgstr "Groepen opslaan"
+
+msgid "Save password"
+msgstr "Wachtwoord opslaan"
+
+msgid "Saving creates a draft. The website changes only when you publish it."
+msgstr "Opslaan maakt een concept. De website verandert pas als je het publiceert."
+
+msgid "Saving it with another address redirects the old address to the new one."
+msgstr "Opslaan met een ander adres verwijst het oude adres door naar het nieuwe."
+
+msgid "Schedule"
+msgstr "Plannen"
+
+msgid "Schedule cancelled."
+msgstr "Planning geannuleerd."
+
+msgid "Schedule this revision"
+msgstr "Deze revisie plannen"
+
+msgid "Scheduled"
+msgstr "Gepland"
+
+msgid "Scheduled publication: revision %d"
+msgstr "Geplande publicatie: revisie %d"
+
+msgid "Scheduled unpublication:"
+msgstr "Geplande intrekking:"
+
+msgid "Section"
+msgstr "Onderdeel"
+
+msgid "Select at least one item."
+msgstr "Selecteer minstens één item."
+
+msgid "Selected"
+msgstr "Geselecteerd"
+
+msgid "You're viewing revision %d (draft)"
+msgstr "Je bekijkt revisie %d (concept)"
+
+msgid "Send link"
+msgstr "Link versturen"
+
+msgid "Sessions"
+msgstr "Sessies"
+
+msgid "Set up"
+msgstr "Instellen"
+
+msgid "Shop"
+msgstr "Winkel"
+
+msgid "Sign in"
+msgstr "Inloggen"
+
+msgid "Sign out"
+msgstr "Uitloggen"
+
+msgid "Web address"
+msgstr "Webadres"
+
+msgid "Some fields are not valid."
+msgstr "Sommige velden zijn niet geldig."
+
+msgid "Someone asked for a new password for your account at %s."
+msgstr "Iemand heeft een nieuw wachtwoord aangevraagd voor je account bij %s."
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Submit for review"
+msgstr "Ter beoordeling aanbieden"
+
+msgid "Submitted"
+msgstr "Ingediend"
+
+msgid "Submitted for review."
+msgstr "Ter beoordeling aangeboden."
+
+msgid "System"
+msgstr "Systeem"
+
+msgid "System theme"
+msgstr "Systeemthema"
+
+msgid "The passwords do not match."
+msgstr "De wachtwoorden zijn niet gelijk."
+
+msgid "The request failed. Please try again."
+msgstr "Het verzoek is mislukt. Probeer het opnieuw."
+
+msgid "This email address already has an account."
+msgstr "Voor dit e-mailadres bestaat al een account."
+
+msgid "This item is still in use."
+msgstr "Dit item is nog in gebruik."
+
+msgid "This item was saved at %s while you were editing it. Open the saved version in a new tab to compare, or save yours over it."
+msgstr "Dit item is om %s opgeslagen terwijl je het aan het bewerken was. Open de opgeslagen versie in een nieuw tabblad om te vergelijken, of sla de jouwe toch op."
+
+msgid "This link is invalid or has expired. Ask for a new one."
+msgstr "Deze link is ongeldig of verlopen. Vraag een nieuwe aan."
+
+msgid "This module is already placed on another page."
+msgstr "Deze module staat al op een andere pagina."
+
+msgid "This module is not available."
+msgstr "Deze module is niet beschikbaar."
+
+msgid "This request came from another website and was refused."
+msgstr "Dit verzoek kwam van een andere website en is geweigerd."
+
+msgid "This revision can be published once a reviewer approves it."
+msgstr "Deze revisie kan worden gepubliceerd zodra een beoordelaar haar goedkeurt."
+
+msgid "This revision has no address on the website yet, so it cannot be previewed there."
+msgstr "Deze revisie heeft nog geen adres op de website, dus er is daar geen voorbeeld van."
+
+msgid "This revision is not ready for that review step."
+msgstr "Deze revisie is niet klaar voor die beoordelingsstap."
+
+msgid "This revision needs a reviewer's approval before it can be published."
+msgstr "Deze revisie moet door een beoordelaar worden goedgekeurd voordat ze kan worden gepubliceerd."
+
+msgid "This web address is already used."
+msgstr "Dit webadres wordt al gebruikt."
+
+msgid "Title"
+msgstr "Titel"
+
+msgid "Today %s"
+msgstr "Vandaag %s"
+
+msgid "Tomorrow %s"
+msgstr "Morgen %s"
+
+msgid "Too many attempts. Try again in 15 minutes."
+msgstr "Te veel pogingen. Probeer het over 15 minuten opnieuw."
+
+msgid "Translated"
+msgstr "Vertaald"
+
+msgid "Unpublish"
+msgstr "Publicatie intrekken"
+
+msgid "Unpublish and redirect"
+msgstr "Publicatie intrekken en doorverwijzen"
+
+msgid "Unpublish at"
+msgstr "Publicatie intrekken op"
+
+msgid "Not on the website"
+msgstr "Niet op de website"
+
+msgid "Unpublished."
+msgstr "Publicatie ingetrokken."
+
+msgid "Unpublished. The schedule was cancelled."
+msgstr "Publicatie ingetrokken. De planning is geannuleerd."
+
+msgid "Unpublishing it or moving it to the trash breaks these links."
+msgstr "De publicatie intrekken of het naar de prullenbak verplaatsen maakt deze links kapot."
+
+msgid "Unpublishing it, moving it to the trash or changing its address breaks these links."
+msgstr "De publicatie intrekken, het naar de prullenbak verplaatsen of het adres wijzigen maakt deze links kapot."
+
+msgid "Unpublishing now cancels the schedule. Continue?"
+msgstr "De publicatie nu intrekken annuleert de planning. Doorgaan?"
+
+msgid "Untitled"
+msgstr "Zonder titel"
+
+msgid "Upload request too large."
+msgstr "Het uploadverzoek is te groot."
+
+msgid "View website"
+msgstr "Website bekijken"
+
+msgid "Visitors"
+msgstr "Bezoekers"
+
+msgid "Waiting for your review: %s"
+msgstr "Wacht op je beoordeling: %s"
+
+msgid "Website"
+msgstr "Website"
+
+msgid "Reason for rejection"
+msgstr "Reden van afwijzing"
+
+msgid "Write why the revision is rejected."
+msgstr "Schrijf waarom de revisie wordt afgewezen."
+
+msgid "Yesterday %s"
+msgstr "Gisteren %s"
+
+msgid "You are not allowed to do this."
+msgstr "Je hebt hier geen toestemming voor."
+
+msgid "You cannot delete your own account."
+msgstr "Je kunt je eigen account niet verwijderen."
+
+msgid "Your account"
+msgstr "Je account"
+
+msgid "Your administrator account is ready."
+msgstr "Je beheerdersaccount is klaar."
+
+msgid "Your current password is not correct."
+msgstr "Je huidige wachtwoord klopt niet."
+
+msgid "Your other sessions are signed out when you change your password."
+msgstr "Als je je wachtwoord wijzigt, worden je andere sessies uitgelogd."
+
+msgid "Your password was changed. Sign in with your new password."
+msgstr "Je wachtwoord is gewijzigd. Log in met je nieuwe wachtwoord."
+
+msgid "Your password was changed. Your other sessions were signed out."
+msgstr "Je wachtwoord is gewijzigd. Je andere sessies zijn uitgelogd."
+
+msgid "active"
+msgstr "Actief"
+
+msgid "by %s"
+msgstr "door %s"
+
+msgid "disabled"
+msgstr "Uitgeschakeld"
+
+msgid "Text formatting"
+msgstr "Tekstopmaak"
+
+msgid "Paragraph"
+msgstr "Alinea"
+
+msgid "Heading 2"
+msgstr "Kop 2"
+
+msgid "Heading 3"
+msgstr "Kop 3"
+
+msgid "Heading 4"
+msgstr "Kop 4"
+
+msgid "Bold"
+msgstr "Vet"
+
+msgid "Italic"
+msgstr "Cursief"
+
+msgid "Code"
+msgstr "Code"
+
+msgid "Bulleted list"
+msgstr "Lijst met opsommingstekens"
+
+msgid "Numbered list"
+msgstr "Genummerde lijst"
+
+msgid "Code block"
+msgstr "Codeblok"
+
+msgid "Horizontal line"
+msgstr "Horizontale lijn"
+
+msgid "Image from the media library"
+msgstr "Afbeelding uit de mediabibliotheek"
+
+msgid "Undo"
+msgstr "Ongedaan maken"
+
+msgid "Redo"
+msgstr "Opnieuw"
+
+msgid "Show the text as Markdown"
+msgstr "Toon de tekst als Markdown"
+
+msgid "Link address (leave empty to remove the link)"
+msgstr "Linkadres (laat leeg om de link te verwijderen)"
+
+msgid "This link address cannot be used."
+msgstr "Dit linkadres kan niet worden gebruikt."
+
+msgid "This text contains Markdown the editor cannot show, such as a table. Edit it as Markdown."
+msgstr "Deze tekst bevat Markdown die de editor niet kan tonen, zoals een tabel. Bewerk hem als Markdown."
+
+msgid "Choose an image"
+msgstr "Kies een afbeelding"
+
+msgid "Close"
+msgstr "Sluiten"
+
+msgid "Search images"
+msgstr "Afbeeldingen zoeken"
+
+msgid "Images"
+msgstr "Afbeeldingen"
+
+msgid "Show more"
+msgstr "Meer tonen"
+
+msgid "Alternative text"
+msgstr "Alternatieve tekst"
+
+msgid "Optional. When empty, the image's alternative text from the media library is used."
+msgstr "Optioneel. Leeg gebruikt de alternatieve tekst van de afbeelding uit de mediabibliotheek."
+
+msgid "Insert"
+msgstr "Invoegen"
+
+msgid "The media library could not be loaded."
+msgstr "De mediabibliotheek kon niet worden geladen."
+
+msgid "No images found."
+msgstr "Geen afbeeldingen gevonden."
+
+msgid "Select all"
+msgstr "Alles selecteren"
+
+msgid "All rights for %s"
+msgstr "Alle rechten voor %s"
+
+msgid "%s for all sections"
+msgstr "%s voor alle onderdelen"
+
+msgid "Search"
+msgstr "Zoeken"
+
+msgid "Clear search"
+msgstr "Zoekopdracht wissen"
+
+msgid "No results for “%s”"
+msgstr "Geen resultaten voor “%s”"
+
+msgid "Administrator"
+msgstr "Beheerder"
+
+msgid "Editor"
+msgstr "Redacteur"
+
+msgid "Active"
+msgstr "Actief"
+
+msgid "Disabled"
+msgstr "Uitgeschakeld"
+
+msgid "Trash"
+msgstr "Prullenbak"
+
+msgid "Moved to the trash."
+msgstr "Naar de prullenbak verplaatst."
+
+msgid "Move this item to the trash?"
+msgstr "Dit item naar de prullenbak verplaatsen?"
+
+msgid "Account deleted."
+msgstr "Account verwijderd."
+
+msgid "Group deleted."
+msgstr "Groep verwijderd."
+
+msgid "Delete this group? This cannot be undone."
+msgstr "Deze groep verwijderen? Dit kan niet ongedaan worden gemaakt."
+
+msgid "Deleted items stay here until you restore them or delete them for good, and for at most %d day."
+msgid_plural "Deleted items stay here until you restore them or delete them for good, and for at most %d days."
+msgstr[0] "Verwijderde items blijven hier staan tot je ze herstelt of definitief verwijdert, en hooguit %d dag."
+msgstr[1] "Verwijderde items blijven hier staan tot je ze herstelt of definitief verwijdert, en hooguit %d dagen."
+
+msgid "Deleted items stay here until you restore them or delete them for good."
+msgstr "Verwijderde items blijven hier staan tot je ze herstelt of definitief verwijdert."
+
+msgid "Sections"
+msgstr "Onderdelen"
+
+msgid "All sections"
+msgstr "Alle onderdelen"
+
+msgid "The deleted items of this section could not be listed."
+msgstr "De verwijderde items van dit onderdeel konden niet worden opgehaald."
+
+msgid "Select"
+msgstr "Selecteren"
+
+msgid "Select %s"
+msgstr "%s selecteren"
+
+msgid "Deleted"
+msgstr "Verwijderd"
+
+msgid "Deleted by"
+msgstr "Verwijderd door"
+
+msgid "Show all %d"
+msgstr "Alle %d tonen"
+
+msgid "The text is too long."
+msgstr "De tekst is te lang."
+
+msgid "The trash is empty."
+msgstr "De prullenbak is leeg."
+
+msgid "Previous"
+msgstr "Vorige"
+
+msgid "Next"
+msgstr "Volgende"
+
+msgid "Restore selected"
+msgstr "Selectie herstellen"
+
+msgid "Delete selected for good"
+msgstr "Selectie definitief verwijderen"
+
+msgid "Delete the selected items for good? This cannot be undone."
+msgstr "De geselecteerde items definitief verwijderen? Dit kan niet ongedaan worden gemaakt."
+
+msgid "%d item restored."
+msgid_plural "%d items restored."
+msgstr[0] "%d item hersteld."
+msgstr[1] "%d items hersteld."
+
+msgid "%d item deleted for good."
+msgid_plural "%d items deleted for good."
+msgstr[0] "%d item definitief verwijderd."
+msgstr[1] "%d items definitief verwijderd."
+
+msgid "This item is no longer in the trash."
+msgstr "Dit item staat niet meer in de prullenbak."
+
+msgid "This item cannot be restored: another item uses its web address now."
+msgstr "Dit item kan niet worden hersteld: een ander item gebruikt nu hetzelfde webadres."
+
+msgid "Another user"
+msgstr "Een andere gebruiker"
+
+msgid "%s is also on this page"
+msgstr "%s is ook op deze pagina"
+
+msgid "Also on this page: %s"
+msgstr "Ook op deze pagina: %s"
+
+msgid "Could not load: %s"
+msgstr "Niet geladen: %s"
+
+msgid "Waiting for review"
+msgstr "Wacht op beoordeling"
+
+msgid "This request could not be read."
+msgstr "Dit verzoek kon niet worden gelezen."
+
+msgid "Give the group a name of at most 100 characters."
+msgstr "Geef de groep een naam van hoogstens 100 tekens."
+
+msgid "Export"
+msgstr "Exporteren"
+
+msgid "You can view this item but not change it."
+msgstr "Je kunt dit item bekijken, maar niet wijzigen."
+
+msgid "You can view these settings but not change them."
+msgstr "Je kunt deze instellingen bekijken, maar niet wijzigen."
+
+msgid "Permanent"
+msgstr "Permanent"
+
+msgid "This item always stays on the website: it cannot be unpublished, scheduled to be unpublished or deleted."
+msgstr "Dit item blijft altijd op de website: je kunt de publicatie niet intrekken, niet inplannen dat die wordt ingetrokken en het item niet verwijderen."
+
+msgid "This item is permanent: it cannot be unpublished, scheduled to be unpublished or deleted until an administrator removes the mark."
+msgstr "Dit item is permanent: je kunt de publicatie niet intrekken, niet inplannen dat die wordt ingetrokken en het item niet verwijderen, tot een beheerder de markering weghaalt."
+
+msgid "A permanent item cannot be unpublished, scheduled to be unpublished or deleted until an administrator removes the mark."
+msgstr "Van een permanent item kun je de publicatie niet intrekken of de intrekking inplannen, en je kunt het niet verwijderen, tot een beheerder de markering weghaalt."
+
+msgid "Make permanent"
+msgstr "Permanent maken"
+
+msgid "Remove permanent mark"
+msgstr "Markering permanent weghalen"
+
+msgid "Make this item permanent? It can then no longer be unpublished, scheduled to be unpublished or deleted."
+msgstr "Dit item permanent maken? De publicatie kan dan niet meer worden ingetrokken of ingepland om te worden ingetrokken, en het item kan niet meer worden verwijderd."
+
+msgid "Remove the permanent mark? Editors with the right to publish or delete can then take this item off the website."
+msgstr "De markering permanent weghalen? Redacteuren met het recht om te publiceren of te verwijderen kunnen dit item dan van de website halen."
+
+msgid "This item is now permanent."
+msgstr "Dit item is nu permanent."
+
+msgid "This item is no longer permanent."
+msgstr "Dit item is niet langer permanent."
+
+msgid "Cancel the planned unpublication first: a permanent item stays on the website."
+msgstr "Annuleer eerst de geplande intrekking: een permanent item blijft op de website."
+
+msgid "Something went wrong"
+msgstr "Er ging iets mis"
+
+msgid "This page could not be shown. Please try again in a moment."
+msgstr "Deze pagina kon niet worden getoond. Probeer het zo opnieuw."
+
+msgid "—"
+msgstr "—"
+
+msgid "Not Found"
+msgstr "Niet gevonden"
+
+msgid "Too Many Requests"
+msgstr "Te veel verzoeken"
+
+msgid "Internal Server Error"
+msgstr "Interne serverfout"
+
+msgid "Service Unavailable"
+msgstr "Dienst niet beschikbaar"
+
+msgid "%d old address redirects now."
+msgid_plural "%d old addresses redirect now."
+msgstr[0] "%d oud adres stuurt nu door."
+msgstr[1] "%d oude adressen sturen nu door."
+
+msgid "%d published item links to an address below this item."
+msgid_plural "%d published items link to addresses below this item."
+msgstr[0] "%d gepubliceerd item linkt naar een adres onder dit item."
+msgstr[1] "%d gepubliceerde items linken naar adressen onder dit item."
+
+msgid "%d published item links to this item."
+msgid_plural "%d published items link to this item."
+msgstr[0] "%d gepubliceerd item linkt naar dit item."
+msgstr[1] "%d gepubliceerde items linken naar dit item."
+
+msgid "%d published item links to the old address."
+msgid_plural "%d published items link to the old address."
+msgstr[0] "%d gepubliceerd item linkt naar het oude adres."
+msgstr[1] "%d gepubliceerde items linken naar het oude adres."
+
+msgid "Continue"
+msgstr "Verder"
+
+msgid "Saved as a draft. Publish it to show it on the website."
+msgstr "Opgeslagen als concept. Publiceer het om het op de website te tonen."
+
+msgid "Save draft"
+msgstr "Concept opslaan"
+
+msgid "Move to trash"
+msgstr "Naar prullenbak"
+
+msgid "Take this off the website?"
+msgstr "Dit van de website halen?"
+
+msgid "You're viewing revision %d (published)"
+msgstr "Je bekijkt revisie %d (gepubliceerd)"
+
+msgid "You're viewing revision %d (older)"
+msgstr "Je bekijkt revisie %d (ouder)"
+
+msgid "Reload to try again."
+msgstr "Laad opnieuw om het nog eens te proberen."
+
+msgid "The last part of the address, such as open-studio in /en/news/open-studio. Made from the title when left empty."
+msgstr "Het laatste deel van het adres, zoals open-studio in /nl/nieuws/open-studio. Wordt van de titel gemaakt als je het leeg laat."
+
+msgid "Use lowercase letters, digits and dashes for the web address."
+msgstr "Gebruik kleine letters, cijfers en streepjes voor het webadres."
+
+msgid "Summary"
+msgstr "Samenvatting"
+
+msgid "A short text for lists, search results and search engines."
+msgstr "Een korte tekst voor overzichten, zoekresultaten en zoekmachines."
+
+msgid "Image"
+msgstr "Afbeelding"
+
+msgid "Two-step sign-in"
+msgstr "Inloggen in twee stappen"
+
+msgid "Enter the code from your authenticator app."
+msgstr "Voer de code uit je authenticator-app in."
+
+msgid "Lost your phone? Enter one of your recovery codes instead."
+msgstr "Telefoon kwijt? Vul dan een van je herstelcodes in."
+
+msgid "Code from the app"
+msgstr "Code uit de app"
+
+msgid "A code from the app or one of your recovery codes."
+msgstr "Een code uit de app of een van je herstelcodes."
+
+msgid "This code is not correct."
+msgstr "Deze code klopt niet."
+
+msgid "The sign-in expired. Enter your password again."
+msgstr "Het inloggen is verlopen. Vul je wachtwoord opnieuw in."
+
+msgid "Turn on two-step sign-in"
+msgstr "Inloggen in twee stappen aanzetten"
+
+msgid "Turn off two-step sign-in"
+msgstr "Inloggen in twee stappen uitzetten"
+
+msgid "Turn on"
+msgstr "Aanzetten"
+
+msgid "Turn off"
+msgstr "Uitzetten"
+
+msgid "On"
+msgstr "Aan"
+
+msgid "Off"
+msgstr "Uit"
+
+msgid "Key"
+msgstr "Sleutel"
+
+msgid "Make new recovery codes"
+msgstr "Nieuwe herstelcodes maken"
+
+msgid "New recovery codes"
+msgstr "Nieuwe herstelcodes"
+
+msgid "Your recovery codes"
+msgstr "Je herstelcodes"
+
+msgid "Two-step sign-in is on."
+msgstr "Inloggen in twee stappen staat aan."
+
+msgid "Two-step sign-in is off."
+msgstr "Inloggen in twee stappen staat uit."
+
+msgid "Two-step sign-in is off for this account."
+msgstr "Inloggen in twee stappen staat uit voor dit account."
+
+msgid "New recovery codes are ready. The old ones no longer work."
+msgstr "Er zijn nieuwe herstelcodes. De oude werken niet meer."
+
+msgid "Turn off two-step sign-in for this account? It then signs in with its password alone, until its owner turns it on again."
+msgstr "Inloggen in twee stappen uitzetten voor dit account? Het logt dan in met alleen het wachtwoord, tot de eigenaar het weer aanzet."
+
+msgid "Keep these codes somewhere safe, such as a password manager. Each code signs you in once instead of a code from the app, for example when you lose your phone. They are not shown again."
+msgstr "Bewaar deze codes op een veilige plek, zoals een wachtwoordbeheerder. Met elke code log je één keer in in plaats van met een code uit de app, bijvoorbeeld als je je telefoon kwijt bent. Ze worden niet opnieuw getoond."
+
+msgid "Signing in asks for a code from your authenticator app after your password."
+msgstr "Na je wachtwoord vraagt het inloggen om een code uit je authenticator-app."
+
+msgid "New codes replace the old ones, which then no longer work."
+msgstr "Nieuwe codes vervangen de oude, die daarna niet meer werken."
+
+msgid "Without two-step sign-in, your password alone signs you in."
+msgstr "Zonder inloggen in twee stappen log je in met alleen je wachtwoord."
+
+msgid "Scan this QR code with an authenticator app on your phone, or enter the key by hand. Then enter the code the app shows."
+msgstr "Scan deze QR-code met een authenticator-app op je telefoon, of typ de sleutel over. Vul daarna de code in die de app toont."
+
+msgid "QR code for your authenticator app"
+msgstr "QR-code voor je authenticator-app"
+
+msgid "After your password, signing in then also asks for a code from an authenticator app on your phone, so your password alone does not open your account."
+msgstr "Na je wachtwoord vraagt het inloggen dan ook om een code uit een authenticator-app op je telefoon, zodat je wachtwoord alleen je account niet opent."
+
+msgid "For someone who lost both their phone and their recovery codes. They can turn it on again on their own account page."
+msgstr "Voor wie zowel de telefoon als de herstelcodes kwijt is. Die kan het weer aanzetten op de eigen accountpagina."
+
+msgid "%d recovery code left."
+msgid_plural "%d recovery codes left."
+msgstr[0] "Nog %d herstelcode over."
+msgstr[1] "Nog %d herstelcodes over."

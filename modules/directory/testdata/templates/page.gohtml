@@ -1,0 +1,7 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.Page */}}
+<main id="content"><h1>{{.Title}}</h1>{{.Body}}
+<ul id="categories">{{range directoryCategories "guide"}}<li>{{.Name}} ({{.Count}})</li>{{end}}</ul>
+<ul id="entries">{{range directoryEntries "guide" "food" 1}}<li><a href="{{.URL}}">{{.Name}}</a></li>{{end}}</ul>
+{{with directoryEntry "guide" "bakery-jansen"}}<p id="featured">{{.Name}}</p>{{end}}
+<p id="all">{{len (directoryEntries "guide" "" -1)}}</p>
+</main>

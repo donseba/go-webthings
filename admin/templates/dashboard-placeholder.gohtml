@@ -1,0 +1,10 @@
+{{/* @dot github.com/donseba/go-partial/exp/slots.PlaceholderData */}}
+{{/* A dashboard panel until it loaded: its heading (.Data, an
+     admin.PanelHeading) and a loading message, on the element that loads
+     the panel in its place (go-partial's slots.Placeholder; see
+     dashboard.go). */}}
+<section id="{{.ID}}" class="dashboard-panel" aria-labelledby="{{.ID}}-title"{{.Attrs}} aria-busy="true">
+    {{template "dashboard-panel-title" .Data}}
+
+    <p class="dashboard-empty dashboard-loading">{{tl localizer "Loading"}}</p>
+</section>

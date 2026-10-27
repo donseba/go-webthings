@@ -1,0 +1,5 @@
+{{/* @dot github.com/donseba/go-webthings/frontend.Page */}}
+<main id="content"><h1>{{.Title}}</h1>{{.Body}}
+<p class="all">{{len (testimonials "testimonials" 0)}}</p>
+<p class="negative">{{len (testimonials "testimonials" -1)}}</p>
+<p class="first">{{range testimonials "testimonials" 1}}{{.Author}}{{end}}</p></main>

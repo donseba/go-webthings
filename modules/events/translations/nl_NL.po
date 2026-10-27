@@ -1,0 +1,44 @@
+msgid ""
+msgstr "Language: nl_NL\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Address"
+msgstr "Adres"
+
+msgid "All day"
+msgstr "Hele dag"
+
+msgid "End"
+msgstr "Einde"
+
+msgid "Image"
+msgstr "Afbeelding"
+
+msgid "Location"
+msgstr "Locatie"
+
+msgid "New event"
+msgstr "Nieuw evenement"
+
+msgid "Start"
+msgstr "Begin"
+
+msgid "Start and end are times in this timezone. When its clocks go forward, a time they skip moves forward by the change (02:30 becomes 03:30); when they go back, a time that occurs twice is the first of the two."
+msgstr "Begin en einde zijn tijden in deze tijdzone. Gaat de klok vooruit, dan schuift een tijd die wordt overgeslagen evenveel op (02:30 wordt 03:30); gaat de klok terug, dan geldt van een tijd die twee keer voorkomt de eerste."
+
+msgid "Summary"
+msgstr "Samenvatting"
+
+msgid "The date or time is not valid."
+msgstr "De datum of tijd is niet geldig."
+
+msgid "The end must be after the start."
+msgstr "Het einde moet na het begin liggen."
+
+msgid "The web address past is reserved for the list of past events."
+msgstr "Het webadres past is gereserveerd voor de lijst met afgelopen evenementen."
+
+msgid "The timezone does not exist. Use a name like Europe/Amsterdam."
+msgstr "De tijdzone bestaat niet. Gebruik een naam zoals Europe/Amsterdam."
+
+msgid "Timezone"
+msgstr "Tijdzone"

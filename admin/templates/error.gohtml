@@ -1,0 +1,21 @@
+{{/* @dot github.com/donseba/go-partial/ext/errors.Data */}}
+{{/* The page of a request whose page failed to render, outside development (go-partial's ext/errors): on its own, without the layout, and without the error's details, which are in the log. */}}
+<!doctype html>
+<html lang="{{.Lang}}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{tl localizer "Something went wrong"}}</title>
+    {{importmap_script "theme.js"}}
+    {{importmap_style "admin.css"}}
+</head>
+<body class="admin-desktop">
+<main id="content" class="admin-auth">
+    <section class="admin-auth-card">
+        <h1 class="admin-page-title">{{tl localizer "Something went wrong"}}</h1>
+        <p role="alert" class="notice text-danger">{{tl localizer "This page could not be shown. Please try again in a moment."}}</p>
+        <p class="admin-auth-links"><a href="{{route "admin.dashboard"}}">{{tl localizer "Back to %s" (tl localizer "Dashboard")}}</a></p>
+    </section>
+</main>
+</body>
+</html>

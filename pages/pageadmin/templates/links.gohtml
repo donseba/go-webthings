@@ -1,0 +1,47 @@
+{{/* @dot github.com/donseba/go-webthings/pages/pageadmin.LinksView */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer .Title}}</h1>
+            <div class="admin-page-actions"><a class="button-secondary" href="{{.BackURL}}">{{tl localizer "Back to %s" (tl localizer "Pages")}}</a></div>
+        </header>
+
+        <section class="surface border-theme border rounded-xl p-6">
+            <p class="muted mb-4">{{tl localizer "Links in published pages and module content that lead to an address where the website has no page. Fix the link in the content, publish the page again, or redirect the address."}}</p>
+            {{with .Hint}}
+                <p class="muted mb-4">{{tl localizer .}}</p>
+            {{end}}
+
+            <table class="w-full">
+                <thead>
+                    <tr>
+                        <th>{{tl localizer "Address"}}</th>
+                        <th>{{tl localizer "Linked from"}}</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{range .Rows}}
+                        <tr>
+                            <td class="p-3 break-all">
+                                <strong>{{.Address}}</strong>
+                                <p class="muted">{{tl localizer .Reason}}</p>
+                                {{with .Page}}<p><a href="{{.URL}}">{{.Label}}</a></p>{{end}}
+                            </td>
+                            <td class="p-3">
+                                <ul>
+                                    {{range .Sources}}
+                                        <li><a href="{{.URL}}">{{.Label}}</a> <span class="muted">{{.Note}}</span></li>
+                                    {{end}}
+                                </ul>
+                            </td>
+                            <td class="p-3">{{with .Redirect}}{{form_render_localized localizer . nil}}{{end}}</td>
+                        </tr>
+                    {{else}}
+                        <tr><td class="p-3 muted" colspan="3">{{tl localizer "No broken links: every link in published content leads to a page."}}</td></tr>
+                    {{end}}
+                </tbody>
+            </table>
+        </section>
+    </div>
+</main>

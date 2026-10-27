@@ -1,0 +1,37 @@
+{{/* @dot github.com/donseba/go-webthings/media/mediaadmin.LibraryView */}}
+{{/* @model Search github.com/donseba/go-webthings/admin.SearchBox */}}
+<main id="content" class="admin-page">
+    <div class="admin-page-body">
+        <header class="admin-page-header">
+            <h1 class="admin-page-title">{{tl localizer "Media"}}</h1>
+            <div class="admin-page-actions">
+                {{template "admin-search" Search}}
+                <a class="button-secondary" href="{{.TrashURL}}">{{tl localizer "Trash"}}</a>
+            </div>
+        </header>
+
+        {{with .Upload}}
+            <section class="card mb-6">
+                <h2 class="card-title">{{tl localizer "Upload file"}}</h2>
+                {{form_render_localized localizer . $.UploadErrors}}
+                <p class="muted mt-3">{{tl localizer "Images (JPEG, PNG or GIF), PDF, plain text, CSV, ZIP, Word, Excel, PowerPoint and OpenDocument files, up to %d MB. WebP and SVG are not accepted." $.MaxMB}}</p>
+            </section>
+        {{end}}
+
+        <ul class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {{range .Cards}}
+                <li class="surface border-theme border rounded-xl p-4">
+                    {{if .Image}}
+                        <img class="w-full h-40 object-contain mb-3" src="{{.URL}}" alt="" loading="lazy">
+                    {{end}}
+                    <a class="font-semibold break-all" href="{{.EditURL}}">{{.Filename}}</a>
+                    <p class="muted text-sm">{{.Details}}</p>
+                </li>
+            {{else}}
+                <li class="notice">{{if Search.Text}}{{template "admin-empty" Search}}{{else}}{{tl localizer "No media yet."}}{{end}}</li>
+            {{end}}
+        </ul>
+
+        {{template "admin-pager" .Pager}}
+    </div>
+</main>

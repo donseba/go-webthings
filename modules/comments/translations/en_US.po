@@ -1,0 +1,72 @@
+msgid ""
+msgstr "Language: en_US\nContent-Type: text/plain; charset=UTF-8\nPlural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "All"
+msgstr "All"
+
+msgid "Approve messages before they are shown"
+msgstr "Approve messages before they are shown"
+
+msgid "Closed for new messages"
+msgstr "Closed for new messages"
+
+msgid "Comments"
+msgstr "Comments"
+
+msgid "Enter one e-mail address."
+msgstr "Enter one e-mail address."
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Guestbook"
+msgstr "Guestbook"
+
+msgid "Hide"
+msgstr "Hide"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "Notification address"
+msgstr "Notification address"
+
+msgid "Pending"
+msgstr "Pending"
+
+msgid "Received"
+msgstr "Received"
+
+msgid "Receives an e-mail for every new message. Leave empty for none."
+msgstr "Receives an e-mail for every new message. Leave empty for none."
+
+msgid "Reply"
+msgstr "Reply"
+
+msgid "Reply from the site"
+msgstr "Reply from the site"
+
+msgid "Reply to %s"
+msgstr "Reply to %s"
+
+msgid "Send reply"
+msgstr "Send reply"
+
+msgid "Sender %s"
+msgstr "Sender %s"
+
+msgid "Settings"
+msgstr "Settings"
+
+msgid "The reply is shown right away, signed with the site title, or the organisation name, or your own name when the site has neither."
+msgstr "The reply is shown right away, signed with the site title, or the organisation name, or your own name when the site has neither."
+
+msgid "Waiting for approval"
+msgstr "Waiting for approval"
+
+
+msgid "This reply cannot be restored while the message it answers is in the trash. Restore that message instead."
+msgstr "This reply cannot be restored while the message it answers is in the trash. Restore that message instead."
+
+msgid "Reply to a message"
+msgstr "Reply to a message"
