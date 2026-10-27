@@ -14,11 +14,63 @@
                 </dl>
             </section>
 
-            <section class="lg:col-span-2 surface border-theme border rounded-xl p-6">
-                <h2 class="text-xl font-semibold mb-4">{{tl localizer "Change password"}}</h2>
-                <p class="muted text-sm mb-4">{{tl localizer "Your other sessions are signed out when you change your password."}}</p>
-                {{form_render_localized localizer .Password .Errors}}
-            </section>
+            <div class="lg:col-span-2 grid gap-6">
+                <section class="surface border-theme border rounded-xl p-6">
+                    <h2 class="text-xl font-semibold mb-4">{{tl localizer "Change password"}}</h2>
+                    <p class="muted text-sm mb-4">{{tl localizer "Your other sessions are signed out when you change your password."}}</p>
+                    {{form_render_localized localizer .Password .Errors}}
+                </section>
+
+                {{with .TwoStep}}
+                    <section class="surface border-theme border rounded-xl p-6" aria-labelledby="two-step">
+                        <h2 id="two-step" class="text-xl font-semibold mb-4">{{tl localizer "Two-step sign-in"}}</h2>
+
+                        {{with .Codes}}
+                            <div class="notice mb-5" role="status">
+                                <h3 class="font-semibold mb-2">{{tl localizer "Your recovery codes"}}</h3>
+                                <p class="mb-3">{{tl localizer "Keep these codes somewhere safe, such as a password manager. Each code signs you in once instead of a code from the app, for example when you lose your phone. They are not shown again."}}</p>
+                                <ol class="two-step-codes">
+                                    {{range .}}<li class="two-step-code">{{.}}</li>{{end}}
+                                </ol>
+                            </div>
+                        {{end}}
+
+                        {{if .On}}
+                            <p class="mb-2">{{tl localizer "Two-step sign-in is on."}} {{tl localizer "Signing in asks for a code from your authenticator app after your password."}}</p>
+                            <p class="muted text-sm mb-5">{{tn localizer "%d recovery code left." "%d recovery codes left." .RecoveryCodes .RecoveryCodes}}</p>
+
+                            <div class="grid gap-6">
+                                <div>
+                                    <h3 class="font-semibold mb-2">{{tl localizer "New recovery codes"}}</h3>
+                                    <p class="muted text-sm mb-4">{{tl localizer "New codes replace the old ones, which then no longer work."}}</p>
+                                    {{form_render_localized localizer .Recovery .RecoveryErrors}}
+                                </div>
+                                <div>
+                                    <h3 class="font-semibold mb-2">{{tl localizer "Turn off"}}</h3>
+                                    <p class="muted text-sm mb-4">{{tl localizer "Without two-step sign-in, your password alone signs you in."}}</p>
+                                    {{form_render_localized localizer .Off .OffErrors}}
+                                </div>
+                            </div>
+                        {{else if .Setup}}
+                            {{with .Setup}}
+                                <p class="mb-4">{{tl localizer "Scan this QR code with an authenticator app on your phone, or enter the key by hand. Then enter the code the app shows."}}</p>
+                                <div class="flex flex-wrap gap-6 items-start mb-5">
+                                    <img class="two-step-qr" src="{{.QR}}" alt="{{tl localizer "QR code for your authenticator app"}}">
+                                    <div>
+                                        <p class="muted text-sm mb-2">{{tl localizer "Key"}}</p>
+                                        <p><code class="two-step-key">{{.Key}}</code></p>
+                                    </div>
+                                </div>
+                                {{form_render_localized localizer .Confirm .Errors}}
+                                <div class="mt-4">{{form_render_localized localizer .Cancel nil}}</div>
+                            {{end}}
+                        {{else}}
+                            <p class="muted text-sm mb-4">{{tl localizer "After your password, signing in then also asks for a code from an authenticator app on your phone, so your password alone does not open your account."}}</p>
+                            {{with .Start}}{{form_render_localized localizer . nil}}{{end}}
+                        {{end}}
+                    </section>
+                {{end}}
+            </div>
         </div>
     </div>
 </main>

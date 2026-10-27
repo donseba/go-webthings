@@ -50,7 +50,7 @@ A site can also add its own Go code: template functions, a seed for an empty dat
 ## What go-webthings runs
 
 - The database and its tables, created and updated at start.
-- The admin, with sign-in, password reset, accounts and groups.
+- The admin, with sign-in, two-step sign-in, password reset, accounts and groups.
 - The page tree, the routes in every language, and scheduled publishing.
 - The media library, with resized copies of images, made after the upload or on their first request.
 - Site settings, themes, `sitemap.xml`, `robots.txt` and the site search.
@@ -130,7 +130,7 @@ go-webthings uses a few libraries by the same author:
 - [go-translator](https://github.com/donseba/go-translator) reads the `.po` catalogues for the admin and for your templates' `{{tl localizer "..."}}` texts.
 - [go-clue](https://github.com/donseba/go-clue) gives editors completion and checks in Go templates. The `@dot` line at the top of a generated template names its data type for it, and an `@model` line names the page or its content in any template, partials included (see [Templates](templates.md#the-page-anywhere-model)).
 
-The main other dependencies are the three database drivers, sqlx, goldmark for Markdown and gen2brain/webp for WebP images. None of them needs cgo. The admin's text editor is built on [ProseMirror](https://prosemirror.net), which comes with the admin as one JavaScript file, so it needs no build step and no CDN.
+The main other dependencies are the three database drivers, sqlx, goldmark for Markdown, gen2brain/webp for WebP images and rsc.io/qr for the QR code of two-step sign-in. None of them needs cgo. The admin's text editor is built on [ProseMirror](https://prosemirror.net), which comes with the admin as one JavaScript file, so it needs no build step and no CDN.
 
 ## Next steps
 

@@ -1,6 +1,6 @@
 // Package admin is the shared back office: one shell (layout, navigation,
-// notices), sign-in with password reset and first-run setup, translations and
-// a permission check on every route. Form posts from other websites are
+// notices), sign-in with optional two-step sign-in, password reset and
+// first-run setup, translations and a permission check on every route. Form posts from other websites are
 // refused (http.CrossOriginProtection), so forms need no tokens. Core
 // packages and modules contribute Sections.
 //
@@ -12,6 +12,7 @@
 // with go-router's reverse routing:
 //
 //   - The admin's own pages are "admin.dashboard", "admin.login",
+//     "admin.login-code" (the second step of two-step sign-in),
 //     "admin.logout", "admin.account", "admin.trash", "admin.setup",
 //     "admin.forgot-password", "admin.reset-password", "admin.presence",
 //     and its files "admin.asset" (with "file", such as "icons.svg") and

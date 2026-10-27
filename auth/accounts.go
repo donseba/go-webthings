@@ -97,8 +97,9 @@ func (s *Service) UpdateUser(ctx context.Context, userID, email, name string) er
 	})
 }
 
-// DeleteUser removes an account with its sessions, group memberships and
-// reset links. The last active administrator cannot be removed.
+// DeleteUser removes an account with its sessions, group memberships, reset
+// links and two-step sign-in. The last active administrator cannot be
+// removed.
 func (s *Service) DeleteUser(ctx context.Context, userID string) error {
 	return s.db.Tx(ctx, func(ctx context.Context) error {
 		user, err := s.User(ctx, userID)
@@ -118,6 +119,9 @@ func (s *Service) DeleteUser(ctx context.Context, userID string) error {
 			`DELETE FROM wt_sessions WHERE user_id=?`,
 			`DELETE FROM wt_group_members WHERE user_id=?`,
 			`DELETE FROM wt_password_resets WHERE user_id=?`,
+			`DELETE FROM wt_pending_sign_ins WHERE user_id=?`,
+			`DELETE FROM wt_recovery_codes WHERE user_id=?`,
+			`DELETE FROM wt_two_step WHERE user_id=?`,
 			`DELETE FROM wt_users WHERE id=?`,
 		} {
 			if _, err := s.db.Exec(ctx, query, userID); err != nil {
@@ -151,8 +155,9 @@ func (s *Service) keepAdmin(ctx context.Context, userID string) error {
 
 // ChangePassword sets a new password after checking the current one. Wrong
 // guesses count towards the same limit as failed sign-ins. Every other
-// session of the account is revoked; the session with token keep, the one
-// the change was made in, stays signed in.
+// session of the account is revoked, and its pending sign-ins end; the
+// session with token keep, the one the change was made in, stays signed
+// in.
 func (s *Service) ChangePassword(ctx context.Context, userID, current, password, keep string) error {
 	var user User
 
@@ -199,6 +204,10 @@ func (s *Service) ChangePassword(ctx context.Context, userID, current, password,
 			hash, now, db.Actor(ctx), userID,
 		)
 		if err != nil {
+			return err
+		}
+
+		if _, err := s.db.Exec(ctx, `DELETE FROM wt_pending_sign_ins WHERE user_id=?`, userID); err != nil {
 			return err
 		}
 

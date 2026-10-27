@@ -40,6 +40,7 @@
                             <div><dt class="muted text-sm">{{tl localizer "Role"}}</dt><dd>{{.Role}}</dd></div>
                             <div><dt class="muted text-sm">{{tl localizer "Account status"}}</dt><dd>{{.Status}}</dd></div>
                             <div><dt class="muted text-sm">{{tl localizer "Created"}}</dt><dd>{{.Created}}</dd></div>
+                            {{with $.TwoStep}}<div><dt class="muted text-sm">{{tl localizer "Two-step sign-in"}}</dt><dd>{{.}}</dd></div>{{end}}
                         </dl>
                     </div>
                 {{end}}
@@ -73,6 +74,15 @@
                         {{form_render_localized localizer . nil}}
                         <p class="muted text-sm mt-3">
                             {{tl localizer "Disabling an account revokes its sessions."}}
+                        </p>
+                    </div>
+                {{end}}
+
+                {{with .TwoStepForm}}
+                    <div class="surface border-theme border rounded-xl p-6">
+                        {{form_render_localized localizer . nil}}
+                        <p class="muted text-sm mt-3">
+                            {{tl localizer "For someone who lost both their phone and their recovery codes. They can turn it on again on their own account page."}}
                         </p>
                     </div>
                 {{end}}

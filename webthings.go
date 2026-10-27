@@ -1372,6 +1372,10 @@ func (a *App) services(ctx context.Context) error {
 	a.Site = site.New(a.DB)
 	a.Site.SetCacheTTL(a.cacheTTL())
 
+	// Two-step sign-in encrypts the secrets of authenticator apps with a
+	// key of the site.
+	a.Auth.UseSecrets(a.Site)
+
 	// The app's own addresses would hide the pages of a language whose
 	// code is their first segment, such as an admin at /en: no such
 	// language can be enabled.

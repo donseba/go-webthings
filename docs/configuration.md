@@ -283,7 +283,7 @@ The starter also has an `admin` command: `go run . admin you@example.com` create
 | Method | What it does |
 | --- | --- |
 | `Use(modules...)` | Adds module instances. Call it before `Start`. It fails on an invalid or duplicate key. |
-| `Start(ctx)` | Opens the database, applies the schemas, creates the first administrator (or logs the setup link), settings and home page, sets up the modules and the admin, and starts the background work: the scheduler, and a cleanup of expired sessions, sign-in attempts and reset links, and of the items that have been in the trash longer than **Site settings › Trash** allows, at start and then every hour. |
+| `Start(ctx)` | Opens the database, applies the schemas, creates the first administrator (or logs the setup link), settings and home page, sets up the modules and the admin, and starts the background work: the scheduler, and a cleanup of expired sessions, pending sign-ins, sign-in attempts and reset links, and of the items that have been in the trash longer than **Site settings › Trash** allows, at start and then every hour. |
 | `ListenAndServe(ctx, addr)` | Listens on `addr` and calls `Serve`. |
 | `Serve(ctx, listener)` | Calls `Start` unless that already happened, then serves on `listener` until `ctx` is cancelled, and lets running requests finish. It closes the listener and the app when it returns. Use it with a listener of your own, such as one from systemd socket activation. The "serving" log line, and without `BaseURL` the setup link, show the address it really listens on, also with `:0`. |
 | `ServeHTTP(w, r)` | The app is an `http.Handler`. Before `Start` it answers 503, except at `/healthz`, `/readyz` (which reports not ready) and `/metrics` (a plain 404 without `MetricsToken`). |

@@ -47,6 +47,7 @@ Choosing an account shows a card with its name, role, status and when it was cre
 - choose its groups;
 - disable it, or enable it again. A disabled account cannot sign in, and disabling it ends its sessions;
 - see its sessions that have not expired, with when each was created, expires and was last used, and revoke one;
+- see whether its two-step sign-in is on, and turn it off for someone who lost both their phone and their recovery codes (see [Two-step sign-in](#two-step-sign-in));
 - delete it, with its sessions and group memberships. This cannot be undone: accounts do not go to the trash. Nobody can delete their own account.
 
 At least one active administrator must remain: the last one cannot be disabled, made an editor or deleted.
@@ -59,6 +60,29 @@ A password is set when the account is created. After that, only the account's ow
 - **Forgot your password?** on the sign-in page mails a link to choose a new password. The link works once, within an hour; an account gets at most three links per hour, and the page answers the same for addresses without an account. Choosing the new password signs the account out everywhere.
 
 The admin offers the reset only with `Config.Mail` and `Config.BaseURL`, so the link is sent and points to the site (see [E-mail](mail.md#links-in-e-mail)). With `Config.Insecure`, for local development, it is always offered; without a sender the link is written to the log.
+
+### Two-step sign-in
+
+Every account can add a second step to signing in: after the password, the admin asks for a code from an authenticator app on a phone, such as Google Authenticator, Microsoft Authenticator, 1Password or Aegis. It is off until the account's owner turns it on on **Your account**, and only the owner can turn it on.
+
+On the card **Two-step sign-in**, **Turn on two-step sign-in** shows a QR code and the same key as text, in groups of four characters, for an app that cannot scan. Scan the code or type the key into the app, enter the code the app then shows under **Code from the app**, and choose **Turn on**. Until that code is right nothing changes: the password alone still signs in, and **Cancel** drops the setup. The QR code is only shown to the signed-in account itself, and only during the setup; once two-step sign-in is on, the key is never shown again.
+
+Turning it on shows 10 recovery codes, such as `4f7k2-9xq3m`, under **Your recovery codes**, with "Keep these codes somewhere safe, such as a password manager." They are shown only this once. Each code signs in once instead of a code from the app, for example after losing the phone; capitals, spaces and the dash do not matter. The card says how many are left. **Make new recovery codes** asks for a code, from the app or a recovery code, and replaces all of them with 10 new ones, which are shown once as well; the old ones stop working.
+
+With two-step sign-in on, signing in takes two pages. After a correct password, the second page asks "Enter the code from your authenticator app." and also takes a recovery code ("Lost your phone? Enter one of your recovery codes instead."). The password alone signs nobody in:
+
+- The browser has 5 minutes for the code (`auth.PendingLifetime`). After that, and after a password change or reset, it starts again at the password, with "The sign-in expired. Enter your password again."
+- A code from the app works during its 30 seconds and during the 30 seconds before and after, to allow for a phone's clock that is a little off. It works once: a code that was used, or an older one, is refused with "This code is not correct."
+- Wrong codes count towards the same limit as wrong passwords: 10 failures for an address within 15 minutes block it, whether passwords or codes (see [Sessions](#sessions)). A correct password does not reset the count; only a completed sign-in does.
+- **Forgot your password?** does not skip the code. Choosing a new password signs the account out everywhere, and signing in with the new password asks for the code as before.
+
+To turn two-step sign-in off, enter the current password and a code, from the app or a recovery code, on the card and choose **Turn off two-step sign-in**. Wrong passwords and codes count towards the sign-in limit here too. The recovery codes are deleted with it.
+
+For someone who lost both their phone and their recovery codes, an administrator turns it off under **Accounts**. The account's card shows **Two-step sign-in**, **On** or **Off**, and with it on, **Turn off two-step sign-in** asks "Turn off two-step sign-in for this account? It then signs in with its password alone, until its owner turns it on again." first. It is offered for other accounts only: administrators turn off their own on **Your account**, with a code, like everyone. Each time is logged at level Info as `two-step sign-in turned off by an administrator`, with the account (`user`, `email`) and the administrator (`administrator`, `administrator_email`). Editors cannot do this: **Accounts** is for administrators only.
+
+The secret that the app shares with the site is stored encrypted with AES-256-GCM, bound to its account, with a random key of the site named `two_step_sign_in`. The key is made on first use and kept in the database with the site's settings (`wt_setting`), the same for every server of the site. Recovery codes are stored only as SHA-256 digests. Neither the secrets nor any code is ever logged. As the key lives in the same database, the encryption keeps the secrets out of a copy of the account tables alone, not out of a copy of the whole database: keep backups as safe as the site itself (see [Backups](databases.md#backups)).
+
+Two-step sign-in needs the site's keys, which `webthings.App` gives the accounts service at `Start` (`auth.Service.UseSecrets`). An admin built in Go around an `auth.Service` without them does not offer it.
 
 ## Groups and the matrix
 
@@ -156,11 +180,13 @@ The function must be safe for concurrent use: requests ask it at the same time, 
 
 Sign in at `/admin/login` with the e-mail address and password. A session lasts 12 hours from signing in, and **Sign out** ends it at once. Signing in again in the same browser ends that browser's previous session.
 
-After 10 failed attempts for one e-mail address within 15 minutes, signing in with that address is blocked until those 15 minutes have passed. The message does not tell whether the account exists.
+After 10 failed attempts for one e-mail address within 15 minutes, signing in with that address is blocked until those 15 minutes have passed. Wrong codes of [two-step sign-in](#two-step-sign-in) count as failed attempts too. The message does not tell whether the account exists.
 
 The session is kept in a cookie named `wt_admin`: HttpOnly, SameSite=Lax and, unless `Config.Insecure` is set, Secure, so it is only sent over HTTPS. Signing in over plain HTTP needs `Insecure`; the starter sets it for local development through `WEBTHINGS_INSECURE_HTTP`. Never set it in production.
 
-Passwords are stored as Argon2id hashes, and sessions and reset links only as SHA-256 digests of their tokens. Expired sessions and reset links, and failed sign-ins whose 15 minutes are over, are removed when the app starts and every hour after.
+Passwords are stored as Argon2id hashes, and sessions, reset links, pending sign-ins and recovery codes only as SHA-256 digests. Expired sessions, pending sign-ins and reset links, and failed sign-ins whose 15 minutes are over, are removed when the app starts and every hour after.
+
+While a sign-in waits for its code, the browser keeps it in a second cookie, `wt_admin_pending`: HttpOnly, SameSite=Strict, Secure like `wt_admin`, and gone after 5 minutes. The site keeps only a digest of it, bound to the account; it is no session, and the code page is the only one that accepts it.
 
 Form posts to the admin from other websites are refused with `403 Forbidden` and "This request came from another website and was refused." (Go's `http.CrossOriginProtection`). Browsers say where a post comes from, so the admin's forms need no token: they keep working after a restart and on every server of the site.
 

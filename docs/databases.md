@@ -79,7 +79,7 @@ The table `wt_schema` records the version each owner has reached:
 
 | owner | version |
 | --- | --- |
-| `auth` | `20261004000000` |
+| `auth` | `20261027120000` |
 | `pages` | `20261004000000` |
 | `module:publishing` | `20261004000000` |
 
@@ -123,7 +123,7 @@ func schema() fs.FS {
 
 See [Writing a module](writing-a-module.md).
 
-Until go-webthings has its first release, its own schemas only have `_init` files, and those may still change. Nothing updates an existing database when an `_init` file changes: `wt_schema` already records its version, so it does not run again, and the start fails with "schema … changed after it was applied" for that file. After updating go-webthings, recreate a development database: stop the site, delete `var/site.sqlite` and start again. On PostgreSQL or MySQL, drop the database and create it again. From the first release on, its schema changes come as new files, which update a database as it starts.
+Until go-webthings has its first release, its own schemas mostly have only `_init` files, and those may still change; `auth` also has `20261027120000_two_step`, the tables of two-step sign-in. Nothing updates an existing database when an `_init` file changes: `wt_schema` already records its version, so it does not run again, and the start fails with "schema … changed after it was applied" for that file. After updating go-webthings, recreate a development database: stop the site, delete `var/site.sqlite` and start again. On PostgreSQL or MySQL, drop the database and create it again. From the first release on, its schema changes come as new files, which update a database as it starts.
 
 ### Audit columns
 
@@ -197,7 +197,7 @@ Back up the database and the uploads together. Administrators can download both 
 
 ### The download in the admin
 
-**Backup**, under **System** in the admin navigation, is for administrators only, whatever their groups allow: the backup holds the password hashes of the accounts and personal data, such as form submissions. Keep it as safe as the site itself. See [Sections without a row](permissions.md#sections-without-a-row).
+**Backup**, under **System** in the admin navigation, is for administrators only, whatever their groups allow: the backup holds the password hashes of the accounts, the encrypted secrets of their [two-step sign-in](permissions.md#two-step-sign-in) together with the key that opens them, and personal data, such as form submissions. Keep it as safe as the site itself. See [Sections without a row](permissions.md#sections-without-a-row).
 
 **Download backup** saves a zip file named after the site's title and the time in the site's timezone, such as `my-site-backup-20261027-1432.zip`. It holds:
 

@@ -75,10 +75,10 @@ func (a *Admin) login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	var token string
+	var attempt auth.Attempt
 
 	if len(errs) == 0 {
-		token, err = a.auth.Login(r.Context(), input.Email, input.Password, auth.Token(r))
+		attempt, err = a.auth.SignIn(r.Context(), input.Email, input.Password, auth.Token(r))
 	}
 
 	if len(errs) > 0 || errors.Is(err, auth.ErrCredentials) || errors.Is(err, auth.ErrRateLimit) {
@@ -98,7 +98,16 @@ func (a *Admin) login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	auth.SetCookie(w, token, a.options.Secure)
+	// With two-step sign-in on, the browser keeps the pending sign-in and
+	// the next page asks for the code.
+	if attempt.Pending != "" {
+		auth.SetPendingCookie(w, attempt.Pending, a.options.Secure)
+		a.Redirect(w, r, a.URL("admin.login-code"))
+
+		return
+	}
+
+	auth.SetCookie(w, attempt.Session, a.options.Secure)
 	a.Redirect(w, r, a.URL("admin.dashboard"))
 }
 
@@ -135,9 +144,16 @@ type AccountsView struct {
 	RoleForm    *form.RenderModel
 	// DeleteForm is nil for the signed-in user's own account.
 	DeleteForm *form.RenderModel
-	Membership *MembershipForm
-	Create     form.RenderModel
-	Errors     form.FieldErrors
+	// TwoStep says whether the selected account has two-step sign-in on,
+	// as shown; empty when the accounts service cannot keep its secrets.
+	TwoStep string
+	// TwoStepForm turns two-step sign-in off for the selected account, for
+	// someone who lost their phone; nil while it is off and for the
+	// signed-in user's own account.
+	TwoStepForm *form.RenderModel
+	Membership  *MembershipForm
+	Create      form.RenderModel
+	Errors      form.FieldErrors
 	// ProfileErrors and RoleErrors are the refusals of the selected
 	// account's profile and role forms, shown at their fields.
 	ProfileErrors form.FieldErrors
@@ -263,6 +279,7 @@ func (a *Admin) accountsSection() Section {
 			routes.Post("/{user}/role", Edit, a.setRole).As("role")
 			routes.Post("/{user}/groups", Edit, a.setGroups).As("groups")
 			routes.Post("/{user}/sessions/{session}/revoke", Edit, a.revokeSession).As("revoke")
+			routes.Post("/{user}/two-step/off", Edit, a.removeTwoStep).As("two-step-off")
 		},
 	}
 }
@@ -386,6 +403,10 @@ func (a *Admin) selectedAccount(r *http.Request, view *AccountsView, page accoun
 		return err
 	}
 
+	if err := a.accountTwoStep(r, view); err != nil {
+		return err
+	}
+
 	sessions, err := a.auth.Sessions(r.Context(), view.Selected.ID)
 	if err != nil {
 		return err
@@ -408,6 +429,38 @@ func (a *Admin) selectedAccount(r *http.Request, view *AccountsView, page accoun
 		}
 
 		view.Sessions = append(view.Sessions, row)
+	}
+
+	return nil
+}
+
+// accountTwoStep says whether the selected account has two-step sign-in
+// on, with the form that turns it off for another account.
+func (a *Admin) accountTwoStep(r *http.Request, view *AccountsView) error {
+	if !a.auth.TwoStepAvailable() {
+		return nil
+	}
+
+	state, err := a.auth.TwoStep(r.Context(), view.Selected.ID)
+	if err != nil {
+		return err
+	}
+
+	view.TwoStep = a.T(r, "Off")
+
+	if !state.On {
+		return nil
+	}
+
+	view.TwoStep = a.T(r, "On")
+
+	if current, _ := auth.CurrentUser(r.Context()); current.ID != view.Selected.ID {
+		off := a.Confirm(
+			r,
+			a.Form(r, struct{}{}, a.URL("admin.accounts.two-step-off", "user", view.Selected.ID), "Turn off two-step sign-in"),
+			"Turn off two-step sign-in for this account? It then signs in with its password alone, until its owner turns it on again.",
+		)
+		view.TwoStepForm = &off
 	}
 
 	return nil

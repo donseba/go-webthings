@@ -1063,3 +1063,98 @@ msgstr ""
 
 msgid "Image"
 msgstr ""
+
+msgid "Two-step sign-in"
+msgstr ""
+
+msgid "Enter the code from your authenticator app."
+msgstr ""
+
+msgid "Lost your phone? Enter one of your recovery codes instead."
+msgstr ""
+
+msgid "Code from the app"
+msgstr ""
+
+msgid "A code from the app or one of your recovery codes."
+msgstr ""
+
+msgid "This code is not correct."
+msgstr ""
+
+msgid "The sign-in expired. Enter your password again."
+msgstr ""
+
+msgid "Turn on two-step sign-in"
+msgstr ""
+
+msgid "Turn off two-step sign-in"
+msgstr ""
+
+msgid "Turn on"
+msgstr ""
+
+msgid "Turn off"
+msgstr ""
+
+msgid "On"
+msgstr ""
+
+msgid "Off"
+msgstr ""
+
+msgid "Key"
+msgstr ""
+
+msgid "Make new recovery codes"
+msgstr ""
+
+msgid "New recovery codes"
+msgstr ""
+
+msgid "Your recovery codes"
+msgstr ""
+
+msgid "Two-step sign-in is on."
+msgstr ""
+
+msgid "Two-step sign-in is off."
+msgstr ""
+
+msgid "Two-step sign-in is off for this account."
+msgstr ""
+
+msgid "New recovery codes are ready. The old ones no longer work."
+msgstr ""
+
+msgid "Turn off two-step sign-in for this account? It then signs in with its password alone, until its owner turns it on again."
+msgstr ""
+
+msgid "Keep these codes somewhere safe, such as a password manager. Each code signs you in once instead of a code from the app, for example when you lose your phone. They are not shown again."
+msgstr ""
+
+msgid "Signing in asks for a code from your authenticator app after your password."
+msgstr ""
+
+msgid "New codes replace the old ones, which then no longer work."
+msgstr ""
+
+msgid "Without two-step sign-in, your password alone signs you in."
+msgstr ""
+
+msgid "Scan this QR code with an authenticator app on your phone, or enter the key by hand. Then enter the code the app shows."
+msgstr ""
+
+msgid "QR code for your authenticator app"
+msgstr ""
+
+msgid "After your password, signing in then also asks for a code from an authenticator app on your phone, so your password alone does not open your account."
+msgstr ""
+
+msgid "For someone who lost both their phone and their recovery codes. They can turn it on again on their own account page."
+msgstr ""
+
+msgid "%d recovery code left."
+msgid_plural "%d recovery codes left."
+msgstr[0] ""
+msgstr[1] ""

@@ -1064,3 +1064,98 @@ msgstr "Een korte tekst voor overzichten, zoekresultaten en zoekmachines."
 
 msgid "Image"
 msgstr "Afbeelding"
+
+msgid "Two-step sign-in"
+msgstr "Inloggen in twee stappen"
+
+msgid "Enter the code from your authenticator app."
+msgstr "Voer de code uit je authenticator-app in."
+
+msgid "Lost your phone? Enter one of your recovery codes instead."
+msgstr "Telefoon kwijt? Vul dan een van je herstelcodes in."
+
+msgid "Code from the app"
+msgstr "Code uit de app"
+
+msgid "A code from the app or one of your recovery codes."
+msgstr "Een code uit de app of een van je herstelcodes."
+
+msgid "This code is not correct."
+msgstr "Deze code klopt niet."
+
+msgid "The sign-in expired. Enter your password again."
+msgstr "Het inloggen is verlopen. Vul je wachtwoord opnieuw in."
+
+msgid "Turn on two-step sign-in"
+msgstr "Inloggen in twee stappen aanzetten"
+
+msgid "Turn off two-step sign-in"
+msgstr "Inloggen in twee stappen uitzetten"
+
+msgid "Turn on"
+msgstr "Aanzetten"
+
+msgid "Turn off"
+msgstr "Uitzetten"
+
+msgid "On"
+msgstr "Aan"
+
+msgid "Off"
+msgstr "Uit"
+
+msgid "Key"
+msgstr "Sleutel"
+
+msgid "Make new recovery codes"
+msgstr "Nieuwe herstelcodes maken"
+
+msgid "New recovery codes"
+msgstr "Nieuwe herstelcodes"
+
+msgid "Your recovery codes"
+msgstr "Je herstelcodes"
+
+msgid "Two-step sign-in is on."
+msgstr "Inloggen in twee stappen staat aan."
+
+msgid "Two-step sign-in is off."
+msgstr "Inloggen in twee stappen staat uit."
+
+msgid "Two-step sign-in is off for this account."
+msgstr "Inloggen in twee stappen staat uit voor dit account."
+
+msgid "New recovery codes are ready. The old ones no longer work."
+msgstr "Er zijn nieuwe herstelcodes. De oude werken niet meer."
+
+msgid "Turn off two-step sign-in for this account? It then signs in with its password alone, until its owner turns it on again."
+msgstr "Inloggen in twee stappen uitzetten voor dit account? Het logt dan in met alleen het wachtwoord, tot de eigenaar het weer aanzet."
+
+msgid "Keep these codes somewhere safe, such as a password manager. Each code signs you in once instead of a code from the app, for example when you lose your phone. They are not shown again."
+msgstr "Bewaar deze codes op een veilige plek, zoals een wachtwoordbeheerder. Met elke code log je één keer in in plaats van met een code uit de app, bijvoorbeeld als je je telefoon kwijt bent. Ze worden niet opnieuw getoond."
+
+msgid "Signing in asks for a code from your authenticator app after your password."
+msgstr "Na je wachtwoord vraagt het inloggen om een code uit je authenticator-app."
+
+msgid "New codes replace the old ones, which then no longer work."
+msgstr "Nieuwe codes vervangen de oude, die daarna niet meer werken."
+
+msgid "Without two-step sign-in, your password alone signs you in."
+msgstr "Zonder inloggen in twee stappen log je in met alleen je wachtwoord."
+
+msgid "Scan this QR code with an authenticator app on your phone, or enter the key by hand. Then enter the code the app shows."
+msgstr "Scan deze QR-code met een authenticator-app op je telefoon, of typ de sleutel over. Vul daarna de code in die de app toont."
+
+msgid "QR code for your authenticator app"
+msgstr "QR-code voor je authenticator-app"
+
+msgid "After your password, signing in then also asks for a code from an authenticator app on your phone, so your password alone does not open your account."
+msgstr "Na je wachtwoord vraagt het inloggen dan ook om een code uit een authenticator-app op je telefoon, zodat je wachtwoord alleen je account niet opent."
+
+msgid "For someone who lost both their phone and their recovery codes. They can turn it on again on their own account page."
+msgstr "Voor wie zowel de telefoon als de herstelcodes kwijt is. Die kan het weer aanzetten op de eigen accountpagina."
+
+msgid "%d recovery code left."
+msgid_plural "%d recovery codes left."
+msgstr[0] "Nog %d herstelcode over."
+msgstr[1] "Nog %d herstelcodes over."

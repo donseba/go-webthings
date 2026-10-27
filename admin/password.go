@@ -1,6 +1,7 @@
 package admin
 
 import (
+	"cmp"
 	"context"
 	"crypto/subtle"
 	"errors"
@@ -16,6 +17,7 @@ import (
 	"github.com/donseba/go-webthings/mail"
 
 	form "github.com/donseba/go-form/v2"
+	"github.com/donseba/go-partial/exp/flash"
 	"github.com/donseba/go-router"
 	"github.com/donseba/go-router/middleware"
 )
@@ -50,6 +52,24 @@ type AccountView struct {
 	Role     string
 	Password form.RenderModel
 	Errors   form.FieldErrors
+	// TwoStep is the card of two-step sign-in; nil when the accounts
+	// service cannot keep its secrets (auth.Service.TwoStepAvailable).
+	TwoStep *TwoStepView
+}
+
+// accountState is the own account page as a post left it: the refusals of
+// its forms, new recovery codes to show this once, and a toast.
+type accountState struct {
+	passwordErrors form.FieldErrors
+	confirmErrors  form.FieldErrors
+	offErrors      form.FieldErrors
+	recoveryErrors form.FieldErrors
+	codes          []string
+	// message shows as an error toast, already translated; notice as a
+	// success toast, a translation key.
+	message string
+	notice  string
+	status  int
 }
 
 type setupInput struct {
@@ -128,10 +148,12 @@ func (a *Admin) passwordRoutes(public *router.Router) {
 	public.Post(forgotPath, a.forgot)
 }
 
-// accountRoutes registers the signed-in user's own account page.
+// accountRoutes registers the signed-in user's own account page, with its
+// two-step sign-in.
 func (a *Admin) accountRoutes(own *router.Router) {
 	own.Get(ownPath, a.account).As("admin.account")
 	own.Post(ownPath, a.changePassword)
+	a.twoStepRoutes(own)
 }
 
 // renderFormPage shows a page with one form, without the admin navigation.
@@ -457,26 +479,43 @@ func (a *Admin) reset(w http.ResponseWriter, r *http.Request) {
 }
 
 func (a *Admin) account(w http.ResponseWriter, r *http.Request) {
-	a.renderAccount(w, r, nil, "", http.StatusOK)
+	a.renderAccount(w, r, accountState{})
 }
 
-func (a *Admin) renderAccount(w http.ResponseWriter, r *http.Request, errs form.FieldErrors, message string, status int) {
+func (a *Admin) renderAccount(w http.ResponseWriter, r *http.Request, page accountState) {
 	user, _ := auth.CurrentUser(r.Context())
 
-	// The message shows as a toast; errors of single fields stay inline.
-	r = WithError(r, message)
+	// The messages show as toasts; errors of single fields stay inline.
+	r = WithError(r, page.message)
+
+	if page.notice != "" {
+		r = r.WithContext(flash.Add(r.Context(), flash.Success(a.T(r, page.notice))))
+	}
+
+	view := AccountView{
+		Email:    user.Email,
+		Name:     user.Name,
+		Role:     a.roleLabel(r, user.Role),
+		Password: a.Form(r, passwordInput{}, a.URL("admin.account"), "Change password"),
+		Errors:   page.passwordErrors,
+	}
+
+	if a.auth.TwoStepAvailable() {
+		twoStep, err := a.twoStepView(r, user, page)
+		if err != nil {
+			a.Fail(w, r, err)
+
+			return
+		}
+
+		view.TwoStep = twoStep
+	}
 
 	a.Render(w, r, Page{
 		Title:    "Your account",
 		Template: "templates/account.gohtml",
-		Status:   status,
-		Data: AccountView{
-			Email:    user.Email,
-			Name:     user.Name,
-			Role:     a.roleLabel(r, user.Role),
-			Password: a.Form(r, passwordInput{}, a.URL("admin.account"), "Change password"),
-			Errors:   errs,
-		},
+		Status:   cmp.Or(page.status, http.StatusOK),
+		Data:     view,
 	})
 }
 
@@ -495,7 +534,7 @@ func (a *Admin) changePassword(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if len(errs) > 0 {
-		a.renderAccount(w, r, errs, "", http.StatusUnprocessableEntity)
+		a.renderAccount(w, r, accountState{passwordErrors: errs, status: http.StatusUnprocessableEntity})
 
 		return
 	}
@@ -504,21 +543,17 @@ func (a *Admin) changePassword(w http.ResponseWriter, r *http.Request) {
 
 	switch {
 	case errors.Is(err, auth.ErrCredentials):
-		a.renderAccount(
-			w,
-			r,
-			FieldError("Current", a.T(r, "Your current password is not correct.")),
-			"",
-			http.StatusUnprocessableEntity,
-		)
+		errs := FieldError("Current", a.T(r, "Your current password is not correct."))
+		a.renderAccount(w, r, accountState{passwordErrors: errs, status: http.StatusUnprocessableEntity})
 
 		return
 	case errors.Is(err, auth.ErrRateLimit):
-		a.renderAccount(w, r, nil, a.T(r, "Too many attempts. Try again in 15 minutes."), http.StatusTooManyRequests)
+		a.renderAccount(w, r, accountState{message: a.T(r, tooMany), status: http.StatusTooManyRequests})
 
 		return
 	case errors.Is(err, auth.ErrPassword):
-		a.renderAccount(w, r, FieldError("Password", a.T(r, passwordTooShort)), "", http.StatusUnprocessableEntity)
+		errs := FieldError("Password", a.T(r, passwordTooShort))
+		a.renderAccount(w, r, accountState{passwordErrors: errs, status: http.StatusUnprocessableEntity})
 
 		return
 	case err != nil:

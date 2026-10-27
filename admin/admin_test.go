@@ -119,26 +119,12 @@ func newClient(server *httptest.Server) *http.Client {
 	return &http.Client{Jar: jar, Transport: server.Client().Transport}
 }
 
-// newAccounts is an auth service with one administrator, the owner.
+// newAccounts is an auth service on SQLite with one administrator, the
+// owner (see accountsIn).
 func newAccounts(t *testing.T) *auth.Service {
 	t.Helper()
-	ctx := context.Background()
-	database := dbtest.SQLite(t)
 
-	if err := database.ApplySchema(ctx, "auth", auth.Schema()); err != nil {
-		t.Fatal(err)
-	}
-
-	accounts, err := auth.New(database)
-	if err != nil {
-		t.Fatal(err)
-	}
-
-	if err := accounts.Bootstrap(ctx, "owner@example.test", "test-only long passphrase"); err != nil {
-		t.Fatal(err)
-	}
-
-	return accounts
+	return accountsIn(t, dbtest.SQLite(t))
 }
 
 func TestSignInAndOut(t *testing.T) {

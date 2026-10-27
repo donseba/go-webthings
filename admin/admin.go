@@ -476,6 +476,7 @@ func (a *Admin) pageRoutes(base *router.Router) {
 			public.Use(a.body(defaultBodyLimit))
 			public.Get(loginPath, a.loginForm).As("admin.login")
 			public.Post(loginPath, a.login)
+			a.codeRoutes(public)
 			a.passwordRoutes(public)
 		})
 
@@ -919,9 +920,11 @@ func (a *Admin) Form(r *http.Request, input any, action, submit string) form.Ren
 	info := form.Info{Target: action, Method: "post", SubmitText: submit}
 
 	// The attributes are go-partial's connector attributes, in the syntax of
-	// the admin's HTMX: signing in or out swaps the whole body.
+	// the admin's HTMX: signing in or out swaps the whole body, also the
+	// second step of signing in.
 	switch {
-	case action == a.URL("admin.login") || action == a.URL("admin.logout") || action == a.URL("admin.setup"):
+	case action == a.URL("admin.login") || action == a.URL("admin.login-code") ||
+		action == a.URL("admin.logout") || action == a.URL("admin.setup"):
 		info.Attributes = a.attrs(connector.Attr{Boost: connector.BoostOn, Target: "body", Swap: "outerSync"})
 	case a.pathAction(http.MethodPost, action) == "delete":
 		info.Attributes = a.attrs(connector.Attr{Confirm: a.T(r, deleteConfirmation)})

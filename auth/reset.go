@@ -91,8 +91,9 @@ func (s *Service) CheckResetToken(ctx context.Context, token string) error {
 
 // ResetPassword sets a new password with a reset token and uses the token
 // up, with every other reset link of the account. All sessions of the
-// account are revoked and its failed sign-ins forgotten, so it signs in anew
-// with the new password.
+// account are revoked, its pending sign-ins end and its failed sign-ins are
+// forgotten, so it signs in anew with the new password: with two-step
+// sign-in on, also with a code (see SignIn).
 func (s *Service) ResetPassword(ctx context.Context, token, password string) error {
 	if !validPassword(password) {
 		return ErrPassword
@@ -119,6 +120,10 @@ func (s *Service) ResetPassword(ctx context.Context, token, password string) err
 		}
 
 		if _, err := s.db.Exec(ctx, `DELETE FROM wt_password_resets WHERE user_id=?`, user.ID); err != nil {
+			return err
+		}
+
+		if _, err := s.db.Exec(ctx, `DELETE FROM wt_pending_sign_ins WHERE user_id=?`, user.ID); err != nil {
 			return err
 		}
 

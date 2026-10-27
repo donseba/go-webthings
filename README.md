@@ -705,6 +705,13 @@ card on the dashboard until they finish it. See
 [Accounts and permissions](docs/permissions.md#the-first-administrator) and
 [Set up the site](docs/getting-started.md#set-up-the-site).
 
+Every account can turn on two-step sign-in under Your account: after the
+password, signing in asks for a code from an authenticator app (TOTP) or one
+of ten recovery codes. The app's secret is stored encrypted with a key of
+the site, and administrators can turn it off for an account that lost its
+phone. See
+[Two-step sign-in](docs/permissions.md#two-step-sign-in).
+
 ## Content and modules
 
 - `content`: the shared engine for module content. `Revisions` keeps drafts,

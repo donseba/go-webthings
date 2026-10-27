@@ -3,6 +3,11 @@
 // hashes, and sessions only as a SHA-256 digest of their token, so a copy
 // of the database lets nobody sign in. Visitors of the public site have no
 // accounts.
+//
+// An account can turn on two-step sign-in: after the password, signing in
+// asks for a code of an authenticator app (TOTP) or a recovery code (see
+// SignIn). The secrets the apps share are stored encrypted with a key of
+// the site (see UseSecrets), recovery codes only as digests.
 package auth
 
 import (
@@ -133,6 +138,9 @@ type Service struct {
 	db    *db.DB
 	dummy string
 	now   func() time.Time
+	// secrets are the site's keys, which encrypt the secrets of
+	// authenticator apps (see UseSecrets).
+	secrets Secrets
 }
 
 // New returns the Service on database, whose schema (Schema) must be
@@ -199,11 +207,34 @@ func (s *Service) CreateUser(ctx context.Context, email, name, password string, 
 
 // Login checks credentials and returns a new session token. A previous token
 // from the same browser is revoked. Errors never reveal whether an account exists.
+// An account with two-step sign-in on gets no session from its password
+// alone: Login returns ErrSecondStep, and such an account signs in with
+// SignIn.
 func (s *Service) Login(ctx context.Context, email, password, previous string) (string, error) {
+	attempt, err := s.signIn(ctx, email, password, previous, false)
+	if err != nil {
+		return "", err
+	}
+
+	return attempt.Session, nil
+}
+
+// SignIn checks credentials as Login does. For an account with two-step
+// sign-in on, a correct password starts a pending sign-in rather than a
+// session: FinishSignIn completes it with a code within PendingLifetime.
+// Wrong passwords count towards the sign-in limit, and so do wrong codes;
+// failures are forgotten only once a sign-in completes.
+func (s *Service) SignIn(ctx context.Context, email, password, previous string) (Attempt, error) {
+	return s.signIn(ctx, email, password, previous, true)
+}
+
+// signIn is SignIn, or Login without second: that refuses accounts with
+// two-step sign-in on with ErrSecondStep.
+func (s *Service) signIn(ctx context.Context, email, password, previous string, second bool) (Attempt, error) {
 	email = strings.ToLower(strings.TrimSpace(email))
 
 	if len(email) > 254 || len(password) > 1024 {
-		return "", ErrCredentials
+		return Attempt{}, ErrCredentials
 	}
 
 	key := digest(email)
@@ -211,18 +242,18 @@ func (s *Service) Login(ctx context.Context, email, password, previous string) (
 
 	blocked, err := s.blocked(ctx, key, now)
 	if err != nil {
-		return "", err
+		return Attempt{}, err
 	}
 
 	if blocked {
-		return "", ErrRateLimit
+		return Attempt{}, ErrRateLimit
 	}
 
 	var user User
 
 	err = s.db.Get(ctx, &user, `SELECT `+userColumns+` FROM wt_users WHERE email=?`, email)
 	if err != nil && !errors.Is(err, db.ErrNotFound) {
-		return "", err
+		return Attempt{}, err
 	}
 
 	hash := user.PasswordHash
@@ -232,15 +263,46 @@ func (s *Service) Login(ctx context.Context, email, password, previous string) (
 
 	if !verifyPassword(password, hash) || user.ID == "" || user.Status != Active {
 		if err := s.recordFailure(ctx, key, now); err != nil {
-			return "", err
+			return Attempt{}, err
 		}
 
-		return "", ErrCredentials
+		return Attempt{}, ErrCredentials
+	}
+
+	twoStep, err := s.twoStepOn(ctx, user.ID)
+	if err != nil {
+		return Attempt{}, err
+	}
+
+	// The failures stay until the code is right too: a correct password
+	// must not reset the limit on guessing codes.
+	if twoStep {
+		if !second {
+			return Attempt{}, ErrSecondStep
+		}
+
+		pending, err := s.startPending(ctx, user.ID, now)
+		if err != nil {
+			return Attempt{}, err
+		}
+
+		return Attempt{Pending: pending}, nil
 	}
 
 	token := rand.Text() + rand.Text()
 
-	err = s.db.Tx(ctx, func(ctx context.Context) error {
+	if err := s.startSession(ctx, user.ID, key, token, previous, now); err != nil {
+		return Attempt{}, err
+	}
+
+	return Attempt{Session: token}, nil
+}
+
+// startSession stores a new session with token for the account, revokes
+// the session previous of the same browser and forgets the failed sign-ins
+// of key, the digest of the account's e-mail address.
+func (s *Service) startSession(ctx context.Context, userID, key, token, previous string, now time.Time) error {
+	return s.db.Tx(ctx, func(ctx context.Context) error {
 		if err := s.Logout(ctx, previous); err != nil {
 			return err
 		}
@@ -252,16 +314,11 @@ func (s *Service) Login(ctx context.Context, email, password, previous string) (
 		_, err := s.db.Exec(ctx, `
 			INSERT INTO wt_sessions(id,user_id,token_hash,expires_at,created_at)
 			VALUES(?,?,?,?,?)`,
-			db.NewID(), user.ID, digest(token), now.Add(sessionLifetime), now,
+			db.NewID(), userID, digest(token), now.Add(sessionLifetime), now,
 		)
 
 		return err
 	})
-	if err != nil {
-		return "", err
-	}
-
-	return token, nil
 }
 
 // lastSeenStep is how old a session's recorded activity may get before
@@ -459,6 +516,10 @@ func (s *Service) SetStatus(ctx context.Context, userID string, status Status) e
 		}
 
 		if status == Disabled {
+			if _, err := s.db.Exec(ctx, `DELETE FROM wt_pending_sign_ins WHERE user_id=?`, userID); err != nil {
+				return err
+			}
+
 			_, err := s.db.Exec(ctx,
 				`UPDATE wt_sessions SET revoked_at=? WHERE user_id=? AND revoked_at IS NULL`,
 				now, userID,
@@ -483,12 +544,17 @@ func (s *Service) RevokeSession(ctx context.Context, userID, sessionID string) e
 	return changed(result, err)
 }
 
-// Cleanup removes expired sessions, ended login windows and expired password
-// reset links. The app runs it in the background.
+// Cleanup removes expired sessions and pending sign-ins, ended login
+// windows and expired password reset links. The app runs it in the
+// background.
 func (s *Service) Cleanup(ctx context.Context) error {
 	now := s.now().UTC()
 
 	if _, err := s.db.Exec(ctx, `DELETE FROM wt_sessions WHERE expires_at<=?`, now); err != nil {
+		return err
+	}
+
+	if _, err := s.db.Exec(ctx, `DELETE FROM wt_pending_sign_ins WHERE expires_at<=?`, now); err != nil {
 		return err
 	}
 

@@ -412,13 +412,14 @@ func (a *Admin) activeRoute(current *url.URL, name string, exact bool) bool {
 	return active
 }
 
-// signingInOrOut reports whether the request is the sign-in or sign-out
-// itself, by the name of its route rather than by the end of the path: a
-// section may have a page whose address ends in /login too.
+// signingInOrOut reports whether the request is the sign-in, its second
+// step or the sign-out itself, by the name of its route rather than by the
+// end of the path: a section may have a page whose address ends in /login
+// too.
 func (a *Admin) signingInOrOut(r *http.Request) bool {
 	name := a.routeName(r)
 
-	return name == "admin.login" || name == "admin.logout"
+	return name == "admin.login" || name == "admin.login-code" || name == "admin.logout"
 }
 
 // sectionActive reports whether the page the user looks at belongs to the

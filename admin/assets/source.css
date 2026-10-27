@@ -199,6 +199,14 @@ form > .form-actions:first-child { margin-top: 0; }
 .card-footer { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border); }
 .badge { font-size: 10px; padding: 2px 5px; background: var(--inset); border: 1px solid var(--border); border-radius: 3px; color: var(--muted); white-space: nowrap; }
 .notice { padding: 10px 12px; background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 4px; font-size: 12px; }
+/* Two-step sign-in on the own account page: the QR code keeps its white
+   border in every theme and its modules sharp when browsers enlarge it;
+   the key and the recovery codes are typed by hand, so they are
+   monospaced. */
+.two-step-qr { display: block; image-rendering: pixelated; border: 1px solid var(--border); border-radius: 4px; }
+.two-step-key, .two-step-code { font: 14px/1.6 ui-monospace, SFMono-Regular, Consolas, monospace; letter-spacing: .04em; }
+.two-step-key { user-select: all; }
+.two-step-codes { display: grid; grid-template-columns: repeat(2, max-content); gap: 4px 28px; margin: 0; padding: 0; list-style: none; }
 .action-menu { position: relative; }
 .action-menu > summary { list-style: none; }
 .action-menu > summary::-webkit-details-marker { display: none; }
