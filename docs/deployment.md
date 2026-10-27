@@ -356,12 +356,17 @@ Several processes can serve one site from one PostgreSQL or MySQL database:
 - Sign-in sessions are kept in the database, so editors stay signed in on every server and after a restart.
 - The admin refuses form posts from other websites by the headers browsers send, without tokens. Any server can take any admin request, so no sticky sessions are needed, and open forms keep working after a restart.
 - Every server may run the scheduler: each planned change is made by one of them.
+- Every server runs the hourly check of the trash (see [Emptying the trash](#emptying-the-trash)): each item is deleted by one of them.
 - Throttles on visitors' forms and on the site search count per server, and so does the rate limit of the [content API](#the-content-api).
 - Who else is on an admin page is kept in each server's memory. Editors see each other only when their browsers reach the same server, so with several servers the header's chips can miss people.
 
 ## Scheduled publishing
 
 Editors can plan a page, post or event to be published or unpublished later. The app checks every `ScheduleInterval`, 30 seconds by default, and publishes with the same effects as the publish button. A negative interval stops the background scheduler; then call `app.RunSchedules(ctx)` from your own code.
+
+## Emptying the trash
+
+**Site settings › Trash** can have items deleted for good once they have been in the trash for a number of days; see [The trash](editing.md#the-trash). The app checks when it starts and then every hour, together with the removal of expired sessions, and deletes those items in every section the way **Delete selected for good** does. For every section it deleted items in, it logs `deleted expired items from the trash` at level Info, with `section` and `count`. A check that fails logs `delete expired items from the trash` at level Error, with `error`; a section that fails does not stop the others. While the setting is empty or 0, the default, the check deletes nothing. `app.PurgeTrash(ctx)` runs the check from your own code and returns how many items it deleted.
 
 ## Mail and storage
 
@@ -380,7 +385,7 @@ Integrations with outside services live in the separate repository github.com/do
 
 ## Shutting down
 
-The starter cancels its context on `SIGINT` and `SIGTERM`. `ListenAndServe` (or `Serve`) then stops accepting connections, gives running requests up to 5 seconds, and closes the app: it stops the scheduler and the cleanup of expired sessions, lets modules finish for up to 10 seconds, and closes the storage and the database. Modules write what they keep in memory, such as page views and redirect hits; a newsletter mailing stops after the current message and continues at the next start. Closing the app also ends the admin's open event streams.
+The starter cancels its context on `SIGINT` and `SIGTERM`. `ListenAndServe` (or `Serve`) then stops accepting connections, gives running requests up to 5 seconds, and closes the app: it stops the scheduler and the cleanup of expired sessions and of the trash, lets modules finish for up to 10 seconds, and closes the storage and the database. Modules write what they keep in memory, such as page views and redirect hits; a newsletter mailing stops after the current message and continues at the next start. Closing the app also ends the admin's open event streams.
 
 Give the process about 15 seconds after `SIGTERM` before it is killed.
 

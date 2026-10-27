@@ -113,6 +113,8 @@ Deleting moves an item to the trash, under **System** in the admin navigation. T
 - Read in a section shows that section's deleted items, with who deleted them. Editors without read in any section with a trash do not see **Trash**.
 - Delete in a section restores its items and deletes them for good.
 
+Edit in **Site settings** decides, on its **Trash** card, after how many days the trash deletes items for good by itself, in every section.
+
 Accounts and groups do not go to the trash: deleting one cannot be undone. See [The trash](editing.md#the-trash).
 
 ### Links and redirects

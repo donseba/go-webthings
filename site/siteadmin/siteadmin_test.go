@@ -257,3 +257,67 @@ func TestThemeReadOnly(t *testing.T) {
 		t.Fatalf("using a theme does not ask first:\n%s", body)
 	}
 }
+
+// TestTrashCard checks the Trash card: editors who may change the site
+// settings set after how many days the trash is emptied, between 0 (never,
+// the default) and 3650 days; others see it read-only. The card speaks
+// English and Dutch.
+func TestTrashCard(t *testing.T) {
+	s := sitetest.Start(t)
+	ctx := context.Background()
+	editor := editorWith(t, s, "editor@example.test", auth.Read, auth.Edit)
+	reader := editorWith(t, s, "reader@example.test", auth.Read)
+
+	_, body := editor.Get("/admin/site")
+	if !strings.Contains(body, "Delete items in the trash for good after (days)") || !saves(body, "/admin/site/trash") {
+		t.Fatalf("the editor gets no Trash card:\n%s", body)
+	}
+
+	if _, body := reader.Get("/admin/site"); saves(body, "/admin/site/trash") {
+		t.Fatal("a reader can change the Trash card")
+	}
+
+	editor.Post("/admin/site", "/admin/site/trash", url.Values{"Days": {"30"}})
+
+	if settings, _ := s.App.Site.Settings(ctx); settings.TrashDays != 30 {
+		t.Fatalf("days: %d", settings.TrashDays)
+	}
+
+	if _, body := s.Get("/admin/site"); !regexp.MustCompile(`<input[^>]*name="Days"[^>]*value="30"`).MatchString(body) {
+		t.Fatalf("the card does not show the days:\n%s", body)
+	}
+
+	refusals := map[string]string{
+		"-1":   "Enter a value of at least 0.",
+		"3651": "Enter a value of at most 3650.",
+		"soon": "Enter a valid value.",
+	}
+
+	for days, message := range refusals {
+		status, body := s.PostStatus("/admin/site", "/admin/site/trash", url.Values{"Days": {days}})
+		if status != http.StatusUnprocessableEntity || !strings.Contains(body, `id="Days_error_0" role="alert">`+message) {
+			t.Fatalf("%s days: %d\n%s", days, status, body)
+		}
+	}
+
+	if settings, _ := s.App.Site.Settings(ctx); settings.TrashDays != 30 {
+		t.Fatalf("a refused value changed the days: %d", settings.TrashDays)
+	}
+
+	// Empty is never, as 0 is.
+	s.Post("/admin/site", "/admin/site/trash", url.Values{"Days": {""}})
+
+	if settings, _ := s.App.Site.Settings(ctx); settings.TrashDays != 0 {
+		t.Fatalf("empty days: %d", settings.TrashDays)
+	}
+
+	dutch := sitetest.StartWith(t, sitetest.Options{Configure: func(config *webthings.Config) {
+		config.AdminLanguage = "nl"
+	}})
+
+	_, body = dutch.Get("/admin/site")
+	if !strings.Contains(body, "Items in de prullenbak definitief verwijderen na (dagen)") ||
+		!strings.Contains(body, "Hoe lang verwijderde items in de prullenbak blijven.") {
+		t.Fatalf("the Dutch card:\n%s", body)
+	}
+}

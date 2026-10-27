@@ -116,6 +116,11 @@ type Settings struct {
 	// Empty, the default, turns the review workflow off everywhere.
 	Review []string `setting:"review"`
 
+	// TrashDays is after how many days in the admin's trash items are
+	// deleted for good, at most MaxTrashDays; zero, the default, keeps
+	// them until someone deletes them. See TrashCutoff.
+	TrashDays int `setting:"trash_days"`
+
 	// Setup lists the steps of the admin's setup guide an administrator
 	// finished, by ID, such as "site", or skipped, as "skip:" followed by
 	// the ID; "done" once the guide is finished. Empty, the default, is a
@@ -722,6 +727,10 @@ func clean(settings Settings) (Settings, error) {
 	}
 
 	if err := cleanContentSecurity(&settings); err != nil {
+		return settings, err
+	}
+
+	if err := cleanTrash(&settings); err != nil {
 		return settings, err
 	}
 

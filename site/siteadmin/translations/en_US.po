@@ -223,6 +223,18 @@ msgstr "256 MB"
 msgid "Only administrators can switch the review workflow on or off."
 msgstr "Only administrators can switch the review workflow on or off."
 
+msgid "Trash"
+msgstr "Trash"
+
+msgid "How long deleted items stay in the trash."
+msgstr "How long deleted items stay in the trash."
+
+msgid "Delete items in the trash for good after (days)"
+msgstr "Delete items in the trash for good after (days)"
+
+msgid "Items that have been in the trash longer are deleted for good, as Delete selected for good does; the site checks every hour. They cannot be restored after that. Empty or 0 keeps them until someone deletes them for good."
+msgstr "Items that have been in the trash longer are deleted for good, as Delete selected for good does; the site checks every hour. They cannot be restored after that. Empty or 0 keeps them until someone deletes them for good."
+
 msgid "Only administrators can change the security settings."
 msgstr "Only administrators can change the security settings."
 

@@ -1143,12 +1143,13 @@ func (a *App) resetMail() mail.Sender {
 }
 
 // cleanupInterval is how often expired sessions, login attempts, password
-// reset links and visitors' kept posts are removed.
+// reset links, visitors' kept posts and items in the trash are removed.
 const cleanupInterval = time.Hour
 
-// startCleanup removes expired sessions, login attempts, reset links and
-// visitors' kept posts (frontend.Frontend.CleanupForms) in the background:
-// once at start, then every hour until Close.
+// startCleanup removes expired sessions, login attempts, reset links,
+// visitors' kept posts (frontend.Frontend.CleanupForms) and the items that
+// have been in the trash longer than the Site settings allow (PurgeTrash)
+// in the background: once at start, then every hour until Close.
 func (a *App) startCleanup(ctx context.Context) {
 	a.stopped.Go(func() {
 		ticker := time.NewTicker(cleanupInterval)
@@ -1163,6 +1164,10 @@ func (a *App) startCleanup(ctx context.Context) {
 				slog.ErrorContext(ctx, "remove expired visitor forms", "error", err)
 			}
 
+			if _, err := a.PurgeTrash(ctx); err != nil && ctx.Err() == nil {
+				slog.ErrorContext(ctx, "delete expired items from the trash", "error", err)
+			}
+
 			select {
 			case <-ctx.Done():
 				return
@@ -1170,6 +1175,28 @@ func (a *App) startCleanup(ctx context.Context) {
 			}
 		}
 	})
+}
+
+// PurgeTrash deletes for good the items that have been in the admin's
+// trash longer than Site settings › Trash allows (site.Settings.TrashDays),
+// in every section, as the background cleanup does every hour, and returns
+// how many it deleted. Every item goes the way Delete selected for good
+// takes it, with its revisions and what else belongs to it (see
+// admin.Admin.PurgeTrash). While the setting is off, the default, it
+// deletes nothing. Several processes may run it at once: each item is
+// deleted by one of them.
+func (a *App) PurgeTrash(ctx context.Context) (int, error) {
+	settings, err := a.Site.Settings(ctx)
+	if err != nil {
+		return 0, err
+	}
+
+	cutoff, ok := settings.TrashCutoff(time.Now())
+	if !ok {
+		return 0, nil
+	}
+
+	return a.backoffice.PurgeTrash(ctx, cutoff)
 }
 
 // timezone is the site's timezone from its settings, UTC when unknown.

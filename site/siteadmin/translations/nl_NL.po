@@ -223,6 +223,18 @@ msgstr "256 MB"
 msgid "Only administrators can switch the review workflow on or off."
 msgstr "Alleen beheerders kunnen het beoordelen aan- of uitzetten."
 
+msgid "Trash"
+msgstr "Prullenbak"
+
+msgid "How long deleted items stay in the trash."
+msgstr "Hoe lang verwijderde items in de prullenbak blijven."
+
+msgid "Delete items in the trash for good after (days)"
+msgstr "Items in de prullenbak definitief verwijderen na (dagen)"
+
+msgid "Items that have been in the trash longer are deleted for good, as Delete selected for good does; the site checks every hour. They cannot be restored after that. Empty or 0 keeps them until someone deletes them for good."
+msgstr "Items die langer in de prullenbak staan, worden definitief verwijderd, zoals Selectie definitief verwijderen dat doet; de site controleert dit elk uur. Daarna kun je ze niet meer herstellen. Leeg of 0 bewaart ze tot iemand ze definitief verwijdert."
+
 msgid "Only administrators can change the security settings."
 msgstr "Alleen beheerders kunnen de beveiligingsinstellingen wijzigen."
 

@@ -193,5 +193,7 @@
 // Deleting moves items to the trash (see Trash and Section.Trash): the
 // admin's trash ("admin.trash") lists them per section, restores them or
 // deletes them for good. Sections made with package editor have a trash;
-// modules with tables of their own implement Trash.
+// modules with tables of their own implement Trash. Admin.PurgeTrash
+// deletes for good, in every section, the items deleted before a time, as
+// webthings.App does every hour with the days Site settings › Trash set.
 package admin

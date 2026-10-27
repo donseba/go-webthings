@@ -76,3 +76,12 @@
         </section>
     {{end}}
 {{end}}
+
+{{define "site-trash"}}
+    {{/* @dot github.com/donseba/go-webthings/site/siteadmin.View */}}
+    <section class="surface border-theme border rounded-xl p-6 mt-6" id="trash">
+        <h2 class="font-semibold mb-2">{{tl localizer "Trash"}}</h2>
+        <p class="muted text-sm mb-4">{{tl localizer "How long deleted items stay in the trash."}}</p>
+        {{form_render_localized localizer .Trash .TrashErrors}}
+    </section>
+{{end}}

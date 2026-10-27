@@ -1,7 +1,7 @@
 // Package siteadmin is the Site settings section of the admin: the site's
-// languages, time zone, texts, social media profiles, performance, security
-// and review settings, and the Theme screen where editors choose the theme and
-// set its values.
+// languages, time zone, texts, social media profiles, performance, security,
+// review and trash settings, and the Theme screen where editors choose the
+// theme and set its values.
 package siteadmin
 
 import (
@@ -121,6 +121,10 @@ type View struct {
 	Review         *form.RenderModel
 	ReviewErrors   form.FieldErrors
 	ReviewReadOnly bool
+	// Trash is the form of after how many days the trash deletes items
+	// for good.
+	Trash       form.RenderModel
+	TrashErrors form.FieldErrors
 	// ReadOnly is set for users who may view the settings but not edit
 	// them: the forms are then read-only (disabled, without their buttons).
 	ReadOnly bool
@@ -160,6 +164,8 @@ type state struct {
 	securityErrors    form.FieldErrors
 	review            *reviewInput
 	reviewErrors      form.FieldErrors
+	trash             *trashInput
+	trashErrors       form.FieldErrors
 	message           string
 	status            int
 }
@@ -222,6 +228,7 @@ func New(settings *site.Service, options Options) admin.Section {
 			routes.Post("/text", admin.Edit, s.saveText).As("text")
 			routes.Post("/profiles", admin.Edit, s.saveProfiles).As("profiles")
 			routes.Post("/performance", admin.Edit, s.savePerformance).As("performance")
+			routes.Post("/trash", admin.Edit, s.saveTrash).As("trash")
 			// Only administrators decide how pages protect visitors and
 			// who may publish without review.
 			routes.Post("/security", admin.Edit, s.saveSecurity).As("security").Use(admin.AdministratorsOnly)
@@ -288,6 +295,7 @@ func (s section) view(r *http.Request, current site.Settings, page state) (View,
 	profiles := page.profiles
 	performance := page.performance
 	security := page.security
+	trash := page.trash
 
 	if settings == nil {
 		filled, err := s.settingsForm(r, current)
@@ -324,6 +332,10 @@ func (s section) view(r *http.Request, current site.Settings, page state) (View,
 		security = &filled
 	}
 
+	if trash == nil {
+		trash = &trashInput{Days: current.TrashDays}
+	}
+
 	// What the server configuration decides shows as it applies, also
 	// after a save the card refused.
 	if s.fixed.ContentSecurityPolicy != "" {
@@ -350,6 +362,8 @@ func (s section) view(r *http.Request, current site.Settings, page state) (View,
 		PerformanceErrors: page.performanceErrors,
 		Security:          s.admin.Form(r, *security, s.admin.URL("admin.site.security", query), "Save"),
 		SecurityErrors:    page.securityErrors,
+		Trash:             s.admin.Form(r, *trash, s.admin.URL("admin.site.trash", query), "Save"),
+		TrashErrors:       page.trashErrors,
 		ReadOnly:          !s.admin.Can(r, admin.Permission{Section: "site", Action: admin.Edit}),
 	}
 
@@ -358,6 +372,7 @@ func (s section) view(r *http.Request, current site.Settings, page state) (View,
 	view.Profiles.Info.ReadOnly = view.ReadOnly
 	view.Performance.Info.ReadOnly = view.ReadOnly
 	view.Performance.Overrides = s.fixed.performanceOverrides()
+	view.Trash.Info.ReadOnly = view.ReadOnly
 	user, _ := auth.CurrentUser(r.Context())
 	view.SecurityReadOnly = view.ReadOnly || !user.IsAdmin()
 	view.Security.Info.ReadOnly = view.SecurityReadOnly

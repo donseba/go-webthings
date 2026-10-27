@@ -241,7 +241,9 @@ Restoring refuses an item that cannot come back and says why; the other selected
 - a page whose parent page is in the trash: restore the parent first;
 - a page whose module is placed on another page now.
 
-Content in the trash still uses its media files, so the library cannot delete those files until that content is deleted for good. The trash is never emptied by itself: items stay until someone deletes them for good.
+Content in the trash still uses its media files, so the library cannot delete those files until that content is deleted for good.
+
+By default the trash is never emptied by itself: items stay until someone deletes them for good. The **Trash** card in **Site settings** changes that with **Delete items in the trash for good after (days)**, a number from 0 to 3650. A number outside that range is refused with "Enter a value of at least 0." or "Enter a value of at most 3650." A check runs when the site starts and then every hour. It deletes for good every item that has been in the trash for longer than that number of days, in every section, the way **Delete selected for good** does: with its revisions, after which the media files it used can be deleted from the library. Those items can no longer be restored. Empty or 0, the default, switches the check off. An item the check cannot delete, such as a file that other content still uses, stays in the trash, and **Delete selected for good** says why. Everyone who may edit **Site settings** can change the card; others see it read-only.
 
 Seeing a section's trash needs the read right, restoring and deleting for good the delete right; see [Accounts and permissions](permissions.md#the-trash). Accounts and groups do not go to the trash.
 

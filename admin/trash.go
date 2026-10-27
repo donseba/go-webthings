@@ -3,6 +3,7 @@ package admin
 import (
 	"context"
 	"errors"
+	"fmt"
 	"log/slog"
 	"net/http"
 	"net/url"
@@ -543,4 +544,129 @@ func (a *Admin) trashNotice(r *http.Request, purge bool, count int) string {
 // mayUseTrash reports whether the user may open the trash.
 func (a *Admin) mayUseTrash(r *http.Request) bool {
 	return len(a.trashSections(r)) > 0
+}
+
+// expiredPage is how many items of a section's trash PurgeTrash reads at a
+// time while it looks for expired ones.
+const expiredPage = 100
+
+// PurgeTrash deletes for good the items that went to the trash before
+// cutoff, in every section with a trash, the way Delete selected for good
+// does (Trash.Purge), and returns how many it deleted. It logs, at Info,
+// how many items each section deleted. webthings.App calls it in the
+// background with the cutoff of the Site settings (see
+// webthings.App.PurgeTrash).
+//
+// Items a section keeps, such as a file that a deleted item still uses
+// (see TrashError), are tried again after the other sections, as long as
+// a round deletes something, and otherwise stay in the trash. A section
+// that fails does not stop the others: their errors are returned together.
+func (a *Admin) PurgeTrash(ctx context.Context, cutoff time.Time) (int, error) {
+	var (
+		pending []*Section
+		errs    []error
+	)
+
+	for i := range a.sections {
+		if a.sections[i].Trash != nil {
+			pending = append(pending, &a.sections[i])
+		}
+	}
+
+	purged := map[*Section]int{}
+
+	for len(pending) > 0 {
+		var (
+			kept  []*Section
+			round int
+		)
+
+		for _, section := range pending {
+			count, refused, err := purgeExpired(ctx, section, cutoff)
+			if err != nil {
+				errs = append(errs, err)
+			}
+
+			purged[section] += count
+			round += count
+
+			if refused {
+				kept = append(kept, section)
+			}
+		}
+
+		if round == 0 {
+			break
+		}
+
+		pending = kept
+	}
+
+	var total int
+
+	for i := range a.sections {
+		section := &a.sections[i]
+		if purged[section] == 0 {
+			continue
+		}
+
+		total += purged[section]
+		slog.InfoContext(ctx, "deleted expired items from the trash", "section", section.ID, "count", purged[section])
+	}
+
+	return total, errors.Join(errs...)
+}
+
+// purgeExpired deletes for good the items of section's trash that went to
+// the trash before cutoff, and returns how many it deleted and whether the
+// section kept some of them (see TrashError).
+func purgeExpired(ctx context.Context, section *Section, cutoff time.Time) (int, bool, error) {
+	var ids []string
+
+	for offset := 0; ; offset += expiredPage {
+		items, total, err := section.Trash.List(ctx, "", expiredPage, offset)
+		if err != nil {
+			return 0, false, fmt.Errorf("trash of %s: %w", section.ID, err)
+		}
+
+		for _, item := range items {
+			if item.DeletedAt.Before(cutoff) {
+				ids = append(ids, item.ID)
+			}
+		}
+
+		if len(items) == 0 || offset+len(items) >= total {
+			break
+		}
+	}
+
+	var (
+		purged  int
+		refused bool
+	)
+
+	// One item at a time, so the count is exact when an error stops the
+	// section, as it stops Delete selected for good.
+	for _, id := range ids {
+		err := section.Trash.Purge(ctx, []string{id})
+
+		failures, only := trashErrors(err)
+		if !only {
+			return purged, refused, fmt.Errorf("trash of %s: %w", section.ID, err)
+		}
+
+		if len(failures) == 0 {
+			purged++
+
+			continue
+		}
+
+		refused = true
+
+		for _, failure := range failures {
+			slog.DebugContext(ctx, "expired trash item kept", "section", section.ID, "id", failure.ID, "error", failure.Err)
+		}
+	}
+
+	return purged, refused, nil
 }

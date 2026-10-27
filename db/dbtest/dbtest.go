@@ -29,12 +29,38 @@ func Each(t *testing.T, fn func(t *testing.T, database *db.DB)) {
 	}
 }
 
+// EachDSN runs fn once per available dialect, as Each does, with the
+// driver and data source name of an empty database instead of an open
+// one, for tests that open the database themselves, such as a whole site
+// (webthings.Config's Driver and DSN). A server's database is dropped after
+// the test, once what the test opened is closed.
+func EachDSN(t *testing.T, fn func(t *testing.T, driver, dsn string)) {
+	t.Helper()
+	t.Run("sqlite", func(t *testing.T) { fn(t, "sqlite", sqliteDSN(t)) })
+
+	if dsn := os.Getenv("WT_TEST_POSTGRES"); dsn != "" {
+		t.Run("postgres", func(t *testing.T) { fn(t, "pgx", serverDSN(t, "pgx", dsn)) })
+	}
+
+	if dsn := os.Getenv("WT_TEST_MYSQL"); dsn != "" {
+		t.Run("mysql", func(t *testing.T) { fn(t, "mysql", serverDSN(t, "mysql", dsn)) })
+	}
+}
+
 // SQLite opens an empty SQLite database in a temporary directory with the
 // settings db.Open adds by default, as a site's default DSN would.
 func SQLite(t *testing.T) *db.DB {
 	t.Helper()
 
-	return open(t, "sqlite", "file:"+filepath.Join(t.TempDir(), "test.sqlite"))
+	return open(t, "sqlite", sqliteDSN(t))
+}
+
+// sqliteDSN is the data source name of a new SQLite database in a
+// temporary directory.
+func sqliteDSN(t *testing.T) string {
+	t.Helper()
+
+	return "file:" + filepath.Join(t.TempDir(), "test.sqlite")
 }
 
 // ForeignKeyError returns a real foreign key violation from SQLite, for
@@ -68,6 +94,15 @@ func ForeignKeyError(t *testing.T) error {
 // The DSN must point at an existing database the user may create databases from.
 func server(t *testing.T, driver, dsn string) *db.DB {
 	t.Helper()
+
+	return open(t, driver, serverDSN(t, driver, dsn))
+}
+
+// serverDSN creates a uniquely named database on the server, to drop
+// afterwards, and returns its DSN. The DSN given must point at an existing
+// database the user may create databases from.
+func serverDSN(t *testing.T, driver, dsn string) string {
+	t.Helper()
 	ctx := context.Background()
 	admin := open(t, driver, dsn)
 	name := "wt_test_" + strings.ToLower(rand.Text()[:12])
@@ -78,7 +113,7 @@ func server(t *testing.T, driver, dsn string) *db.DB {
 
 	t.Cleanup(func() { _, _ = admin.Exec(context.Background(), "DROP DATABASE "+name) })
 
-	return open(t, driver, withDatabase(driver, dsn, name))
+	return withDatabase(driver, dsn, name)
 }
 
 // withDatabase swaps the database name in a URL (postgres) or go-sql-driver DSN.

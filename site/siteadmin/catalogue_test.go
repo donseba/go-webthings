@@ -22,6 +22,7 @@ func TestCatalogues(t *testing.T) {
 		textInput{},
 		profilesInput{},
 		activateInput{},
+		trashInput{},
 	)
 }
 
