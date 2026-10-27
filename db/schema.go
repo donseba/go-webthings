@@ -2,6 +2,8 @@ package db
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"errors"
 	"fmt"
 	"io/fs"
@@ -27,6 +29,12 @@ import (
 // Before the first release every owner has only its _init files: edit them
 // and recreate the development database. After a release, add new files
 // instead of changing applied ones.
+//
+// wt_schema_step keeps a checksum of each applied file's statements. A file
+// whose statements changed after it was applied, also an _init file, makes
+// ApplySchema return ErrSchemaChanged: the database does not have what the
+// file now says. Changes of only whitespace or comments do not count. A
+// database from before the checksums gets those of the files as they are.
 func (db *DB) ApplySchema(ctx context.Context, owner string, files fs.FS) error {
 	if err := db.ensureLedger(ctx); err != nil {
 		return err
@@ -44,12 +52,26 @@ func (db *DB) ApplySchema(ctx context.Context, owner string, files fs.FS) error 
 		return err
 	}
 
+	applied, err := db.appliedChecksums(ctx, owner)
+	if err != nil {
+		return err
+	}
+
 	for _, step := range steps {
+		script, err := fs.ReadFile(files, step.file)
+		if err != nil {
+			return err
+		}
+
 		if step.version <= current {
+			if err := db.checkApplied(ctx, owner, step, schemaChecksum(string(script)), applied); err != nil {
+				return err
+			}
+
 			continue
 		}
 
-		if err := db.applyStep(ctx, owner, files, step, current == 0); err != nil {
+		if err := db.applyStep(ctx, owner, step, string(script), current == 0); err != nil {
 			return err
 		}
 
@@ -57,6 +79,70 @@ func (db *DB) ApplySchema(ctx context.Context, owner string, files fs.FS) error 
 	}
 
 	return nil
+}
+
+// ErrSchemaChanged is returned by ApplySchema for a schema file whose
+// statements changed after it was applied to the database.
+var ErrSchemaChanged = errors.New("schema file changed after it was applied")
+
+// checkApplied compares the checksum of an applied file with the one
+// recorded when it ran. A file applied before the checksums were kept gets
+// its checksum recorded.
+func (db *DB) checkApplied(ctx context.Context, owner string, step schemaStep, sum string, applied map[int64]string) error {
+	recorded, ok := applied[step.version]
+	if !ok {
+		return db.recordStep(ctx, owner, step.version, sum)
+	}
+
+	if recorded != sum {
+		return fmt.Errorf("schema %s: %s: %w; recreate a development database, "+
+			"and after a release put changes in a new schema file", owner, step.file, ErrSchemaChanged)
+	}
+
+	return nil
+}
+
+// appliedChecksums returns the recorded checksum of each applied version of
+// owner.
+func (db *DB) appliedChecksums(ctx context.Context, owner string) (map[int64]string, error) {
+	var rows []struct {
+		Version  int64  `db:"version"`
+		Checksum string `db:"checksum"`
+	}
+
+	err := db.Select(ctx, &rows, `SELECT version, checksum FROM wt_schema_step WHERE owner=?`, owner)
+	if err != nil {
+		return nil, err
+	}
+
+	sums := make(map[int64]string, len(rows))
+	for _, row := range rows {
+		sums[row.Version] = row.Checksum
+	}
+
+	return sums, nil
+}
+
+func (db *DB) recordStep(ctx context.Context, owner string, version int64, sum string) error {
+	_, err := db.Exec(ctx,
+		`INSERT INTO wt_schema_step(owner,version,checksum,recorded_at) VALUES(?,?,?,?)`,
+		owner, version, sum, time.Now().UTC(),
+	)
+
+	return err
+}
+
+// schemaChecksum is the SHA-256 of a schema file's statements, with their
+// whitespace collapsed, so layout and comments do not count.
+func schemaChecksum(script string) string {
+	statements := split(script)
+	for i, statement := range statements {
+		statements[i] = strings.Join(strings.Fields(statement), " ")
+	}
+
+	sum := sha256.Sum256([]byte(strings.Join(statements, ";\n")))
+
+	return hex.EncodeToString(sum[:])
 }
 
 type schemaStep struct {
@@ -133,19 +219,19 @@ func parseSchemaName(name string) (int64, Dialect, error) {
 	return version, Dialect(parts[1]), nil
 }
 
-// applyStep runs one schema file and records its version. MySQL commits DDL
-// implicitly, so a failing file there may leave part of its changes behind.
-func (db *DB) applyStep(ctx context.Context, owner string, files fs.FS, step schemaStep, first bool) error {
-	script, err := fs.ReadFile(files, step.file)
-	if err != nil {
-		return err
-	}
-
+// applyStep runs one schema file and records its version and checksum.
+// MySQL commits DDL implicitly, so a failing file there may leave part of
+// its changes behind.
+func (db *DB) applyStep(ctx context.Context, owner string, step schemaStep, script string, first bool) error {
 	return db.Tx(ctx, func(ctx context.Context) error {
-		for _, statement := range split(string(script)) {
+		for _, statement := range split(script) {
 			if _, err := db.Exec(ctx, statement); err != nil {
 				return fmt.Errorf("schema %s %s: %w\n%s", owner, step.file, err, statement)
 			}
+		}
+
+		if err := db.recordStep(ctx, owner, step.version, schemaChecksum(script)); err != nil {
+			return err
 		}
 
 		now := time.Now().UTC()
@@ -179,6 +265,18 @@ func (db *DB) ensureLedger(ctx context.Context) error {
 			owner      VARCHAR(100) PRIMARY KEY,
 			version    BIGINT NOT NULL,
 			applied_at `+timestamp+` NOT NULL
+		)`)
+	if err != nil {
+		return err
+	}
+
+	_, err = db.Exec(ctx, `
+		CREATE TABLE IF NOT EXISTS wt_schema_step (
+			owner       VARCHAR(100) NOT NULL,
+			version     BIGINT NOT NULL,
+			checksum    VARCHAR(64) NOT NULL,
+			recorded_at `+timestamp+` NOT NULL,
+			PRIMARY KEY (owner, version)
 		)`)
 
 	return err

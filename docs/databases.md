@@ -106,6 +106,8 @@ schema/20261120093000_add_avatar.mysql.sql
 
 To change a table, add new files with a later datetime. Never change a file that a database has already applied: it will not run again.
 
+The table `wt_schema_step` keeps a checksum of the statements of every file a database applied. When a file's statements change after that, the start fails with "schema … changed after it was applied" (`db.ErrSchemaChanged`) and names the file, instead of queries failing later on missing columns. Changes of only whitespace or comments do not count. A database that applied its files before the checksums were kept gets those of the files as they are at its next start.
+
 A module passes its folder as `Module.Schema`, usually embedded in the binary:
 
 ```go
@@ -121,7 +123,7 @@ func schema() fs.FS {
 
 See [Writing a module](writing-a-module.md).
 
-Until go-webthings has its first release, its own schemas only have `_init` files, and those may still change. Nothing updates an existing database when an `_init` file changes: `wt_schema` already records its version, so it does not run again, and queries then fail on missing columns, such as `created_by`, or `review_state` in the `_revision` tables, which the review workflow added. After updating go-webthings, recreate a development database: stop the site, delete `var/site.sqlite` and start again. On PostgreSQL or MySQL, drop the database and create it again.
+Until go-webthings has its first release, its own schemas only have `_init` files, and those may still change. Nothing updates an existing database when an `_init` file changes: `wt_schema` already records its version, so it does not run again, and the start fails with "schema … changed after it was applied" for that file. After updating go-webthings, recreate a development database: stop the site, delete `var/site.sqlite` and start again. On PostgreSQL or MySQL, drop the database and create it again. From the first release on, its schema changes come as new files, which update a database as it starts.
 
 ### Audit columns
 

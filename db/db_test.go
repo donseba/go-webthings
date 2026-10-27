@@ -114,6 +114,72 @@ func TestSchemaTransactionsAndErrors(t *testing.T) {
 	})
 }
 
+// TestSchemaChangedAfterApplying checks that a schema file that changed
+// after it was applied stops ApplySchema, whichever version it is, while a
+// change of only whitespace or comments does not; a database from before the
+// checksums gets them recorded.
+func TestSchemaChangedAfterApplying(t *testing.T) {
+	dbtest.Each(t, func(t *testing.T, database *db.DB) {
+		ctx := context.Background()
+
+		applied := fstest.MapFS{}
+		for name, file := range schema {
+			applied[name] = file
+		}
+
+		for _, dialect := range []string{"sqlite", "postgres", "mysql"} {
+			applied["20261120093000_add_name."+dialect+".sql"] = &fstest.MapFile{Data: []byte(update)}
+		}
+
+		if err := database.ApplySchema(ctx, "test", applied); err != nil {
+			t.Fatal(err)
+		}
+
+		// Only layout and comments differ: the same statements.
+		reformatted := fstest.MapFS{}
+		for name, file := range applied {
+			reformatted[name] = &fstest.MapFile{
+				Data: []byte("-- A comment of its own.\n" + strings.ReplaceAll(string(file.Data), "    ", "\t")),
+			}
+		}
+
+		if err := database.ApplySchema(ctx, "test", reformatted); err != nil {
+			t.Fatalf("reformatted files: %v", err)
+		}
+
+		// The first version changed after a later one was applied.
+		changed := fstest.MapFS{}
+		for name, file := range applied {
+			changed[name] = file
+		}
+
+		for _, dialect := range []string{"sqlite", "postgres", "mysql"} {
+			changed["20261004000000_init."+dialect+".sql"] = &fstest.MapFile{
+				Data: []byte(portableSchema + "CREATE TABLE t_extra (id VARCHAR(36) PRIMARY KEY);\n"),
+			}
+		}
+
+		err := database.ApplySchema(ctx, "test", changed)
+		if !errors.Is(err, db.ErrSchemaChanged) || !strings.Contains(err.Error(), "20261004000000_init.") {
+			t.Fatalf("changed file: %v", err)
+		}
+
+		// A database from before the checksums records them and then
+		// notices a change as well.
+		if _, err := database.Exec(ctx, `DELETE FROM wt_schema_step WHERE owner=?`, "test"); err != nil {
+			t.Fatal(err)
+		}
+
+		if err := database.ApplySchema(ctx, "test", applied); err != nil {
+			t.Fatalf("without checksums: %v", err)
+		}
+
+		if err := database.ApplySchema(ctx, "test", changed); !errors.Is(err, db.ErrSchemaChanged) {
+			t.Fatalf("changed file after recording: %v", err)
+		}
+	})
+}
+
 func TestSchemaNeedsEveryFlavour(t *testing.T) {
 	database := dbtest.SQLite(t)
 	incomplete := fstest.MapFS{
