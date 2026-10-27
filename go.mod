@@ -1,6 +1,6 @@
 module github.com/donseba/go-webthings
 
-go 1.27.1
+go 1.27.3
 
 require (
 	github.com/donseba/go-form/v2 v2.5.0
