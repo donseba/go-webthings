@@ -1,5 +1,8 @@
 # Go WebThings
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/donseba/go-webthings.svg)](https://pkg.go.dev/github.com/donseba/go-webthings)
+[![codecov](https://codecov.io/gh/donseba/go-webthings/graph/badge.svg)](https://codecov.io/gh/donseba/go-webthings)
+
 WebThings is the backend of a website: database, admin, accounts and
 permissions, pages, media, languages, themes and content modules (news,
 events, galleries, comments, newsletters, sign-ups and more). The website
