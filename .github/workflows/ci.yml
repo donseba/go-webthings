@@ -13,6 +13,9 @@ jobs:
   test:
     name: test (SQLite, PostgreSQL, MySQL)
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     # dbtest runs every database test on SQLite, and on PostgreSQL and MySQL
     # when their DSN is set, as task test:all does with task db:up.
     services:
@@ -50,7 +53,11 @@ jobs:
         with:
           go-version-file: go.mod
       - run: go vet ./...
-      - run: go test -race ./...
+      - run: go test -race -coverprofile=coverage.out ./...
+      - uses: codecov/codecov-action@v7
+        with:
+          files: coverage.out
+          use_oidc: true
 
   lint:
     runs-on: ubuntu-latest
